@@ -1,3 +1,1 @@
-using UnityEngine;
-
-public class PlayerUnit : MonoBehaviour { }
+public class PlayerUnit : UnitCharacter { }

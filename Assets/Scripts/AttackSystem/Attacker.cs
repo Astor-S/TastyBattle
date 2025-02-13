@@ -8,7 +8,7 @@ public class Attacker : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _frequency;
 
-    private EnemyUnit _target;
+    private UnitCharacter _target;
     private Coroutine _attackCoroutine;
     private float _attackTimer;
 
@@ -17,8 +17,8 @@ public class Attacker : MonoBehaviour
         int targetLayerMask = 1 << target.gameObject.layer;
 
         if ((_targetMask & targetLayerMask) != 0)
-            if (target.TryGetComponent(out EnemyUnit enemy) && _target == null)
-                _target = enemy;
+            if (target.TryGetComponent(out UnitCharacter unit) && _target == null)
+                _target = unit;
 
         if (_attackCoroutine == null && _target != null) 
         {
@@ -29,7 +29,7 @@ public class Attacker : MonoBehaviour
 
     private void OnTriggerExit(Collider target)
     {
-        if (target.TryGetComponent(out EnemyUnit enemy) && enemy == _target)
+        if (target.TryGetComponent(out UnitCharacter unit) && unit == _target)
             StopAttacking();
     }
 
