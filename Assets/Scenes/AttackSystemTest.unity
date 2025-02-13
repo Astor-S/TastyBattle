@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 87860811}
   - component: {fileID: 87860810}
   - component: {fileID: 87860815}
+  - component: {fileID: 87860816}
   m_Layer: 0
   m_Name: EnemyUnitSiege
   m_TagString: Untagged
@@ -271,6 +272,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4bdfdf5ca5b9d43b053c0f8a6cd718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 87860816}
+--- !u!114 &87860816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87860809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 200
 --- !u!1 &225329222
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +300,10 @@ GameObject:
   - component: {fileID: 225329224}
   - component: {fileID: 225329223}
   - component: {fileID: 225329228}
-  m_Layer: 0
+  - component: {fileID: 225329229}
+  - component: {fileID: 225329230}
+  - component: {fileID: 225329231}
+  m_Layer: 6
   m_Name: PlayerUnit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,6 +437,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff54873e219ae2547803d66c519e0428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &225329229
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225329222}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &225329230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225329222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 100
+--- !u!114 &225329231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225329222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebfdc38034820c4e83138ec0250ca60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _distance: {fileID: 225329229}
+  _damage: 20
+  _frequency: 1
 --- !u!1 &233439884
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +651,9 @@ GameObject:
   - component: {fileID: 290841184}
   - component: {fileID: 290841183}
   - component: {fileID: 290841188}
-  m_Layer: 0
+  - component: {fileID: 290841189}
+  - component: {fileID: 290841190}
+  m_Layer: 7
   m_Name: EnemyUnit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +769,7 @@ Transform:
   m_GameObject: {fileID: 290841182}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.91, y: 1.53, z: 9.045}
+  m_LocalPosition: {x: 8.91, y: 1.53, z: 8.969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -715,6 +787,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4bdfdf5ca5b9d43b053c0f8a6cd718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 290841190}
+--- !u!135 &290841189
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290841182}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &290841190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290841182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 100
 --- !u!1 &375074864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1567,7 @@ GameObject:
   - component: {fileID: 2078093505}
   - component: {fileID: 2078093504}
   - component: {fileID: 2078093509}
+  - component: {fileID: 2078093510}
   m_Layer: 0
   m_Name: EnemyUnit2
   m_TagString: Untagged
@@ -1594,6 +1702,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4bdfdf5ca5b9d43b053c0f8a6cd718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 2078093510}
+--- !u!114 &2078093510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078093503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
