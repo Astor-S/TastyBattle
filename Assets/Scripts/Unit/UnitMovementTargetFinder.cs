@@ -3,7 +3,7 @@ using UnityEngine;
 public class UnitMovementTargetFinder : MonoBehaviour
 {
     [SerializeField] private UnitMovementProperties _properties;
-    [SerializeField] private Transform _target; // спавнер передает изначально базу противника
+    [SerializeField] private Transform _target;
 
     private UnitMovementHandler _unitMovementHandler;
 

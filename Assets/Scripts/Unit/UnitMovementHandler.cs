@@ -17,7 +17,7 @@ public class UnitMovementHandler : IMovement
         {
             _unit.position = Vector3.MoveTowards(_unit.position, target, _properties.Speed * Time.deltaTime);
 
-            _unit.LookAt(target); //другая ответственность
+            _unit.LookAt(target);
         }
     }
 }
