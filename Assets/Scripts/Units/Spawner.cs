@@ -9,22 +9,22 @@ namespace Units
         private float _defaultSpawnCooldown;
         private int _spawnCount;
         private UnitFactory _unitFactory;
-        private Vector3 _unitPositionOnSpawn;
-        private Quaternion _unitRotationOnSpawn;
+        private Vector3 _basePosition;
+        private int _layerNumber;
         private bool _isGameRunning = true;
 
         public Spawner(
+            int layerNumber,
             float defaultSpawnCooldown,
             int spawnCount,
             UnitFactory unitFactory,
-            Vector3 unitPositionOnSpawn,
-            Quaternion unitRotationOnSpawn)
+            Vector3 basePosition)
         {
+            _layerNumber = layerNumber;
             _defaultSpawnCooldown = defaultSpawnCooldown;
             _spawnCount = spawnCount;
             _unitFactory = unitFactory;
-            _unitPositionOnSpawn = unitPositionOnSpawn;
-            _unitRotationOnSpawn = unitRotationOnSpawn;
+            _basePosition = basePosition;
         }
 
         public IEnumerator GetSpawningCoroutine()
@@ -41,8 +41,8 @@ namespace Units
                     _unitFactory.CreateUnit(
                         Faction.Mushroom,
                         BattleRole.Melee,
-                        _unitPositionOnSpawn,
-                        _unitRotationOnSpawn);
+                        _layerNumber,
+                        _basePosition);
 
                     yield return timeBetweenUnits;
                 }

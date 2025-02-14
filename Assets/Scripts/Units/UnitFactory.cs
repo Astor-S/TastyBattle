@@ -5,16 +5,25 @@ namespace Units
 {
     public class UnitFactory : MonoBehaviour
     {
-        [SerializeField] private Unit _unitPrefab;
+        [SerializeField] private UnitPresenter _unitPrefab;
+
+        private float _baseOffset = 3f;
 
         public void CreateUnit(
             Faction faction,
             BattleRole battleRole,
-            Vector3 coordinates = default,
-            Quaternion rotation = default)
+            int layerNumber,
+            Vector3 basePosition)
         {
-            Unit unit = CreatePresenter(_unitPrefab, null) as Unit;
-            unit.transform.SetPositionAndRotation(coordinates, rotation);
+            UnitPresenter unit = CreatePresenter(_unitPrefab, null) as UnitPresenter;
+            unit.gameObject.layer = layerNumber;
+
+            if (layerNumber == LayerMask.NameToLayer("Enemy"))
+                unit.transform.position = new Vector3(basePosition.x - _baseOffset, 0f, 0f);
+            else
+                unit.transform.position = new Vector3(basePosition.x + _baseOffset, 0f, 0f);
+
+            unit.gameObject.SetActive(true);
         }
 
         private Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)
