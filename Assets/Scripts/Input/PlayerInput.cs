@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue) &&
-                hit.transform.TryGetComponent(out MainBuildingPresenter @base) &&
+                hit.transform.TryGetComponent(out MainBuildingView @base) &&
                 @base.gameObject.layer == LayerMask.NameToLayer(Player))
             {
                 if (_isUnitMenuOpen)
@@ -26,6 +26,7 @@ public class PlayerInput : MonoBehaviour
                 else
                     _unitMenu.gameObject.SetActive(true);
 
+                @base.ToggleSelection();
                 _isUnitMenuOpen = !_isUnitMenuOpen;
             }
         }

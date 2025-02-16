@@ -6,9 +6,14 @@ namespace Units
     public class UnitPresenter : Presenter, IActivatable
     {
         [SerializeField] private UnitMovementTargetFinder _unitMovementTargetFinder;
+        [SerializeField] private UnitStats _unitStats;
         [SerializeField] private Attacker _attacker;
 
         public new UnitVew View => base.View as UnitVew;
+
+        public Faction Faction => _unitStats.Faction;
+        
+        public BattleRole BattleRole => _unitStats.BattleRole;
 
         private void Start()
         {
