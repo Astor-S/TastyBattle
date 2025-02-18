@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Attacker : MonoBehaviour
+public abstract class Attacker : MonoBehaviour
 {
     [SerializeField] private LayerMask _targetMask;
     [SerializeField] private SphereCollider _distance;
@@ -11,6 +11,11 @@ public class Attacker : MonoBehaviour
     private UnitCharacter _target;
     private Coroutine _attackCoroutine;
     private float _attackTimer;
+
+    protected UnitCharacter Target { get => _target; set => _target = value; }
+    protected float Damage { get => _damage; set => _damage = value; }
+    protected float Frequency { get => _frequency; set => _frequency = value; }
+    protected float AttackTimer { get => _attackTimer; set => _attackTimer = value; }
 
     private void OnTriggerEnter(Collider target)
     {
@@ -33,7 +38,20 @@ public class Attacker : MonoBehaviour
             StopAttacking();
     }
 
-    private IEnumerator Attacking()
+    protected virtual void AttackTarget()
+    {
+        if (_target != null && _target.gameObject != null)
+        {
+            _target.TakeDamage(_damage);
+            Debug.Log("Нанесено " + _damage + " урона " + _target.name);
+        }
+        else
+        {
+            StopAttacking();
+        }
+    }
+
+    protected virtual IEnumerator Attacking()
     {
         while (enabled)
         {
@@ -57,20 +75,7 @@ public class Attacker : MonoBehaviour
         }
     }
 
-    private void AttackTarget()
-    {
-        if (_target != null && _target.gameObject != null)
-        {
-            _target.TakeDamage(_damage);
-            Debug.Log("Нанесено " + _damage + " урона " + _target.name);
-        }
-        else
-        {
-            StopAttacking();
-        }
-    }
-
-    private void StopAttacking()
+    protected virtual void StopAttacking()
     {
         if (_attackCoroutine != null)
         {
