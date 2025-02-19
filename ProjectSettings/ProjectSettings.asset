@@ -827,7 +827,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;YandexGamesPlatform_yg;InterstitialAdv_yg;Authorization_yg;Leaderboards_yg;Storage_yg;RewardedAdv_yg;Localization_yg;EnvirData_yg
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
