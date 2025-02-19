@@ -13,7 +13,7 @@ public class CameraMovementHandler : IMovement
 
     public void Move(Vector3 direction)
     {
-        _cameraDirection -= new Vector3(direction.y, 0, direction.x) * _properties.Speed;
+        _cameraDirection += new Vector3(direction.x, 0, direction.y) * _properties.Speed;
 
         _properties.CameraTransform.position = Vector3.Lerp
             (_properties.CameraTransform.position, _cameraDirection, Time.deltaTime / _properties.Smoothness);

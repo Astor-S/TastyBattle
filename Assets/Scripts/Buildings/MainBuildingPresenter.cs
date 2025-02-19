@@ -9,8 +9,7 @@ namespace Buildings
         [SerializeField] private float _unitSpawnCooldown = 5f;
         [SerializeField] private int _unitSpawnCount = 5;
         [SerializeField] private UnitFactory _unitFactory;
-
-        private float _unitSpawnOffset = 3f;
+        [SerializeField] private float _unitSpawnOffset;
 
         public new MainBuilding Model => base.Model as MainBuilding;
 
@@ -19,11 +18,10 @@ namespace Buildings
             Init(new MainBuilding(
                 transform.position,
                 transform.localScale,
+                gameObject.layer,
                 _unitSpawnCooldown,
                 _unitSpawnCount,
-                _unitFactory,
-                new Vector3(transform.position.x + _unitSpawnOffset, 0f, 0f),
-                Quaternion.LookRotation(Vector3.right)));
+                _unitFactory));
         }
 
         private void Start()

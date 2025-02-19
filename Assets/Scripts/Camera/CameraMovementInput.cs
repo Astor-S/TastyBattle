@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Camera))]
 public class CameraMovementInput : MonoBehaviour
@@ -48,7 +49,9 @@ public class CameraMovementInput : MonoBehaviour
     {
         Vector3 screenPositionPoint = Input.mousePosition;
         Ray ray = _camera.ScreenPointToRay(screenPositionPoint);
-        bool result = Physics.Raycast(ray, out _, float.MaxValue, _ground.value);
+
+        bool result = Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _ground) &&
+            EventSystem.current.IsPointerOverGameObject() == false;
 
         return result;
     }

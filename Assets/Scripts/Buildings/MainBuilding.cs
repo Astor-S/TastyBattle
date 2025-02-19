@@ -11,19 +11,18 @@ namespace Buildings
         public MainBuilding(
             Vector3 position,
             Vector3 scale,
+            int layerNumber,
             float unitSpawnCooldown,
             int unitSpawnCount,
-            UnitFactory unitFactory,
-            Vector3 unitPositionOnSpawn,
-            Quaternion unitRotationOnSpawn)
+            UnitFactory unitFactory)
             : base (position: position, scale: scale)
         {
             Spawner = new Spawner(
+                layerNumber,
                 unitSpawnCooldown,
                 unitSpawnCount,
                 unitFactory,
-                unitPositionOnSpawn,
-                unitRotationOnSpawn);
+                position);
         }
     }
 }

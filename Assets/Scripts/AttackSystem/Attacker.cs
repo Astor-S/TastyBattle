@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,9 +12,27 @@ public class Attacker : MonoBehaviour
     private UnitCharacter _target;
     private Coroutine _attackCoroutine;
     private float _attackTimer;
+    
+    public bool IsAttacking { get; private set; } = false;
+
+    public Vector3 Target => _target.transform.position;
+
+    public event Action AttackStarted;
+    public event Action AttackStopped;
+
+    private void Start()
+    {
+        if (LayerMask.LayerToName(gameObject.layer) == "Enemy")
+            _targetMask = LayerMask.GetMask("Player");
+        else
+            _targetMask = LayerMask.GetMask("Enemy");
+    }
 
     private void OnTriggerEnter(Collider target)
     {
+        if (target.isTrigger)
+            return;
+
         int targetLayerMask = 1 << target.gameObject.layer;
 
         if ((_targetMask & targetLayerMask) != 0)
@@ -35,6 +54,9 @@ public class Attacker : MonoBehaviour
 
     private IEnumerator Attacking()
     {
+        IsAttacking = true;
+        AttackStarted?.Invoke();
+
         while (enabled)
         {
             if (_target != null && _target.gameObject != null) 
@@ -72,6 +94,9 @@ public class Attacker : MonoBehaviour
 
     private void StopAttacking()
     {
+        IsAttacking = false;
+        AttackStopped?.Invoke();
+
         if (_attackCoroutine != null)
         {
             StopCoroutine(_attackCoroutine);
