@@ -7,7 +7,7 @@ namespace Units
     {
         [SerializeField] private UnitMovementTargetFinder _unitMovementTargetFinder;
         [SerializeField] private UnitStats _unitStats;
-        [SerializeField] private Attacker _attacker;
+        [SerializeField] private AbstractAttacker _attacker;
 
         public new UnitVew View => base.View as UnitVew;
 

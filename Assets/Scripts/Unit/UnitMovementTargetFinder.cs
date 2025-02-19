@@ -4,7 +4,7 @@ public class UnitMovementTargetFinder : MonoBehaviour
 {
     [SerializeField] private UnitMovementProperties _properties;
 
-    private Attacker _attacker;
+    private AbstractAttacker _attacker;
     private Vector3 _target;
     private Vector3 _enemyBasePosition;
     private UnitMovementHandler _unitMovementHandler;
@@ -13,7 +13,7 @@ public class UnitMovementTargetFinder : MonoBehaviour
     {
         _unitMovementHandler = new UnitMovementHandler(_properties);
         
-        if (TryGetComponent(out Attacker attacker))
+        if (TryGetComponent(out AbstractAttacker attacker))
             _attacker = attacker;
     }
 

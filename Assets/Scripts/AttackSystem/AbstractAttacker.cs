@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class AbstactAttacker : MonoBehaviour
+public abstract class AbstractAttacker : MonoBehaviour
 {
     [SerializeField] private LayerMask _targetMask;
     [SerializeField] private SphereCollider _distance;
@@ -28,7 +28,7 @@ public abstract class AbstactAttacker : MonoBehaviour
             _targetMask = LayerMask.GetMask("Enemy");
     }
 
-    protected UnitCharacter Target { get => _target; set => _target = value; }
+    protected UnitCharacter TargetAttack { get => _target; set => _target = value; }
     protected float Damage { get => _damage; set => _damage = value; }
     protected float Frequency { get => _frequency; set => _frequency = value; }
     protected float AttackTimer { get => _attackTimer; set => _attackTimer = value; }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangedAttacker : AbstactAttacker
+public class RangedAttacker : AbstractAttacker
 {
     [SerializeField] private Projectile _projectilePrefab;  
     [SerializeField] private Transform _projectileSpawnPoint; 
@@ -30,7 +30,7 @@ public class RangedAttacker : AbstactAttacker
 
     protected override void AttackTarget()
     {
-        if (Target != null && Target.gameObject != null)
+        if (Target != null && TargetAttack.gameObject != null)
         {
             Projectile projectile = _projectilePool.GetObject(); 
             projectile.gameObject.SetActive(true); 
@@ -38,14 +38,14 @@ public class RangedAttacker : AbstactAttacker
             projectile.transform.position = _projectileSpawnPoint.position;
             projectile.transform.rotation = _projectileSpawnPoint.rotation; 
 
-            projectile.Initialize(Target, Damage, _projectilePool); 
+            projectile.Initialize(TargetAttack, Damage, _projectilePool); 
 
             Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
 
             if (projectileRigidbody != null)
-                projectileRigidbody.velocity = (Target.transform.position - _projectileSpawnPoint.position).normalized * _projectileSpeed;
+                projectileRigidbody.velocity = (TargetAttack.transform.position - _projectileSpawnPoint.position).normalized * _projectileSpeed;
             
-            Debug.Log("Выпущен снаряд в " + Target.name);
+            Debug.Log("Выпущен снаряд в " + TargetAttack.name);
         }
         else
         {
