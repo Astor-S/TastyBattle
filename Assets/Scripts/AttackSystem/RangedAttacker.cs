@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangedAttacker : Attacker
+public class RangedAttacker : AbstactAttacker
 {
     [SerializeField] private Projectile _projectilePrefab;  
     [SerializeField] private Transform _projectileSpawnPoint; 

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class Attacker : MonoBehaviour
+public abstract class AbstactAttacker : MonoBehaviour
 {
     [SerializeField] private LayerMask _targetMask;
     [SerializeField] private SphereCollider _distance;
