@@ -1444,6 +1444,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7332092960446118749, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: _view
+      value: 
+      objectReference: {fileID: 777763933}
+    - target: {fileID: 7332092960446118749, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: _health
       value: 
       objectReference: {fileID: 87860816}
@@ -1454,8 +1458,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2063200621376790131, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 777763933}
   m_SourcePrefab: {fileID: 100100000, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+--- !u!1 &777763931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2063200621376790131, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_PrefabInstance: {fileID: 777763930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &777763932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 852572468466106859, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_PrefabInstance: {fileID: 777763930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777763931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &777763933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777763931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e038c9df596cd9d438aa3551a72c52b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 777763932}
+  _targetCanvas: {fileID: 913846749}
+  _followedObject: {fileID: 87860814}
 --- !u!224 &789372473 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 941960337626638862, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
@@ -2155,6 +2193,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7332092960446118749, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: _view
+      value: 
+      objectReference: {fileID: 1360843564}
+    - target: {fileID: 7332092960446118749, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: _health
       value: 
       objectReference: {fileID: 2078093510}
@@ -2165,8 +2207,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2063200621376790131, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1360843564}
   m_SourcePrefab: {fileID: 100100000, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+--- !u!1 &1360843562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2063200621376790131, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_PrefabInstance: {fileID: 1360843561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1360843563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 852572468466106859, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_PrefabInstance: {fileID: 1360843561}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360843562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1360843564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360843562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e038c9df596cd9d438aa3551a72c52b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1360843563}
+  _targetCanvas: {fileID: 789372473}
+  _followedObject: {fileID: 2078093508}
 --- !u!1 &1422939609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,7 +2847,7 @@ PrefabInstance:
       propertyPath: _health
       value: 
       objectReference: {fileID: 290841190}
-    - target: {fileID: 7332092960446118749, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+    - target: {fileID: 8301454250332484030, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: _followedObject
       value: 
       objectReference: {fileID: 290841187}
