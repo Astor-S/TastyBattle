@@ -13,7 +13,7 @@ public class HealthBarView : MonoBehaviour
                          Camera.main.transform.rotation * Vector3.up);
     }
 
-    public void UpdateHealth(float health, float maxHealth)
+    public void UpdateVisualHealth(float health, float maxHealth)
     {
         if (health == 0)
         {

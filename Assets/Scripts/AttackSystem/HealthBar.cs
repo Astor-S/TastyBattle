@@ -7,11 +7,11 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.ValueChanged += _view.UpdateHealth;
+        _health.ValueChanged += _view.UpdateVisualHealth;
     }
 
     private void OnDisable()
     {
-        _health.ValueChanged -= _view.UpdateHealth;
+        _health.ValueChanged -= _view.UpdateVisualHealth;
     }
 }
