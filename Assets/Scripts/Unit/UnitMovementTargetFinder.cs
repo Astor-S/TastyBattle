@@ -19,7 +19,7 @@ public class UnitMovementTargetFinder : MonoBehaviour
 
     private void Start()
     {
-        _enemyBasePosition = -transform.position;
+        _enemyBasePosition = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
         _target = _enemyBasePosition;
     }
 
