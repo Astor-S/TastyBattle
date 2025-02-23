@@ -5,9 +5,9 @@ namespace Units
 {
     public class UnitPresenter : Presenter, IActivatable
     {
-        [SerializeField] private UnitMovementTargetFinder _unitMovementTargetFinder;
+        [SerializeField] private UnitMovementInput _unitMovementInput;
         [SerializeField] private UnitStats _unitStats;
-        [SerializeField] private AbstractAttacker _attacker;
+        [SerializeField] private AttackSystem _attackSystem;
 
         public new UnitVew View => base.View as UnitVew;
 
@@ -22,14 +22,14 @@ namespace Units
 
         public void Enable()
         {
-            _attacker.AttackStarted += View.SetAttackingAnimation;
-            _attacker.AttackStopped += View.SetWalkingAnimation;
+            _attackSystem.AttackStarted += View.SetAttackingAnimation;
+            _attackSystem.AttackStopped += View.SetWalkingAnimation;
         }
 
         public void Disable()
         {
-            _attacker.AttackStarted -= View.SetAttackingAnimation;
-            _attacker.AttackStopped -= View.SetWalkingAnimation;
+            _attackSystem.AttackStarted -= View.SetAttackingAnimation;
+            _attackSystem.AttackStopped -= View.SetWalkingAnimation;
         }
     }
 }

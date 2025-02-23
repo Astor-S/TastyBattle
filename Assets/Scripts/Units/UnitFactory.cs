@@ -28,15 +28,15 @@ namespace Units
             Faction faction,
             BattleRole battleRole,
             int layerNumber,
-            Vector3 basePosition)
+            Vector3 allyBasePosition)
         {
             UnitPresenter unit = CreatePresenter(_unitsDictionary[faction][battleRole], null) as UnitPresenter;
             unit.gameObject.layer = layerNumber;
 
             if (layerNumber == LayerMask.NameToLayer("Enemy"))
-                unit.transform.position = new Vector3(basePosition.x - _baseOffset, 0f, 0f);
+                unit.transform.position = new Vector3(allyBasePosition.x - _baseOffset, 0f, 0f);
             else
-                unit.transform.position = new Vector3(basePosition.x + _baseOffset, 0f, 0f);
+                unit.transform.position = new Vector3(allyBasePosition.x + _baseOffset, 0f, 0f);
 
             unit.gameObject.SetActive(true);
         }
