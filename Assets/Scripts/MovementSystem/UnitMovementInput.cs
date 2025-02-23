@@ -14,35 +14,18 @@ public class UnitMovementInput : MonoBehaviour
 
     private void Update()
     {
-        if (_detectionSystem.DetectedUnits.Count > 0)
-            _target = _detectionSystem.DetectedUnits[0];
-        else
-            _target = null;
+        SetTarget();
 
         _unitMovementHandler.Move(GetTarget());
     }
 
-    //private void OnEnable()
-    //{
-    //    _attacker.AttackStarted += OnAttackStarted;
-    //    _attacker.AttackStopped += OnAttackStopped;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    _attacker.AttackStarted -= OnAttackStarted;
-    //    _attacker.AttackStopped -= OnAttackStopped;
-    //}
-
-    //private void OnAttackStarted()
-    //{
-    //    _target = _attacker.TargetAttack.transform.position;
-    //}
-
-    //private void OnAttackStopped()
-    //{
-    //    _target = _enemyBasePosition;
-    //}
+    private void SetTarget()
+    {
+        if (_detectionSystem.DetectedUnits.Count > 0)
+            _target = _detectionSystem.DetectedUnits[0];
+        else
+            _target = null;
+    }
 
     private Vector3 GetTarget()
     {

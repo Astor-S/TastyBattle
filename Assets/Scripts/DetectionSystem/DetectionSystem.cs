@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class DetectionSystem : MonoBehaviour
 {
-    [SerializeField] private Unit _unit; //для определения слоя
-
-    public List<Unit> _detectedUnits = new();
+    [SerializeField] private Unit _currentUnit; //для определения слоя
+    [SerializeField] private List<Unit> _detectedUnits = new();
 
     public IReadOnlyList<Unit> DetectedUnits => _detectedUnits;
 
-    //private void Update() => 
-    //    RefreshList();
+    private void Update() =>
+        RefreshList();
 
     private void OnTriggerStay(Collider other)
     {
@@ -28,14 +27,14 @@ public class DetectionSystem : MonoBehaviour
 
     private void RefreshList()
     {
-        foreach (Unit unit in _detectedUnits)
-            if (unit == null)
-                _detectedUnits.Remove(unit);
+        if (_detectedUnits.Count > 0)
+            if (_detectedUnits[0] == null)
+                _detectedUnits.RemoveAt(0);
     }
 
     private string GetEnemyMask()
     {
-        if (LayerMask.LayerToName(_unit.gameObject.layer) == "Enemy")
+        if (LayerMask.LayerToName(_currentUnit.gameObject.layer) == "Enemy")
             return "Player";
         else
             return "Enemy";

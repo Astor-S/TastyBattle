@@ -166,6 +166,7 @@ MonoBehaviour:
   _damage: 5
   _frequency: 1
   _detectionSystem: {fileID: 2012045425834907509}
+  _attackedUnits: []
 --- !u!1 &848516482815288249
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac676fed4311bf4982b206c9251c9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unit: {fileID: 8780490609899841169}
+  _currentUnit: {fileID: 8780490609899841169}
+  _detectedUnits: []
 --- !u!1 &3136673743436393278
 GameObject:
   m_ObjectHideFlags: 0

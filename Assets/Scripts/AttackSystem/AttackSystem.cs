@@ -9,8 +9,8 @@ public class AttackSystem : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _frequency;
     [SerializeField] private DetectionSystem _detectionSystem;
+    [SerializeField] private List<Unit> _attackedUnits = new();
 
-    public List<Unit> _attackedUnits = new();
     private WaitForFixedUpdate _waitForFixedUpdate;
     private Unit _attackedTarget;
     private float _attackTimer;
@@ -30,8 +30,8 @@ public class AttackSystem : MonoBehaviour
 
     private void Update()
     {
-       //RefreshList();
         LocateTarget();
+        RefreshList();
     }
 
     private void OnTriggerStay(Collider other)
@@ -48,17 +48,18 @@ public class AttackSystem : MonoBehaviour
                 _attackedUnits.Remove(unit);
     }
 
-    private void RefreshList()
-    {
-        foreach (Unit unit in _attackedUnits)
-            if (unit == null)
-                _attackedUnits.Remove(unit);
-    }
-
     private void LocateTarget()
     {
-        if (_attackedUnits.Count > 0 && _attackedUnits[0] != null)
-            _attackedTarget = _attackedUnits[0];
+        if (_attackedUnits.Count > 0)
+            if (_attackedUnits[0] != null)
+                _attackedTarget = _attackedUnits[0];
+    }
+
+    private void RefreshList()
+    {
+        if (_attackedUnits.Count > 0)
+            if (_attackedUnits[0] == null)
+                _attackedUnits.RemoveAt(0);
     }
 
     protected virtual void Hit()
@@ -66,7 +67,7 @@ public class AttackSystem : MonoBehaviour
         if (_attackedTarget != null)
         {
             _attackedTarget.TakeDamage(_damage);
-            Debug.Log("Нанесено " + _damage + " урона ");
+            Debug.Log("Нанесено " + _damage + " урона " + _attackedTarget.name);
         }
     }
 
@@ -74,17 +75,20 @@ public class AttackSystem : MonoBehaviour
     {
         while (enabled)
         {
-            if (_attackedTarget != null)
+            if (_attackedUnits.Count > 0)
             {
-                AttackStarted?.Invoke();
-
-                _attackTimer += Time.deltaTime;
-
-                if (_attackTimer >= _frequency)
+                if (_attackedTarget != null)
                 {
-                    Hit();
+                    AttackStarted?.Invoke();
 
-                    _attackTimer = 0f;
+                    _attackTimer += Time.deltaTime;
+
+                    if (_attackTimer >= _frequency)
+                    {
+                        Hit();
+
+                        _attackTimer = 0f;
+                    }
                 }
             }
 
