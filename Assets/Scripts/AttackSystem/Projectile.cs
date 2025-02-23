@@ -1,18 +1,23 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IDestroyable<Projectile>
 {
+    [SerializeField] private float _lifeTime = 3f;
+
     private UnitCharacter _target;
     private Pool<Projectile> _pool;
+    private WaitForSeconds _waitLifeTime;
     private float _damage;
     private bool _hasHit = false;
 
-    public void Initialize(UnitCharacter target, float damage, Pool<Projectile> pool)
+    public event Action<Projectile> Destroyed;
+
+    private void OnEnable()
     {
-        _target = target;
-        _damage = damage;
-        _hasHit = false; 
-        _pool = pool; 
+        _waitLifeTime = new WaitForSeconds(_lifeTime);
+        StartCoroutine(DelayedDestroy());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,9 +37,29 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public void Initialize(UnitCharacter target, float damage, Pool<Projectile> pool)
+    {
+        _target = target;
+        _damage = damage;
+        _hasHit = false; 
+        _pool = pool; 
+    }
+
+    private IEnumerator DelayedDestroy()
+    {
+        yield return _waitLifeTime;
+        Destroy();
+    }
+
     private void ReturnToPool()
     {
         gameObject.SetActive(false); 
         _pool.Release(this); 
+    }
+
+    private void Destroy()
+    {
+        Destroyed?.Invoke(this);
+        Destroy(gameObject);
     }
 }
