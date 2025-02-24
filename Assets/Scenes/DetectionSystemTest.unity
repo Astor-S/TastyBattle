@@ -164,17 +164,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 501630445833861862, guid: d161c04037011f44da1ab11439bdb45a, type: 3}
   m_PrefabInstance: {fileID: 1071574275674804417}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &74757390 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6273992661549082651, guid: d161c04037011f44da1ab11439bdb45a, type: 3}
-  m_PrefabInstance: {fileID: 1071574275674804417}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74757389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ad71937d3bb8246ba95b371c47aea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &101920264
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,9 +482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 160172802}
-  _unitFactory: {fileID: 74757390}
   _faction: 2
   _battleRole: 3
+  _cost: 0
 --- !u!1 &409334413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,9 +1124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 608328708}
-  _unitFactory: {fileID: 74757390}
   _faction: 2
   _battleRole: 0
+  _cost: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,9 +1490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1050652893}
-  _unitFactory: {fileID: 74757390}
   _faction: 0
   _battleRole: 1
+  _cost: 0
 --- !u!1 &1191922422
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,9 +2160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1691173891}
-  _unitFactory: {fileID: 74757390}
   _faction: 2
   _battleRole: 2
+  _cost: 0
 --- !u!1 &1785894935
 GameObject:
   m_ObjectHideFlags: 0
