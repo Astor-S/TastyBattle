@@ -8,8 +8,9 @@ namespace Units
         [SerializeField] private UnitMovementInput _unitMovementInput;
         [SerializeField] private UnitStats _unitStats;
         [SerializeField] private AttackSystem _attackSystem;
+        [SerializeField] private DamagableTarget _damageTarget;
 
-        public new UnitVew View => base.View as UnitVew;
+        public new UnitView View => base.View as UnitView;
 
         public Faction Faction => _unitStats.Faction;
         
@@ -22,12 +23,14 @@ namespace Units
 
         public void Enable()
         {
+            _damageTarget.Died += View.SetDeathAnimation;
             _attackSystem.AttackStarted += View.SetAttackingAnimation;
             _attackSystem.AttackStopped += View.SetWalkingAnimation;
         }
 
         public void Disable()
         {
+            _damageTarget.Died -= View.SetDeathAnimation;
             _attackSystem.AttackStarted -= View.SetAttackingAnimation;
             _attackSystem.AttackStopped -= View.SetWalkingAnimation;
         }

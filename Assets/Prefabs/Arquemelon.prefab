@@ -874,8 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac676fed4311bf4982b206c9251c9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentUnit: {fileID: 5342934250263446209}
-  _detectedUnits: []
+  _currentUnit: {fileID: 5717136829546381060}
 --- !u!1 &5116539350087157214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,9 +1015,9 @@ GameObject:
   - component: {fileID: 7286110889881935018}
   - component: {fileID: 7373862858402763666}
   - component: {fileID: 514204843160530710}
-  - component: {fileID: 6128627027463102335}
-  - component: {fileID: 5342934250263446209}
   - component: {fileID: 3674313009644066919}
+  - component: {fileID: 5717136829546381060}
+  - component: {fileID: 3588328787511895972}
   m_Layer: 0
   m_Name: Arquemelon
   m_TagString: Untagged
@@ -1109,32 +1108,7 @@ MonoBehaviour:
   _unitMovementInput: {fileID: 8375276280568036087}
   _unitStats: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
   _attackSystem: {fileID: 200770116126294712}
---- !u!114 &6128627027463102335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990312453812153083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9dd7b992d6bde14db5efb0f1170386e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 7580848323791432377}
---- !u!114 &5342934250263446209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990312453812153083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c61cd2048d09164b8cc2c4c36731d28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 3674313009644066919}
+  _damageTarget: {fileID: 5717136829546381060}
 --- !u!114 &3674313009644066919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,6 +1122,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxValue: 40
+--- !u!114 &5717136829546381060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990312453812153083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3e1130a9544b8499f5c59495ab8d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 3674313009644066919}
+  _attackSystem: {fileID: 200770116126294712}
+  _movementInput: {fileID: 8375276280568036087}
+--- !u!114 &3588328787511895972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990312453812153083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 7580848323791432377}
 --- !u!1 &6295018592886457770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1506,6 @@ MonoBehaviour:
   _damage: 2
   _frequency: 0.5
   _detectionSystem: {fileID: 2415558512083814679}
-  _attackedUnits: []
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 8538162855018470003}
   _projectileSpeed: 10

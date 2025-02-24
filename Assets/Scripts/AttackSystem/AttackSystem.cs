@@ -9,16 +9,16 @@ public class AttackSystem : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _frequency;
     [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] private List<Unit> _attackedUnits = new();
 
+    private List<DamagableTarget> _attackedUnits = new();
     private WaitForFixedUpdate _waitForFixedUpdate;
-    private Unit _attackedTarget;
+    private DamagableTarget _attackedTarget;
     private float _attackTimer;
 
     public event Action AttackStarted;
     public event Action AttackStopped;
 
-    public Unit AttackedTarget => _attackedTarget;
+    protected DamagableTarget AttackedTarget => _attackedTarget;
     protected float Damage => _damage;
     protected float Frequency => _frequency;
 
@@ -36,14 +36,14 @@ public class AttackSystem : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out Unit unit))
+        if (other.gameObject.TryGetComponent(out DamagableTarget unit))
             if (_detectionSystem.DetectedUnits.Contains(unit) && _attackedUnits.Contains(unit) == false)
                 _attackedUnits.Add(unit);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out Unit unit))
+        if (other.gameObject.TryGetComponent(out DamagableTarget unit))
             if (_attackedUnits.Contains(unit))
                 _attackedUnits.Remove(unit);
     }
@@ -51,14 +51,14 @@ public class AttackSystem : MonoBehaviour
     private void LocateTarget()
     {
         if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0] != null)
+            if (_attackedUnits[0].isActiveAndEnabled)
                 _attackedTarget = _attackedUnits[0];
     }
 
     private void RefreshList()
     {
         if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0] == null)
+            if (_attackedUnits[0].isActiveAndEnabled == false)
                 _attackedUnits.RemoveAt(0);
     }
 
@@ -91,8 +91,10 @@ public class AttackSystem : MonoBehaviour
                     }
                 }
             }
-
-            AttackStopped?.Invoke();
+            else
+            {
+                AttackStopped?.Invoke();
+            }
 
             yield return _waitForFixedUpdate;
         }

@@ -1,12 +1,14 @@
 using StructureElements;
+using System;
 using UnityEngine;
 
-public class UnitVew : View
+public class UnitView : View
 {
     [SerializeField] private Animator _animator;
 
     public readonly int IsWalking = Animator.StringToHash(nameof(IsWalking));
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
+    public readonly int Die = Animator.StringToHash(nameof(Die));
 
     public void SetWalkingAnimation()
     {
@@ -18,5 +20,10 @@ public class UnitVew : View
     {
         _animator.SetBool(IsWalking, false);
         _animator.SetBool(IsAttacking, true);
+    }
+
+    internal void SetDeathAnimation()
+    {
+        _animator.SetTrigger(Die);
     }
 }

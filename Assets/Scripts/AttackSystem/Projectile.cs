@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private Unit _target;
+    private DamagableTarget _target;
     private Pool<Projectile> _pool;
     private float _damage;
     private bool _hasHit = false;
 
-    public void Initialize(Unit target, float damage, Pool<Projectile> pool)
+    public void Initialize(DamagableTarget target, float damage, Pool<Projectile> pool)
     {
         _target = target;
         _damage = damage;
@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
         if (_hasHit)
             return;
 
-        Unit hitTarget = other.GetComponent<Unit>();
+        DamagableTarget hitTarget = other.GetComponent<DamagableTarget>();
 
         if (hitTarget == _target)
         {

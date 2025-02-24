@@ -4,10 +4,10 @@ public class UnitMovementInput : MonoBehaviour
 {
     [SerializeField] private UnitMovementProperties _properties;
     [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] private Unit _enemyBase;
+    [SerializeField] private DamagableTarget _enemyBase;
 
     private UnitMovementHandler _unitMovementHandler;
-    private Unit _target;
+    private DamagableTarget _target;
 
     private void Awake() =>
         _unitMovementHandler = new UnitMovementHandler(_properties);
