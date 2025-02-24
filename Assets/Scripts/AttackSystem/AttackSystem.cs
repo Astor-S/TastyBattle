@@ -18,7 +18,7 @@ public class AttackSystem : MonoBehaviour
     public event Action AttackStarted;
     public event Action AttackStopped;
 
-    protected DamagableTarget AttackedTarget => _attackedTarget;
+    public DamagableTarget AttackedTarget => _attackedTarget;
     protected float Damage => _damage;
     protected float Frequency => _frequency;
 
