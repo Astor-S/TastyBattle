@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour, IDestroyable<Projectile>
 {
     [SerializeField] private float _lifeTime = 3f;
 
-    private UnitCharacter _target;
+    private DamagableTarget _target;
     private Pool<Projectile> _pool;
     private WaitForSeconds _waitLifeTime;
     private float _damage;
@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour, IDestroyable<Projectile>
         if (_hasHit)
             return;
 
-        UnitCharacter hitTarget = other.GetComponent<UnitCharacter>();
+        DamagableTarget hitTarget = other.GetComponent<DamagableTarget>();
 
         if (hitTarget == _target)
         {
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour, IDestroyable<Projectile>
         }
     }
 
-    public void Initialize(UnitCharacter target, float damage, Pool<Projectile> pool)
+    public void Initialize(DamagableTarget target, float damage, Pool<Projectile> pool)
     {
         _target = target;
         _damage = damage;

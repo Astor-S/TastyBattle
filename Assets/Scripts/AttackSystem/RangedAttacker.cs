@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangedAttacker : AbstractAttacker
+public class RangedAttacker : AttackSystem
 {
     [SerializeField] private Projectile _projectilePrefab;  
     [SerializeField] private Transform _projectileSpawnPoint; 
@@ -28,9 +28,9 @@ public class RangedAttacker : AbstractAttacker
         });
     }
 
-    protected override void AttackTarget()
+    protected override void Hit()
     {
-        if (Target != null && TargetAttack.gameObject != null)
+        if (AttackedTarget != null)
         {
             Projectile projectile = _projectilePool.GetObject(); 
             projectile.gameObject.SetActive(true); 
@@ -38,18 +38,14 @@ public class RangedAttacker : AbstractAttacker
             projectile.transform.position = _projectileSpawnPoint.position;
             projectile.transform.rotation = _projectileSpawnPoint.rotation; 
 
-            projectile.Initialize(TargetAttack, Damage, _projectilePool); 
+            projectile.Initialize(AttackedTarget, Damage, _projectilePool); 
 
             Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
 
             if (projectileRigidbody != null)
-                projectileRigidbody.velocity = (TargetAttack.transform.position - _projectileSpawnPoint.position).normalized * _projectileSpeed;
+                projectileRigidbody.velocity = (AttackedTarget.transform.position - _projectileSpawnPoint.position).normalized * _projectileSpeed;
             
-            Debug.Log("Выпущен снаряд в " + TargetAttack.name);
-        }
-        else
-        {
-            StopAttacking();
-        }
+            Debug.Log("Выпущен снаряд в " + AttackedTarget.name);
+        }        
     }
 }

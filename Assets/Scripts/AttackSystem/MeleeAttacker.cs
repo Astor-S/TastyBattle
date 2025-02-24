@@ -1,1 +1,1 @@
-public class MeleeAttacker : AbstractAttacker { }
+public class MeleeAttacker : AttackSystem { }

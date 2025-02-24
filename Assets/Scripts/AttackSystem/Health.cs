@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -6,6 +7,10 @@ public class Health : MonoBehaviour
     private const float MinValue = 0;
 
     [SerializeField] private float _maxValue;
+
+    private float _deathTime = 1.5f;
+    private WaitForSeconds _sleepTime;
+    private Coroutine _coroutine;
 
     public event Action<float, float> ValueChanged;
     public event Action Died;
@@ -16,6 +21,8 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        _sleepTime = new WaitForSeconds(_deathTime);
+
         Value = MaxValue;
     }
 
@@ -28,7 +35,7 @@ public class Health : MonoBehaviour
         UpdateValue(newHealth);
 
         if (IsAlive == false)
-            ApplyDeath();
+            _coroutine ??= StartCoroutine(nameof(ApplyDeath));
     }
 
     private void UpdateValue(float value)
@@ -37,9 +44,12 @@ public class Health : MonoBehaviour
         ValueChanged?.Invoke(value, _maxValue);
     }
 
-    private void ApplyDeath()
+    private IEnumerator ApplyDeath()
     {
         Died?.Invoke();
+
+        yield return _sleepTime;
+
         Destroy(gameObject);
     }
 }

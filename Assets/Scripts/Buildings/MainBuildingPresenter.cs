@@ -7,8 +7,8 @@ namespace Buildings
 {
     public class MainBuildingPresenter : Presenter
     {
-        [SerializeField] private float _unitSpawnCooldown = 5f;
-        [SerializeField] private int _unitSpawnCount = 5;
+        [SerializeField] private float _unitSpawnCooldown = 10f;
+        [SerializeField] private int _unitSpawnCount = 3;
         [SerializeField] private UnitFactory _unitFactory;
         [SerializeField] private float _unitSpawnOffset;
         [SerializeField] private UnitUIItem[] _unitUIItems;
