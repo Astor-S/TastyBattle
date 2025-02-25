@@ -984,16 +984,16 @@ GameObject:
   - component: {fileID: 8701810040879576621}
   - component: {fileID: 7390487781687256633}
   - component: {fileID: 4622938529590231214}
+  - component: {fileID: 4665722170927713036}
   - component: {fileID: 7353545186412763044}
   - component: {fileID: 5015851012766893332}
-  - component: {fileID: 4665722170927713036}
   m_Layer: 0
   m_Name: Mushraxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &609509318618132640
 Transform:
   m_ObjectHideFlags: 0
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6609769256965355653}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
@@ -1077,6 +1077,19 @@ MonoBehaviour:
   _unitStats: {fileID: 11400000, guid: afce40e16df524b4dad3888de752db17, type: 2}
   _attackSystem: {fileID: 8793714930135223060}
   _damageTarget: {fileID: 5015851012766893332}
+--- !u!114 &4665722170927713036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609769256965355653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6107518579421075682}
 --- !u!114 &7353545186412763044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1105,19 +1118,6 @@ MonoBehaviour:
   _health: {fileID: 7353545186412763044}
   _attackSystem: {fileID: 8793714930135223060}
   _movementInput: {fileID: 6934549564598895869}
---- !u!114 &4665722170927713036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6609769256965355653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 6107518579421075682}
 --- !u!1 &6749814816767902083
 GameObject:
   m_ObjectHideFlags: 0

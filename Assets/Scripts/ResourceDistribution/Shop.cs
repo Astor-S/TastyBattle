@@ -4,7 +4,7 @@ using Units;
 
 namespace ResourceDistribution
 {
-    public class Shop : IActivatable
+    public class Shop : Transformable, IActivatable
     {
         private UnitFactory _unitFactory;
         private UnitUIItem[] _unitItems;
