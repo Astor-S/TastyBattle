@@ -3,7 +3,7 @@ using Units;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnitUIItem : MonoBehaviour
+public class UnitOrderItem : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private Faction _faction;
@@ -14,15 +14,17 @@ public class UnitUIItem : MonoBehaviour
 
     private void OnEnable()
     {
-        _button.onClick.AddListener(OrderUnit);
+        if (_button != null)
+            _button.onClick.AddListener(OrderUnit);
     }
 
     private void OnDisable()
     {
-        _button.onClick.RemoveListener(OrderUnit);
+        if (_button != null)
+            _button.onClick.RemoveListener(OrderUnit);
     }
 
-    private void OrderUnit()
+    public void OrderUnit()
     {
         UnitOrdered?.Invoke(_faction, _battleRole, _cost);
     }

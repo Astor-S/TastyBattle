@@ -7,10 +7,10 @@ namespace ResourceDistribution
     public class Shop : Transformable, IActivatable
     {
         private UnitFactory _unitFactory;
-        private UnitUIItem[] _unitItems;
+        private UnitOrderItem[] _unitItems;
         private Wallet _wallet;
 
-        public Shop(UnitFactory unitFactory, UnitUIItem[] unitItems, Wallet wallet)
+        public Shop(UnitFactory unitFactory, UnitOrderItem[] unitItems, Wallet wallet)
         {
             _unitFactory = unitFactory;
             _unitItems = unitItems;
@@ -19,13 +19,13 @@ namespace ResourceDistribution
 
         public void Enable()
         {
-            foreach (UnitUIItem item in _unitItems)
+            foreach (UnitOrderItem item in _unitItems)
                 item.UnitOrdered += SpawUnit;
         }
 
         public void Disable()
         {
-            foreach (UnitUIItem item in _unitItems)
+            foreach (UnitOrderItem item in _unitItems)
                 item.UnitOrdered -= SpawUnit;
         }
 

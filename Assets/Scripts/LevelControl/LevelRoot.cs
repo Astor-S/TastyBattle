@@ -5,19 +5,23 @@ using UnityEngine;
 
 public class LevelRoot : MonoBehaviour
 {
+    [Header("Player's fields")]
     [SerializeField] private Mine _playerMine;
     [SerializeField] private MainBuildingPresenter _playerBase;
-    [SerializeField] private UnitUIItem[] _playerUnitUIItems;
+    [SerializeField] private UnitOrderItem[] _playerUnitOrderItems;
     [SerializeField] private ShopPresenter _playerShop;
     [SerializeField] private UnitFactory _playerUnitFactory;
+    [Header("Enemy's fields")]
     [SerializeField] private Mine _enemyMine;
     [SerializeField] private MainBuildingPresenter _enemyBase;
-    [SerializeField] private UnitUIItem[] _enemyUnitUIItems;
+    [SerializeField] private UnitOrderItem[] _enemyUnitOrderItems;
     [SerializeField] private ShopPresenter _enemyShop;
     [SerializeField] private UnitFactory _enemyUnitFactory;
-    [SerializeField] private ResourceCounter _playerResourceCounter;
+    [Header("General fields")]
     [SerializeField] private float _defaultUnitSpawnCooldown;
     [SerializeField] private int _defaultUnitSpawnCount;
+    [Header("UI")]
+    [SerializeField] private ResourceCounter _playerResourceCounter;
 
     private void Awake()
     {
@@ -26,8 +30,8 @@ public class LevelRoot : MonoBehaviour
 
         Wallet enemyWallet = new Wallet(300, _enemyMine);
 
-        _playerShop.Init(new Shop(_playerUnitFactory, _playerUnitUIItems, playerWallet));
-        _enemyShop.Init(new Shop(_enemyUnitFactory, _enemyUnitUIItems, enemyWallet));
+        _playerShop.Init(new Shop(_playerUnitFactory, _playerUnitOrderItems, playerWallet));
+        _enemyShop.Init(new Shop(_enemyUnitFactory, _enemyUnitOrderItems, enemyWallet));
 
         _playerBase.Init(new MainBuilding(
             _playerBase.transform.position,
