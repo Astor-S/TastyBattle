@@ -529,12 +529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341f651decd00334fbfddf2f9879f841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  _distance: {fileID: 225329229}
   _damage: 20
   _frequency: 1
+  _detectionSystem: {fileID: 0}
 --- !u!114 &225329234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,12 +731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a60e0cac0a381440a387a5b2a798fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  _distance: {fileID: 233439892}
   _damage: 15
   _frequency: 2
+  _detectionSystem: {fileID: 0}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 99462265}
   _projectileSpeed: 10
@@ -1334,12 +1328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a60e0cac0a381440a387a5b2a798fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  _distance: {fileID: 558521459}
   _damage: 30
   _frequency: 2
+  _detectionSystem: {fileID: 0}
   _projectilePrefab: {fileID: 776218440250253353, guid: 76fd49f0bd8fc0a45bc6b8812e156097, type: 3}
   _projectileSpawnPoint: {fileID: 1804909017}
   _projectileSpeed: 10
