@@ -294,7 +294,7 @@ MonoBehaviour:
   _button: {fileID: 42992155}
   _faction: 0
   _battleRole: 1
-  _cost: 0
+  _cost: 100
 --- !u!114 &42992155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   _button: {fileID: 689421010}
   _faction: 2
   _battleRole: 0
-  _cost: 0
+  _cost: 100
 --- !u!114 &689421010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,6 +1033,18 @@ PrefabInstance:
       propertyPath: _resourceCounter
       value: 
       objectReference: {fileID: 1978011419}
+    - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+      propertyPath: _unitUIItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+      propertyPath: _unitUIItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 689421009}
+    - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+      propertyPath: _unitUIItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 42992154}
     - target: {fileID: 501630445833861862, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: m_Name
       value: PlayerBase
@@ -18899,9 +18911,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 51708103}
   - {fileID: 1978011418}
   - {fileID: 28422069}
-  - {fileID: 51708103}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
