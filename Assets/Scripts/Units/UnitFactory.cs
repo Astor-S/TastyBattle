@@ -33,7 +33,7 @@ namespace Units
             int layerNumber)
         {
             UnitPresenter unit = CreatePresenter(_unitsDictionary[faction][battleRole], null) as UnitPresenter;
-            unit.gameObject.layer = layerNumber;
+            unit.gameObject.layer = layerNumber; //мейби и не нужен
 
             var randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ); 
             unit.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
