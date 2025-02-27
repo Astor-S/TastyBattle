@@ -2177,13 +2177,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508184023}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21203452, y: -0, z: -0, w: 0.9772622}
-  m_LocalPosition: {x: -12.44, y: 8.58, z: -16.655}
+  m_LocalRotation: {x: 0.27969983, y: -0, z: -0, w: 0.9600875}
+  m_LocalPosition: {x: -12.44, y: 10.82, z: -15.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 24.483, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.485, y: 0, z: 0}
 --- !u!1001 &1539682585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2203,7 +2203,7 @@ PrefabInstance:
     - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: _resourceCounter
       value: 
-      objectReference: {fileID: 668812359}
+      objectReference: {fileID: 0}
     - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: _unitSpawnCooldown
       value: 7
@@ -2271,7 +2271,7 @@ PrefabInstance:
     - target: {fileID: 6273992661549082651, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: _spawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1898026194}
     - target: {fileID: 6273992661549082651, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: _units.Array.size
       value: 2
@@ -2279,11 +2279,11 @@ PrefabInstance:
     - target: {fileID: 6273992661549082651, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: _units.Array.data[0]
       value: 
-      objectReference: {fileID: 514204843160530710, guid: 7b09c6ea2ebc71d41a67cd96d6d51f33, type: 3}
+      objectReference: {fileID: 4622938529590231214, guid: 7c3f39b419d6cba4790101d4ed1058d7, type: 3}
     - target: {fileID: 6273992661549082651, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: _units.Array.data[1]
       value: 
-      objectReference: {fileID: 4622938529590231214, guid: 7c3f39b419d6cba4790101d4ed1058d7, type: 3}
+      objectReference: {fileID: 514204843160530710, guid: 7b09c6ea2ebc71d41a67cd96d6d51f33, type: 3}
     - target: {fileID: 7902815379040102619, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -2777,6 +2777,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785894935}
   m_CullTransparentMesh: 1
+--- !u!4 &1898026194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8515711817052837038, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+  m_PrefabInstance: {fileID: 1539682585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1914428682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4468753177113158800, guid: 585568937bffba640bb2757cc91a7b6c, type: 3}

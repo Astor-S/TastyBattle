@@ -11,6 +11,8 @@ namespace Units
         [SerializeField] private Transform _spawnPoint;
 
         private Dictionary<Faction, Dictionary<BattleRole, UnitPresenter>> _unitsDictionary;
+        private float _minSpawnPositionZ = -5;
+        private float _maxSpawnPositionZ = 5;
 
         private void OnValidate()
         {
@@ -33,7 +35,7 @@ namespace Units
             UnitPresenter unit = CreatePresenter(_unitsDictionary[faction][battleRole], null) as UnitPresenter;
             unit.gameObject.layer = layerNumber;
 
-            var randomPositionZ = Random.Range(-5, 5); 
+            var randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ); 
             unit.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
 
             unit.gameObject.SetActive(true);

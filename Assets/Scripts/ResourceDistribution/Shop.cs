@@ -20,16 +20,16 @@ namespace ResourceDistribution
         public void Enable()
         {
             foreach (UnitUIItem item in _unitItems)
-                item.UnitOrdered += SpawUnit;
+                item.UnitOrdered += SpawnUnit;
         }
 
         public void Disable()
         {
             foreach (UnitUIItem item in _unitItems)
-                item.UnitOrdered -= SpawUnit;
+                item.UnitOrdered -= SpawnUnit;
         }
 
-        private void SpawUnit(Faction faction, BattleRole battleRole, int cost)
+        private void SpawnUnit(Faction faction, BattleRole battleRole, int cost)
         {
             try
             {
