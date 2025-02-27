@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 namespace EnemyBehaviorSystem
 {
@@ -14,28 +14,29 @@ namespace EnemyBehaviorSystem
         [SerializeField] private float _summonRandomUnitDelay = 5f;
         [SerializeField] private float _mainLoopStartDelay = 5f;
         [SerializeField] private float _mainLoopInterval = 5f;
+        [SerializeField] private float _turnDelay = 5f;
 
         private void Start()
         {
-            StartCoroutine(ExecuteSequence());
+            StartCoroutine(ExecuteInitialSequence());
         }
 
-        private IEnumerator ExecuteSequence()
+        private IEnumerator ExecuteInitialSequence()
         {
             yield return new WaitForSeconds(_initialDelay);
-                _summonerService.ExecuteFirstSummon();
+            _summonerService.ExecuteFirstSummon();
 
             yield return new WaitForSeconds(_summonRangeUnitDelay);
-                _upgradeService.ImroveResourceExtraction();
+            _upgradeService.ImroveResourceExtraction();
 
             yield return new WaitForSeconds(_improveResourceExtractionDelay);
-                _summonerService.SummonRandomUint();
+            _summonerService.SummonRandomUnit();
 
             yield return new WaitForSeconds(_summonRandomUnitDelay);
-                _upgradeService.ImroveRandomStats();
-           
+            _upgradeService.ImroveRandomUnitStats();
+
             yield return new WaitForSeconds(_mainLoopStartDelay);
-                StartCoroutine(MainBehaviorLoop());
+            StartCoroutine(MainBehaviorLoop());
         }
 
         private IEnumerator MainBehaviorLoop()
@@ -43,13 +44,42 @@ namespace EnemyBehaviorSystem
             while (enabled) 
             {
                 yield return new WaitForSeconds(_mainLoopInterval);
-                    MainMethod();
+                yield return StartCoroutine(ExecuteEnemyTurn());
             }
         }
 
-        private void MainMethod()
+        private IEnumerator ExecuteEnemyTurn()
         {
-            Debug.Log("Работает основной цикл");
+            TrySummonUnit();
+
+            yield return new WaitForSeconds(_turnDelay);
+            TryExecuteRandomImprove();
+        }
+
+        private void TrySummonUnit()
+        {
+            Debug.Log("Попытка призвать юнита...");
+            _summonerService.SummonRandomUnit();
+        }
+
+        private void TryExecuteRandomImprove()
+        {
+            float resourceExtractionImproveChance = 0.5f;
+
+            if (Random.value < resourceExtractionImproveChance)
+                TryImroveResourceExtraction();
+            else
+                TryImroveRandomUnitStats();
+        }
+
+        private void TryImroveResourceExtraction()
+        {
+            Debug.Log("Попытка улучшить добычу ресурсов...");
+        }
+
+        private void TryImroveRandomUnitStats()
+        {
+            Debug.Log("Попытка улучшить характеристики юнитов...");
         }
     }
 }

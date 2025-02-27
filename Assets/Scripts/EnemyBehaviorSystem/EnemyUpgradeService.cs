@@ -9,17 +9,22 @@ namespace EnemyBehaviorSystem
             Debug.Log("Я улучшил добычу ресурсов!");
         }
 
-        public void ImroveRandomStats()
+        public void ImroveRandomUnitStats()
         {
-            Debug.Log("Я улучшил какую-то характиристику!");
+            float improveUnitAttackChance = 0.5f;
+
+            if (Random.value < improveUnitAttackChance)
+                ImproveUnitAttack();
+            else
+                ImproveUnitHealth();
         }
 
-        public void ImproveUnitAttack()
+        private void ImproveUnitAttack()
         {
             Debug.Log("Я улучшил характиристику атаки!");
         }
 
-        public void ImproveUnitHealth()
+        private void ImproveUnitHealth()
         {
             Debug.Log("Я улучшил характиристику здоровья!");
         }

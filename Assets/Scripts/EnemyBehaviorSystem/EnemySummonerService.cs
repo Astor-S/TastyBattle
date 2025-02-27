@@ -8,7 +8,7 @@ namespace EnemyBehaviorSystem
         public void ExecuteFirstSummon() =>
             SummonRangeUnit();
 
-        public void SummonRandomUint()
+        public void SummonRandomUnit()
         {
             int minRange = 0;
             int maxRange = System.Enum.GetValues(typeof(BattleRole)).Length;
