@@ -8,10 +8,10 @@ namespace EnemyBehaviorSystem
         [SerializeField] private EnemySummonerService _summonerService;
         [SerializeField] private EnemyUpgradeService _upgradeService;
 
-        [SerializeField] private float _initialDelay = 2f;
         [SerializeField] private float _summonRangeUnitDelay = 2f;
         [SerializeField] private float _improveResourceExtractionDelay = 5f;
         [SerializeField] private float _summonRandomUnitDelay = 5f;
+        [SerializeField] private float _improveUnitStatsDelay = 5f;
         [SerializeField] private float _mainLoopStartDelay = 5f;
         [SerializeField] private float _mainLoopInterval = 5f;
         [SerializeField] private float _turnDelay = 5f;
@@ -23,16 +23,16 @@ namespace EnemyBehaviorSystem
 
         private IEnumerator ExecuteInitialSequence()
         {
-            yield return new WaitForSeconds(_initialDelay);
+            yield return new WaitForSeconds(_summonRangeUnitDelay);
             _summonerService.ExecuteFirstSummon();
 
-            yield return new WaitForSeconds(_summonRangeUnitDelay);
+            yield return new WaitForSeconds(_improveResourceExtractionDelay);
             _upgradeService.ImroveResourceExtraction();
 
-            yield return new WaitForSeconds(_improveResourceExtractionDelay);
+            yield return new WaitForSeconds(_summonRandomUnitDelay);
             _summonerService.SummonRandomUnit();
 
-            yield return new WaitForSeconds(_summonRandomUnitDelay);
+            yield return new WaitForSeconds(_improveUnitStatsDelay);
             _upgradeService.ImroveRandomUnitStats();
 
             yield return new WaitForSeconds(_mainLoopStartDelay);
@@ -50,10 +50,10 @@ namespace EnemyBehaviorSystem
 
         private IEnumerator ExecuteEnemyTurn()
         {
-            TrySummonUnit();
+                TrySummonUnit();
 
-            yield return new WaitForSeconds(_turnDelay);
-            TryExecuteRandomImprove();
+                yield return new WaitForSeconds(_turnDelay);
+                TryExecuteRandomImprove();
         }
 
         private void TrySummonUnit()
@@ -75,11 +75,13 @@ namespace EnemyBehaviorSystem
         private void TryImroveResourceExtraction()
         {
             Debug.Log("Попытка улучшить добычу ресурсов...");
+            _upgradeService.ImroveResourceExtraction();
         }
 
         private void TryImroveRandomUnitStats()
         {
             Debug.Log("Попытка улучшить характеристики юнитов...");
+            _upgradeService.ImroveRandomUnitStats();
         }
     }
 }

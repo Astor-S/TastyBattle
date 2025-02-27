@@ -33,8 +33,6 @@ namespace EnemyBehaviorSystem
                     SummonSiegeUnit();
                     break;
             }
-
-            Debug.Log("Я призвал какого-то юнита!");
         }
 
         private void SummonRangeUnit()

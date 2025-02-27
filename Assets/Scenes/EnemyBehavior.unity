@@ -17226,6 +17226,18 @@ PrefabInstance:
       propertyPath: _resourceCounter
       value: 
       objectReference: {fileID: 28422070}
+    - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+      propertyPath: _unitUIItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+      propertyPath: _unitUIItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 689421009}
+    - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+      propertyPath: _unitUIItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 42992154}
     - target: {fileID: 501630445833861862, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: m_Name
       value: EnemyBase
@@ -18939,6 +18951,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _summonerService: {fileID: 1074042011}
   _upgradeService: {fileID: 2134318974}
+  _initialDelay: 2
+  _summonRangeUnitDelay: 2
+  _improveResourceExtractionDelay: 5
+  _summonRandomUnitDelay: 5
+  _mainLoopStartDelay: 5
+  _mainLoopInterval: 5
+  _turnDelay: 5
 --- !u!1 &2134318973
 GameObject:
   m_ObjectHideFlags: 0
