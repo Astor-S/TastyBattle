@@ -9,7 +9,6 @@ namespace Units
         private float _defaultSpawnCooldown;
         private int _spawnCount;
         private UnitFactory _unitFactory;
-        private Vector3 _allyBasePosition;
         private DamagableTarget _enemyBase;
         private int _layerNumber;
         private bool _isGameRunning = true;
@@ -18,14 +17,12 @@ namespace Units
             int layerNumber,
             float defaultSpawnCooldown,
             int spawnCount,
-            UnitFactory unitFactory,
-            Vector3 allyBasePosition)
+            UnitFactory unitFactory)
         {
             _layerNumber = layerNumber;
             _defaultSpawnCooldown = defaultSpawnCooldown;
             _spawnCount = spawnCount;
             _unitFactory = unitFactory;
-            _allyBasePosition = allyBasePosition;
         }
 
         public IEnumerator GetSpawningCoroutine()
@@ -42,8 +39,7 @@ namespace Units
                     _unitFactory.CreateUnit(
                         Faction.Mushroom,
                         BattleRole.Melee,
-                        _layerNumber,
-                        _allyBasePosition);
+                        _layerNumber);
 
                     yield return timeBetweenUnits;
                 }

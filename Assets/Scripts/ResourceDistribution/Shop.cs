@@ -37,8 +37,7 @@ namespace ResourceDistribution
                 _unitFactory.CreateUnit(
                     faction,
                     battleRole,
-                    _unitFactory.gameObject.layer,
-                    _unitFactory.transform.position);
+                    _unitFactory.gameObject.layer);
 
                 UnityEngine.Debug.Log($"Account balance: {_wallet.ResourceCount} (-{cost})");
             }

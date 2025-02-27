@@ -9,7 +9,7 @@ public class DetectionSystem : MonoBehaviour
 
     public IReadOnlyList<DamagableTarget> DetectedUnits => _detectedUnits;
 
-    private void Update() =>
+    private void Update() => 
         RefreshList();
 
     private void OnTriggerStay(Collider other)

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class UnitMovementInput : MonoBehaviour
@@ -9,7 +11,7 @@ public class UnitMovementInput : MonoBehaviour
     private UnitMovementHandler _unitMovementHandler;
     private DamagableTarget _target;
 
-    private void Awake() =>
+    private void Start() => 
         _unitMovementHandler = new UnitMovementHandler(_properties);
 
     private void Update()

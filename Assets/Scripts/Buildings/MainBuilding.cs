@@ -27,8 +27,7 @@ namespace Buildings
                 layerNumber,
                 unitSpawnCooldown,
                 unitSpawnCount,
-                unitFactory,
-                position);
+                unitFactory);
 
             _wallet = wallet;
             _shop = new Shop(unitFactory, unitItems, _wallet);

@@ -8,11 +8,9 @@ namespace Units
     {
         [SerializeField] private UnitPresenter[] _units;
         [SerializeField] private DamagableTarget _enemyBase;
+        [SerializeField] private Transform _spawnPoint;
 
         private Dictionary<Faction, Dictionary<BattleRole, UnitPresenter>> _unitsDictionary;
-        private float _baseOffsetX = 5.5f;
-        private float[] _baseOffsetsZ = new float[5] { -3f, -1.5f, 0f, 1.5f, 3f, };
-        private int _currentOffsetZIndex = 0;
 
         private void OnValidate()
         {
@@ -30,19 +28,13 @@ namespace Units
         public void CreateUnit(
             Faction faction,
             BattleRole battleRole,
-            int layerNumber,
-            Vector3 basePosition)
+            int layerNumber)
         {
             UnitPresenter unit = CreatePresenter(_unitsDictionary[faction][battleRole], null) as UnitPresenter;
             unit.gameObject.layer = layerNumber;
-            unit.transform.position = new Vector3(basePosition.x, 0f, _baseOffsetsZ[_currentOffsetZIndex]);
 
-            if (layerNumber == LayerMask.NameToLayer("Enemy"))
-                unit.transform.position += Vector3.left * _baseOffsetX;
-            else
-                unit.transform.position += Vector3.right * _baseOffsetX;
-
-            _currentOffsetZIndex = (_currentOffsetZIndex + 1) % _baseOffsetsZ.Length;
+            var randomPositionZ = Random.Range(-5, 5); 
+            unit.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
 
             unit.gameObject.SetActive(true);
 
