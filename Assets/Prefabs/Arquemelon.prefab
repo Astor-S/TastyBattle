@@ -574,7 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitTransform: {fileID: 1128719628983007100}
   _speed: 2
-  _approachDistance: 10
+  _approachDistance: 7
 --- !u!1 &3460552071831249313
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +859,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &2415558512083814679
 MonoBehaviour:
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 25
+  _maxValue: 30
 --- !u!114 &5717136829546381060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,7 +1506,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 7
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &200770116126294712
 MonoBehaviour:
