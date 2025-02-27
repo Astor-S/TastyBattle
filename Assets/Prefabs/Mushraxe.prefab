@@ -735,7 +735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _properties: {fileID: 3558994208806462077}
   _detectionSystem: {fileID: 2012045425834907509}
-  _enemyBase: {fileID: 0}
 --- !u!114 &3558994208806462077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,7 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitTransform: {fileID: 609509318618132640}
   _speed: 2.5
-  _approachDistance: 1
+  _approachDistance: 1.2
 --- !u!1 &4269189529539833090
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,6 +986,7 @@ GameObject:
   - component: {fileID: 7353545186412763044}
   - component: {fileID: 5015851012766893332}
   - component: {fileID: 4665722170927713036}
+  - component: {fileID: -349828091747389827}
   m_Layer: 0
   m_Name: Mushraxe
   m_TagString: Untagged
@@ -1057,7 +1057,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.23
+  m_Radius: 0.4
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.52, z: 0}
@@ -1103,8 +1103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7353545186412763044}
-  _attackSystem: {fileID: 8793714930135223060}
-  _movementInput: {fileID: 6934549564598895869}
+  _collider: {fileID: 7390487781687256633}
+  _rigidbody: {fileID: 8701810040879576621}
 --- !u!114 &4665722170927713036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1118,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6107518579421075682}
+--- !u!114 &-349828091747389827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609769256965355653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagableTarget: {fileID: 5015851012766893332}
+  _attackSystem: {fileID: 8793714930135223060}
+  _movementInput: {fileID: 6934549564598895869}
+  _detectionSystem: {fileID: 2012045425834907509}
 --- !u!1 &6749814816767902083
 GameObject:
   m_ObjectHideFlags: 0

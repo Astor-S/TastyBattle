@@ -7,6 +7,7 @@ namespace Units
     public class UnitFactory : MonoBehaviour
     {
         [SerializeField] private UnitPresenter[] _units;
+        [SerializeField] private DamagableTarget _enemyBase;
 
         private Dictionary<Faction, Dictionary<BattleRole, UnitPresenter>> _unitsDictionary;
         private float _baseOffsetX = 5.5f;
@@ -44,6 +45,8 @@ namespace Units
             _currentOffsetZIndex = (_currentOffsetZIndex + 1) % _baseOffsetsZ.Length;
 
             unit.gameObject.SetActive(true);
+
+            unit.UnitMovementInput.SetEnemyBase(_enemyBase);
         }   
 
         private Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)

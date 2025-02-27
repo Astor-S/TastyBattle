@@ -4,17 +4,17 @@ using UnityEngine;
 public class DamagableTarget : MonoBehaviour, IDamagable
 {
     [SerializeField] private Health _health;
-    [SerializeField] private AttackSystem _attackSystem;
-    [SerializeField] private UnitMovementInput _movementInput;
+    [SerializeField] private Collider _collider;
+    [SerializeField] private Rigidbody _rigidbody;
 
     public Health Health => _health;
 
     public event Action Died;
 
-    private void OnEnable() => 
+    private void OnEnable() =>
         _health.Died += OnDied;
 
-    private void OnDisable() => 
+    private void OnDisable() =>
         _health.Died -= OnDied;
 
     public void TakeDamage(float damage) =>
@@ -24,11 +24,9 @@ public class DamagableTarget : MonoBehaviour, IDamagable
     {
         Died?.Invoke();
 
-        GetComponent<Collider>().enabled = false;
-        GetComponent<Rigidbody>().isKinematic = true;
+        _collider.enabled = false;
+        _rigidbody.isKinematic = true;
 
-        _attackSystem.enabled = false;
-        _movementInput.enabled = false;
         enabled = false;
     }
 }

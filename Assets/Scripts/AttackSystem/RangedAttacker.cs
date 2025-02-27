@@ -44,8 +44,6 @@ public class RangedAttacker : AttackSystem
 
             if (projectileRigidbody != null)
                 projectileRigidbody.velocity = (AttackedTarget.transform.position - _projectileSpawnPoint.position).normalized * _projectileSpeed;
-            
-            Debug.Log("Выпущен снаряд в " + AttackedTarget.name);
         }        
     }
 }

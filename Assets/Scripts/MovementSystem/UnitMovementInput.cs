@@ -4,8 +4,8 @@ public class UnitMovementInput : MonoBehaviour
 {
     [SerializeField] private UnitMovementProperties _properties;
     [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] private DamagableTarget _enemyBase;
 
+    private DamagableTarget _enemyBase;
     private UnitMovementHandler _unitMovementHandler;
     private DamagableTarget _target;
 
@@ -36,5 +36,11 @@ public class UnitMovementInput : MonoBehaviour
             return _enemyBase.transform.position;
 
         return _properties.UnitTransform.position;
+    }
+
+    public void SetEnemyBase(DamagableTarget damagableTarget)
+    {
+        if (_enemyBase == null)
+            _enemyBase = damagableTarget;
     }
 }

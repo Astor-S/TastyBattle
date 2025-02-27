@@ -35,9 +35,7 @@ namespace Buildings
                 _resourceCounter.Init(wallet);
         }
 
-        private void Start()
-        {
+        private void Start() => 
             StartCoroutine(Model.Spawner.GetSpawningCoroutine());
-        }
     }
 }

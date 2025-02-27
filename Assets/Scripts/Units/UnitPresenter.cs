@@ -10,10 +10,9 @@ namespace Units
         [SerializeField] private AttackSystem _attackSystem;
         [SerializeField] private DamagableTarget _damageTarget;
 
+        public UnitMovementInput UnitMovementInput => _unitMovementInput;
         public new UnitView View => base.View as UnitView;
-
         public Faction Faction => _unitStats.Faction;
-        
         public BattleRole BattleRole => _unitStats.BattleRole;
 
         private void Start()
