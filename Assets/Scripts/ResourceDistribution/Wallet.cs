@@ -15,7 +15,6 @@ namespace ResourceDistribution
         }
 
         public event Action ResourceSpend;
-
         public event Action ResourceRecieved;
 
         public int ResourceCount => _resourceCount;

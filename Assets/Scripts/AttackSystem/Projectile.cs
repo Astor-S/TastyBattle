@@ -25,24 +25,25 @@ public class Projectile : MonoBehaviour, IDestroyable<Projectile>
         if (_hasHit)
             return;
 
-        DamagableTarget hitTarget = other.GetComponent<DamagableTarget>();
-
-        if (hitTarget == _target)
+        if (other.TryGetComponent(out DamagableTarget damagableTarget))
         {
-            _hasHit = true;
-            _target.TakeDamage(_damage);
-            Debug.Log("Снаряд попал в " + _target.name + ", нанесено " + _damage + " урона.");
+            if (damagableTarget == _target)
+            {
+                _hasHit = true;
+                _target.TakeDamage(_damage);
 
-            ReturnToPool();
+                ReturnToPool();
+            }
         }
+
     }
 
     public void Initialize(DamagableTarget target, float damage, Pool<Projectile> pool)
     {
         _target = target;
         _damage = damage;
-        _hasHit = false; 
-        _pool = pool; 
+        _hasHit = false;
+        _pool = pool;
     }
 
     private IEnumerator DelayedDestroy()
@@ -53,8 +54,8 @@ public class Projectile : MonoBehaviour, IDestroyable<Projectile>
 
     private void ReturnToPool()
     {
-        gameObject.SetActive(false); 
-        _pool.Release(this); 
+        gameObject.SetActive(false);
+        _pool.Release(this);
     }
 
     private void Destroy()

@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class HealthBarView : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
-    [SerializeField] private RectTransform _targetCanvas;
-    [SerializeField] private Transform _followedObject;
 
     private void LateUpdate()
     {

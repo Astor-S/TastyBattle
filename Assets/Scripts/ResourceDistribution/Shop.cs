@@ -4,13 +4,13 @@ using Units;
 
 namespace ResourceDistribution
 {
-    public class Shop : IActivatable
+    public class Shop : Transformable, IActivatable
     {
         private UnitFactory _unitFactory;
-        private UnitUIItem[] _unitItems;
+        private UnitOrderItem[] _unitItems;
         private Wallet _wallet;
 
-        public Shop(UnitFactory unitFactory, UnitUIItem[] unitItems, Wallet wallet)
+        public Shop(UnitFactory unitFactory, UnitOrderItem[] unitItems, Wallet wallet)
         {
             _unitFactory = unitFactory;
             _unitItems = unitItems;
@@ -19,17 +19,17 @@ namespace ResourceDistribution
 
         public void Enable()
         {
-            foreach (UnitUIItem item in _unitItems)
-                item.UnitOrdered += SpawUnit;
+            foreach (UnitOrderItem item in _unitItems)
+                item.UnitOrdered += SpawnUnit;
         }
 
         public void Disable()
         {
-            foreach (UnitUIItem item in _unitItems)
-                item.UnitOrdered -= SpawUnit;
+            foreach (UnitOrderItem item in _unitItems)
+                item.UnitOrdered -= SpawnUnit;
         }
 
-        private void SpawUnit(Faction faction, BattleRole battleRole, int cost)
+        private void SpawnUnit(Faction faction, BattleRole battleRole, int cost)
         {
             try
             {
@@ -37,8 +37,7 @@ namespace ResourceDistribution
                 _unitFactory.CreateUnit(
                     faction,
                     battleRole,
-                    _unitFactory.gameObject.layer,
-                    _unitFactory.transform.position);
+                    _unitFactory.gameObject.layer);
 
                 UnityEngine.Debug.Log($"Account balance: {_wallet.ResourceCount} (-{cost})");
             }
