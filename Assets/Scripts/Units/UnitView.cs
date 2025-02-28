@@ -1,14 +1,21 @@
 using StructureElements;
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitView : View
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private Image _healthBarView;
 
     public readonly int IsWalking = Animator.StringToHash(nameof(IsWalking));
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
     public readonly int Die = Animator.StringToHash(nameof(Die));
+
+    public void SetColor(Color color)
+    {
+        if (color != default)
+            _healthBarView.color = color;
+    }
 
     public void SetWalkingAnimation()
     {

@@ -1,4 +1,3 @@
-using Buildings;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,9 +16,8 @@ public class PlayerInput : MonoBehaviour
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue) &&
-                hit.transform.TryGetComponent(out MainBuildingView @base) &&
-                @base.gameObject.layer == LayerMask.NameToLayer(Player))
+            if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, LayerMask.GetMask(Player)) &&
+                hit.transform.TryGetComponent(out MainBuildingView @base))
             {
                 if (_isUnitMenuOpen)
                     _unitMenu.gameObject.SetActive(false);

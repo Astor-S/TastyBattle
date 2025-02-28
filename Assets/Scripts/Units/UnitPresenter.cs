@@ -18,6 +18,11 @@ namespace Units
         private void Start()
         {
             View.SetWalkingAnimation();
+
+            if (gameObject.layer == LayerMask.NameToLayer("Player"))
+                View.SetColor(Color.blue);
+            else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                View.SetColor(Color.red);
         }
 
         public void Enable()
