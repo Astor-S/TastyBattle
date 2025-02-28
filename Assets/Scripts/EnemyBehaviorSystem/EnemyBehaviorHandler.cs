@@ -27,13 +27,13 @@ namespace EnemyBehaviorSystem
             _summonerService.ExecuteFirstSummon();
 
             yield return new WaitForSeconds(_improveResourceExtractionDelay);
-            _upgradeService.ImroveResourceExtraction();
+            _upgradeService.ImproveResourceExtraction();
 
             yield return new WaitForSeconds(_summonRandomUnitDelay);
             _summonerService.SummonRandomUnit();
 
             yield return new WaitForSeconds(_improveUnitStatsDelay);
-            _upgradeService.ImroveRandomUnitStats();
+            _upgradeService.ImproveRandomUnitStats();
 
             yield return new WaitForSeconds(_mainLoopStartDelay);
             StartCoroutine(MainBehaviorLoop());
@@ -50,10 +50,10 @@ namespace EnemyBehaviorSystem
 
         private IEnumerator ExecuteEnemyTurn()
         {
-                TrySummonUnit();
+            TrySummonUnit();
 
-                yield return new WaitForSeconds(_turnDelay);
-                TryExecuteRandomImprove();
+            yield return new WaitForSeconds(_turnDelay);
+            TryExecuteRandomImprove();
         }
 
         private void TrySummonUnit()
@@ -75,13 +75,13 @@ namespace EnemyBehaviorSystem
         private void TryImroveResourceExtraction()
         {
             Debug.Log("Попытка улучшить добычу ресурсов...");
-            _upgradeService.ImroveResourceExtraction();
+            _upgradeService.ImproveResourceExtraction();
         }
 
         private void TryImroveRandomUnitStats()
         {
             Debug.Log("Попытка улучшить характеристики юнитов...");
-            _upgradeService.ImroveRandomUnitStats();
+            _upgradeService.ImproveRandomUnitStats();
         }
     }
 }

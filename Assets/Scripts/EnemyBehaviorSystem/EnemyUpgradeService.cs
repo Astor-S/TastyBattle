@@ -4,12 +4,12 @@ namespace EnemyBehaviorSystem
 {
     public class EnemyUpgradeService : MonoBehaviour
     {
-        public void ImroveResourceExtraction()
+        public void ImproveResourceExtraction()
         {
             Debug.Log("Я улучшил добычу ресурсов!");
         }
 
-        public void ImroveRandomUnitStats()
+        public void ImproveRandomUnitStats()
         {
             float improveUnitAttackChance = 0.5f;
 
