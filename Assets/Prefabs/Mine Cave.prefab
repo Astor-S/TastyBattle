@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1201126060204370015}
   - component: {fileID: 1336173123097304292}
   - component: {fileID: 8649358210169854174}
-  - component: {fileID: 6224436606119672218}
   m_Layer: 7
   m_Name: Mine Cave
   m_TagString: Untagged
@@ -136,20 +135,6 @@ Rigidbody:
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &8649358210169854174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4468753177113158800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1925d8a5b92bd094aad27be6484506da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _incomeCooldown: 3
-  _incomeValue: 20
---- !u!114 &6224436606119672218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
