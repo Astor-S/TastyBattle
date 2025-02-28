@@ -9,7 +9,7 @@ public class DetectionSystem : MonoBehaviour
 
     public IReadOnlyList<DamagableTarget> DetectedUnits => _detectedUnits;
 
-    private void Update() =>
+    private void Update() => 
         RefreshList();
 
     private void OnTriggerStay(Collider other)
@@ -29,7 +29,7 @@ public class DetectionSystem : MonoBehaviour
     private void RefreshList()
     {
         if (_detectedUnits.Count > 0)
-            if (_detectedUnits[0].isActiveAndEnabled == false)
+            if (_detectedUnits[0] == null || _detectedUnits[0].isActiveAndEnabled == false)
                 _detectedUnits.RemoveAt(0);
     }
 

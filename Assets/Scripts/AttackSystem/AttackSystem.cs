@@ -51,14 +51,14 @@ public class AttackSystem : MonoBehaviour
     private void LocateTarget()
     {
         if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0].isActiveAndEnabled)
+            if (_attackedUnits[0] != null && _attackedUnits[0].isActiveAndEnabled)
                 _attackedTarget = _attackedUnits[0];
     }
 
     private void RefreshList()
     {
         if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0].isActiveAndEnabled == false)
+            if (_attackedUnits[0] == null || _attackedUnits[0].isActiveAndEnabled == false)
                 _attackedUnits.RemoveAt(0);
     }
 

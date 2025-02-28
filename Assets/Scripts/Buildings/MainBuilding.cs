@@ -19,9 +19,7 @@ namespace Buildings
             Spawner = new Spawner(
                 layerNumber,
                 unitSpawnCooldown,
-                unitSpawnCount,
-                unitFactory,
-                position);
-        }
+                unitSpawnCount)
+
     }
 }

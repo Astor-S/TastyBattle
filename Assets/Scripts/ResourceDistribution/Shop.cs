@@ -20,16 +20,16 @@ namespace ResourceDistribution
         public void Enable()
         {
             foreach (UnitOrderItem item in _unitItems)
-                item.UnitOrdered += SpawUnit;
+                item.UnitOrdered += SpawnUnit;
         }
 
         public void Disable()
         {
             foreach (UnitOrderItem item in _unitItems)
-                item.UnitOrdered -= SpawUnit;
+                item.UnitOrdered -= SpawnUnit;
         }
 
-        private void SpawUnit(Faction faction, BattleRole battleRole, int cost)
+        private void SpawnUnit(Faction faction, BattleRole battleRole, int cost)
         {
             try
             {
@@ -37,8 +37,7 @@ namespace ResourceDistribution
                 _unitFactory.CreateUnit(
                     faction,
                     battleRole,
-                    _unitFactory.gameObject.layer,
-                    _unitFactory.transform.position);
+                    _unitFactory.gameObject.layer);
 
                 UnityEngine.Debug.Log($"Account balance: {_wallet.ResourceCount} (-{cost})");
             }
