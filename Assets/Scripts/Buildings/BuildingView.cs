@@ -8,6 +8,8 @@ public class BuildingView : View
     [SerializeField] private Image _healthBarView;
 
     public readonly int Died = Animator.StringToHash(nameof(Died));
+    public readonly int HalfHP = Animator.StringToHash(nameof(HalfHP));
+    public readonly int QuaterHP = Animator.StringToHash(nameof(QuaterHP));
 
     public void SetColor(Color color)
     {
@@ -15,8 +17,12 @@ public class BuildingView : View
             _healthBarView.color = color;
     }
 
-    internal void SetDeathAnimation()
-    {
-        _animator.SetTrigger("Died");
-    }
+    internal void SetDeathAnimation() => 
+        _animator.SetTrigger(Died);
+
+    internal void SetHalfHPAnimation() =>
+        _animator.SetTrigger(HalfHP);
+    
+    internal void SetQuaterHPAnimation() =>
+        _animator.SetTrigger(QuaterHP);
 }

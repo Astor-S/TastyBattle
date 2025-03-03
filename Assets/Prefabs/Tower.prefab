@@ -139,6 +139,7 @@ MonoBehaviour:
   _health: {fileID: 8828493788949455112}
   _collider: {fileID: 6218770325137825335}
   _rigidbody: {fileID: 6553229394649409318}
+  _behaviour: {fileID: 950199767411787301}
 --- !u!136 &6218770325137825335
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 500
+  _maxValue: 250
 --- !u!54 &6553229394649409318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 950199767411787301}
-  _view: {fileID: 9163413398835935689}
+  _buildingView: {fileID: 9163413398835935689}
 --- !u!114 &9163413398835935689
 MonoBehaviour:
   m_ObjectHideFlags: 0

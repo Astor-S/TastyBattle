@@ -4,7 +4,7 @@ public class MainBuildingView : BuildingView
 {
     [SerializeField] private Outline _outline;
 
-    private bool _isSelected = false;
+    private bool _isSelected = false;    
 
     public void ToggleSelection()
     {
@@ -13,5 +13,5 @@ public class MainBuildingView : BuildingView
 
         _isSelected = !_isSelected;
         _outline.enabled = _isSelected;
-    }
+    }    
 }

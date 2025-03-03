@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BuildingPresenter : Presenter
 {
-    [SerializeField] private DamagableTarget _damagableTarget;
-    [SerializeField] private BuildingView _view;
+    [SerializeField] protected DamagableTarget _damagableTarget;
+    [SerializeField] protected BuildingView _buildingView;
 
     private void Start() =>
         SetColorSide();
@@ -12,14 +12,14 @@ public class BuildingPresenter : Presenter
     private void SetColorSide()
     {
         if (gameObject.layer == LayerMask.NameToLayer("Player"))
-            _view.SetColor(Color.blue);
+            _buildingView.SetColor(Color.blue);
         else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            _view.SetColor(Color.red);
+            _buildingView.SetColor(Color.red);
     }
 
-    public void OnEnable() => 
-        _damagableTarget.Died += _view.SetDeathAnimation;
+    public virtual void OnEnable() => 
+        _damagableTarget.Died += _buildingView.SetDeathAnimation;
 
-    public void OnDisable() => 
-        _damagableTarget.Died -= _view.SetDeathAnimation;
+    public virtual void OnDisable() => 
+        _damagableTarget.Died -= _buildingView.SetDeathAnimation;
 }

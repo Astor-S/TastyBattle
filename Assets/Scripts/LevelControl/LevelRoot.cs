@@ -35,6 +35,7 @@ public class LevelRoot : MonoBehaviour
 
         _playerBase.Init(new MainBuilding(
             _playerBase.transform.position,
+            _playerBase.transform.rotation,
             _playerBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
@@ -42,6 +43,7 @@ public class LevelRoot : MonoBehaviour
 
         _enemyBase.Init(new MainBuilding(
             _enemyBase.transform.position,
+            _enemyBase.transform.rotation,
             _enemyBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,

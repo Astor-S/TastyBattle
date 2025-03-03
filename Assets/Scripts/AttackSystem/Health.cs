@@ -14,6 +14,8 @@ public class Health : MonoBehaviour
 
     public event Action<float, float> ValueChanged;
     public event Action Died;
+    public event Action HalfHP;
+    public event Action QuaterHP;
 
     public float Value { get; private set; }
     public float MaxValue => _maxValue;
@@ -42,6 +44,11 @@ public class Health : MonoBehaviour
     {
         Value = value;
         ValueChanged?.Invoke(value, _maxValue);
+
+        if (MaxValue / 4 >= Value)
+            QuaterHP?.Invoke();
+        else if (MaxValue / 2 >= Value)
+            HalfHP?.Invoke();
     }
 
     private IEnumerator ApplyDeath()
