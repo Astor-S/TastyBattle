@@ -1,7 +1,6 @@
-using StructureElements;
 using UnityEngine;
 
-public class MainBuildingView : View
+public class MainBuildingView : BuildingView
 {
     [SerializeField] private Outline _outline;
 

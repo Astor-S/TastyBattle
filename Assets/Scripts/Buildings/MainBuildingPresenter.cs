@@ -1,13 +1,11 @@
-using StructureElements;
-
 namespace Buildings
 {
-    public class MainBuildingPresenter : Presenter
+    public class MainBuildingPresenter : BuildingPresenter
     {
         public new MainBuilding Model => base.Model as MainBuilding;
 
-        private void Start()
-        {
+        private void Awake()
+        {            
             StartCoroutine(Model.Spawner.GetSpawningCoroutine());
         }
     }

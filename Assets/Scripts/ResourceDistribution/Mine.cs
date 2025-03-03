@@ -18,7 +18,7 @@ public class Mine : MonoBehaviour, IIncomeSource
 
     private IEnumerator GetIncome()
     {
-        WaitForSeconds cooldownWaitng = new WaitForSeconds(_incomeCooldown);
+        WaitForSeconds cooldownWaitng = new(_incomeCooldown);
 
         while (_isMining)
         {

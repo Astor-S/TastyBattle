@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 8828493788949455112}
   - component: {fileID: 6553229394649409318}
   - component: {fileID: 8562874321457309904}
+  - component: {fileID: 5921395158774871649}
+  - component: {fileID: 9163413398835935689}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
@@ -216,6 +218,34 @@ MonoBehaviour:
   _attackSystem: {fileID: 183764303332692937}
   _movementInput: {fileID: 6734889528331613632}
   _detectionSystem: {fileID: 7212480549341496934}
+--- !u!114 &5921395158774871649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740381246540268478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6d2d50474801b46a86b691f53e216b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagableTarget: {fileID: 950199767411787301}
+  _view: {fileID: 9163413398835935689}
+--- !u!114 &9163413398835935689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740381246540268478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a10433ca5b0d24898505927fde9dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6800714758958136244}
+  _healthBarView: {fileID: 5927965997387014659}
 --- !u!1 &1740483309384054462
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1742110071903007914}
+  - component: {fileID: 6800714758958136244}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -249,6 +280,27 @@ Transform:
   - {fileID: 1741817573148271048}
   m_Father: {fileID: 1743706927922645982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6800714758958136244
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740483309384054462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93c4377691a11b14ea78bc54e75f7d66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1740497206643755786
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +312,7 @@ GameObject:
   - component: {fileID: 1742186424351383662}
   - component: {fileID: 1753321111035779104}
   - component: {fileID: 1761021706071645998}
+  - component: {fileID: 1787818318394305359}
   m_Layer: 0
   m_Name: HM_cannon1
   m_TagString: Untagged
@@ -332,6 +385,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1787818318394305359
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740497206643755786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb410ca5f5ceb66418a1c6e29a9d5c5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2052325166692701178
 GameObject:
   m_ObjectHideFlags: 0
