@@ -6,6 +6,7 @@ public class BuildingView : View
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private Image _healthBarView;
+    [SerializeField] protected ParticleSystem _particleSystem;
 
     public readonly int Died = Animator.StringToHash(nameof(Died));
     public readonly int HalfHP = Animator.StringToHash(nameof(HalfHP));
@@ -17,12 +18,21 @@ public class BuildingView : View
             _healthBarView.color = color;
     }
 
-    internal void SetDeathAnimation() => 
+    internal void SetDeathAnimation()
+    {
         _animator.SetTrigger(Died);
+        _particleSystem.Play();
+    }
 
-    internal void SetHalfHPAnimation() =>
+    internal void SetHalfHPAnimation()
+    {
         _animator.SetTrigger(HalfHP);
-    
-    internal void SetQuaterHPAnimation() =>
+        _particleSystem.Play();
+    }
+
+    internal void SetQuaterHPAnimation()
+    {
         _animator.SetTrigger(QuaterHP);
+        _particleSystem.Play();
+    }
 }

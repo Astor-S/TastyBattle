@@ -27,7 +27,7 @@ public class DamagableTarget : MonoBehaviour, IDamagable
         _health.QuaterHP -= OnQuaterHP;
     }
 
-    private void OnQuaterHP() => 
+    private void OnQuaterHP() =>
         QuaterHP?.Invoke();
 
     private void OnHalfHP() =>
