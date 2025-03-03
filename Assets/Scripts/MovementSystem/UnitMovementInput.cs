@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class UnitMovementInput : MonoBehaviour
 {
+    [SerializeField] private UnitStats _stats;
     [SerializeField] private UnitMovementProperties _properties;
     [SerializeField] private DetectionSystem _detectionSystem;
 
@@ -10,7 +11,7 @@ public class UnitMovementInput : MonoBehaviour
     private DamagableTarget _target;
 
     private void Start() => 
-        _unitMovementHandler = new UnitMovementHandler(_properties);
+        _unitMovementHandler = new UnitMovementHandler(_stats);
 
     private void Update()
     {

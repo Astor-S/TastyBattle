@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d97d25dfc8ab744adcd6661b982b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stats: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
   _properties: {fileID: 6430268124817500957}
   _detectionSystem: {fileID: 2415558512083814679}
 --- !u!114 &6430268124817500957
@@ -573,8 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitTransform: {fileID: 1128719628983007100}
-  _speed: 2
-  _approachDistance: 7
+  _unitStats: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
 --- !u!1 &3460552071831249313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,11 +1521,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a60e0cac0a381440a387a5b2a798fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
-  _frequency: 0.2
   _detectionSystem: {fileID: 2415558512083814679}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 8538162855018470003}
+  _unitStats: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
   _projectileSpeed: 12
 --- !u!1001 &5184960325599985732
 PrefabInstance:

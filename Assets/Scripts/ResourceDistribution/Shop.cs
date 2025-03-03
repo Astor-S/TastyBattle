@@ -21,12 +21,16 @@ namespace ResourceDistribution
         {
             foreach (UnitOrderItem item in _unitItems)
                 item.UnitOrdered += SpawnUnit;
+
+            _wallet.Enable();
         }
 
         public void Disable()
         {
             foreach (UnitOrderItem item in _unitItems)
                 item.UnitOrdered -= SpawnUnit;
+
+            _wallet.Disable();
         }
 
         private void SpawnUnit(Faction faction, BattleRole battleRole, int cost)

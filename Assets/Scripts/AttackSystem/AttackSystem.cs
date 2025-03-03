@@ -1,13 +1,13 @@
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
 {
-    [SerializeField] private float _damage;
-    [SerializeField] private float _frequency;
+    private readonly UnitStats _unitStats;
+
     [SerializeField] private DetectionSystem _detectionSystem;
 
     private List<DamagableTarget> _attackedUnits = new();
@@ -19,8 +19,6 @@ public class AttackSystem : MonoBehaviour
     public event Action AttackStopped;
 
     public DamagableTarget AttackedTarget => _attackedTarget;
-    protected float Damage => _damage;
-    protected float Frequency => _frequency;
 
     private void Awake() =>
         _waitForFixedUpdate = new WaitForFixedUpdate();
@@ -66,8 +64,8 @@ public class AttackSystem : MonoBehaviour
     {
         if (_attackedTarget != null)
         {
-            _attackedTarget.TakeDamage(_damage);
-            Debug.Log("Нанесено " + _damage + " урона " + _attackedTarget.name);
+            _attackedTarget.TakeDamage(_unitStats.AttackDamage);
+            Debug.Log("Нанесено " + _unitStats.AttackDamage + " урона " + _attackedTarget.name);
         }
     }
 
@@ -83,7 +81,7 @@ public class AttackSystem : MonoBehaviour
 
                     _attackTimer += Time.deltaTime;
 
-                    if (_attackTimer >= _frequency)
+                    if (_attackTimer >= _unitStats.AttackFrequency)
                     {
                         Hit();
 
