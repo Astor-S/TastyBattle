@@ -1034,7 +1034,7 @@ Transform:
   m_GameObject: {fileID: 5990312453812153083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.371, y: 0.00000011920929, z: 3.482}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1105,8 +1105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
   _unitMovementInput: {fileID: 8375276280568036087}
-  _unitStats: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
   _attackSystem: {fileID: 200770116126294712}
   _damageTarget: {fileID: 5717136829546381060}
 --- !u!114 &3674313009644066919
@@ -1121,7 +1121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 30
 --- !u!114 &5717136829546381060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,9 +1520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a60e0cac0a381440a387a5b2a798fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
-  _frequency: 0.2
   _detectionSystem: {fileID: 2415558512083814679}
+  _health: {fileID: 3674313009644066919}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 8538162855018470003}
   _projectileSpeed: 12

@@ -13,14 +13,16 @@ namespace Buildings
             int layerNumber,
             float unitSpawnCooldown,
             int unitSpawnCount,
-            UnitFactory unitFactory)
+            UnitFactory unitFactory,
+            UnitSetup[] unitSetups)
             : base(position)
         {
             Spawner = new Spawner(
                 layerNumber,
                 unitSpawnCooldown,
                 unitSpawnCount,
-                unitFactory);
+                unitFactory,
+                unitSetups);
         }
     }
 }

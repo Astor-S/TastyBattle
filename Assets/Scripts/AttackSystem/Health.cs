@@ -6,24 +6,21 @@ public class Health : MonoBehaviour
 {
     private const float MinValue = 0;
 
-    [SerializeField] private float _maxValue;
-
+    private UnitSetup _stats;
     private float _deathTime = 1.5f;
-    private WaitForSeconds _sleepTime;
     private Coroutine _coroutine;
 
     public event Action<float, float> ValueChanged;
     public event Action Died;
 
     public float Value { get; private set; }
-    public float MaxValue => _maxValue;
+    public float MaxValue => _stats.MaxHealthPoints;
     public bool IsAlive => Value > 0;
 
-    private void Start()
+    public void Init(UnitSetup unitSetup)
     {
-        _sleepTime = new WaitForSeconds(_deathTime);
-
-        Value = MaxValue;
+        _stats = unitSetup;
+        Value = unitSetup.MaxHealthPoints;
     }
 
     public void Reduce(float damage)
@@ -41,14 +38,14 @@ public class Health : MonoBehaviour
     private void UpdateValue(float value)
     {
         Value = value;
-        ValueChanged?.Invoke(value, _maxValue);
+        ValueChanged?.Invoke(value, MaxValue);
     }
 
     private IEnumerator ApplyDeath()
     {
         Died?.Invoke();
 
-        yield return _sleepTime;
+        yield return new WaitForSeconds(_deathTime);
 
         Destroy(gameObject);
     }

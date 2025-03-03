@@ -15,26 +15,27 @@ namespace Units
         private int _maxSpawnPositionZ = 5;
         private int _previousSpawnPosition = 0;
 
-        private void OnValidate()
+        private void Awake()
         {
             _unitsDictionary = new();
 
             foreach (UnitPresenter unit in _units)
             {
-                if (_unitsDictionary.ContainsKey(unit.Faction) == false)
-                    _unitsDictionary.Add(unit.Faction, new Dictionary<BattleRole, UnitPresenter>());
+                if (_unitsDictionary.ContainsKey(unit.UnitSetup.Faction) == false)
+                    _unitsDictionary.Add(unit.UnitSetup.Faction, new Dictionary<BattleRole, UnitPresenter>());
 
-                _unitsDictionary[unit.Faction].Add(unit.BattleRole, unit);
+                _unitsDictionary[unit.UnitSetup.Faction].Add(unit.UnitSetup.BattleRole, unit);
             }
         }
 
-        public void CreateUnit(
-            Faction faction,
-            BattleRole battleRole,
-            int layerNumber)
+        public void CreateUnit(UnitSetup setup, int layerNumber)
         {
-            UnitPresenter unit = CreatePresenter(_unitsDictionary[faction][battleRole], null) as UnitPresenter;
-            unit.gameObject.layer = layerNumber; //мейби и не нужен
+            UnitPresenter unit = CreatePresenter(
+                _unitsDictionary[setup.Faction][setup.BattleRole],
+                new Unit(setup))
+                as UnitPresenter;
+
+            unit.gameObject.layer = layerNumber;
 
             int randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
 

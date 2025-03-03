@@ -1,20 +1,22 @@
 using Buildings;
 using ResourceDistribution;
+using System.Linq;
 using Units;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelRoot : MonoBehaviour
 {
     [Header("Player's fields")]
     [SerializeField] private Mine _playerMine;
     [SerializeField] private MainBuildingPresenter _playerBase;
-    [SerializeField] private UnitOrderItem[] _playerUnitOrderItems;
+    [SerializeField] private LayoutGroup _playerOrderItems;
     [SerializeField] private ShopPresenter _playerShop;
     [SerializeField] private UnitFactory _playerUnitFactory;
     [Header("Enemy's fields")]
     [SerializeField] private Mine _enemyMine;
     [SerializeField] private MainBuildingPresenter _enemyBase;
-    [SerializeField] private UnitOrderItem[] _enemyUnitOrderItems;
+    [SerializeField] private LayoutGroup _enemyOrderItems;
     [SerializeField] private ShopPresenter _enemyShop;
     [SerializeField] private UnitFactory _enemyUnitFactory;
     [Header("General fields")]
@@ -30,21 +32,40 @@ public class LevelRoot : MonoBehaviour
 
         Wallet enemyWallet = new Wallet(300, _enemyMine);
 
-        _playerShop.Init(new Shop(_playerUnitFactory, _playerUnitOrderItems, playerWallet));
-        _enemyShop.Init(new Shop(_enemyUnitFactory, _enemyUnitOrderItems, enemyWallet));
+        UnitOrderHandler[] playerUnitOrderHandlers = _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
+        UnitSetup[] playerUnitSetups = playerUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
+
+        UnitOrderHandler[] enemyUnitOrderHandlers = _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
+        UnitSetup[] enemyUnitSetups = enemyUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
+
+        _playerShop.Init(new Shop(
+            _playerUnitFactory,
+            _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
+            _playerOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
+            new UpgradeHandler(playerUnitSetups),
+            playerWallet));
+
+        _enemyShop.Init(new Shop(
+            _enemyUnitFactory,
+            _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
+            _enemyOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
+            new UpgradeHandler(enemyUnitSetups),
+            enemyWallet));
 
         _playerBase.Init(new MainBuilding(
             _playerBase.transform.position,
             _playerBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
-            _playerUnitFactory));
+            _playerUnitFactory,
+            playerUnitSetups));
 
         _enemyBase.Init(new MainBuilding(
             _enemyBase.transform.position,
             _enemyBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
-            _enemyUnitFactory));
+            _enemyUnitFactory,
+            enemyUnitSetups));
     }
 }

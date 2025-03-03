@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
 {
-    [SerializeField] private float _damage;
-    [SerializeField] private float _frequency;
     [SerializeField] private DetectionSystem _detectionSystem;
+    [SerializeField] private Health _health;
 
+    private UnitSetup _stats;
     private List<DamagableTarget> _attackedUnits = new();
-    private WaitForFixedUpdate _waitForFixedUpdate;
     private DamagableTarget _attackedTarget;
     private float _attackTimer;
 
@@ -19,11 +18,8 @@ public class AttackSystem : MonoBehaviour
     public event Action AttackStopped;
 
     public DamagableTarget AttackedTarget => _attackedTarget;
-    protected float Damage => _damage;
-    protected float Frequency => _frequency;
-
-    private void Awake() =>
-        _waitForFixedUpdate = new WaitForFixedUpdate();
+    protected float Damage => _stats.AttackDamage;
+    protected float AttackSpeed => _stats.AttackSpeed;
 
     private void Start() =>
         StartCoroutine(nameof(Combat));
@@ -32,6 +28,52 @@ public class AttackSystem : MonoBehaviour
     {
         LocateTarget();
         RefreshList();
+    }
+
+    public void Init(UnitSetup unitSetup)
+    {
+        _stats = unitSetup;
+        _health.Init(unitSetup);
+    }
+
+    protected virtual void Hit()
+    {
+        if (_attackedTarget != null)
+        {
+            _attackedTarget.TakeDamage(Damage);
+            Debug.Log("Нанесено " + Damage + " урона " + _attackedTarget.name);
+        }
+    }
+
+    protected virtual IEnumerator Combat()
+    {
+        WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+
+        while (enabled)
+        {
+            if (_attackedUnits.Count > 0)
+            {
+                if (_attackedTarget != null)
+                {
+                    AttackStarted?.Invoke();
+
+                    _attackTimer += Time.deltaTime;
+
+                    if (_attackTimer >= AttackSpeed)
+                    {
+                        Hit();
+
+                        _attackTimer = 0f;
+                    }
+                }
+            }
+            else
+            {
+                AttackStopped?.Invoke();
+            }
+
+            yield return waitForFixedUpdate;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -60,43 +102,5 @@ public class AttackSystem : MonoBehaviour
         if (_attackedUnits.Count > 0)
             if (_attackedUnits[0] == null || _attackedUnits[0].isActiveAndEnabled == false)
                 _attackedUnits.RemoveAt(0);
-    }
-
-    protected virtual void Hit()
-    {
-        if (_attackedTarget != null)
-        {
-            _attackedTarget.TakeDamage(_damage);
-            Debug.Log("Нанесено " + _damage + " урона " + _attackedTarget.name);
-        }
-    }
-
-    protected virtual IEnumerator Combat()
-    {
-        while (enabled)
-        {
-            if (_attackedUnits.Count > 0)
-            {
-                if (_attackedTarget != null)
-                {
-                    AttackStarted?.Invoke();
-
-                    _attackTimer += Time.deltaTime;
-
-                    if (_attackTimer >= _frequency)
-                    {
-                        Hit();
-
-                        _attackTimer = 0f;
-                    }
-                }
-            }
-            else
-            {
-                AttackStopped?.Invoke();
-            }
-
-            yield return _waitForFixedUpdate;
-        }
     }
 }
