@@ -16,7 +16,7 @@ namespace Buildings
             int unitSpawnCount,
             UnitFactory unitFactory,
             UnitSetup[] unitSetups)
-            : base(position)
+            : base(position, rotation)
         {
             Spawner = new Spawner(
                 layerNumber,

@@ -39,10 +39,7 @@ public class AttackSystem : MonoBehaviour
     protected virtual void Hit()
     {
         if (_attackedTarget != null)
-        {
             _attackedTarget.TakeDamage(Damage);
-            Debug.Log("�������� " + Damage + " ����� " + _attackedTarget.name);
-        }
     }
 
     protected virtual IEnumerator Combat()
@@ -102,43 +99,5 @@ public class AttackSystem : MonoBehaviour
         if (_attackedUnits.Count > 0)
             if (_attackedUnits[0] == null || _attackedUnits[0].isActiveAndEnabled == false)
                 _attackedUnits.RemoveAt(0);
-    }
-
-    protected virtual void Hit()
-    {
-        if (_attackedTarget != null)
-        {
-            _attackedTarget.TakeDamage(_unitStats.AttackDamage);
-            Debug.Log("�������� " + _unitStats.AttackDamage + " ����� " + _attackedTarget.name);
-        }
-    }
-
-    protected virtual IEnumerator Combat()
-    {
-        while (enabled)
-        {
-            if (_attackedUnits.Count > 0)
-            {
-                if (_attackedTarget != null)
-                {
-                    AttackStarted?.Invoke();
-
-                    _attackTimer += Time.deltaTime;
-
-                    if (_attackTimer >= _unitStats.AttackFrequency)
-                    {
-                        Hit();
-
-                        _attackTimer = 0f;
-                    }
-                }
-            }
-            else
-            {
-                AttackStopped?.Invoke();
-            }
-
-            yield return _waitForFixedUpdate;
-        }
     }
 }

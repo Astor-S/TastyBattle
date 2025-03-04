@@ -2189,17 +2189,6 @@ PrefabInstance:
       addedObject: {fileID: 900300308}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
---- !u!114 &1539682586 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1823672781230203631, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
-  m_PrefabInstance: {fileID: 1539682585}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1539682587 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6273992661549082651, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
@@ -3029,14 +3018,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMine: {fileID: 1914428688}
   _playerBase: {fileID: 1071574275674804418}
-  _playerOrderItems: {fileID: 1611503229}
+  _playerOrderItems: {fileID: 0}
   _playerShop: {fileID: 1795577416}
   _playerUnitFactory: {fileID: 1071574275674804420}
+  _playerTowers: []
   _enemyMine: {fileID: 991592106}
   _enemyBase: {fileID: 1539682588}
-  _enemyOrderItems: {fileID: 1539682586}
+  _enemyOrderItems: {fileID: 0}
   _enemyShop: {fileID: 1539682589}
   _enemyUnitFactory: {fileID: 1539682587}
+  _enemyTowers: []
   _defaultUnitSpawnCooldown: 5
   _defaultUnitSpawnCount: 5
   _playerResourceCounter: {fileID: 668812359}
@@ -3389,6 +3380,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 248485117725909524, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
+      propertyPath: _damagableTarget
+      value: 
+      objectReference: {fileID: 1071574275674804422}
     - target: {fileID: 501630445833861862, guid: b9a463d8af7474245a068bc82e2248d1, type: 3}
       propertyPath: m_Name
       value: PlayerBase

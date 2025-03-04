@@ -9,8 +9,8 @@ public class Health : MonoBehaviour
     private const float Half = 2;
 
     private UnitSetup _stats;
-    private float _deathTime = 1.5f;
     private Coroutine _coroutine;
+    private float _deathTime = 1.5f;
     private bool _isHalfHP = false;
     private bool _isQuaterHP = false;
 
@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     public event Action QuaterHP;
 
     public float Value { get; private set; }
-    public float MaxValue => _maxValue;
+    public float MaxValue => _stats.MaxHealthPoints;
     public bool IsAlive => Value > MinValue;
 
     public void Init(UnitSetup unitSetup)
@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
     private void UpdateValue(float value)
     {
         Value = value;
-        ValueChanged?.Invoke(value, _maxValue);
+        ValueChanged?.Invoke(value, MaxValue);
 
         if (MaxValue / Quater >= Value && !_isQuaterHP)
         {

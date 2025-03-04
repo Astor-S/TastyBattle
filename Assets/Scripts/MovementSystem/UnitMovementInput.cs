@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UnitMovementInput : MonoBehaviour
 {
-    [SerializeField] private UnitStats _stats;
+    [SerializeField] private UnitSetup _stats;
     [SerializeField] private UnitMovementProperties _properties;
     [SerializeField] private DetectionSystem _detectionSystem;
 

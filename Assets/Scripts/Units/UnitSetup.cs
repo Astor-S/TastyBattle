@@ -11,6 +11,7 @@ public class UnitSetup : ScriptableObject
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _maxHealthPoints;
     [SerializeField] private float _speed;
+    [SerializeField] private float _approachDistance;
 
     private Faction _originalFaction;
     private BattleRole _originalBattleRole;
@@ -18,6 +19,7 @@ public class UnitSetup : ScriptableObject
     private float _originalAttackSpeed;
     private float _originalMaxHealthPoints;
     private float _originalSpeed;
+    private float _originalApproachDistance;
 
     public event Action MaxHealthIncreased;
 
@@ -27,6 +29,7 @@ public class UnitSetup : ScriptableObject
     public float AttackDamage => _attackDamage;
     public float MaxHealthPoints => _maxHealthPoints;
     public float Speed => _speed;
+    public float ApproachDistance => _approachDistance;
 
     private void OnValidate()
     {
@@ -36,6 +39,7 @@ public class UnitSetup : ScriptableObject
         _originalAttackSpeed = _attackSpeed;
         _originalMaxHealthPoints = _maxHealthPoints;
         _originalSpeed = _speed;
+        _originalApproachDistance = _approachDistance;
     }
 
     private void OnEnable()
@@ -56,6 +60,7 @@ public class UnitSetup : ScriptableObject
         _attackSpeed = _originalAttackSpeed;
         _maxHealthPoints = _originalMaxHealthPoints;
         _speed = _originalSpeed;
+        _approachDistance = _originalApproachDistance;
     }
 
     public void IncreaseDamage(float damageBoostPortion)

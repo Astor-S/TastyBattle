@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class UnitMovementHandler : IMovement
 {
-    private readonly UnitStats _stats;
+    private readonly UnitSetup _stats;
     private readonly Transform _unit;
 
-    public UnitMovementHandler(UnitStats stats, UnitMovementProperties properties)
+    public UnitMovementHandler(UnitSetup stats, UnitMovementProperties properties)
     {
         _stats = stats;
         _unit = properties.UnitTransform;

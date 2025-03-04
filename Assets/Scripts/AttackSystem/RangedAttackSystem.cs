@@ -38,7 +38,7 @@ public class RangedAttackSystem : AttackSystem
             projectile.transform.position = _projectileSpawnPoint.position;
             projectile.transform.rotation = _projectileSpawnPoint.rotation; 
 
-            projectile.Initialize(AttackedTarget, _unitStats.AttackDamage, _projectilePool); 
+            projectile.Initialize(AttackedTarget, Damage, _projectilePool); 
 
             Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
 

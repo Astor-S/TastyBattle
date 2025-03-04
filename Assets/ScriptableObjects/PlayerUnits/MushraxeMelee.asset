@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
-  m_Name: WatermellonRange
+  m_Name: MushraxeMelee
   m_EditorClassIdentifier: 
-  _faction: 0
-  _battleRole: 1
-  _attackDamage: 2
-  _attackFrequency: 0.2
-  _speed: 2
-  _approachDistance: 7
+  _faction: 2
+  _battleRole: 0
+  _attackDamage: 0.25
+  _attackSpeed: 0.05
+  _maxHealthPoints: 30
+  _speed: 3
+  _approachDistance: 1
