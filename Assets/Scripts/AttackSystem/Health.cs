@@ -8,10 +8,8 @@ public class Health : MonoBehaviour
     private const float Quater = 4;
     private const float Half = 2;
 
-    [SerializeField] private float _maxValue;
-
+    private UnitSetup _stats;
     private float _deathTime = 1.5f;
-    private WaitForSeconds _sleepTime;
     private Coroutine _coroutine;
     private bool _isHalfHP = false;
     private bool _isQuaterHP = false;
@@ -25,11 +23,10 @@ public class Health : MonoBehaviour
     public float MaxValue => _maxValue;
     public bool IsAlive => Value > MinValue;
 
-    private void Start()
+    public void Init(UnitSetup unitSetup)
     {
-        _sleepTime = new WaitForSeconds(_deathTime);
-
-        Value = MaxValue;
+        _stats = unitSetup;
+        Value = unitSetup.MaxHealthPoints;
     }
 
     public void Reduce(float damage)
@@ -59,13 +56,15 @@ public class Health : MonoBehaviour
             _isHalfHP = true;
             HalfHP?.Invoke();
         }
+        
+        ValueChanged?.Invoke(value, MaxValue);
     }
 
     private IEnumerator ApplyDeath()
     {
         Died?.Invoke();
 
-        yield return _sleepTime;
+        yield return new WaitForSeconds(_deathTime);
 
         Destroy(gameObject);
     }

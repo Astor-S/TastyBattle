@@ -7,10 +7,10 @@ using System.Linq;
 public class AttackSystem : MonoBehaviour
 {
     [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] protected  UnitStats _unitStats;
+    [SerializeField] private Health _health;
 
+    private UnitSetup _stats;
     private List<DamagableTarget> _attackedUnits = new();
-    private WaitForFixedUpdate _waitForFixedUpdate;
     private DamagableTarget _attackedTarget;
     private float _attackTimer;
 
@@ -18,9 +18,8 @@ public class AttackSystem : MonoBehaviour
     public event Action AttackStopped;
 
     public DamagableTarget AttackedTarget => _attackedTarget;
-
-    private void Awake() =>
-        _waitForFixedUpdate = new WaitForFixedUpdate();
+    protected float Damage => _stats.AttackDamage;
+    protected float AttackSpeed => _stats.AttackSpeed;
 
     private void Start() =>
         StartCoroutine(nameof(Combat));
@@ -29,6 +28,52 @@ public class AttackSystem : MonoBehaviour
     {
         LocateTarget();
         RefreshList();
+    }
+
+    public void Init(UnitSetup unitSetup)
+    {
+        _stats = unitSetup;
+        _health.Init(unitSetup);
+    }
+
+    protected virtual void Hit()
+    {
+        if (_attackedTarget != null)
+        {
+            _attackedTarget.TakeDamage(Damage);
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + Damage + " пїЅпїЅпїЅпїЅпїЅ " + _attackedTarget.name);
+        }
+    }
+
+    protected virtual IEnumerator Combat()
+    {
+        WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+
+        while (enabled)
+        {
+            if (_attackedUnits.Count > 0)
+            {
+                if (_attackedTarget != null)
+                {
+                    AttackStarted?.Invoke();
+
+                    _attackTimer += Time.deltaTime;
+
+                    if (_attackTimer >= AttackSpeed)
+                    {
+                        Hit();
+
+                        _attackTimer = 0f;
+                    }
+                }
+            }
+            else
+            {
+                AttackStopped?.Invoke();
+            }
+
+            yield return waitForFixedUpdate;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -64,7 +109,7 @@ public class AttackSystem : MonoBehaviour
         if (_attackedTarget != null)
         {
             _attackedTarget.TakeDamage(_unitStats.AttackDamage);
-            Debug.Log("Нанесено " + _unitStats.AttackDamage + " урона " + _attackedTarget.name);
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + _unitStats.AttackDamage + " пїЅпїЅпїЅпїЅпїЅ " + _attackedTarget.name);
         }
     }
 
