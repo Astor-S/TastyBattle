@@ -19,6 +19,11 @@ namespace Units
         {
             View.SetWalkingAnimation();
 
+            SetColorSide();
+        }
+
+        private void SetColorSide()
+        {
             if (gameObject.layer == LayerMask.NameToLayer("Player"))
                 View.SetColor(Color.blue);
             else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
