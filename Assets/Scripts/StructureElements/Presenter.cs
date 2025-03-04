@@ -10,7 +10,6 @@ namespace StructureElements
         private IActivatable _activatable = null;
 
         public Transformable Model => _model;
-
         public View View => _view;
 
         private void Update()

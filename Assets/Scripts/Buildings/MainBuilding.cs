@@ -10,11 +10,12 @@ namespace Buildings
 
         public MainBuilding(
             Vector3 position,
+            Quaternion rotation,
             int layerNumber,
             float unitSpawnCooldown,
             int unitSpawnCount,
             UnitFactory unitFactory)
-            : base(position)
+            : base(position, rotation)
         {
             Spawner = new Spawner(
                 layerNumber,

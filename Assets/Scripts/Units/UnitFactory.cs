@@ -15,7 +15,7 @@ namespace Units
         private int _maxSpawnPositionZ = 5;
         private int _previousSpawnPosition = 0;
 
-        private void OnValidate()
+        private void Awake()
         {
             _unitsDictionary = new();
 
