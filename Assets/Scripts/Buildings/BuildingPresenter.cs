@@ -1,25 +1,26 @@
 using StructureElements;
 using UnityEngine;
 
-public class BuildingPresenter : Presenter
+public class BuildingPresenter : Presenter, IActivatable
 {
     [SerializeField] protected DamagableTarget _damagableTarget;
-    [SerializeField] protected BuildingView _buildingView;
+
+    public new BuildingView View => base.View as BuildingView;
 
     private void Start() =>
         SetColorSide();
 
+    public virtual void Enable() => 
+        _damagableTarget.Died += View.SetDeathAnimation;
+
+    public virtual void Disable() => 
+        _damagableTarget.Died -= View.SetDeathAnimation;
+
     private void SetColorSide()
     {
         if (gameObject.layer == LayerMask.NameToLayer("Player"))
-            _buildingView.SetColor(Color.blue);
+            View.SetColor(Color.blue);
         else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            _buildingView.SetColor(Color.red);
+            View.SetColor(Color.red);
     }
-
-    public virtual void OnEnable() => 
-        _damagableTarget.Died += _buildingView.SetDeathAnimation;
-
-    public virtual void OnDisable() => 
-        _damagableTarget.Died -= _buildingView.SetDeathAnimation;
 }

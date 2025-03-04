@@ -4,25 +4,23 @@ namespace Buildings
     {
         public new MainBuilding Model => base.Model as MainBuilding;
 
-        private void Awake()
-        {
+        private void Awake() =>
             StartCoroutine(Model.Spawner.GetSpawningCoroutine());
+
+        public override void Enable()
+        {
+            base.Enable();
+
+            _damagableTarget.HalfHP += View.SetHalfHPAnimation;
+            _damagableTarget.QuaterHP += View.SetQuaterHPAnimation;
         }
 
-        public override void OnEnable()
+        public override void Disable()
         {
-            base.OnEnable();
+            base.Disable();
 
-            _damagableTarget.HalfHP += _buildingView.SetHalfHPAnimation;
-            _damagableTarget.QuaterHP += _buildingView.SetQuaterHPAnimation;
-        }
-
-        public override void OnDisable()
-        {
-            base.OnDisable();
-
-            _damagableTarget.HalfHP -= _buildingView.SetHalfHPAnimation;
-            _damagableTarget.QuaterHP -= _buildingView.SetQuaterHPAnimation;
+            _damagableTarget.HalfHP -= View.SetHalfHPAnimation;
+            _damagableTarget.QuaterHP -= View.SetQuaterHPAnimation;
         }
     }
 }
