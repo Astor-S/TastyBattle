@@ -1,5 +1,5 @@
-using Units;
 using UnityEngine;
+using Units;
 
 [CreateAssetMenu(fileName="Unit", menuName="Unit", order=51)]
 public class UnitStats : ScriptableObject

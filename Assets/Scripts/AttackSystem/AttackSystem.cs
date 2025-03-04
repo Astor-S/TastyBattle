@@ -6,9 +6,8 @@ using System.Linq;
 
 public class AttackSystem : MonoBehaviour
 {
-    private readonly UnitStats _unitStats;
-
     [SerializeField] private DetectionSystem _detectionSystem;
+    [SerializeField] protected  UnitStats _unitStats;
 
     private List<DamagableTarget> _attackedUnits = new();
     private WaitForFixedUpdate _waitForFixedUpdate;

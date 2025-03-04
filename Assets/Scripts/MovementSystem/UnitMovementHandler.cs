@@ -3,13 +3,12 @@ using UnityEngine;
 public class UnitMovementHandler : IMovement
 {
     private readonly UnitStats _stats;
-    private readonly UnitMovementProperties _properties;
     private readonly Transform _unit;
 
-    public UnitMovementHandler(UnitStats stats)
+    public UnitMovementHandler(UnitStats stats, UnitMovementProperties properties)
     {
         _stats = stats;
-        _unit = _properties.UnitTransform;
+        _unit = properties.UnitTransform;
     }
 
     public void Move(Vector3 target)

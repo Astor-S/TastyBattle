@@ -11,7 +11,7 @@ public class UnitMovementInput : MonoBehaviour
     private DamagableTarget _target;
 
     private void Start() => 
-        _unitMovementHandler = new UnitMovementHandler(_stats);
+        _unitMovementHandler = new UnitMovementHandler(_stats, _properties);
 
     private void Update()
     {

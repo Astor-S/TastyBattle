@@ -4,7 +4,6 @@ public class RangedAttackSystem : AttackSystem
 {
     [SerializeField] private Projectile _projectilePrefab;  
     [SerializeField] private Transform _projectileSpawnPoint;
-    [SerializeField] private UnitStats _unitStats;
     [SerializeField] private float _projectileSpeed = 10f;
 
     private Pool<Projectile> _projectilePool;
