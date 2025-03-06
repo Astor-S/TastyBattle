@@ -7,7 +7,7 @@ public class BuildingPresenter : Presenter, IActivatable
 
     public new BuildingView View => base.View as BuildingView;
 
-    private void Start() =>
+    private void Start() => 
         SetColorSide();
 
     public virtual void Enable() => 

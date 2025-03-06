@@ -19,7 +19,6 @@ namespace Units
 
         private void Start()
         {
-            _attackSystem.Init(_unitSetup);
             View.SetWalkingAnimation();
 
             SetColorSide();
