@@ -8,11 +8,13 @@ namespace Units
         [SerializeField] private UnitSetup _unitSetup;
         [SerializeField] private UnitMovementInput _unitMovementInput;
         [SerializeField] private AttackSystem _attackSystem;
+        [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
 
         public new Unit Model => base.Model as Unit;
         public new UnitView View => base.View as UnitView;
         public UnitMovementInput UnitMovementInput => _unitMovementInput;
+        public DetectionSystem DetectionSystem => _detectionSystem;
         public UnitSetup UnitSetup => _unitSetup;
         public Faction Faction => Model.Faction;
         public BattleRole BattleRole => Model.BattleRole;

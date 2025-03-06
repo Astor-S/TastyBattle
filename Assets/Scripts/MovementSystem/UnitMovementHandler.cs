@@ -15,7 +15,5 @@ public class UnitMovementHandler : IMovement
     {
         if (Vector3.Distance(_unit.position, target) > _stats.ApproachDistance)
             _unit.position = Vector3.MoveTowards(_unit.position, target, _stats.MovementSpeed * Time.deltaTime);    
-        
-        _unit.LookAt(target);
     }
 }

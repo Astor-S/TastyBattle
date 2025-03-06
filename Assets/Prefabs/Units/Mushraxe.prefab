@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 5717136829546381060}
+  _head: {fileID: 1128719628983007100}
 --- !u!1 &5990312453812153083
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +235,7 @@ MonoBehaviour:
   _unitSetup: {fileID: 11400000, guid: afce40e16df524b4dad3888de752db17, type: 2}
   _unitMovementInput: {fileID: 8375276280568036087}
   _attackSystem: {fileID: 5598595381109621171}
+  _detectionSystem: {fileID: 2415558512083814679}
   _damageTarget: {fileID: 5717136829546381060}
 --- !u!114 &3674313009644066919
 MonoBehaviour:
