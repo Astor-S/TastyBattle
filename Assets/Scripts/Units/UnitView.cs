@@ -11,10 +11,12 @@ public class UnitView : View
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
     public readonly int Die = Animator.StringToHash(nameof(Die));
 
-    public void SetColor(Color color)
+    public void SetHealthBarColor()
     {
-        if (color != default)
-            _healthBarView.color = color;
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+            _healthBarView.color = Color.blue;
+        else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            _healthBarView.color = Color.red;
     }
 
     public void SetWalkingAnimation()

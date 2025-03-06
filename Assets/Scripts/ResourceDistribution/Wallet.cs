@@ -44,7 +44,6 @@ namespace ResourceDistribution
             _resourceCount += count;
 
             ResourceRecieved?.Invoke();
-            UnityEngine.Debug.Log($"Resource recieved: +{count}, ({_resourceCount})");
         }
     }
 }

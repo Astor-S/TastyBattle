@@ -5,10 +5,10 @@ public class UnitMovementHandler : IMovement
     private readonly UnitSetup _stats;
     private readonly Transform _unit;
 
-    public UnitMovementHandler(UnitSetup stats, UnitMovementProperties properties)
+    public UnitMovementHandler(UnitSetup stats, Transform unitTransform)
     {
         _stats = stats;
-        _unit = properties.UnitTransform;
+        _unit = unitTransform;
     }
 
     public void Move(Vector3 target)

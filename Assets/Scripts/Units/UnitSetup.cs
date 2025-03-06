@@ -80,4 +80,12 @@ public class UnitSetup : ScriptableObject
 
         MaxHealthIncreased?.Invoke();
     }
+
+    public void IncreaseSpeed(float defaultSpeedBoostPortion)
+    {
+        if (defaultSpeedBoostPortion < 0 || defaultSpeedBoostPortion > 1)
+            throw new ArgumentOutOfRangeException("Speed boost portion is a number between 0 and 1.");
+
+        _speed += _speed * defaultSpeedBoostPortion;
+    }
 }
