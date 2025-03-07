@@ -8,8 +8,8 @@ public class AttackSystem : MonoBehaviour
 {
     [SerializeField] private DetectionSystem _detectionSystem;
     [SerializeField] private Health _health;
+    [SerializeField] private AttackerUnitSetup _stats;
 
-    private UnitSetup _stats;
     private List<DamagableTarget> _attackedUnits = new();
     private DamagableTarget _attackedTarget;
     private float _attackTimer;
@@ -21,19 +21,13 @@ public class AttackSystem : MonoBehaviour
     protected float Damage => _stats.AttackDamage;
     protected float AttackSpeed => _stats.AttackSpeed;
 
-    private void Start() =>
+    private void Start() => 
         StartCoroutine(nameof(Combat));
 
     private void Update()
     {
         LocateTarget();
         RefreshList();
-    }
-
-    public void Init(UnitSetup unitSetup)
-    {
-        _stats = unitSetup;
-        _health.Init(unitSetup);
     }
 
     protected virtual void Hit()

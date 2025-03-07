@@ -21,10 +21,10 @@ namespace Units
 
             foreach (UnitPresenter unit in _units)
             {
-                if (_unitsDictionary.ContainsKey(unit.UnitSetup.Faction) == false)
-                    _unitsDictionary.Add(unit.UnitSetup.Faction, new Dictionary<BattleRole, UnitPresenter>());
+                if (_unitsDictionary.ContainsKey(unit.Faction) == false)
+                    _unitsDictionary.Add(unit.Faction, new Dictionary<BattleRole, UnitPresenter>());
 
-                _unitsDictionary[unit.UnitSetup.Faction].Add(unit.UnitSetup.BattleRole, unit);
+                _unitsDictionary[unit.Faction].Add(unit.BattleRole, unit);
             }
         }
 
@@ -47,7 +47,8 @@ namespace Units
 
             unit.gameObject.SetActive(true);
 
-            unit.UnitMovementInput.SetEnemyBase(_enemyBase);
+            unit.UnitMovementInput.SetInitialTarget(_enemyBase.transform); //Дубляж кода
+            unit.DetectionSystem.SetInitialTarget(_enemyBase.transform);
         }
 
         private Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2993759388877868750}
   - component: {fileID: 8375276280568036087}
-  - component: {fileID: 6430268124817500957}
   m_Layer: 0
   m_Name: MovementSystem
   m_TagString: Untagged
@@ -45,23 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d97d25dfc8ab744adcd6661b982b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: afce40e16df524b4dad3888de752db17, type: 2}
-  _properties: {fileID: 6430268124817500957}
   _detectionSystem: {fileID: 2415558512083814679}
---- !u!114 &6430268124817500957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149493917577843492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 969d9d53ee24e73418f41d7274b07f82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _unitTransform: {fileID: 1128719628983007100}
-  _unitStats: {fileID: 11400000, guid: 2fce05b43491aba4ba371b552df99118, type: 2}
 --- !u!1 &5025273366122156488
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 5717136829546381060}
+  _head: {fileID: 1128719628983007100}
 --- !u!1 &5990312453812153083
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,10 +217,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitSetup: {fileID: 11400000, guid: afce40e16df524b4dad3888de752db17, type: 2}
   _unitMovementInput: {fileID: 8375276280568036087}
   _attackSystem: {fileID: 5598595381109621171}
+  _detectionSystem: {fileID: 2415558512083814679}
   _damageTarget: {fileID: 5717136829546381060}
+  _faction: 2
+  _battleRole: 0
 --- !u!114 &3674313009644066919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stats: {fileID: 11400000, guid: 2fce05b43491aba4ba371b552df99118, type: 2}
 --- !u!114 &5717136829546381060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 2415558512083814679}
   _health: {fileID: 3674313009644066919}
+  _stats: {fileID: 11400000, guid: 2fce05b43491aba4ba371b552df99118, type: 2}
 --- !u!1001 &5184960325599985732
 PrefabInstance:
   m_ObjectHideFlags: 0

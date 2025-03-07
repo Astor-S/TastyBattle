@@ -9,6 +9,7 @@ public class CameraMovementInput : MonoBehaviour
 
     [SerializeField] private CameraMovementProperties _properties;
     [SerializeField] private LayerMask _ground;
+    [SerializeField] private float _outOfBoundsZone;
 
     private Camera _camera;
     private CameraMovementHandler _cameraMovementHandler;
@@ -25,6 +26,11 @@ public class CameraMovementInput : MonoBehaviour
 
     private Vector3 Read()
     {
+        if (_camera.transform.position.x < -_outOfBoundsZone)
+            return Vector3.right;
+        if (_camera.transform.position.x > _outOfBoundsZone)
+            return Vector3.left;
+
         if (Input.GetMouseButtonDown(0))
         {
             if (IsClickedOnGround())
