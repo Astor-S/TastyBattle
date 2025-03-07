@@ -13,14 +13,14 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private LayoutGroup _playerOrderItems;
     [SerializeField] private ShopPresenter _playerShop;
     [SerializeField] private UnitFactory _playerUnitFactory;
-    [SerializeField] private BuildingPresenter[] _playerTowers;
+    [SerializeField] private TowerPresenter[] _playerTowers;
     [Header("Enemy's fields")]
     [SerializeField] private Mine _enemyMine;
     [SerializeField] private MainBuildingPresenter _enemyBase;
     [SerializeField] private LayoutGroup _enemyOrderItems;
     [SerializeField] private ShopPresenter _enemyShop;
     [SerializeField] private UnitFactory _enemyUnitFactory;
-    [SerializeField] private BuildingPresenter[] _enemyTowers;
+    [SerializeField] private TowerPresenter[] _enemyTowers;
     [Header("General fields")]
     [SerializeField] private float _defaultUnitSpawnCooldown;
     [SerializeField] private int _defaultUnitSpawnCount;

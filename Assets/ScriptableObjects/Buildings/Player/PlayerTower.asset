@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08dbe32867fc2fb48951f4050da77866, type: 3}
-  m_Name: Tower
+  m_Script: {fileID: 11500000, guid: 955c7845bb5dea84aaf3149c2903fc2c, type: 3}
+  m_Name: PlayerTower
   m_EditorClassIdentifier: 
+  _ownerMask:
+    serializedVersion: 2
+    m_Bits: 64
   _maxHealthPoints: 500
-  _attackDamage: 30
+  _attackDamage: 25
   _attackSpeed: 2

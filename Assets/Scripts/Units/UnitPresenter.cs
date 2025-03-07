@@ -14,6 +14,7 @@ namespace Units
 
         public new Unit Model => base.Model as Unit;
         public new UnitView View => base.View as UnitView;
+        public DetectionSystem DetectionSystem => _detectionSystem;
         public UnitMovementInput UnitMovementInput => _unitMovementInput;
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;

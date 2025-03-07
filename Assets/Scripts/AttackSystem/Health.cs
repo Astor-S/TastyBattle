@@ -8,8 +8,7 @@ public class Health : MonoBehaviour
     private const float Quater = 4;
     private const float Half = 2;
 
-    [SerializeField] private DamagableTargetProperties _stats;
-
+    private DamagableSetup _stats;
     private Coroutine _coroutine;
     private float _deathTime = 1.5f;
     private bool _isHalfHP = false;
@@ -24,8 +23,11 @@ public class Health : MonoBehaviour
     public float MaxValue => _stats.MaxHealthPoints;
     public bool IsAlive => Value > MinValue;
 
-    public void Start() => 
+    public void Init(DamagableSetup damagableSetup)
+    {
+        _stats = damagableSetup;
         Value = _stats.MaxHealthPoints;
+    }
 
     public void Reduce(float damage)
     {
@@ -44,18 +46,16 @@ public class Health : MonoBehaviour
         Value = value;
         ValueChanged?.Invoke(value, MaxValue);
 
-        if (MaxValue / Quater >= Value && !_isQuaterHP)
+        if (MaxValue / Quater >= Value && _isQuaterHP == false)
         {
             _isQuaterHP = true;
             QuaterHP?.Invoke();
         }
-        else if (MaxValue / Half >= Value && !_isHalfHP)
+        else if (MaxValue / Half >= Value && _isHalfHP == false)
         {
             _isHalfHP = true;
             HalfHP?.Invoke();
         }
-        
-        ValueChanged?.Invoke(value, MaxValue);
     }
 
     private IEnumerator ApplyDeath()

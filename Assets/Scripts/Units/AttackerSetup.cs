@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AttackerUnit", menuName = "AttackerUnit", order = 52)]
-public class AttackerUnitSetup : DamagableTargetProperties
+public class AttackerSetup : DamagableSetup
 {
     [SerializeField] private float _attackDamage;
     [SerializeField] private float _attackSpeed;

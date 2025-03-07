@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DamagableTarget", menuName = "DamagableTarget", order = 51)]
-public class DamagableTargetProperties : ScriptableObject
+public class DamagableSetup : ScriptableObject
 {
     [SerializeField] private LayerMask _ownerMask;
     [SerializeField] private float _maxHealthPoints;

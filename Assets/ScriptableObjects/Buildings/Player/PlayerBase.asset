@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a03749b3f1bb3b34789d4c2e855bd9bc, type: 3}
-  m_Name: Base
+  m_Script: {fileID: 11500000, guid: 8281be9caf28b3c4482fe072e81b8b13, type: 3}
+  m_Name: PlayerBase
   m_EditorClassIdentifier: 
-  _maxHealthPoints: 2000
+  _ownerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _maxHealthPoints: 1000

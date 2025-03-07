@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8828493788949455112}
   - component: {fileID: 6553229394649409318}
   - component: {fileID: 8562874321457309904}
-  - component: {fileID: 5921395158774871649}
+  - component: {fileID: 5556729472772711711}
   - component: {fileID: 9163413398835935689}
   m_Layer: 7
   m_Name: Tower
@@ -175,7 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: bfdf7191835f688418dddd8f6ae1f555, type: 2}
 --- !u!54 &6553229394649409318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -219,19 +218,21 @@ MonoBehaviour:
   _attackSystem: {fileID: 183764303332692937}
   _movementInput: {fileID: 0}
   _detectionSystem: {fileID: 7212480549341496934}
---- !u!114 &5921395158774871649
+--- !u!114 &5556729472772711711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740381246540268478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e6d2d50474801b46a86b691f53e216b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7634bab6e8d93c0468a05503dfa3f895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 950199767411787301}
+  _damagableSetup: {fileID: 11400000, guid: 6d7a126f896409246a4f76c93e9beea7, type: 2}
+  _attackSystem: {fileID: 183764303332692937}
 --- !u!114 &9163413398835935689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +552,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7212480549341496934}
   _health: {fileID: 8828493788949455112}
-  _stats: {fileID: 11400000, guid: bfdf7191835f688418dddd8f6ae1f555, type: 2}
   _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   _projectileSpawnPoint: {fileID: 2688982722085762161}
   _projectileSpeed: 12
@@ -1017,6 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 950199767411787301}
+  _head: {fileID: 0}
 --- !u!1001 &2830354195920095297
 PrefabInstance:
   m_ObjectHideFlags: 0
