@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DamagableTarget", menuName = "DamagableTarget", order = 51)]
 public class DamagableTargetProperties : ScriptableObject
 {
+    [SerializeField] private LayerMask _ownerMask;
     [SerializeField] private float _maxHealthPoints;
 
     public event Action MaxHealthIncreased;
