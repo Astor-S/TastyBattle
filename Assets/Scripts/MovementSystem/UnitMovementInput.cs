@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class UnitMovementInput : MonoBehaviour
 {
-    [SerializeField] private UnitSetup _stats;
-    [SerializeField] private UnitMovementProperties _properties;
     [SerializeField] private DetectionSystem _detectionSystem;
+    [SerializeField] private Transform _unitTransform;
 
     private Transform _initialTarget;
     private DamagableTarget _currentTarget;
     private UnitMovementHandler _unitMovementHandler;
-
-    private void Start() =>
-        _unitMovementHandler = new UnitMovementHandler(_stats, _properties);
 
     private void Update()
     {
         SetTarget();
 
         _unitMovementHandler.Move(GetTarget());
+    }
+
+    public void Init(UnitSetup unitSetup)
+    {
+        _unitMovementHandler = new UnitMovementHandler(unitSetup, _unitTransform);
     }
 
     private void SetTarget()
@@ -36,7 +37,7 @@ public class UnitMovementInput : MonoBehaviour
         if (_initialTarget != null)
             return _initialTarget.position;
 
-        return _properties.UnitTransform.position;
+        return transform.position;
     }
 
     public void SetInitialTarget(Transform initialTarget)

@@ -86,6 +86,10 @@ namespace ResourceDistribution
                     case UpgradeType.BuildingHealthIncrease:
                         _upgradeHandler.IncreaseBuldingHealth();
                         break;
+
+                    case UpgradeType.UnitSpeedIncrease:
+                        _upgradeHandler.IncreaseUnitSpeed();
+                        break;
                 }
             }
             catch (InvalidOperationException exc)

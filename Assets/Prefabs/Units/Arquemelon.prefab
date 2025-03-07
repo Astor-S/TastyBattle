@@ -523,7 +523,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2993759388877868750}
   - component: {fileID: 8375276280568036087}
-  - component: {fileID: 6430268124817500957}
   m_Layer: 0
   m_Name: MovementSystem
   m_TagString: Untagged
@@ -558,21 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d97d25dfc8ab744adcd6661b982b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
-  _properties: {fileID: 6430268124817500957}
   _detectionSystem: {fileID: 2415558512083814679}
---- !u!114 &6430268124817500957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149493917577843492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 969d9d53ee24e73418f41d7274b07f82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _unitTransform: {fileID: 1128719628983007100}
 --- !u!1 &3460552071831249313
 GameObject:
@@ -1105,11 +1090,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitSetup: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
   _unitMovementInput: {fileID: 8375276280568036087}
   _attackSystem: {fileID: 200770116126294712}
   _detectionSystem: {fileID: 2415558512083814679}
   _damageTarget: {fileID: 5717136829546381060}
+  _faction: 0
+  _battleRole: 1
 --- !u!114 &3674313009644066919
 MonoBehaviour:
   m_ObjectHideFlags: 0
