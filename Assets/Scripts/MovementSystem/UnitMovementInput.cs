@@ -6,11 +6,11 @@ public class UnitMovementInput : MonoBehaviour
     [SerializeField] private UnitMovementProperties _properties;
     [SerializeField] private DetectionSystem _detectionSystem;
 
-    private DamagableTarget _enemyBase;
+    private Transform _initialTarget;
+    private DamagableTarget _currentTarget;
     private UnitMovementHandler _unitMovementHandler;
-    private DamagableTarget _target;
 
-    private void Start() => 
+    private void Start() =>
         _unitMovementHandler = new UnitMovementHandler(_stats, _properties);
 
     private void Update()
@@ -23,25 +23,25 @@ public class UnitMovementInput : MonoBehaviour
     private void SetTarget()
     {
         if (_detectionSystem.DetectedUnits.Count > 0)
-            _target = _detectionSystem.DetectedUnits[0];
+            _currentTarget = _detectionSystem.DetectedUnits[0];
         else
-            _target = null;
+            _currentTarget = null;
     }
 
     private Vector3 GetTarget()
     {
-        if (_target != null)
-            return _target.transform.position;
+        if (_currentTarget != null)
+            return _currentTarget.transform.position;
 
-        if (_enemyBase != null)
-            return _enemyBase.transform.position;
+        if (_initialTarget != null)
+            return _initialTarget.position;
 
         return _properties.UnitTransform.position;
     }
 
-    public void SetEnemyBase(DamagableTarget damagableTarget)
+    public void SetInitialTarget(Transform initialTarget)
     {
-        if (_enemyBase == null)
-            _enemyBase = damagableTarget;
+        if (_initialTarget == null)
+            _initialTarget = initialTarget;
     }
 }

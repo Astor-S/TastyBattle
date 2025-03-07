@@ -8,7 +8,8 @@ public class Health : MonoBehaviour
     private const float Quater = 4;
     private const float Half = 2;
 
-    private UnitSetup _stats;
+    [SerializeField] private DamagableTargetProperties _stats;
+
     private Coroutine _coroutine;
     private float _deathTime = 1.5f;
     private bool _isHalfHP = false;
@@ -23,11 +24,8 @@ public class Health : MonoBehaviour
     public float MaxValue => _stats.MaxHealthPoints;
     public bool IsAlive => Value > MinValue;
 
-    public void Init(UnitSetup unitSetup)
-    {
-        _stats = unitSetup;
-        Value = unitSetup.MaxHealthPoints;
-    }
+    public void Start() => 
+        Value = _stats.MaxHealthPoints;
 
     public void Reduce(float damage)
     {

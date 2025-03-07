@@ -47,7 +47,8 @@ namespace Units
 
             unit.gameObject.SetActive(true);
 
-            unit.UnitMovementInput.SetEnemyBase(_enemyBase);
+            unit.UnitMovementInput.SetInitialTarget(_enemyBase.transform); //Дубляж кода
+            unit.DetectionSystem.SetInitialTarget(_enemyBase.transform);
         }
 
         private Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)

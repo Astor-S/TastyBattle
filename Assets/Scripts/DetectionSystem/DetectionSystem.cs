@@ -4,13 +4,32 @@ using UnityEngine;
 public class DetectionSystem : MonoBehaviour
 {
     [SerializeField] private DamagableTarget _currentUnit; //для определения слоя
+    [SerializeField] private Transform _head;
 
     private List<DamagableTarget> _detectedUnits = new();
+    private Transform _initialTarget;
 
     public IReadOnlyList<DamagableTarget> DetectedUnits => _detectedUnits;
 
-    private void Update() => 
+    private void Update()
+    {
         RefreshList();
+        Look();
+    }
+
+    public void SetInitialTarget(Transform initialTarget)
+    {
+        if (_initialTarget == null)
+            _initialTarget = initialTarget;
+    }
+
+    private void Look()
+    {
+        if (_detectedUnits.Count > 0 && _detectedUnits[0] != null)
+            _head.LookAt(_detectedUnits[0].transform);
+        else
+            _head.LookAt(_initialTarget);
+    }
 
     private void OnTriggerStay(Collider other)
     {
