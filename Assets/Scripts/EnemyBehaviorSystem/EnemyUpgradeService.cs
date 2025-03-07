@@ -24,14 +24,14 @@ namespace EnemyBehaviorSystem
 
         private void ImproveUnitAttack()
         {
-            _unitDamagStat.OrderUnit();
             Debug.Log("Я улучшил характиристику атаки!");
+            _unitDamagStat.OrderUnit();
         }
 
         private void ImproveUnitHealth()
         {
-            _unitHealthStat.OrderUnit();
             Debug.Log("Я улучшил характиристику здоровья!");
+            _unitHealthStat.OrderUnit();
         }
     }
 }
