@@ -4,6 +4,9 @@ namespace EnemyBehaviorSystem
 {
     public class EnemyUpgradeService : MonoBehaviour
     {
+        [SerializeField] private UpgradeOrderHandler _unitHealthStat;
+        [SerializeField] private UpgradeOrderHandler _unitDamagStat;
+
         public void ImproveResourceExtraction()
         {
             Debug.Log("Я улучшил добычу ресурсов!");
@@ -22,11 +25,13 @@ namespace EnemyBehaviorSystem
         private void ImproveUnitAttack()
         {
             Debug.Log("Я улучшил характиристику атаки!");
+            _unitDamagStat.OrderUnit();
         }
 
         private void ImproveUnitHealth()
         {
             Debug.Log("Я улучшил характиристику здоровья!");
+            _unitHealthStat.OrderUnit();
         }
     }
 }

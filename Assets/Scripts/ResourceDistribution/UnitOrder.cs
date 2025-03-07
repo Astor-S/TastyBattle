@@ -1,6 +1,4 @@
-﻿using Units;
-
-public class UnitOrder : Order
+﻿public class UnitOrder : Order
 {
     public UnitSetup Setup { get; }
 

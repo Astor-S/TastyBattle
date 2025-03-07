@@ -5,6 +5,9 @@ namespace EnemyBehaviorSystem
 {
     public class EnemySummonerService : MonoBehaviour
     {
+        [SerializeField] private UnitOrderHandler _melee;
+        [SerializeField] private UnitOrderHandler _range;
+
         public void ExecuteFirstSummon() =>
             SummonRangeUnit();
 
@@ -37,11 +40,13 @@ namespace EnemyBehaviorSystem
 
         private void SummonRangeUnit()
         {
+            _range.OrderUnit();
             Debug.Log("Я призвал дальника");
         }
 
         private void SummonMeleeUnit()
         {
+            _melee.OrderUnit();
             Debug.Log("Я призвал милишника!");
         }
 
