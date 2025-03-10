@@ -1,25 +1,17 @@
 using UnityEngine;
 
-public class UnitBehaviour : MonoBehaviour
+namespace Units
 {
-    [SerializeField] private DamagableTarget _damagableTarget;
-    [SerializeField] private AttackSystem _attackSystem;
-    [SerializeField] private UnitMovementInput _movementInput;
-    [SerializeField] private DetectionSystem _detectionSystem;
-
-    private void OnEnable() => 
-        _damagableTarget.Died += Disable;
-
-    private void OnDisable() => 
-        _damagableTarget.Died -= Disable;
-
-    private void Disable()
+    public class UnitBehaviour : GameEntityBehaviour
     {
-        if (_attackSystem != null)
-            _attackSystem.enabled = false;
-        if (_movementInput != null)
-            _movementInput.enabled = false;
-        if (_detectionSystem != null)
-            _detectionSystem.enabled = false;
+        [SerializeField] private UnitMovementInput _movementInput;
+
+        protected override void Disable()
+        {
+            base.Disable(); 
+
+            if (_movementInput != null)
+                _movementInput.enabled = false;
+        }
     }
 }
