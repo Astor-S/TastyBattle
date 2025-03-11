@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 6218770325137825335}
   - component: {fileID: 8828493788949455112}
   - component: {fileID: 6553229394649409318}
-  - component: {fileID: 8562874321457309904}
   - component: {fileID: 5556729472772711711}
   - component: {fileID: 9163413398835935689}
+  - component: {fileID: 2393108300765569387}
   m_Layer: 7
   m_Name: Tower
   m_TagString: Untagged
@@ -202,22 +202,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8562874321457309904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740381246540268478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 950199767411787301}
-  _attackSystem: {fileID: 183764303332692937}
-  _movementInput: {fileID: 0}
-  _detectionSystem: {fileID: 7212480549341496934}
 --- !u!114 &5556729472772711711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +232,21 @@ MonoBehaviour:
   _animator: {fileID: 6800714758958136244}
   _healthBarView: {fileID: 5927965997387014659}
   _particleSystem: {fileID: 6712984016649427631}
+--- !u!114 &2393108300765569387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740381246540268478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db0682e8f1b42647937c383538fadba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagableTarget: {fileID: 950199767411787301}
+  _attackSystem: {fileID: 183764303332692937}
+  _detectionSystem: {fileID: 7212480549341496934}
 --- !u!1 &1740483309384054462
 GameObject:
   m_ObjectHideFlags: 0
