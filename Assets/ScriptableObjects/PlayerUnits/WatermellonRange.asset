@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
   m_Name: WatermellonRange
   m_EditorClassIdentifier: 
+  _ownerMask:
+    serializedVersion: 2
+    m_Bits: 0
   _maxHealthPoints: 25
   _attackDamage: 2
   _attackSpeed: 0.2
   _faction: 0
   _battleRole: 1
   _approachDistance: 7
-  _movementSpeed: 2
+  _movementSpeed: 3
