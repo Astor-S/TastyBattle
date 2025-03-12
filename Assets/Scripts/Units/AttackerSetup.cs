@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AttackerUnit", menuName = "AttackerUnit", order = 52)]
+[CreateAssetMenu(fileName = "AttackerUnit", menuName = "Scriptable Objects/AttackerUnit", order = 52)]
 public class AttackerSetup : DamagableSetup
 {
     [SerializeField] private float _attackDamage;
