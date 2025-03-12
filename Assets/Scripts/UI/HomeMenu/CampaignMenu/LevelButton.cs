@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
+using GameService;
 
 namespace UI.HomeMenu.CampaignMenu
 {
@@ -29,7 +29,21 @@ namespace UI.HomeMenu.CampaignMenu
 
         public void UpdateLevelButton()
         {
-            throw new NotImplementedException();
+            if (_levelCells == null || _levelCells.Length == 0)
+            {
+                _button.interactable = false;
+                return;
+            }
+
+            if (_currentLevelIndex < 0 || _currentLevelIndex >= _levelCells.Length)
+            {
+                _button.interactable = false;
+                return;
+            }
+
+            Levels levelToCheck = _levelCells[_currentLevelIndex].LevelsType;
+            //bool isLevelOpened = _savesYG.IsLevelOpen(levelToCheck);
+            //_button.interactable = isLevelOpened;
         }
 
         private void LoadCurrentLevel()
