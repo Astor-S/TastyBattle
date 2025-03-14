@@ -2,7 +2,7 @@ using System;
 using Units;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Unit", menuName = "Unit", order = 53)]
+[CreateAssetMenu(fileName = "Unit", menuName = "Scriptable Objects/Unit", order = 53)]
 public class UnitSetup : AttackerSetup
 {
     [SerializeField] private Faction _faction;

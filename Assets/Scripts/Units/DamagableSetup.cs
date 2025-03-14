@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DamagableTarget", menuName = "DamagableTarget", order = 51)]
+[CreateAssetMenu(fileName = "DamagableTarget", menuName = "Scriptable Objects/DamagableTarget", order = 51)]
 public class DamagableSetup : ScriptableObject
 {
     [SerializeField] private LayerMask _ownerMask;
