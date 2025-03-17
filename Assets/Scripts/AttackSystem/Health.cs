@@ -34,6 +34,7 @@ public class Health : MonoBehaviour
         if (damage < 0)
             throw new ArgumentOutOfRangeException(nameof(damage));
 
+        Debug.Log($"[Health] Reduce. Получен урон: {damage}, Текущее здоровье: {Value}"); 
         float newHealth = Mathf.Max(Value - damage, MinValue);
         UpdateValue(newHealth);
 

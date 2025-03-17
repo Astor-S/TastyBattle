@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitMovementInput: {fileID: 8375276280568036087}
-  _attackSystem: {fileID: 5598595381109621171}
+  _attackSystem: {fileID: 2647264595252553560}
   _detectionSystem: {fileID: 2415558512083814679}
   _damageTarget: {fileID: 5717136829546381060}
   _faction: 2
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 5717136829546381060}
-  _attackSystem: {fileID: 5598595381109621171}
+  _attackSystem: {fileID: 2647264595252553560}
   _detectionSystem: {fileID: 2415558512083814679}
   _movementInput: {fileID: 8375276280568036087}
 --- !u!114 &6034839425536527617
@@ -339,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2762666654709032579}
   - component: {fileID: 216496309784404202}
-  - component: {fileID: 5598595381109621171}
+  - component: {fileID: 2647264595252553560}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -383,7 +383,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5598595381109621171
+--- !u!114 &2647264595252553560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,11 +392,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9170123451767306935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f651decd00334fbfddf2f9879f841, type: 3}
+  m_Script: {fileID: 11500000, guid: 5187124d599b08149b543db03fefdd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 2415558512083814679}
   _health: {fileID: 3674313009644066919}
+  _mushroomUnit: {fileID: 6034839425536527617}
 --- !u!1001 &5184960325599985732
 PrefabInstance:
   m_ObjectHideFlags: 0

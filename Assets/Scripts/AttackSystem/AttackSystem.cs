@@ -1,16 +1,17 @@
-using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
 {
+    private readonly List<DamagableTarget> _attackedUnits = new();
+
     [SerializeField] private DetectionSystem _detectionSystem;
     [SerializeField] private Health _health;
 
     private AttackerSetup _stats;
-    private List<DamagableTarget> _attackedUnits = new();
     private DamagableTarget _attackedTarget;
     private float _attackTimer;
 
@@ -18,7 +19,7 @@ public class AttackSystem : MonoBehaviour
     public event Action AttackStopped;
 
     public DamagableTarget AttackedTarget => _attackedTarget;
-    protected float Damage => _stats.AttackDamage;
+    protected virtual float Damage => _stats.AttackDamage;
     protected float AttackSpeed => _stats.AttackSpeed;
 
     private void Start() => 
