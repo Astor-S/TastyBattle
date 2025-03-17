@@ -6,9 +6,21 @@ namespace FactionalAbilities
     [CreateAssetMenu(fileName = "MushroomAbility", menuName = "Scriptable Objects/MushroomAbility", order = 60)]
     public class MushroomAbility : ScriptableObject
     {      
-        [NonSerialized] public int MushroomUnitCount = 0;
+        [NonSerialized] private int _mushroomUnitCount = 0;
         [SerializeField] private float _damageBonusPerUnit = 0.02f;
+        
+        public int MushroomUnitCount
+        {
+            get { return _mushroomUnitCount; }
+            private set { _mushroomUnitCount = value; } 
+        }
 
         public float DamageBonusPerUnit => _damageBonusPerUnit;
+
+        public void AddUnit() =>
+            MushroomUnitCount++;
+
+        public void RemoveUnit() =>
+            MushroomUnitCount--;
     }
 }

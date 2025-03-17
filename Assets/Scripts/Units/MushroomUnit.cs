@@ -23,14 +23,14 @@ namespace Units
 
         private void OnEnable()
         {
-            _mushroomAbility.MushroomUnitCount++;
+            _mushroomAbility.AddUnit();
             Debug.Log($"[{gameObject.name}] OnEnable: Mushroom Unit Count = {_mushroomAbility.MushroomUnitCount}");
             UpdateDamageBonus();
         }
 
         private void OnDisable()
         {
-            _mushroomAbility.MushroomUnitCount--;
+            _mushroomAbility.RemoveUnit();
             Debug.Log($"[{gameObject.name}] OnDisable: Mushroom Unit Count = {_mushroomAbility.MushroomUnitCount}");
             UpdateDamageBonus();
         }
