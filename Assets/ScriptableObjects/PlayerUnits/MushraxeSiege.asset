@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
   m_Name: MushraxeSiege
   m_EditorClassIdentifier: 
+  _ownerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _maxHealthPoints: 60
+  _attackDamage: 15
+  _attackSpeed: 1
   _faction: 2
   _battleRole: 3
-  _attackDamage: 0
-  _speed: 0
+  _approachDistance: 1
+  _movementSpeed: 2.5
