@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class AttackSystem : MonoBehaviour
+public class AttackHandler : MonoBehaviour
 {
     [SerializeField] private DetectionSystem _detectionSystem;
     [SerializeField] private Health _health;
