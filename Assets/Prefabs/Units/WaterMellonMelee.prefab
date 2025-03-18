@@ -150,11 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitMovementInput: {fileID: 3108425698271608668}
-  _attackSystem: {fileID: 0}
+  _attackSystem: {fileID: 4428010239289373948}
   _detectionSystem: {fileID: 3963247014063712833}
   _damageTarget: {fileID: 1384906798130888063}
   _faction: 0
-  _battleRole: 1
+  _battleRole: 0
 --- !u!114 &5048025508892840193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,9 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 1384906798130888063}
-  _attackSystem: {fileID: 0}
-  _movementInput: {fileID: 3108425698271608668}
+  _attackSystem: {fileID: 4428010239289373948}
   _detectionSystem: {fileID: 3963247014063712833}
+  _movementInput: {fileID: 3108425698271608668}
 --- !u!1 &1567226623109323702
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +298,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 7
+  m_Radius: 1
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &4428010239289373948
 MonoBehaviour:
