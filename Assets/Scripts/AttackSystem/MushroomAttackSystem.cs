@@ -1,9 +1,9 @@
 using UnityEngine;
 using Units;
 
-public class MushroomAttackSystem : AttackSystem
+public class MushroomAttackSystem : AttackHandler
 {
-    [SerializeField] private MushroomUnit _mushroomUnit;
+    [SerializeField] private MushroomAbilityHandler _mushroomUnit;
 
     protected override float Damage => _mushroomUnit.CurrentAttackDamage;
 }

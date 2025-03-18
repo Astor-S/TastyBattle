@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class GameEntityBehaviour : MonoBehaviour
 {
     [SerializeField] private DamagableTarget _damagableTarget;
-    [SerializeField] private AttackSystem _attackSystem;
+    [SerializeField] private AttackHandler _attackSystem;
     [SerializeField] private DetectionSystem _detectionSystem;
     
     private void OnEnable() =>

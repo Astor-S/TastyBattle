@@ -1,1 +1,1 @@
-public class MeleeAttackerWatermelon : WatermelonAttackSystem {}
+public class MeleeAttackerWatermelon : WatermelonAttackHandler {}

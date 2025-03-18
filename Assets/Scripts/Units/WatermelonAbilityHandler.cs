@@ -3,7 +3,7 @@ using FactionalAbilities;
 
 namespace Units
 {
-    public class WatermelonUnit : MonoBehaviour
+    public class WatermelonAbilityHandler : MonoBehaviour
     {
         private const float DamageMultiplierBase = 1f;
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AttackSystem : MonoBehaviour
+public class AttackHandler : MonoBehaviour
 {
     private readonly List<DamagableTarget> _attackedUnits = new();
 
@@ -40,7 +40,7 @@ public class AttackSystem : MonoBehaviour
     protected virtual void Hit()
     {
         if (_attackedTarget != null)
-            _attackedTarget.TakeDamage(Damage);
+            _attackedTarget.TakeDamage(CalculateDamage());
     }
 
     protected virtual IEnumerator Combat()
@@ -73,6 +73,9 @@ public class AttackSystem : MonoBehaviour
             yield return waitForFixedUpdate;
         }
     }
+
+    protected virtual float CalculateDamage() =>
+        Damage;
 
     private void OnTriggerStay(Collider other)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangedAttackSystem : AttackSystem
+public class RangedAttackSystem : AttackHandler
 {
     [SerializeField] private Projectile _projectilePrefab;  
     [SerializeField] private Transform _projectileSpawnPoint;
@@ -38,7 +38,7 @@ public class RangedAttackSystem : AttackSystem
             projectile.transform.position = _projectileSpawnPoint.position;
             projectile.transform.rotation = _projectileSpawnPoint.rotation; 
 
-            projectile.Initialize(AttackedTarget, Damage, _projectilePool); 
+            projectile.Initialize(AttackedTarget, CalculateDamage(), _projectilePool); 
 
             Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
 
