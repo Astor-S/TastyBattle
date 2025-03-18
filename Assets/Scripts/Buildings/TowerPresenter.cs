@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TowerPresenter : BuildingPresenter
 {
-    [SerializeField] private RangedAttackSystem _attackSystem;
+    [SerializeField] private RangedAttackHandler _attackSystem;
 
     public new AttackerSetup Stats => base.Stats as AttackerSetup;
 
