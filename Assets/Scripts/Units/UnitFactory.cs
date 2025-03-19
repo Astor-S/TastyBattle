@@ -1,44 +1,37 @@
-using StructureElements;
 using System.Collections.Generic;
 using UnityEngine;
+using StructureElements;
+using Units.Interfaces;
 
 namespace Units
 {
-    public class UnitFactory : MonoBehaviour
+    public abstract class UnitFactory : MonoBehaviour, IUnitFactory
     {
-        [SerializeField] private UnitPresenter[] _units;
+        private readonly int _minSpawnPositionZ = -5;
+        private readonly int _maxSpawnPositionZ = 5;
+
         [SerializeField] private DamagableTarget _enemyBase;
         [SerializeField] private Transform _spawnPoint;
 
-        private Dictionary<Faction, Dictionary<BattleRole, UnitPresenter>> _unitsDictionary;
-        private int _minSpawnPositionZ = -5;
-        private int _maxSpawnPositionZ = 5;
+        protected Dictionary<BattleRole, UnitPresenter> _unitTemplates;
         private int _previousSpawnPosition = 0;
-
-        private void Awake()
-        {
-            _unitsDictionary = new();
-
-            foreach (UnitPresenter unit in _units)
-            {
-                if (_unitsDictionary.ContainsKey(unit.Faction) == false)
-                    _unitsDictionary.Add(unit.Faction, new Dictionary<BattleRole, UnitPresenter>());
-
-                _unitsDictionary[unit.Faction].Add(unit.BattleRole, unit);
-            }
-        }
 
         public void CreateUnit(UnitSetup setup, int layerNumber)
         {
+            if (_unitTemplates.ContainsKey(setup.BattleRole) == false)
+            {
+                Debug.LogError($"UnitTemplate not found for BattleRole: {setup.BattleRole} in faction: {setup.Faction}");
+                return;
+            }
+
             UnitPresenter unit = CreatePresenter(
-                _unitsDictionary[setup.Faction][setup.BattleRole],
-                new Unit(setup))
-                as UnitPresenter;
+                _unitTemplates[setup.BattleRole],
+                new Unit(setup)) as UnitPresenter;
 
             unit.gameObject.layer = layerNumber;
 
             int randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
-
+            
             while (_previousSpawnPosition == randomPositionZ)
                 randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
 
@@ -47,14 +40,22 @@ namespace Units
 
             unit.gameObject.SetActive(true);
 
-            unit.UnitMovementInput.SetInitialTarget(_enemyBase.transform); //Дубляж кода
+            IActivatable abilityHandler = CreateAbilityHandler(setup); 
+
+            if (unit is IUnitWithAbility unitWithAbility)
+                unitWithAbility.SetAbility(abilityHandler);
+            
+            unit.UnitMovementInput.SetInitialTarget(_enemyBase.transform);
             unit.DetectionSystem.SetInitialTarget(_enemyBase.transform);
         }
 
-        private Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)
+        protected abstract IActivatable CreateAbilityHandler(UnitSetup unitSetup);
+
+        protected virtual Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)
         {
             Presenter presenter = Instantiate(presenterTemplate);
             presenter.Init(model);
+            
             return presenter;
         }
     }

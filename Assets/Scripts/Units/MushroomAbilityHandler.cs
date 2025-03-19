@@ -1,5 +1,5 @@
-using FactionalAbilities;
 using StructureElements;
+using FactionalAbilities;
 
 namespace Units
 {
