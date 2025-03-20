@@ -1,1 +1,4 @@
-public class MeleeAttackerWatermelon : WatermelonAttackSystem {}
+namespace AttackSystem
+{
+    public class MeleeAttackerWatermelon : WatermelonAttackHandler { }
+}

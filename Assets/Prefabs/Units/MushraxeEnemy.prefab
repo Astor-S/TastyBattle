@@ -183,7 +183,7 @@ MonoBehaviour:
   _detectionSystem: {fileID: 3841521751351524180}
   _attackTrigger: {fileID: 2677901787072294579}
   _health: {fileID: 7627565233838165223}
-  _mushroomUnit: {fileID: 1908158681737175384}
+  _mushroomAbilityHandler: {fileID: 5921689152618335071}
 --- !u!1 &6284207822938948485
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 127673925297262806}
   - component: {fileID: 718926328151571011}
   - component: {fileID: 1511124952185868426}
-  - component: {fileID: 1908158681737175384}
+  - component: {fileID: 5921689152618335071}
   m_Layer: 0
   m_Name: MushraxeEnemy
   m_TagString: Untagged
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitMovementInput: {fileID: 5244019357210525514}
-  _attackSystem: {fileID: 2682976622179152429}
+  _attackHandler: {fileID: 2682976622179152429}
   _detectionSystem: {fileID: 3841521751351524180}
   _damageTarget: {fileID: 127673925297262806}
   _faction: 2
@@ -382,10 +382,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 127673925297262806}
-  _attackSystem: {fileID: 2682976622179152429}
+  _attackHandler: {fileID: 2682976622179152429}
   _detectionSystem: {fileID: 3841521751351524180}
   _movementInput: {fileID: 5244019357210525514}
---- !u!114 &1908158681737175384
+--- !u!114 &5921689152618335071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6661720196853636681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e1c4f7da5e0604a82ad6b9635526e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}

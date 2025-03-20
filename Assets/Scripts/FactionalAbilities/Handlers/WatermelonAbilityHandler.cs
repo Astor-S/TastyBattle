@@ -1,9 +1,8 @@
 using UnityEngine;
-using FactionalAbilities;
 
-namespace Units
+namespace FactionalAbilities.Handlers
 {
-    public class WatermelonUnit : MonoBehaviour
+    public class WatermelonAbilityHandler : MonoBehaviour
     {
         private const float DamageMultiplierBase = 1f;
 

@@ -1,1 +1,4 @@
-public class MeleeAttacker : AttackHandler { }
+namespace AttackSystem
+{
+    public class MeleeAttacker : AttackHandler { }
+}

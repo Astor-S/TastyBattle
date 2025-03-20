@@ -1,12 +1,13 @@
-using StructureElements;
 using UnityEngine;
+using AttackSystem;
+using StructureElements;
 
 namespace Units
 {
     public class UnitPresenter : Presenter, IActivatable
     {
         [SerializeField] private UnitMovementInput _unitMovementInput;
-        [SerializeField] private AttackHandler _attackSystem;
+        [SerializeField] private AttackHandler _attackHandler;
         [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
         [SerializeField] Faction _faction;
@@ -21,7 +22,7 @@ namespace Units
 
         private void Start()
         {
-            _attackSystem.Init(Model.Stats);
+            _attackHandler.Init(Model.Stats);
             _unitMovementInput.Init(Model.Stats);
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
@@ -30,15 +31,15 @@ namespace Units
         public void Enable()
         {
             _damageTarget.Died += View.SetDeathAnimation;
-            _attackSystem.AttackStarted += View.SetAttackingAnimation;
-            _attackSystem.AttackStopped += View.SetWalkingAnimation;
+            _attackHandler.AttackStarted += View.SetAttackingAnimation;
+            _attackHandler.AttackStopped += View.SetWalkingAnimation;
         }
 
         public void Disable()
         {
             _damageTarget.Died -= View.SetDeathAnimation;
-            _attackSystem.AttackStarted -= View.SetAttackingAnimation;
-            _attackSystem.AttackStopped -= View.SetWalkingAnimation;
+            _attackHandler.AttackStarted -= View.SetAttackingAnimation;
+            _attackHandler.AttackStopped -= View.SetWalkingAnimation;
         }
     }
 }

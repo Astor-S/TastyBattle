@@ -1,1 +1,4 @@
-public class MeleeAttackerMushroom : MushroomAttackSystem { }
+namespace AttackSystem
+{
+    public class MeleeAttackerMushroom : MushroomAttackHanlder { }
+}

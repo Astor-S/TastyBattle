@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitMovementInput: {fileID: 1312267586711454863}
-  _attackSystem: {fileID: 8786848048291973212}
+  _attackHandler: {fileID: 8786848048291973212}
   _detectionSystem: {fileID: 7093496099866829280}
   _damageTarget: {fileID: 3961040791415484770}
   _faction: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 3961040791415484770}
-  _attackSystem: {fileID: 8786848048291973212}
+  _attackHandler: {fileID: 8786848048291973212}
   _detectionSystem: {fileID: 7093496099866829280}
   _movementInput: {fileID: 1312267586711454863}
 --- !u!114 &3779899770254653116
@@ -1093,7 +1093,7 @@ MonoBehaviour:
   _detectionSystem: {fileID: 7093496099866829280}
   _attackTrigger: {fileID: 406927548688569978}
   _health: {fileID: 2668099525112460671}
-  _watermelonUnit: {fileID: 3779899770254653116}
+  _watermelonAbilityHandler: {fileID: 3779899770254653116}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 3575155412265462624}
   _projectileSpeed: 12

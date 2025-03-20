@@ -4,105 +4,108 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AttackHandler : MonoBehaviour
+namespace AttackSystem
 {
-    private readonly List<DamagableTarget> _attackedUnits = new();
-
-    [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] private SphereCollider _attackTrigger;
-    [SerializeField] private Health _health;
-
-    private AttackerSetup _stats;
-    private DamagableTarget _attackedTarget;
-    private float _attackTimer;
-
-    public event Action AttackStarted;
-    public event Action AttackStopped;
-
-    public DamagableTarget AttackedTarget => _attackedTarget;
-    protected virtual float Damage => _stats.AttackDamage;
-    protected float AttackSpeed => _stats.AttackSpeed;
-
-    private void Start()
+    public class AttackHandler : MonoBehaviour
     {
-        StartCoroutine(nameof(Combat));
-    }
+        private readonly List<DamagableTarget> _attackedUnits = new();
 
-    private void Update()
-    {
-        LocateTarget();
-        RefreshList();
-    }
+        [SerializeField] private DetectionSystem _detectionSystem;
+        [SerializeField] private SphereCollider _attackTrigger;
+        [SerializeField] private Health _health;
 
-    public void Init(AttackerSetup attackerSetup)
-    {
-        _health.Init(attackerSetup);
-        _stats = attackerSetup;
-        _attackTrigger.radius = _stats.AttackDistance;
-    }
+        private AttackerSetup _stats;
+        private DamagableTarget _attackedTarget;
+        private float _attackTimer;
 
-    protected virtual void Hit()
-    {
-        if (_attackedTarget != null)
-            _attackedTarget.TakeDamage(Damage);
-    }
+        public event Action AttackStarted;
+        public event Action AttackStopped;
 
-    protected virtual IEnumerator Combat()
-    {
-        WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+        public DamagableTarget AttackedTarget => _attackedTarget;
+        protected virtual float Damage => _stats.AttackDamage;
+        protected float AttackSpeed => _stats.AttackSpeed;
 
-        while (enabled)
+        private void Start()
         {
-            if (_attackedUnits.Count > 0)
+            StartCoroutine(nameof(Combat));
+        }
+
+        private void Update()
+        {
+            LocateTarget();
+            RefreshList();
+        }
+
+        public void Init(AttackerSetup attackerSetup)
+        {
+            _health.Init(attackerSetup);
+            _stats = attackerSetup;
+            _attackTrigger.radius = _stats.AttackDistance;
+        }
+
+        protected virtual void Hit()
+        {
+            if (_attackedTarget != null)
+                _attackedTarget.TakeDamage(Damage);
+        }
+
+        protected virtual IEnumerator Combat()
+        {
+            WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+
+            while (enabled)
             {
-                if (_attackedTarget != null)
+                if (_attackedUnits.Count > 0)
                 {
-                    AttackStarted?.Invoke();
-
-                    _attackTimer += Time.deltaTime;
-
-                    if (_attackTimer >= AttackSpeed)
+                    if (_attackedTarget != null)
                     {
-                        Hit();
+                        AttackStarted?.Invoke();
 
-                        _attackTimer = 0f;
+                        _attackTimer += Time.deltaTime;
+
+                        if (_attackTimer >= AttackSpeed)
+                        {
+                            Hit();
+
+                            _attackTimer = 0f;
+                        }
                     }
                 }
-            }
-            else
-            {
-                AttackStopped?.Invoke();
-            }
+                else
+                {
+                    AttackStopped?.Invoke();
+                }
 
-            yield return waitForFixedUpdate;
+                yield return waitForFixedUpdate;
+            }
         }
-    }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out DamagableTarget unit))
-            if (_detectionSystem.DetectedUnits.Contains(unit) && _attackedUnits.Contains(unit) == false)
-                _attackedUnits.Add(unit);
-    }
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.TryGetComponent(out DamagableTarget unit))
+                if (_detectionSystem.DetectedUnits.Contains(unit) && _attackedUnits.Contains(unit) == false)
+                    _attackedUnits.Add(unit);
+        }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out DamagableTarget unit))
-            if (_attackedUnits.Contains(unit))
-                _attackedUnits.Remove(unit);
-    }
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.TryGetComponent(out DamagableTarget unit))
+                if (_attackedUnits.Contains(unit))
+                    _attackedUnits.Remove(unit);
+        }
 
-    private void LocateTarget()
-    {
-        if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0] != null && _attackedUnits[0].isActiveAndEnabled)
-                _attackedTarget = _attackedUnits[0];
-    }
+        private void LocateTarget()
+        {
+            if (_attackedUnits.Count > 0)
+                if (_attackedUnits[0] != null && _attackedUnits[0].isActiveAndEnabled)
+                    _attackedTarget = _attackedUnits[0];
+        }
 
-    private void RefreshList()
-    {
-        if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0] == null || _attackedUnits[0].isActiveAndEnabled == false)
-                _attackedUnits.RemoveAt(0);
+        private void RefreshList()
+        {
+            if (_attackedUnits.Count > 0)
+                if (_attackedUnits[0] == null || _attackedUnits[0].isActiveAndEnabled == false)
+                    _attackedUnits.RemoveAt(0);
+        }
     }
 }

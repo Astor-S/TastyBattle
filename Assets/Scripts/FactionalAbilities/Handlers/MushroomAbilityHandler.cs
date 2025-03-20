@@ -1,9 +1,8 @@
-using FactionalAbilities;
 using UnityEngine;
 
-namespace Units
+namespace FactionalAbilities.Handlers
 {
-    public class MushroomUnit : MonoBehaviour
+    public class MushroomAbilityHandler : MonoBehaviour
     {
         private const float DamageMultiplierBase = 1f;
 

@@ -1,9 +1,10 @@
 using UnityEngine;
+using AttackSystem;
 
 public abstract class GameEntityBehaviour : MonoBehaviour
 {
     [SerializeField] private DamagableTarget _damagableTarget;
-    [SerializeField] private AttackHandler _attackSystem;
+    [SerializeField] private AttackHandler _attackHandler;
     [SerializeField] private DetectionSystem _detectionSystem;
     
     private void OnEnable() =>
@@ -14,8 +15,9 @@ public abstract class GameEntityBehaviour : MonoBehaviour
 
     protected virtual void Disable() 
     {
-        if (_attackSystem != null)
-            _attackSystem.enabled = false;
+        if (_attackHandler != null)
+            _attackHandler.enabled = false;
+
         if (_detectionSystem != null)
             _detectionSystem.enabled = false;
     }
