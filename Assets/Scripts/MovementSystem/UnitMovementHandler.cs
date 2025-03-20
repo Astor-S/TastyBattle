@@ -13,7 +13,7 @@ public class UnitMovementHandler : IMovement
 
     public void Move(Vector3 target)
     {
-        if (Vector3.Distance(_unit.position, target) > _stats.ApproachDistance)
+        if (Vector3.Distance(_unit.position, target) > _stats.AttackDistance)
             _unit.position = Vector3.MoveTowards(_unit.position, target, _stats.MovementSpeed * Time.deltaTime);    
     }
 }

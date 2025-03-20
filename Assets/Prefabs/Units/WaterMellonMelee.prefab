@@ -210,8 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 1384906798130888063}
   _attackSystem: {fileID: 0}
-  _movementInput: {fileID: 3108425698271608668}
   _detectionSystem: {fileID: 3963247014063712833}
+  _movementInput: {fileID: 3108425698271608668}
 --- !u!1 &1567226623109323702
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3963247014063712833}
+  _attackTrigger: {fileID: 3073595596376243875}
   _health: {fileID: 5048025508892840193}
 --- !u!1 &7496039816069354530
 GameObject:

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AttackSystem : MonoBehaviour
+public class AttackHandler : MonoBehaviour
 {
     private readonly List<DamagableTarget> _attackedUnits = new();
 
     [SerializeField] private DetectionSystem _detectionSystem;
+    [SerializeField] private SphereCollider _attackTrigger;
     [SerializeField] private Health _health;
 
     private AttackerSetup _stats;
@@ -22,8 +23,10 @@ public class AttackSystem : MonoBehaviour
     protected virtual float Damage => _stats.AttackDamage;
     protected float AttackSpeed => _stats.AttackSpeed;
 
-    private void Start() => 
+    private void Start()
+    {
         StartCoroutine(nameof(Combat));
+    }
 
     private void Update()
     {
@@ -35,6 +38,7 @@ public class AttackSystem : MonoBehaviour
     {
         _health.Init(attackerSetup);
         _stats = attackerSetup;
+        _attackTrigger.radius = _stats.AttackDistance;
     }
 
     protected virtual void Hit()

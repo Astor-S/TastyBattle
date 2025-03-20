@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7991039980486154689}
+  _attackTrigger: {fileID: 1089374252047057979}
   _health: {fileID: 4921885253267775372}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 2234297447284706052}
@@ -415,8 +416,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7258618766229363941}
   _attackSystem: {fileID: 5696147618123696935}
-  _movementInput: {fileID: 663619498162867171}
   _detectionSystem: {fileID: 7991039980486154689}
+  _movementInput: {fileID: 663619498162867171}
 --- !u!1001 &1268121083613265246
 PrefabInstance:
   m_ObjectHideFlags: 0

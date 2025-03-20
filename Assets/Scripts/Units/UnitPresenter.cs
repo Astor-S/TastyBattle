@@ -6,7 +6,7 @@ namespace Units
     public class UnitPresenter : Presenter, IActivatable
     {
         [SerializeField] private UnitMovementInput _unitMovementInput;
-        [SerializeField] private AttackSystem _attackSystem;
+        [SerializeField] private AttackHandler _attackSystem;
         [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
         [SerializeField] Faction _faction;

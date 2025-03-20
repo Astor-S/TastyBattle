@@ -1,7 +1,7 @@
 using UnityEngine;
 using Units;
 
-public class WatermelonAttackSystem : AttackSystem
+public class WatermelonAttackSystem : AttackHandler
 {
     [SerializeField] private WatermelonUnit _watermelonUnit;
 
