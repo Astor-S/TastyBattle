@@ -12,6 +12,7 @@ public class DamagableTarget : MonoBehaviour, IDamagable
     private float _deathTime = 1.5f;
 
     public Health Health => _health;
+    public bool IsAlive => _health.IsAlive;
 
     public event Action<DamagableTarget> Dying;
     public event Action HalfHP;

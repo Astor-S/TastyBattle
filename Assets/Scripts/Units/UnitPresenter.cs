@@ -33,7 +33,10 @@ namespace Units
         private void FixedUpdate()
         {
             if (_target != null)
+            {
                 _navMeshAgent.SetDestination(_target.transform.position);
+                transform.LookAt(_target.transform.position);
+            }
         }
 
         public void Enable()

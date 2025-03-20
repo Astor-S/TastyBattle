@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class DetectionSystem : MonoBehaviour
@@ -41,20 +40,13 @@ public class DetectionSystem : MonoBehaviour
     {
         unit.Dying -= OnDetectedUnitDied;
 
-        if (_detectedUnits.Peek() == unit)
-        {
+        while (_detectedUnits.Count > 0 && (_detectedUnits.Peek() == null || _detectedUnits.Peek().IsAlive == false))
             _detectedUnits.Dequeue();
 
-            if (_detectedUnits.Count == 0)
-                TargetChanged?.Invoke(_enemyBase);
-            else
-                TargetChanged?.Invoke(_detectedUnits.Peek());
-        }
+        if (_detectedUnits.Count == 0)
+            TargetChanged?.Invoke(_enemyBase);
         else
-        {
-            _detectedUnits = new Queue<DamagableTarget>(_detectedUnits.Where(unitIter => unitIter != unit));
             TargetChanged?.Invoke(_detectedUnits.Peek());
-        }
     }
 
     public void Init(int layer, DamagableTarget enemyBase)
