@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
   m_Name: OrangeRange
   m_EditorClassIdentifier: 
-  _faction: 1
-  _battleRole: 1
+  _ownerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _maxHealthPoints: 100
   _attackDamage: 20
   _attackSpeed: 0.4
-  _maxHealthPoints: 100
-  _speed: 2
+  _faction: 1
+  _battleRole: 1
+  _approachDistance: 0
+  _movementSpeed: 0

@@ -7,10 +7,10 @@ public abstract class GameEntityBehaviour : MonoBehaviour
     [SerializeField] private DetectionSystem _detectionSystem;
     
     private void OnEnable() =>
-        _damagableTarget.Died += Disable;
+        _damagableTarget.Dying += Disable;
 
     private void OnDisable() =>
-        _damagableTarget.Died -= Disable;
+        _damagableTarget.Dying -= Disable;
 
     protected virtual void Disable() 
     {

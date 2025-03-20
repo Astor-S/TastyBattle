@@ -2,17 +2,17 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public class AttackSystem : MonoBehaviour
 {
     [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] private Health _health;
+    [SerializeField] private DamagableTarget _damagableTarget;
 
     private AttackerSetup _stats;
     private List<DamagableTarget> _attackedUnits = new();
     private DamagableTarget _attackedTarget;
     private float _attackTimer;
+    private bool _isAttacking = false;
 
     public event Action AttackStarted;
     public event Action AttackStopped;
@@ -24,16 +24,38 @@ public class AttackSystem : MonoBehaviour
     private void Start() => 
         StartCoroutine(nameof(Combat));
 
-    private void Update()
+    private void OnEnable()
     {
-        LocateTarget();
-        RefreshList();
+        _detectionSystem.TargetChanged += ChangeTarget;
+    }
+
+    private void OnDisable()
+    {
+        _detectionSystem.TargetChanged -= ChangeTarget;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out DamagableTarget damagableTarget) && damagableTarget == _attackedTarget)
+            _isAttacking = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out DamagableTarget damagableTarget) && damagableTarget == _attackedTarget)
+            _isAttacking = false;
+    }
+
+    private void ChangeTarget(DamagableTarget enemy)
+    {
+        _attackedTarget = enemy;
     }
 
     public void Init(AttackerSetup attackerSetup)
     {
-        _health.Init(attackerSetup);
         _stats = attackerSetup;
+
+        gameObject.SetActive(true);
     }
 
     protected virtual void Hit()
@@ -48,20 +70,17 @@ public class AttackSystem : MonoBehaviour
 
         while (enabled)
         {
-            if (_attackedUnits.Count > 0)
+            if (_attackedTarget != null && _isAttacking)
             {
-                if (_attackedTarget != null)
+                AttackStarted?.Invoke();
+
+                _attackTimer += Time.deltaTime;
+
+                if (_attackTimer >= AttackSpeed)
                 {
-                    AttackStarted?.Invoke();
+                    Hit();
 
-                    _attackTimer += Time.deltaTime;
-
-                    if (_attackTimer >= AttackSpeed)
-                    {
-                        Hit();
-
-                        _attackTimer = 0f;
-                    }
+                    _attackTimer = 0f;
                 }
             }
             else
@@ -71,33 +90,5 @@ public class AttackSystem : MonoBehaviour
 
             yield return waitForFixedUpdate;
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out DamagableTarget unit))
-            if (_detectionSystem.DetectedUnits.Contains(unit) && _attackedUnits.Contains(unit) == false)
-                _attackedUnits.Add(unit);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out DamagableTarget unit))
-            if (_attackedUnits.Contains(unit))
-                _attackedUnits.Remove(unit);
-    }
-
-    private void LocateTarget()
-    {
-        if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0] != null && _attackedUnits[0].isActiveAndEnabled)
-                _attackedTarget = _attackedUnits[0];
-    }
-
-    private void RefreshList()
-    {
-        if (_attackedUnits.Count > 0)
-            if (_attackedUnits[0] == null || _attackedUnits[0].isActiveAndEnabled == false)
-                _attackedUnits.RemoveAt(0);
     }
 }

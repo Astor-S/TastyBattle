@@ -1,21 +1,18 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health
 {
     private const float MinValue = 0;
     private const float Quater = 4;
     private const float Half = 2;
 
     private DamagableSetup _stats;
-    private Coroutine _coroutine;
-    private float _deathTime = 1.5f;
     private bool _isHalfHP = false;
     private bool _isQuaterHP = false;
 
     public event Action<float, float> ValueChanged;
-    public event Action Died;
+    public event Action Dying;
     public event Action HalfHP;
     public event Action QuaterHP;
 
@@ -23,7 +20,7 @@ public class Health : MonoBehaviour
     public float MaxValue => _stats.MaxHealthPoints;
     public bool IsAlive => Value > MinValue;
 
-    public void Init(DamagableSetup damagableSetup)
+    public Health(DamagableSetup damagableSetup)
     {
         _stats = damagableSetup;
         Value = _stats.MaxHealthPoints;
@@ -38,7 +35,7 @@ public class Health : MonoBehaviour
         UpdateValue(newHealth);
 
         if (IsAlive == false)
-            _coroutine ??= StartCoroutine(nameof(ApplyDeath));
+            Dying?.Invoke();
     }
 
     private void UpdateValue(float value)
@@ -56,14 +53,5 @@ public class Health : MonoBehaviour
             _isHalfHP = true;
             HalfHP?.Invoke();
         }
-    }
-
-    private IEnumerator ApplyDeath()
-    {
-        Died?.Invoke();
-
-        yield return new WaitForSeconds(_deathTime);
-
-        Destroy(gameObject);
     }
 }

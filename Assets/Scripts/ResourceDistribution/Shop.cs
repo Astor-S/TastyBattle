@@ -55,7 +55,7 @@ namespace ResourceDistribution
             try
             {
                 _wallet.SpendResource(cost);
-                _unitFactory.CreateUnit(unit.Setup, _unitFactory.gameObject.layer);
+                _unitFactory.CreateUnit(unit.Setup);
 
                 UnityEngine.Debug.Log($"Account balance: {_wallet.ResourceCount} (-{cost})");
             }

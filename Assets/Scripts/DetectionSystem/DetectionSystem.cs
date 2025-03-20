@@ -1,62 +1,70 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DetectionSystem : MonoBehaviour
 {
-    [SerializeField] private DamagableTarget _currentUnit; //для определения слоя
-    [SerializeField] private Transform _head;
+    private const string Enemy = nameof(Enemy);
+    private const string Player = nameof(Player);
 
-    private List<DamagableTarget> _detectedUnits = new();
-    private Transform _initialTarget;
+    [SerializeField] private DamagableTarget _currentUnit;
 
-    public IReadOnlyList<DamagableTarget> DetectedUnits => _detectedUnits;
+    private Queue<DamagableTarget> _detectedUnits = new();
+    private string _enemyLayer;
+    private DamagableTarget _enemyBase;
 
-    private void Update()
+    public event Action<DamagableTarget> TargetChanged;
+
+    private void Start()
     {
-        RefreshList();
-        Look();
+        TargetChanged?.Invoke(_enemyBase);
     }
 
-    public void SetInitialTarget(Transform initialTarget)
+    private void OnTriggerEnter(Collider other)
     {
-        if (_initialTarget == null)
-            _initialTarget = initialTarget;
-    }
+        if (other.TryGetComponent(out DamagableTarget unit) && _detectedUnits.Contains(unit) == false)
+        {
+            if (LayerMask.LayerToName(unit.gameObject.layer) == _enemyLayer)
+            {
+                _detectedUnits.Enqueue(unit);
 
-    private void Look()
-    {
-        if (_detectedUnits.Count > 0 && _detectedUnits[0] != null)
-            _head.LookAt(_detectedUnits[0].transform);
-        else
-            _head.LookAt(_initialTarget);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out DamagableTarget unit) && _detectedUnits.Contains(unit) == false)
-            if (LayerMask.LayerToName(unit.gameObject.layer) == GetEnemyMask())
-                _detectedUnits.Add(unit);
+                if (_detectedUnits.Count == 1)
+                    TargetChanged?.Invoke(unit);
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out DamagableTarget unit))
-            if (_detectedUnits.Contains(unit))
-                _detectedUnits.Remove(unit);
+        if (other.TryGetComponent(out DamagableTarget unit) && _detectedUnits.Contains(unit))
+        {
+            if (_detectedUnits.Peek() == unit)
+            {
+                _detectedUnits.Dequeue();
+
+                if (_detectedUnits.Count == 0)
+                    TargetChanged?.Invoke(_enemyBase);
+                else
+                    TargetChanged?.Invoke(_detectedUnits.Peek());
+            }
+            else
+            {
+                _detectedUnits = new Queue<DamagableTarget>(_detectedUnits.Where(unitIter => unitIter != unit));
+                TargetChanged?.Invoke(_detectedUnits.Peek());
+            }
+        }
     }
 
-    private void RefreshList()
+    public void Init(int layer, DamagableTarget enemyBase)
     {
-        if (_detectedUnits.Count > 0)
-            if (_detectedUnits[0] == null || _detectedUnits[0].isActiveAndEnabled == false)
-                _detectedUnits.RemoveAt(0);
-    }
-
-    private string GetEnemyMask()
-    {
-        if (LayerMask.LayerToName(_currentUnit.gameObject.layer) == "Enemy")
-            return "Player";
+        if (LayerMask.LayerToName(layer) == Enemy)
+            _enemyLayer = Player;
         else
-            return "Enemy";
+            _enemyLayer = Enemy;
+
+        _enemyBase = enemyBase;
+
+        gameObject.SetActive(true);
     }
 }

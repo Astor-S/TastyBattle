@@ -14,6 +14,8 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private ShopPresenter _playerShop;
     [SerializeField] private UnitFactory _playerUnitFactory;
     [SerializeField] private TowerPresenter[] _playerTowers;
+    [SerializeField] private DamagableSetup _playerBaseSetup;
+    [SerializeField] private AttackerSetup _playerTowerSetup;
     [Header("Enemy's fields")]
     [SerializeField] private Mine _enemyMine;
     [SerializeField] private MainBuildingPresenter _enemyBase;
@@ -21,6 +23,8 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private ShopPresenter _enemyShop;
     [SerializeField] private UnitFactory _enemyUnitFactory;
     [SerializeField] private TowerPresenter[] _enemyTowers;
+    [SerializeField] private DamagableSetup _enemyBaseSetup;
+    [SerializeField] private AttackerSetup _enemyTowerSetup;
     [Header("General fields")]
     [SerializeField] private float _defaultUnitSpawnCooldown;
     [SerializeField] private int _defaultUnitSpawnCount;
@@ -57,27 +61,41 @@ public class LevelRoot : MonoBehaviour
             enemyWallet));
 
         foreach (BuildingPresenter tower in _playerTowers)
-            tower.Init(new Building(tower.transform.position, tower.transform.rotation, tower.transform.localScale));
+        {
+            tower.Init(new Building(
+                _playerTowerSetup,
+                tower.transform.position,
+                tower.transform.rotation,
+                tower.transform.localScale));
+        }
 
         foreach (BuildingPresenter tower in _enemyTowers)
-            tower.Init(new Building(tower.transform.position, tower.transform.rotation, tower.transform.localScale));
+        {
+            tower.Init(new Building(
+                _enemyTowerSetup,
+                tower.transform.position,
+                tower.transform.rotation,
+                tower.transform.localScale));
+        }
 
         _playerBase.Init(new MainBuilding(
-            _playerBase.transform.position,
-            _playerBase.transform.rotation,
+            _playerBaseSetup,
             _playerBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _playerUnitFactory,
-            playerUnitSetups));
+            playerUnitSetups,
+            _playerBase.transform.position,
+            _playerBase.transform.rotation));
 
         _enemyBase.Init(new MainBuilding(
-            _enemyBase.transform.position,
-            _enemyBase.transform.rotation,
+            _enemyBaseSetup,
             _enemyBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _enemyUnitFactory,
-            enemyUnitSetups));
+            enemyUnitSetups,
+            _enemyBase.transform.position,
+            _enemyBase.transform.rotation));
     }
 }
