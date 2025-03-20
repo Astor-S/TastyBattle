@@ -3,7 +3,7 @@ using FactionalAbilities;
 
 namespace Units
 {
-    public class MushroomAbilityHandler : IActivatable
+    public class MushroomAbilityHandler : AbilityHandler, IActivatable
     {
         private const float DamageMultiplierBase = 1f;
 

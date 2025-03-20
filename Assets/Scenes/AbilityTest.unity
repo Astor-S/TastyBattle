@@ -1902,14 +1902,14 @@ MonoBehaviour:
   _playerBase: {fileID: 1212571315}
   _playerOrderItems: {fileID: 1611503229}
   _playerShop: {fileID: 1212571316}
-  _playerUnitFactory: {fileID: 0}
+  _playerUnitFactory: {fileID: 1212571326}
   _playerTowers:
   - {fileID: 1879630727}
   _enemyMine: {fileID: 1240802058}
   _enemyBase: {fileID: 502671742}
   _enemyOrderItems: {fileID: 77767184}
   _enemyShop: {fileID: 502671743}
-  _enemyUnitFactory: {fileID: 0}
+  _enemyUnitFactory: {fileID: 1878031258}
   _enemyTowers:
   - {fileID: 2043952489}
   _defaultUnitSpawnCooldown: 5
@@ -3482,6 +3482,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be0eead1169e0149bc2c19b4c3b0378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &386035009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6556685595481180932, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+  m_PrefabInstance: {fileID: 502671740}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &393127006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4062,20 +4067,24 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5130785631963744001, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1105750102}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6556685595481180932, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1878031258}
   m_SourcePrefab: {fileID: 100100000, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
 --- !u!114 &502671742 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1355774924339113292, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
   m_PrefabInstance: {fileID: 502671740}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 386035009}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a434f05092ea904f9d772801048f428, type: 3}
@@ -5215,6 +5224,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5186735023777053022, guid: ac8efb728f1fb9b4092c4df591c827ca, type: 3}
   m_PrefabInstance: {fileID: 664890711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &669920887 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8906586584555077194, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+  m_PrefabInstance: {fileID: 502671740}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &671282564
 PrefabInstance:
@@ -9292,9 +9306,6 @@ MonoBehaviour:
   _spawnPoint: {fileID: 1812264112}
   _mushroomUnits:
   - {fileID: 514204843160530710, guid: a2548212e1812964eb3bf1df626b1cd1, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!4 &1232990952 stripped
 Transform:
@@ -14833,12 +14844,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2191915145468079101, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
   m_PrefabInstance: {fileID: 502671740}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 386035009}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18df98e018ea47a4eb107eef9a98212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1878031258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386035009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fac65bc515f894a98c766132667467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyBase: {fileID: 1212571317}
+  _spawnPoint: {fileID: 669920887}
+  _mushroomUnits:
+  - {fileID: 514204843160530710, guid: a2548212e1812964eb3bf1df626b1cd1, type: 3}
+  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!114 &1879630727 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5556729472772711711, guid: acc9a6fbfa8fe4b4089d2e98b3b971c7, type: 3}
@@ -15412,37 +15440,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffbddc4ef9676cc419e81e06aaa836d8, type: 3}
---- !u!1 &1937439020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1937439021}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1937439021
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937439020}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.145004, y: -17.763777, z: 38.60293}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1950273293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17329,4 +17326,3 @@ SceneRoots:
   - {fileID: 767807030}
   - {fileID: 607199443}
   - {fileID: 1766880708}
-  - {fileID: 1937439021}

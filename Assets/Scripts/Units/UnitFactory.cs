@@ -24,10 +24,9 @@ namespace Units
                 return;
             }
 
-            UnitPresenter unit = CreatePresenter(
-                _unitTemplates[setup.BattleRole],
-                new Unit(setup)) as UnitPresenter;
+            UnitPresenter unit = CreatePresenter(_unitTemplates[setup.BattleRole]) as UnitPresenter;
 
+            unit.Init(new Unit(setup, unit.GetComponent<DetectionSystem>(), unit.GetComponent<Health>()));
             unit.gameObject.layer = layerNumber;
 
             int randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
@@ -40,7 +39,7 @@ namespace Units
 
             unit.gameObject.SetActive(true);
 
-            IActivatable abilityHandler = CreateAbilityHandler(setup); 
+            AbilityHandler abilityHandler = CreateAbilityHandler(setup); 
 
             if (unit is IUnitWithAbility unitWithAbility)
                 unitWithAbility.SetAbility(abilityHandler);
@@ -49,12 +48,11 @@ namespace Units
             unit.DetectionSystem.SetInitialTarget(_enemyBase.transform);
         }
 
-        protected abstract IActivatable CreateAbilityHandler(UnitSetup unitSetup);
+        protected abstract AbilityHandler CreateAbilityHandler(UnitSetup unitSetup);
 
-        protected virtual Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)
+        protected virtual Presenter CreatePresenter(Presenter presenterTemplate)
         {
             Presenter presenter = Instantiate(presenterTemplate);
-            presenter.Init(model);
             
             return presenter;
         }

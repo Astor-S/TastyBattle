@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FactionalAbilities;
-using StructureElements;
 
 namespace Units
 {
@@ -21,7 +20,7 @@ namespace Units
             }
         }
 
-        protected override IActivatable CreateAbilityHandler(UnitSetup unitSetup) =>
+        protected override AbilityHandler CreateAbilityHandler(UnitSetup unitSetup) =>
             new MushroomAbilityHandler(unitSetup, _mushroomAbility);
     }
 }

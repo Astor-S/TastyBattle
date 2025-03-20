@@ -1,15 +1,15 @@
 using StructureElements;
-using FactionalAbilities;
+using Units.Interfaces;
 
 namespace Units
 {
-    public class MushroomUnit : Unit, IActivatable
+    public class MushroomUnit : Unit, IActivatable, IUnitWithAbility
     {
-        private readonly MushroomAbilityHandler _abilityHandler;
+        private MushroomAbilityHandler _abilityHandler;
 
-        public MushroomUnit(UnitSetup setup, MushroomAbility mushroomAbility) : base(setup) 
+        public MushroomUnit(UnitSetup unitSetup, DetectionSystem detectionSystem, Health health) : base(unitSetup, detectionSystem, health)
         {
-            _abilityHandler = new MushroomAbilityHandler(setup, mushroomAbility);
+          
         }
 
         public void Enable() =>
@@ -17,5 +17,8 @@ namespace Units
 
         public void Disable() =>
             _abilityHandler.Disable();
+
+        public void SetAbility(AbilityHandler abilityHandler) =>
+            _abilityHandler = abilityHandler as MushroomAbilityHandler;
     }
 }

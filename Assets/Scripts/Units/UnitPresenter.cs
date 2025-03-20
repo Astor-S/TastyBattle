@@ -25,6 +25,7 @@ namespace Units
             _unitMovementInput.Init(Model.Stats);
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
+            StartCoroutine(Model.AttackHandler.Combat());
         }
 
         public void Enable()

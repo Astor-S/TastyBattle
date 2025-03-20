@@ -1,15 +1,16 @@
+using StructureElements;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AttackHandler : MonoBehaviour
+public class AttackHandler : IUpdatable
 {
     private readonly List<DamagableTarget> _attackedUnits = new();
 
-    [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] private Health _health;
+    private DetectionSystem _detectionSystem;
+    private Health _health;
 
     private AttackerSetup _stats;
     private DamagableTarget _attackedTarget;
@@ -22,16 +23,19 @@ public class AttackHandler : MonoBehaviour
     protected virtual float Damage => _stats.AttackDamage;
     protected float AttackSpeed => _stats.AttackSpeed;
 
-    private void Start() => 
-        StartCoroutine(nameof(Combat));
+    public AttackHandler(DetectionSystem detectionSystem, Health health)
+    {
+        _detectionSystem = detectionSystem;
+        _health = health;
+    }
 
-    private void Update()
+    public void Update(float _)
     {
         LocateTarget();
         RefreshList();
     }
 
-    public void Init(AttackerSetup attackerSetup)
+    public virtual void Init(AttackerSetup attackerSetup)
     {
         _health.Init(attackerSetup);
         _stats = attackerSetup;
@@ -43,11 +47,13 @@ public class AttackHandler : MonoBehaviour
             _attackedTarget.TakeDamage(CalculateDamage());
     }
 
-    protected virtual IEnumerator Combat()
+    public virtual IEnumerator Combat()
     {
         WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
 
-        while (enabled)
+        bool isRunning = true;
+
+        while (isRunning)
         {
             if (_attackedUnits.Count > 0)
             {
