@@ -36,9 +36,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 531547383232858241}
   - {fileID: 6144491934709962059}
   - {fileID: 8268691838820427234}
-  - {fileID: 531547383232858241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7619952327684945261
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405704784407216032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3e1130a9544b8499f5c59495ab8d27, type: 3}
   m_Name: 
@@ -274,6 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3963247014063712833}
+  _damagableTarget: {fileID: 1384906798130888063}
+  _attackTrigger: {fileID: 3073595596376243875}
 --- !u!1 &7496039816069354530
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +706,10 @@ PrefabInstance:
       propertyPath: _view
       value: 
       objectReference: {fileID: 3126533451837378299}
+    - target: {fileID: 7332092960446118749, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: _damagableTarget
+      value: 
+      objectReference: {fileID: 1384906798130888063}
     - target: {fileID: 9020718650408453776, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0

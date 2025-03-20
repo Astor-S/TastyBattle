@@ -13,14 +13,10 @@ public class DamagableTarget : MonoBehaviour, IDamagable
 
     public Health Health => _health;
 
-    public event Action Dying;
+    public event Action<DamagableTarget> Dying;
     public event Action HalfHP;
     public event Action QuaterHP;
-
-    private void Awake()
-    {
-        _health = new Health(_setup);
-    }
+    public event Action Inited;
 
     private void OnEnable()
     {
@@ -39,8 +35,10 @@ public class DamagableTarget : MonoBehaviour, IDamagable
     public void Init(DamagableSetup setup)
     {
         _setup = setup;
+        _health = new Health(_setup);
 
         enabled = true;
+        Inited?.Invoke();
     }
 
     private void OnQuaterHP() =>
@@ -54,17 +52,19 @@ public class DamagableTarget : MonoBehaviour, IDamagable
 
     private void Die()
     {
-        Dying?.Invoke();
+        Dying?.Invoke(this);
         StartCoroutine(StartDying());
     }
 
     private IEnumerator StartDying()
     {
-        yield return new WaitForSeconds(_deathTime);
-
         _collider.enabled = false;
         _rigidbody.isKinematic = true;
 
         enabled = false;
+
+        yield return new WaitForSeconds(_deathTime);
+
+        Destroy(gameObject);
     }
 }

@@ -80,7 +80,6 @@ public class LevelRoot : MonoBehaviour
 
         _playerBase.Init(new MainBuilding(
             _playerBaseSetup,
-            _playerBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _playerUnitFactory,
@@ -90,7 +89,6 @@ public class LevelRoot : MonoBehaviour
 
         _enemyBase.Init(new MainBuilding(
             _enemyBaseSetup,
-            _enemyBase.gameObject.layer,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _enemyUnitFactory,

@@ -2291,6 +2291,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1740381246540268478, guid: acc9a6fbfa8fe4b4089d2e98b3b971c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1743706927922645982, guid: acc9a6fbfa8fe4b4089d2e98b3b971c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -4048,15 +4052,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8897016898240549150, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.21
+      value: 5.332
       objectReference: {fileID: 0}
     - target: {fileID: 8906586584555077194, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
-      propertyPath: m_LocalPosition.y
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8906586584555077194, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.205
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906586584555077194, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.24
+      value: 6.839
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9227,7 +9235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6565689459612909571, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.194
+      value: 7.007
       objectReference: {fileID: 0}
     - target: {fileID: 6628176268358430551, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9239,7 +9247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6628176268358430551, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.857
+      value: 5.319
       objectReference: {fileID: 0}
     - target: {fileID: 8420854227064513104, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -11615,9 +11623,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7111970421941835120, guid: ebee340de387f334f9ac44e044abd8fb, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.12666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111970421941835120, guid: ebee340de387f334f9ac44e044abd8fb, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 476ca9e763ad05647939034720179aa0, type: 2}
+      objectReference: {fileID: 23800000, guid: 6f4297281e9c6224ba4f327ffbb05c87, type: 2}
     - target: {fileID: 7111970421941835120, guid: ebee340de387f334f9ac44e044abd8fb, type: 3}
       propertyPath: m_UseGeometry
       value: 0
@@ -15908,6 +15920,10 @@ PrefabInstance:
     - target: {fileID: 1740381246540268478, guid: acc9a6fbfa8fe4b4089d2e98b3b971c7, type: 3}
       propertyPath: m_Name
       value: EnemyTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740381246540268478, guid: acc9a6fbfa8fe4b4089d2e98b3b971c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1740483309384054462, guid: acc9a6fbfa8fe4b4089d2e98b3b971c7, type: 3}
       propertyPath: m_Layer

@@ -27,6 +27,8 @@ public class DetectionSystem : MonoBehaviour
         {
             if (LayerMask.LayerToName(unit.gameObject.layer) == _enemyLayer)
             {
+                unit.Dying += OnDetectedUnitDied;
+
                 _detectedUnits.Enqueue(unit);
 
                 if (_detectedUnits.Count == 1)
@@ -35,24 +37,23 @@ public class DetectionSystem : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnDetectedUnitDied(DamagableTarget unit)
     {
-        if (other.TryGetComponent(out DamagableTarget unit) && _detectedUnits.Contains(unit))
-        {
-            if (_detectedUnits.Peek() == unit)
-            {
-                _detectedUnits.Dequeue();
+        unit.Dying -= OnDetectedUnitDied;
 
-                if (_detectedUnits.Count == 0)
-                    TargetChanged?.Invoke(_enemyBase);
-                else
-                    TargetChanged?.Invoke(_detectedUnits.Peek());
-            }
+        if (_detectedUnits.Peek() == unit)
+        {
+            _detectedUnits.Dequeue();
+
+            if (_detectedUnits.Count == 0)
+                TargetChanged?.Invoke(_enemyBase);
             else
-            {
-                _detectedUnits = new Queue<DamagableTarget>(_detectedUnits.Where(unitIter => unitIter != unit));
                 TargetChanged?.Invoke(_detectedUnits.Peek());
-            }
+        }
+        else
+        {
+            _detectedUnits = new Queue<DamagableTarget>(_detectedUnits.Where(unitIter => unitIter != unit));
+            TargetChanged?.Invoke(_detectedUnits.Peek());
         }
     }
 

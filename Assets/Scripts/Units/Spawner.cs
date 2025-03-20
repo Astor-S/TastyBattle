@@ -10,17 +10,14 @@ namespace Units
         private int _spawnCount;
         private UnitFactory _unitFactory;
         private UnitSetup[] _unitSetups;
-        private int _layerNumber;
         private bool _isGameRunning = true;
 
         public Spawner(
-            int layerNumber,
             float defaultSpawnCooldown,
             int spawnCount,
             UnitFactory unitFactory,
             UnitSetup[] unitSetups)
         {
-            _layerNumber = layerNumber;
             _defaultSpawnCooldown = defaultSpawnCooldown;
             _spawnCount = spawnCount;
             _unitFactory = unitFactory;
@@ -38,7 +35,7 @@ namespace Units
 
                 for (int i = 0; i < _spawnCount; i++)
                 {
-                    _unitFactory.CreateUnit(_unitSetups[0]);
+                    _unitFactory.CreateUnit(_unitSetups[1]);
 
                     yield return timeBetweenUnits;
                 }

@@ -46,7 +46,7 @@ namespace EnemyBehaviorSystem
 
         private void SummonMeleeUnit()
         {
-            _melee.OrderUnit();
+            _range.OrderUnit();
             Debug.Log("Я призвал милишника!");
         }
 

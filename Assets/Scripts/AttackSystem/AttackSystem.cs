@@ -7,6 +7,7 @@ public class AttackSystem : MonoBehaviour
 {
     [SerializeField] private DetectionSystem _detectionSystem;
     [SerializeField] private DamagableTarget _damagableTarget;
+    [SerializeField] private SphereCollider _attackTrigger;
 
     private AttackerSetup _stats;
     private List<DamagableTarget> _attackedUnits = new();
@@ -34,15 +35,11 @@ public class AttackSystem : MonoBehaviour
         _detectionSystem.TargetChanged -= ChangeTarget;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void FixedUpdate()
     {
-        if (other.TryGetComponent(out DamagableTarget damagableTarget) && damagableTarget == _attackedTarget)
+        if (_attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) <= _stats.AttackDistance * _stats.AttackDistance)
             _isAttacking = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent(out DamagableTarget damagableTarget) && damagableTarget == _attackedTarget)
+        else
             _isAttacking = false;
     }
 
@@ -54,6 +51,7 @@ public class AttackSystem : MonoBehaviour
     public void Init(AttackerSetup attackerSetup)
     {
         _stats = attackerSetup;
+        _attackTrigger.radius = _stats.AttackDistance;
 
         gameObject.SetActive(true);
     }

@@ -10,7 +10,6 @@ namespace Buildings
         public MainBuilding(
             
             DamagableSetup setup,
-            int layerNumber,
             float unitSpawnCooldown,
             int unitSpawnCount,
             UnitFactory unitFactory,
@@ -20,7 +19,6 @@ namespace Buildings
             : base(setup, position, rotation)
         {
             Spawner = new Spawner(
-                layerNumber,
                 unitSpawnCooldown,
                 unitSpawnCount,
                 unitFactory,
