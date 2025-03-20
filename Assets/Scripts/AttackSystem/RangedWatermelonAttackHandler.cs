@@ -1,7 +1,7 @@
 using UnityEngine;
 using Units;
 
-public class RangedWatermelonAttackHandler : RangedAttackSystem
+public class RangedWatermelonAttackHandler : RangedAttackHandler
 {
     [SerializeField] private WatermelonAbilityHandler _abilityHandler;
 

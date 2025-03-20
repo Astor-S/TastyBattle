@@ -7,10 +7,13 @@ namespace Units
     {
         private MushroomAbilityHandler _abilityHandler;
 
-        public MushroomUnit(UnitSetup unitSetup, DetectionSystem detectionSystem, Health health) : base(unitSetup, detectionSystem, health)
+        public MushroomUnit(MushroomAbilityHandler abilityHandler, UnitSetup unitSetup, DetectionSystem detectionSystem, Health health) : base(unitSetup, detectionSystem, health)
         {
-          
+            _abilityHandler = abilityHandler;
+            AttackHandler.InitAbility(abilityHandler);
         }
+
+        public new MushroomAttackHandler AttackHandler => base.AttackHandler as MushroomAttackHandler;
 
         public void Enable() =>
             _abilityHandler.Enable();

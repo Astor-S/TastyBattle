@@ -24,28 +24,29 @@ namespace Units
                 return;
             }
 
-            UnitPresenter unit = CreatePresenter(_unitTemplates[setup.BattleRole]) as UnitPresenter;
+            UnitPresenter presenter = CreatePresenter(_unitTemplates[setup.BattleRole]) as UnitPresenter;
+            Unit model = new Unit(setup, presenter.GetComponent<DetectionSystem>(), presenter.GetComponent<Health>());
 
-            unit.Init(new Unit(setup, unit.GetComponent<DetectionSystem>(), unit.GetComponent<Health>()));
-            unit.gameObject.layer = layerNumber;
+            presenter.Init(model);
+            presenter.gameObject.layer = layerNumber;
 
             int randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
             
             while (_previousSpawnPosition == randomPositionZ)
                 randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
 
-            unit.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
+            presenter.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
             _previousSpawnPosition = randomPositionZ;
 
-            unit.gameObject.SetActive(true);
+            presenter.gameObject.SetActive(true);
 
             AbilityHandler abilityHandler = CreateAbilityHandler(setup); 
 
-            if (unit is IUnitWithAbility unitWithAbility)
+            if (model is IUnitWithAbility unitWithAbility)
                 unitWithAbility.SetAbility(abilityHandler);
             
-            unit.UnitMovementInput.SetInitialTarget(_enemyBase.transform);
-            unit.DetectionSystem.SetInitialTarget(_enemyBase.transform);
+            presenter.UnitMovementInput.SetInitialTarget(_enemyBase.transform);
+            presenter.DetectionSystem.SetInitialTarget(_enemyBase.transform);
         }
 
         protected abstract AbilityHandler CreateAbilityHandler(UnitSetup unitSetup);

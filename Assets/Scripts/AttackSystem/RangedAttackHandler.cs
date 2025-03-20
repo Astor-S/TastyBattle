@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class RangedAttackSystem : AttackHandler
+public class RangedAttackHandler : AttackHandler
 {
     [SerializeField] private Projectile _projectilePrefab;  
     [SerializeField] private Transform _projectileSpawnPoint;
-    [SerializeField] private float _projectileSpeed = 10f;
+    private float _projectileSpeed = 10f;
 
     private Pool<Projectile> _projectilePool;
 

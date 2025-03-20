@@ -1,4 +1,8 @@
 public class MeleeAttackerMushroom : MushroomAttackHandler
 {
-    public MeleeAttackerMushroom(AbilityHandler abilityHandler, DetectionSystem detectionSystem, Health health) : base(abilityHandler, detectionSystem, health){}
+    public MeleeAttackerMushroom(
+        DetectionSystem detectionSystem,
+        Health health) :
+        base(detectionSystem,
+            health) { }
 }
