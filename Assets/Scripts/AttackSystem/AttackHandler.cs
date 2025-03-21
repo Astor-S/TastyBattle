@@ -18,7 +18,7 @@ public class AttackHandler : MonoBehaviour
 
     public DamagableTarget AttackedTarget => _attackedTarget;
     public bool IsAttacking => _isAttacking;
-    protected float Damage => _stats.AttackDamage;
+    protected virtual float Damage => _stats.AttackDamage;
     protected float AttackSpeed => _stats.AttackSpeed;
 
     private void Start() => 

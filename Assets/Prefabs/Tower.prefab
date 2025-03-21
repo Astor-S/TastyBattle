@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 950199767411787301}
-  _attackSystem: {fileID: 739621251359655683}
+  _attackHandler: {fileID: 739621251359655683}
 --- !u!114 &9163413398835935689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 950199767411787301}
-  _attackSystem: {fileID: 739621251359655683}
+  _attackHandler: {fileID: 739621251359655683}
   _detectionSystem: {fileID: 7212480549341496934}
 --- !u!195 &6915147072732015394
 NavMeshAgent:
