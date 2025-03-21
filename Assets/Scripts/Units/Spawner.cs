@@ -35,7 +35,7 @@ namespace Units
 
                 for (int i = 0; i < _spawnCount; i++)
                 {
-                    _unitFactory.CreateUnit(_unitSetups[1]);
+                    _unitFactory.CreateUnit(_unitSetups[0]);
 
                     yield return timeBetweenUnits;
                 }

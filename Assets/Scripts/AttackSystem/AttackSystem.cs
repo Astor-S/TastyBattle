@@ -1,7 +1,6 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 
 public class AttackSystem : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class AttackSystem : MonoBehaviour
     [SerializeField] private SphereCollider _attackTrigger;
 
     private AttackerSetup _stats;
-    private List<DamagableTarget> _attackedUnits = new();
     private DamagableTarget _attackedTarget;
     private float _attackTimer;
     private bool _isAttacking = false;
@@ -19,6 +17,7 @@ public class AttackSystem : MonoBehaviour
     public event Action AttackStopped;
 
     public DamagableTarget AttackedTarget => _attackedTarget;
+    public bool IsAttacking => _isAttacking;
     protected float Damage => _stats.AttackDamage;
     protected float AttackSpeed => _stats.AttackSpeed;
 

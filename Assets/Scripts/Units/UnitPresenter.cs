@@ -25,7 +25,8 @@ namespace Units
 
         private void Start()
         {
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
+            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance + 0.05f;
+            _navMeshAgent.speed = Model.Stats.MovementSpeed;
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
         }
@@ -34,7 +35,9 @@ namespace Units
         {
             if (_target != null)
             {
-                _navMeshAgent.SetDestination(_target.transform.position);
+                if (_attackSystem.IsAttacking == false)
+                    _navMeshAgent.SetDestination(_target.transform.position);
+
                 transform.LookAt(_target.transform.position);
             }
         }

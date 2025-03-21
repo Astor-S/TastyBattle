@@ -43,6 +43,8 @@ public class RangedAttackSystem : AttackSystem
             Vector3 attackedTargetElevatedPosition = AttackedTarget.transform.position + 0.5f * Vector3.up;
 
             projectile.Rigidbody.velocity = (attackedTargetElevatedPosition - _projectileSpawnPoint.position).normalized * _projectileSpeed;
+
+            Debug.DrawRay(_projectileSpawnPoint.position, attackedTargetElevatedPosition, Color.red, 3f);
         }        
     }
 }
