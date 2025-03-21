@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4145500298243705902}
   - component: {fileID: 1089374252047057979}
-  - component: {fileID: 5696147618123696935}
+  - component: {fileID: 912346928963595266}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -186,7 +186,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5696147618123696935
+--- !u!114 &912346928963595266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,15 +195,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4854666566784514268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a60e0cac0a381440a387a5b2a798fca, type: 3}
+  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7991039980486154689}
   _damagableTarget: {fileID: 7258618766229363941}
   _attackTrigger: {fileID: 1089374252047057979}
-  _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
+  _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   _projectileSpawnPoint: {fileID: 2234297447284706052}
-  _projectileSpeed: 12
+  _projectileSpeed: 10
 --- !u!1 &9171405283030669546
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackSystem: {fileID: 5696147618123696935}
+  _attackHandler: {fileID: 912346928963595266}
   _detectionSystem: {fileID: 7991039980486154689}
   _damageTarget: {fileID: 7258618766229363941}
   _navMeshAgent: {fileID: -9110894439992595789}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7258618766229363941}
-  _attackSystem: {fileID: 5696147618123696935}
+  _attackSystem: {fileID: 912346928963595266}
   _detectionSystem: {fileID: 7991039980486154689}
 --- !u!195 &-9110894439992595789
 NavMeshAgent:
@@ -369,7 +369,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 5000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

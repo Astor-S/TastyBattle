@@ -7,7 +7,7 @@ namespace Units
 {
     public class UnitPresenter : Presenter, IActivatable
     {
-        [SerializeField] private AttackSystem _attackSystem;
+        [SerializeField] private AttackHandler _attackHandler;
         [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
         [SerializeField] private NavMeshAgent _navMeshAgent;
@@ -35,7 +35,7 @@ namespace Units
         {
             if (_target != null)
             {
-                if (_attackSystem.IsAttacking == false)
+                if (_attackHandler.IsAttacking == false)
                     _navMeshAgent.SetDestination(_target.transform.position);
 
                 transform.LookAt(_target.transform.position);
@@ -52,22 +52,22 @@ namespace Units
             if (_detectionSystem.gameObject.activeSelf == false)
                 _detectionSystem.Init(gameObject.layer, Model.EnemyBase);
 
-            if (_attackSystem.gameObject.activeSelf == false)
-                _attackSystem.Init(Model.Stats);
+            if (_attackHandler.gameObject.activeSelf == false)
+                _attackHandler.Init(Model.Stats);
 
             _target = Model.EnemyBase;
 
             _damageTarget.Dying += DyingDelegate;
-            _attackSystem.AttackStarted += View.SetAttackingAnimation;
-            _attackSystem.AttackStopped += View.SetWalkingAnimation;
+            _attackHandler.AttackStarted += View.SetAttackingAnimation;
+            _attackHandler.AttackStopped += View.SetWalkingAnimation;
             _detectionSystem.TargetChanged += SetDestination;
         }
 
         public void Disable()
         {
             _damageTarget.Dying -= DyingDelegate;
-            _attackSystem.AttackStarted -= View.SetAttackingAnimation;
-            _attackSystem.AttackStopped -= View.SetWalkingAnimation;
+            _attackHandler.AttackStarted -= View.SetAttackingAnimation;
+            _attackHandler.AttackStopped -= View.SetWalkingAnimation;
             _detectionSystem.TargetChanged -= SetDestination;
         }
 
