@@ -1,13 +1,17 @@
 using UnityEngine;
+using AttackSystem;
 
-public class TowerPresenter : BuildingPresenter
+namespace Buildings
 {
-    [SerializeField] private RangedAttackHandler _attackSystem;
-
-    public new AttackerSetup Stats => base.Stats as AttackerSetup;
-
-    private void Awake()
+    public class TowerPresenter : BuildingPresenter
     {
-        _attackSystem.Init(Stats);
+        [SerializeField] private RangedAttackHandler _attackHandler;
+
+        public new AttackerSetup Stats => base.Stats as AttackerSetup;
+
+        private void Awake()
+        {
+            _attackHandler.Init(Stats);
+        }
     }
 }
