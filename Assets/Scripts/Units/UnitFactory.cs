@@ -1,6 +1,7 @@
 using StructureElements;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Units
 {
@@ -28,27 +29,14 @@ namespace Units
             }
         }
 
-        public void CreateUnit(UnitSetup setup, int layerNumber)
+        public void CreateUnit(UnitSetup setup)
         {
-            UnitPresenter unit = CreatePresenter(
-                _unitsDictionary[setup.Faction][setup.BattleRole],
-                new Unit(setup))
-                as UnitPresenter;
+            Unit unit = new Unit(
+                setup,
+                _enemyBase);
 
-            unit.gameObject.layer = layerNumber;
-
-            int randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
-
-            while (_previousSpawnPosition == randomPositionZ)
-                randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
-
-            unit.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
-            _previousSpawnPosition = randomPositionZ;
-
-            unit.gameObject.SetActive(true);
-
-            unit.UnitMovementInput.SetInitialTarget(_enemyBase.transform); //Дубляж кода
-            unit.DetectionSystem.SetInitialTarget(_enemyBase.transform);
+            CreatePresenter(_unitsDictionary[setup.Faction][setup.BattleRole], unit);
+            unit.MoveTo(GenerateSpawnPosition());
         }
 
         private Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)
@@ -56,6 +44,18 @@ namespace Units
             Presenter presenter = Instantiate(presenterTemplate);
             presenter.Init(model);
             return presenter;
+        }
+
+        private Vector3 GenerateSpawnPosition()
+        {
+            int randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
+
+            while (_previousSpawnPosition == randomPositionZ)
+                randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
+
+            _previousSpawnPosition = randomPositionZ;
+
+            return new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
         }
     }
 }

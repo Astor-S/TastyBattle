@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4058025199840786}
   - component: {fileID: 33833157834804856}
   - component: {fileID: 23972824282041216}
-  - component: {fileID: 7681980230429747940}
   - component: {fileID: -5391031859365370365}
   - component: {fileID: 3311796919118335399}
+  - component: {fileID: 7681980230429747940}
   m_Layer: 0
   m_Name: TowerProjectile
   m_TagString: Untagged
@@ -88,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7681980230429747940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240887441953726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 174fa889b644dfe4c817535e7b443526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifeTime: 3
 --- !u!54 &-5391031859365370365
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,6 +136,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.25
   m_Center: {x: -0.000000029802322, y: 0, z: 0.000000014901161}
+--- !u!114 &7681980230429747940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240887441953726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174fa889b644dfe4c817535e7b443526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 3
+  _rigidbody: {fileID: -5391031859365370365}
 --- !u!1 &1420486808462880
 GameObject:
   m_ObjectHideFlags: 0

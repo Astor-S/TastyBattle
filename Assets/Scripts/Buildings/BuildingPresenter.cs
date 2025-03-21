@@ -1,22 +1,39 @@
 using StructureElements;
+using System;
 using UnityEngine;
 
 public class BuildingPresenter : Presenter, IActivatable
 {
-    [SerializeField] protected DamagableTarget _damagableTarget;
-    [SerializeField] private DamagableSetup _damagableSetup;
+    [SerializeField] private DamagableTarget _damagableTarget;
+
+    private Action<DamagableTarget> _dyingDelegate;
 
     public new BuildingView View => base.View as BuildingView;
-    public DamagableSetup Stats => _damagableSetup;
+    public new Building Model => base.Model as Building;
+    public DamagableSetup Stats => Model.Stats;
+    public DamagableTarget DamagableTarget => _damagableTarget;
 
-    private void Start() =>
+    private void Awake()
+    {
+        _dyingDelegate = (_) => View.SetDeathAnimation();
+    }
+
+    private void Start()
+    {
         SetColorSide();
+    }
 
-    public virtual void Enable() =>
-        _damagableTarget.Died += View.SetDeathAnimation;
+    public virtual void Enable()
+    {
+        _damagableTarget.Init(Stats);
 
-    public virtual void Disable() =>
-        _damagableTarget.Died -= View.SetDeathAnimation;
+        _damagableTarget.Dying += _dyingDelegate;
+    }
+
+    public virtual void Disable()
+    {
+        _damagableTarget.Dying -= _dyingDelegate;
+    }
 
     private void SetColorSide()
     {

@@ -10,6 +10,7 @@ public class DamagableSetup : ScriptableObject
     public event Action MaxHealthIncreased;
 
     public float MaxHealthPoints => _maxHealthPoints;
+    public LayerMask OwnerMask => _ownerMask;
 
     public void IncreaseHealth(float healthBoostPortion)
     {

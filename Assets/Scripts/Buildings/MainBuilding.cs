@@ -1,25 +1,24 @@
-using StructureElements;
 using Units;
 using UnityEngine;
 
 namespace Buildings
 {
-    public class MainBuilding : Transformable
+    public class MainBuilding : Building
     {
         public Spawner Spawner { get; }
 
         public MainBuilding(
-            Vector3 position,
-            Quaternion rotation,
-            int layerNumber,
+            
+            DamagableSetup setup,
             float unitSpawnCooldown,
             int unitSpawnCount,
             UnitFactory unitFactory,
-            UnitSetup[] unitSetups)
-            : base(position, rotation)
+            UnitSetup[] unitSetups,
+            Vector3 position,
+            Quaternion rotation)
+            : base(setup, position, rotation)
         {
             Spawner = new Spawner(
-                layerNumber,
                 unitSpawnCooldown,
                 unitSpawnCount,
                 unitFactory,

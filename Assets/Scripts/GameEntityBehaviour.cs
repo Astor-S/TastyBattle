@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class GameEntityBehaviour : MonoBehaviour
@@ -5,12 +6,14 @@ public abstract class GameEntityBehaviour : MonoBehaviour
     [SerializeField] private DamagableTarget _damagableTarget;
     [SerializeField] private AttackHandler _attackSystem;
     [SerializeField] private DetectionSystem _detectionSystem;
+
+    private Action<DamagableTarget> _dyingDelegate => (_) => Disable();
     
     private void OnEnable() =>
-        _damagableTarget.Died += Disable;
+        _damagableTarget.Dying += _dyingDelegate;
 
     private void OnDisable() =>
-        _damagableTarget.Died -= Disable;
+        _damagableTarget.Dying -= _dyingDelegate;
 
     protected virtual void Disable() 
     {

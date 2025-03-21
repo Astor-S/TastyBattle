@@ -2,15 +2,19 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour, IDestroyable<Projectile>
 {
     [SerializeField] private float _lifeTime = 3f;
+    [SerializeField] private Rigidbody _rigidbody;
 
     private DamagableTarget _target;
     private Pool<Projectile> _pool;
     private WaitForSeconds _waitLifeTime;
     private float _damage;
     private bool _hasHit = false;
+
+    public Rigidbody Rigidbody => _rigidbody;
 
     public event Action<Projectile> Destroyed;
 
