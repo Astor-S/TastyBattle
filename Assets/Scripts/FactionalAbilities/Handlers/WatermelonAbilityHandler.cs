@@ -1,3 +1,4 @@
+using StructureElements;
 using UnityEngine;
 
 namespace FactionalAbilities.Handlers
@@ -7,12 +8,13 @@ namespace FactionalAbilities.Handlers
         private const float DamageMultiplierBase = 1f;
 
         [SerializeField] private WatermelonAbility _watermelonAbility;
-        [SerializeField] private Health _health;  
+        [SerializeField] private DamagableTarget _damagableTarget;  
         [SerializeField] private UnitSetup _unitSetup;
 
         private float _baseAttackDamage;
         private float _currentAttackDamage;
         private bool _isDamageBoostActive = false;
+        private bool _inited = false;
 
         public float CurrentAttackDamage => _currentAttackDamage;
 
@@ -24,12 +26,24 @@ namespace FactionalAbilities.Handlers
 
         private void OnEnable()
         {
-            _health.ValueChanged += OnHealthChanged;
+            if (_inited)
+                _damagableTarget.Health.ValueChanged += OnHealthChanged;
+            else
+                _damagableTarget.Inited += OnDamagableTargetInited;
         }
 
         private void OnDisable()
         {
-            _health.ValueChanged -= OnHealthChanged;
+            if (_inited)
+                _damagableTarget.Health.ValueChanged -= OnHealthChanged;
+            else
+                _damagableTarget.Inited -= OnDamagableTargetInited;
+        }
+
+        private void OnDamagableTargetInited()
+        {
+            _inited = true;
+            _damagableTarget.Health.ValueChanged += OnHealthChanged;
         }
 
         private void OnHealthChanged(float currentHealth, float maxHealth)

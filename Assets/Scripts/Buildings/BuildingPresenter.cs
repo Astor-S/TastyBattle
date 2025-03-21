@@ -13,13 +13,9 @@ public class BuildingPresenter : Presenter, IActivatable
     public DamagableSetup Stats => Model.Stats;
     public DamagableTarget DamagableTarget => _damagableTarget;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _dyingDelegate = (_) => View.SetDeathAnimation();
-    }
-
-    private void Start()
-    {
         SetColorSide();
     }
 

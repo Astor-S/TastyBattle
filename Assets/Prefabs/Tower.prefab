@@ -321,6 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 950199767411787301}
   _attackHandler: {fileID: 739621251359655683}
+  _detectionSystem: {fileID: 7212480549341496934}
+  _enemyBase: {fileID: 0}
 --- !u!114 &9163413398835935689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,6 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 950199767411787301}
+  _baseTransform: {fileID: 1741817573148271048}
 --- !u!1001 &2830354195920095297
 PrefabInstance:
   m_ObjectHideFlags: 0

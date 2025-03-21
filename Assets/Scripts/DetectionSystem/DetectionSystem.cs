@@ -8,16 +8,30 @@ public class DetectionSystem : MonoBehaviour
     private const string Player = nameof(Player);
 
     [SerializeField] private DamagableTarget _currentUnit;
+    [SerializeField] private Transform _baseTransform;
 
     private Queue<DamagableTarget> _detectedUnits = new();
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
 
+    public DamagableTarget CurrentTarget { get; private set; } = null;
+
     public event Action<DamagableTarget> TargetChanged;
+
+    private void Awake()
+    {
+        CurrentTarget = _enemyBase;
+    }
 
     private void Start()
     {
         TargetChanged?.Invoke(_enemyBase);
+    }
+
+    private void FixedUpdate()
+    {
+        if (CurrentTarget != null)
+            _baseTransform.LookAt(CurrentTarget.transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +45,10 @@ public class DetectionSystem : MonoBehaviour
                 _detectedUnits.Enqueue(unit);
 
                 if (_detectedUnits.Count == 1)
+                {
                     TargetChanged?.Invoke(unit);
+                    CurrentTarget = unit;
+                }
             }
         }
     }
@@ -43,10 +60,14 @@ public class DetectionSystem : MonoBehaviour
         while (_detectedUnits.Count > 0 && (_detectedUnits.Peek() == null || _detectedUnits.Peek().IsAlive == false))
             _detectedUnits.Dequeue();
 
+        DamagableTarget currentTarget;
+
         if (_detectedUnits.Count == 0)
-            TargetChanged?.Invoke(_enemyBase);
+            currentTarget = _enemyBase;
         else
-            TargetChanged?.Invoke(_detectedUnits.Peek());
+            currentTarget = _detectedUnits.Peek();
+
+        TargetChanged?.Invoke(currentTarget);
     }
 
     public void Init(int layer, DamagableTarget enemyBase)

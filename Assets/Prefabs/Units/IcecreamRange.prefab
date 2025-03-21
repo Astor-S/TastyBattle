@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 7258618766229363941}
+  _baseTransform: {fileID: 4253336512226444873}
 --- !u!1 &4067701718079828736
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7258618766229363941}
-  _attackSystem: {fileID: 912346928963595266}
+  _attackHandler: {fileID: 0}
   _detectionSystem: {fileID: 7991039980486154689}
 --- !u!195 &-9110894439992595789
 NavMeshAgent:

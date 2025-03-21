@@ -645,6 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 6184693688351451896}
+  _baseTransform: {fileID: 1018052837903396690}
 --- !u!1 &5040833908302470558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
+  _damagableTarget: {fileID: 6184693688351451896}
   _unitSetup: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
 --- !u!1 &8038899745897635382
 GameObject:

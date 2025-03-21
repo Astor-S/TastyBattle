@@ -14,8 +14,6 @@ namespace Units
         [SerializeField] Faction _faction;
         [SerializeField] BattleRole _battleRole;
 
-        private DamagableTarget _target = null;
-
         public new Unit Model => base.Model as Unit;
         public new UnitView View => base.View as UnitView;
         public DetectionSystem DetectionSystem => _detectionSystem;
@@ -33,12 +31,10 @@ namespace Units
 
         private void FixedUpdate()
         {
-            if (_target != null)
+            if (_detectionSystem.CurrentTarget != null)
             {
                 if (_attackHandler.IsAttacking == false)
-                    _navMeshAgent.SetDestination(_target.transform.position);
-
-                transform.LookAt(_target.transform.position);
+                    _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
             }
         }
 
@@ -55,12 +51,9 @@ namespace Units
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats);
 
-            _target = Model.EnemyBase;
-
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
-            _detectionSystem.TargetChanged += SetDestination;
         }
 
         public void Disable()
@@ -68,10 +61,6 @@ namespace Units
             _damageTarget.Dying -= DyingDelegate;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
-            _detectionSystem.TargetChanged -= SetDestination;
         }
-
-        private void SetDestination(DamagableTarget target) =>
-            _target = target;
     }
 }
