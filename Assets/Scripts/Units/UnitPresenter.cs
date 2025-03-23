@@ -23,8 +23,10 @@ namespace Units
 
         private void Start()
         {
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance + 0.05f;
+            _navMeshAgent.updateRotation = false;
+            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
             _navMeshAgent.speed = Model.Stats.MovementSpeed;
+            NavMesh.avoidancePredictionTime = 0.5f;
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
         }

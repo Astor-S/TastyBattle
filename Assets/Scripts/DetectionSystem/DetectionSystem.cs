@@ -46,8 +46,8 @@ public class DetectionSystem : MonoBehaviour
 
                 if (_detectedUnits.Count == 1)
                 {
-                    TargetChanged?.Invoke(unit);
                     CurrentTarget = unit;
+                    TargetChanged?.Invoke(CurrentTarget);
                 }
             }
         }
@@ -60,14 +60,12 @@ public class DetectionSystem : MonoBehaviour
         while (_detectedUnits.Count > 0 && (_detectedUnits.Peek() == null || _detectedUnits.Peek().IsAlive == false))
             _detectedUnits.Dequeue();
 
-        DamagableTarget currentTarget;
-
         if (_detectedUnits.Count == 0)
-            currentTarget = _enemyBase;
+            CurrentTarget = _enemyBase;
         else
-            currentTarget = _detectedUnits.Peek();
+            CurrentTarget = _detectedUnits.Peek();
 
-        TargetChanged?.Invoke(currentTarget);
+        TargetChanged?.Invoke(CurrentTarget);
     }
 
     public void Init(int layer, DamagableTarget enemyBase)
