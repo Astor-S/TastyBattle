@@ -877,7 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2613008001417834232}
   - component: {fileID: 2969520518059830536}
-  - component: {fileID: 3380778167908364383}
+  - component: {fileID: 9000558882389707191}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -922,7 +922,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &3380778167908364383
+--- !u!114 &9000558882389707191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -931,7 +931,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6464063540159492044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
+  m_Script: {fileID: 11500000, guid: 9587991e215651d439e3b7470db4e221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3492295004487505235}
@@ -940,6 +940,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 673815104503727672}
   _projectileSpeed: 10
+  _abilityHandler: {fileID: 5372932057529340475}
 --- !u!1 &6621100499277963522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 3380778167908364383}
+  _attackHandler: {fileID: 0}
   _detectionSystem: {fileID: 3492295004487505235}
   _damageTarget: {fileID: 6184693688351451896}
   _navMeshAgent: {fileID: 2623144175697789885}
@@ -1291,7 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 6184693688351451896}
-  _attackHandler: {fileID: 3380778167908364383}
+  _attackHandler: {fileID: 9000558882389707191}
   _detectionSystem: {fileID: 3492295004487505235}
 --- !u!195 &2623144175697789885
 NavMeshAgent:
@@ -1327,9 +1328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f74e5033bf94347825161628f0f4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
   _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
   _damagableTarget: {fileID: 6184693688351451896}
-  _unitSetup: {fileID: 11400000, guid: e8b9d2aef8d33bb438b049ff276dbb59, type: 2}
 --- !u!1 &8038899745897635382
 GameObject:
   m_ObjectHideFlags: 0

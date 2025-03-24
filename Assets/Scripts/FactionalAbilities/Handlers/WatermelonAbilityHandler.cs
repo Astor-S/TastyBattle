@@ -1,28 +1,16 @@
-using StructureElements;
 using UnityEngine;
 
 namespace FactionalAbilities.Handlers
 {
-    public class WatermelonAbilityHandler : MonoBehaviour
+    public class WatermelonAbilityHandler : AttackAbilityHandler
     {
         private const float DamageMultiplierBase = 1f;
 
         [SerializeField] private WatermelonAbility _watermelonAbility;
         [SerializeField] private DamagableTarget _damagableTarget;  
-        [SerializeField] private UnitSetup _unitSetup;
 
-        private float _baseAttackDamage;
-        private float _currentAttackDamage;
         private bool _isDamageBoostActive = false;
         private bool _inited = false;
-
-        public float CurrentAttackDamage => _currentAttackDamage;
-
-        private void Awake()
-        {
-            _baseAttackDamage = _unitSetup.AttackDamage;
-            _currentAttackDamage = _baseAttackDamage;
-        }
 
         private void OnEnable()
         {
@@ -59,15 +47,18 @@ namespace FactionalAbilities.Handlers
         private void ApplyDamageBoost()
         {
             _isDamageBoostActive = true;
-            _currentAttackDamage = _baseAttackDamage * (DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage);
-            Debug.Log($"[{gameObject.name}] Watermelon Ability Activated! Damage increased to {_currentAttackDamage}");
+            float baseDamage = GetBaseAttackDamage();
+            float currentDamage = baseDamage * (DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage);
+            SetCurrentAttackDamage(currentDamage);
+            Debug.Log($"[{gameObject.name}] Watermelon Ability Activated! Damage increased to {CurrentAttackDamage}");
         }
 
         private void RemoveDamageBoost()
         {
             _isDamageBoostActive = false;
-            _currentAttackDamage = _baseAttackDamage;
-            Debug.Log($"[{gameObject.name}] Watermelon Ability Deactivated! Damage returned to {_currentAttackDamage}");
+            float baseDamage = GetBaseAttackDamage();
+            SetCurrentAttackDamage(baseDamage);
+            Debug.Log($"[{gameObject.name}] Watermelon Ability Deactivated! Damage returned to {CurrentAttackDamage}");
         }
     }
 }

@@ -38,13 +38,11 @@ public class RangedAttackHandler : AttackHandler
             projectile.transform.position = _projectileSpawnPoint.position;
             projectile.transform.rotation = _projectileSpawnPoint.rotation; 
 
-            projectile.Initialize(AttackedTarget, Damage, _projectilePool);
+            projectile.Initialize(AttackedTarget, CalculateDamage(), _projectilePool);
 
             Vector3 attackedTargetElevatedPosition = AttackedTarget.transform.position + 0.5f * Vector3.up;
 
             projectile.Rigidbody.velocity = (attackedTargetElevatedPosition - _projectileSpawnPoint.position).normalized * _projectileSpeed;
-
-            Debug.DrawRay(_projectileSpawnPoint.position, attackedTargetElevatedPosition, Color.red, 3f);
         }        
     }
 }

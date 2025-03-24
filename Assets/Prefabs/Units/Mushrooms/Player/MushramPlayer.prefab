@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 8467476630828295037}
-  _attackHandler: {fileID: 0}
+  _attackHandler: {fileID: 4330169503773167146}
   _detectionSystem: {fileID: 3285873206335209259}
 --- !u!195 &7680744902001045816
 NavMeshAgent:
@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
   _unitSetup: {fileID: 11400000, guid: 658923a5022c33f43ad59bc355bdc705, type: 2}
+  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!1 &2607041365564629986
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   _detectionSystem: {fileID: 3285873206335209259}
   _damagableTarget: {fileID: 8467476630828295037}
   _attackTrigger: {fileID: 3336092370630202491}
-  _mushroomAbilityHandler: {fileID: 2296173930116109933}
+  _attackAbilityHandler: {fileID: 2296173930116109933}
 --- !u!1001 &2635481850268459401
 PrefabInstance:
   m_ObjectHideFlags: 0

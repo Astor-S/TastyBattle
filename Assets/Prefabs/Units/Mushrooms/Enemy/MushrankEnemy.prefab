@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
   _unitSetup: {fileID: 11400000, guid: 3501b433330696044a5773d7b32155ad, type: 2}
+  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!1 &6381229362912712206
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   _detectionSystem: {fileID: 6762635520650948994}
   _damagableTarget: {fileID: 2601731746668060154}
   _attackTrigger: {fileID: 4390566345613690279}
-  _mushroomAbilityHandler: {fileID: 7346452866206853002}
+  _attackAbilityHandler: {fileID: 7346452866206853002}
 --- !u!1001 &958946155546095846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,6 +464,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: _damagableTarget
+      value: 
+      objectReference: {fileID: 2601731746668060154}
     - target: {fileID: 8951532719306805319, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1

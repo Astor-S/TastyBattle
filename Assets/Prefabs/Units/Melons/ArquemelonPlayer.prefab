@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8338457747908667702}
+  _attackHandler: {fileID: 0}
   _detectionSystem: {fileID: 2415558512083814679}
   _damageTarget: {fileID: 5717136829546381060}
   _navMeshAgent: {fileID: 7391605921718701908}
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 5717136829546381060}
-  _attackHandler: {fileID: 8338457747908667702}
+  _attackHandler: {fileID: 8409041357899002392}
   _detectionSystem: {fileID: 2415558512083814679}
 --- !u!195 &7391605921718701908
 NavMeshAgent:
@@ -1128,9 +1128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f74e5033bf94347825161628f0f4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: f1a3fda20d0a1344e8800c5b1321ea0d, type: 2}
   _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
   _damagableTarget: {fileID: 5717136829546381060}
-  _unitSetup: {fileID: 11400000, guid: f1a3fda20d0a1344e8800c5b1321ea0d, type: 2}
 --- !u!1 &6295018592886457770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2762666654709032579}
   - component: {fileID: 216496309784404202}
-  - component: {fileID: 8338457747908667702}
+  - component: {fileID: 8409041357899002392}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -1472,7 +1472,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &8338457747908667702
+--- !u!114 &8409041357899002392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9170123451767306935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
+  m_Script: {fileID: 11500000, guid: 9587991e215651d439e3b7470db4e221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 2415558512083814679}
@@ -1490,6 +1490,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 8538162855018470003}
   _projectileSpeed: 10
+  _abilityHandler: {fileID: 5995714737180854343}
 --- !u!1001 &5184960325599985732
 PrefabInstance:
   m_ObjectHideFlags: 0

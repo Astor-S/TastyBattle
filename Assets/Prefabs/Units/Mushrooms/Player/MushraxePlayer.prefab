@@ -69,7 +69,7 @@ MonoBehaviour:
   _detectionSystem: {fileID: 5722993900146528027}
   _damagableTarget: {fileID: 243090186277497796}
   _attackTrigger: {fileID: 6510157215879020196}
-  _mushroomAbilityHandler: {fileID: 3513615464885486302}
+  _attackAbilityHandler: {fileID: 3513615464885486302}
 --- !u!1 &867106075201483605
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,8 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
   _unitSetup: {fileID: 11400000, guid: 2fce05b43491aba4ba371b552df99118, type: 2}
+  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!195 &1025069687019207714
 NavMeshAgent:
   m_ObjectHideFlags: 0
