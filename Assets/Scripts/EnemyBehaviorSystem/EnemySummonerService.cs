@@ -7,6 +7,8 @@ namespace EnemyBehaviorSystem
     {
         [SerializeField] private UnitOrderHandler _melee;
         [SerializeField] private UnitOrderHandler _range;
+        [SerializeField] private UnitOrderHandler _tank;
+        [SerializeField] private UnitOrderHandler _siege;
 
         public void ExecuteFirstSummon() =>
             SummonRangeUnit();
@@ -38,26 +40,16 @@ namespace EnemyBehaviorSystem
             }
         }
 
-        private void SummonRangeUnit()
-        {
+        private void SummonRangeUnit() =>
             _range.OrderUnit();
-            Debug.Log("Я призвал дальника");
-        }
 
-        private void SummonMeleeUnit()
-        {
+        private void SummonMeleeUnit() =>
             _melee.OrderUnit();
-            Debug.Log("Я призвал милишника!");
-        }
 
-        private void SummonTankUnit()
-        {
-            Debug.Log("Я призвал танка!");
-        }
+        private void SummonTankUnit() =>
+            _tank.OrderUnit();
 
-        private void SummonSiegeUnit()
-        {
-            Debug.Log("Я призвал осадника!");
-        }
+        private void SummonSiegeUnit() =>
+            _siege.OrderUnit();
     }
 }
