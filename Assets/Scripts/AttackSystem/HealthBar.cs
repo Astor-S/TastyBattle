@@ -14,7 +14,9 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         if (_damagableTarget.Health != null)
+        {
             _damagableTarget.Health.ValueChanged += _view.UpdateVisualHealth;
+        }
     }
 
     private void OnDisable()

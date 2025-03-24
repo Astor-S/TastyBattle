@@ -90,6 +90,10 @@ namespace ResourceDistribution
                     case UpgradeType.UnitSpeedIncrease:
                         _upgradeHandler.IncreaseUnitSpeed();
                         break;
+
+                    case UpgradeType.IncomeIncrease:
+                        _upgradeHandler.IncreaseIncome();
+                        break;
                 }
             }
             catch (InvalidOperationException exc)
