@@ -1,6 +1,9 @@
-public interface IDamagable
+namespace AttackSystem.Interfaces
 {
-    public Health Health { get; }
+    public interface IDamagable
+    {
+        public Health Health { get; }
 
-    public void TakeDamage(float damage);
+        public void TakeDamage(float damage);
+    }
 }

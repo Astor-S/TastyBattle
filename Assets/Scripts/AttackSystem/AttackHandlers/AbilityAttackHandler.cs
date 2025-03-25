@@ -1,9 +1,9 @@
 using UnityEngine;
 using FactionalAbilities.Handlers;
 
-namespace AttackSystem
+namespace AttackSystem.AttackHandlers
 {
-    public class AbilityAttackHanlder : AttackHandler
+    public class AbilityAttackHandler : AttackHandler
     {
         [SerializeField] private AttackAbilityHandler _attackAbilityHandler;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using FactionalAbilities.Handlers;
 
-namespace AttackSystem
+namespace AttackSystem.RangedAttackHandlers
 {
     public class ReinforcedRangedAttackHandler : RangedAttackHandler
     {
