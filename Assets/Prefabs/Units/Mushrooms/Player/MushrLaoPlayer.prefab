@@ -148,8 +148,9 @@ GameObject:
   - component: {fileID: 3795294543095542951}
   - component: {fileID: 5050753945010976529}
   - component: {fileID: 7991337058688308161}
+  - component: {fileID: 5025070865987302789}
   m_Layer: 0
-  m_Name: MushrLao
+  m_Name: MushrLaoPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 815475007690937040}
+  _attackHandler: {fileID: 8488325412879031976}
   _detectionSystem: {fileID: 6845574052027439030}
   _damageTarget: {fileID: 8474672646858320659}
   _navMeshAgent: {fileID: 7991337058688308161}
@@ -282,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 8474672646858320659}
-  _attackHandler: {fileID: 815475007690937040}
+  _attackHandler: {fileID: 8488325412879031976}
   _detectionSystem: {fileID: 6845574052027439030}
 --- !u!195 &7991337058688308161
 NavMeshAgent:
@@ -306,6 +307,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5025070865987302789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398646529770936203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: 6b10b23f209988346b8a12634e019296, type: 2}
+  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!1 &3925538373590823384
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7727227740807306694}
   - component: {fileID: 7584471576841522486}
-  - component: {fileID: 815475007690937040}
+  - component: {fileID: 8488325412879031976}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -360,7 +375,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 8
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &815475007690937040
+--- !u!114 &8488325412879031976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,15 +384,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3925538373590823384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e087f043914e80409fbac4106823015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 6845574052027439030}
-  _damagableTarget: {fileID: 8474672646858320659}
-  _attackTrigger: {fileID: 7584471576841522486}
   _projectilePrefab: {fileID: 7021339642249049145, guid: f05c5cdde87a95f4b9d84fbed9f96467, type: 3}
   _projectileSpawnPoint: {fileID: 4115725752188633219}
   _projectileSpeed: 10
+  _abilityHandler: {fileID: 5025070865987302789}
 --- !u!1001 &1263145582263092596
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 3596359326062142758}
   - component: {fileID: 6004087487665108510}
   - component: {fileID: 7680744902001045816}
+  - component: {fileID: 1396752624129874501}
   m_Layer: 0
-  m_Name: Mushram
+  m_Name: MushramPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 7923659052382772904}
+  _attackHandler: {fileID: 6981559068319294046}
   _detectionSystem: {fileID: 3285873206335209259}
   _damageTarget: {fileID: 8467476630828295037}
   _navMeshAgent: {fileID: 7680744902001045816}
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 8467476630828295037}
-  _attackHandler: {fileID: 7923659052382772904}
+  _attackHandler: {fileID: 6981559068319294046}
   _detectionSystem: {fileID: 3285873206335209259}
 --- !u!195 &7680744902001045816
 NavMeshAgent:
@@ -174,6 +175,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1396752624129874501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996274692927515369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: 658923a5022c33f43ad59bc355bdc705, type: 2}
+  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!1 &2607041365564629986
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8738107172499274249}
   - component: {fileID: 3336092370630202491}
-  - component: {fileID: 7923659052382772904}
+  - component: {fileID: 6981559068319294046}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -329,7 +344,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7923659052382772904
+--- !u!114 &6981559068319294046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,12 +353,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6848610707250588375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f651decd00334fbfddf2f9879f841, type: 3}
+  m_Script: {fileID: 11500000, guid: 5187124d599b08149b543db03fefdd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3285873206335209259}
-  _damagableTarget: {fileID: 8467476630828295037}
-  _attackTrigger: {fileID: 3336092370630202491}
+  _attackAbilityHandler: {fileID: 1396752624129874501}
 --- !u!1001 &2635481850268459401
 PrefabInstance:
   m_ObjectHideFlags: 0
