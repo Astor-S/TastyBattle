@@ -161,7 +161,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665782984244403421}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1923039037
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -256,8 +256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3571666915236809804}
-  _damagableTarget: {fileID: 225888988733260564}
-  _attackTrigger: {fileID: 6568499145271926014}
   _attackAbilityHandler: {fileID: 5487129416650052088}
 --- !u!1 &5060204282048594459
 GameObject:
