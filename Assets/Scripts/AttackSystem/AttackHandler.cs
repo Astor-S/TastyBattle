@@ -42,11 +42,6 @@ public class AttackHandler : MonoBehaviour
             _isAttacking = false;
     }
 
-    private void ChangeTarget(DamagableTarget enemy)
-    {
-        _attackedTarget = enemy;
-    }
-
     public void Init(AttackerSetup attackerSetup)
     {
         _stats = attackerSetup;
@@ -58,7 +53,7 @@ public class AttackHandler : MonoBehaviour
     protected virtual void Hit()
     {
         if (_attackedTarget != null)
-            _attackedTarget.TakeDamage(Damage);
+            _attackedTarget.TakeDamage(CalculateDamage());
     }
 
     protected virtual IEnumerator Combat()
@@ -88,4 +83,10 @@ public class AttackHandler : MonoBehaviour
             yield return waitForFixedUpdate;
         }
     }
+
+    protected virtual float CalculateDamage() =>
+       Damage;
+
+    private void ChangeTarget(DamagableTarget enemy) =>
+        _attackedTarget = enemy;
 }

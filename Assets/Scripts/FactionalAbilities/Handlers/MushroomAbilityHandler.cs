@@ -2,23 +2,11 @@ using UnityEngine;
 
 namespace FactionalAbilities.Handlers
 {
-    public class MushroomAbilityHandler : MonoBehaviour
+    public class MushroomAbilityHandler : AttackAbilityHandler
     {
         private const float DamageMultiplierBase = 1f;
 
         [SerializeField] MushroomAbility _mushroomAbility;
-        [SerializeField] UnitSetup _unitSetup;
-
-        private float _baseAttackDamage;
-        private float _currentAttackDamage;
-
-        public float CurrentAttackDamage => _currentAttackDamage;
-
-        private void Awake()
-        {
-            _baseAttackDamage = _unitSetup.AttackDamage;
-            _currentAttackDamage = _baseAttackDamage;
-        }
 
         private void OnEnable()
         {
@@ -37,12 +25,15 @@ namespace FactionalAbilities.Handlers
         private void UpdateDamageBonus()
         {
             float damageBonus = _mushroomAbility.MushroomUnitCount * _mushroomAbility.DamageBonusPerUnit;
-            _currentAttackDamage = _baseAttackDamage * (DamageMultiplierBase + damageBonus);
+            float baseDamage = GetBaseAttackDamage();
+            float currentDamage = baseDamage * (DamageMultiplierBase + damageBonus);
+            
+            SetCurrentAttackDamage(currentDamage);
 
             Debug.Log($"[{gameObject.name}] UpdateDamageBonus: " +
-                     $"Base Damage = {_baseAttackDamage}, " +
+                     $"Base Damage = {baseDamage}, " +
                      $"Bonus = {damageBonus:F2}, " +
-                     $"Current Damage = {_currentAttackDamage:F2}");
+                     $"Current Damage = {CurrentAttackDamage:F2}");
         }
     }
 }

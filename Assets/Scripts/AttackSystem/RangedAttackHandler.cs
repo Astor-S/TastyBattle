@@ -38,7 +38,7 @@ public class RangedAttackHandler : AttackHandler
             projectile.transform.position = _projectileSpawnPoint.position;
             projectile.transform.rotation = _projectileSpawnPoint.rotation; 
 
-            projectile.Initialize(AttackedTarget, Damage, _projectilePool);
+            projectile.Initialize(AttackedTarget, CalculateDamage(), _projectilePool);
 
             Vector3 attackedTargetElevatedPosition = AttackedTarget.transform.position + 0.5f * Vector3.up;
 
