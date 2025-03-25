@@ -24,7 +24,6 @@ namespace Units
 
         private void Start()
         {
-            DyingDelegate = (_) => View.SetDeathAnimation();
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
             _navMeshAgent.speed = Model.Stats.MovementSpeed;
@@ -54,6 +53,8 @@ namespace Units
 
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats);
+
+            DyingDelegate = (_) => View.SetDeathAnimation();
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;

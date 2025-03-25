@@ -83,12 +83,12 @@ namespace ResourceDistribution
                         _upgradeHandler.IncreaseUnitHealth();
                         break;
 
-                    case UpgradeType.BuildingHealthIncrease:
-                        _upgradeHandler.IncreaseBuldingHealth();
-                        break;
-
                     case UpgradeType.UnitSpeedIncrease:
                         _upgradeHandler.IncreaseUnitSpeed();
+                        break;
+
+                    case UpgradeType.BuildingHealthIncrease:
+                        _upgradeHandler.IncreaseBuldingHealth();
                         break;
 
                     case UpgradeType.IncomeIncrease:
