@@ -5,27 +5,21 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private DamagableTarget _damagableTarget;
     [SerializeField] private HealthBarView _view;
 
-    private bool _inited = false;
+    private void Awake()
+    {
+        _damagableTarget.Inited += () => enabled = true;
+        enabled = false;
+    }
 
     private void OnEnable()
     {
-        if (_inited)
+        if (_damagableTarget.Health != null)
             _damagableTarget.Health.ValueChanged += _view.UpdateVisualHealth;
-        else
-            _damagableTarget.Inited += OnDamagableTargetInited;
     }
 
     private void OnDisable()
     {
-        if (_inited)
+        if (_damagableTarget.Health != null)
             _damagableTarget.Health.ValueChanged -= _view.UpdateVisualHealth;
-        else
-            _damagableTarget.Inited -= OnDamagableTargetInited;
-    }
-
-    private void OnDamagableTargetInited()
-    {
-        _inited = true;
-        _damagableTarget.Health.ValueChanged += _view.UpdateVisualHealth;
     }
 }

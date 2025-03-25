@@ -31,7 +31,7 @@ public class UnitView : View
         _animator.SetBool(IsAttacking, true);
     }
 
-    internal void SetDeathAnimation()
+    public void SetDeathAnimation()
     {
         _animator.SetTrigger(Die);
     }

@@ -4,4 +4,5 @@ public enum UpgradeType
     UnitHealthIncrease,
     UnitSpeedIncrease,
     BuildingHealthIncrease,
+    IncomeIncrease,
 }

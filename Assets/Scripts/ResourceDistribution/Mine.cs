@@ -16,6 +16,11 @@ public class Mine : MonoBehaviour, IIncomeSource
         StartCoroutine(GetIncome());
     }
 
+    public void IncreaseIncome(float portion)
+    {
+        _incomeValue += (int)(_incomeValue * portion);
+    }
+
     private IEnumerator GetIncome()
     {
         WaitForSeconds cooldownWaitng = new(_incomeCooldown);

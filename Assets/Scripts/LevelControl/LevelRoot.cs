@@ -37,42 +37,20 @@ public class LevelRoot : MonoBehaviour
         Wallet playerWallet = new Wallet(300, _playerMine);
         _playerResourceCounter.Init(playerWallet);
 
-        Wallet enemyWallet = new Wallet(300, _enemyMine);
-        _enemyResourceCounter.Init(enemyWallet);
-
         UnitOrderHandler[] playerUnitOrderHandlers = _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
         UnitSetup[] playerUnitSetups = playerUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
-
-        UnitOrderHandler[] enemyUnitOrderHandlers = _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
-        UnitSetup[] enemyUnitSetups = enemyUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
 
         _playerShop.Init(new Shop(
             _playerUnitFactory,
             _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
             _playerOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
-            new UpgradeHandler(playerUnitSetups),
+            new UpgradeHandler(playerUnitSetups, _playerMine),
             playerWallet));
-
-        _enemyShop.Init(new Shop(
-            _enemyUnitFactory,
-            _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
-            _enemyOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
-            new UpgradeHandler(enemyUnitSetups),
-            enemyWallet));
 
         foreach (BuildingPresenter tower in _playerTowers)
         {
             tower.Init(new Building(
                 _playerTowerSetup,
-                tower.transform.position,
-                tower.transform.rotation,
-                tower.transform.localScale));
-        }
-
-        foreach (BuildingPresenter tower in _enemyTowers)
-        {
-            tower.Init(new Building(
-                _enemyTowerSetup,
                 tower.transform.position,
                 tower.transform.rotation,
                 tower.transform.localScale));
@@ -86,6 +64,28 @@ public class LevelRoot : MonoBehaviour
             playerUnitSetups,
             _playerBase.transform.position,
             _playerBase.transform.rotation));
+
+        Wallet enemyWallet = new Wallet(300, _enemyMine);
+        _enemyResourceCounter.Init(enemyWallet);
+
+        UnitOrderHandler[] enemyUnitOrderHandlers = _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
+        UnitSetup[] enemyUnitSetups = enemyUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
+
+        _enemyShop.Init(new Shop(
+            _enemyUnitFactory,
+            _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
+            _enemyOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
+            new UpgradeHandler(enemyUnitSetups, _enemyMine),
+            enemyWallet));
+
+        foreach (BuildingPresenter tower in _enemyTowers)
+        {
+            tower.Init(new Building(
+                _enemyTowerSetup,
+                tower.transform.position,
+                tower.transform.rotation,
+                tower.transform.localScale));
+        }
 
         _enemyBase.Init(new MainBuilding(
             _enemyBaseSetup,

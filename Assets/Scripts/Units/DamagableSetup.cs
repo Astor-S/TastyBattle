@@ -9,16 +9,25 @@ public class DamagableSetup : ScriptableObject
 
     public event Action MaxHealthIncreased;
 
-    public float MaxHealthPoints => _maxHealthPoints;
-    public LayerMask OwnerMask => _ownerMask;
+    public LayerMask OwnerMask { get; private set; }
+    public float MaxHealthPoints { get; private set; }
+
+    private void OnValidate() =>
+        Initialize();
 
     public void IncreaseHealth(float healthBoostPortion)
     {
         if (healthBoostPortion < 0 || healthBoostPortion > 1)
             throw new ArgumentOutOfRangeException("Damage boost portion is a number between 0 and 1.");
 
-        _maxHealthPoints += _maxHealthPoints * healthBoostPortion;
+        MaxHealthPoints += MaxHealthPoints * healthBoostPortion;
 
         MaxHealthIncreased?.Invoke();
+    }
+
+    protected virtual void Initialize()
+    {
+        MaxHealthPoints = _maxHealthPoints;
+        OwnerMask = _ownerMask;
     }
 }

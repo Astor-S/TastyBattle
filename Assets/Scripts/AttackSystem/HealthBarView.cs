@@ -15,12 +15,12 @@ public class HealthBarView : MonoBehaviour
     {
         if (health == 0)
         {
-            _slider.fillRect.gameObject.SetActive(false);
+            _slider.gameObject.SetActive(false);
         }
         else
         {
             _slider.value = health / maxHealth;
-            _slider.fillRect.gameObject.SetActive(true);
+            _slider.gameObject.SetActive(true);
         }
     }
 }

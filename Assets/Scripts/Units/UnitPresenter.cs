@@ -14,17 +14,20 @@ namespace Units
         [SerializeField] Faction _faction;
         [SerializeField] BattleRole _battleRole;
 
+        private Action<DamagableTarget> DyingDelegate;
+
         public new Unit Model => base.Model as Unit;
         public new UnitView View => base.View as UnitView;
         public DetectionSystem DetectionSystem => _detectionSystem;
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;
-        private Action<DamagableTarget> DyingDelegate => (_) => View.SetDeathAnimation();
 
         private void Start()
         {
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance + 0.05f;
+            _navMeshAgent.updateRotation = false;
+            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
             _navMeshAgent.speed = Model.Stats.MovementSpeed;
+            NavMesh.avoidancePredictionTime = 0.5f;
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
         }
@@ -50,6 +53,8 @@ namespace Units
 
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats);
+
+            DyingDelegate = (_) => View.SetDeathAnimation();
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
