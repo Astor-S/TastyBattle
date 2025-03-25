@@ -5,8 +5,6 @@ using System.Collections;
 public class AttackHandler : MonoBehaviour
 {
     [SerializeField] private DetectionSystem _detectionSystem;
-    [SerializeField] private DamagableTarget _damagableTarget;
-    [SerializeField] private SphereCollider _attackTrigger;
 
     private AttackerSetup _stats;
     private DamagableTarget _attackedTarget;
@@ -45,7 +43,6 @@ public class AttackHandler : MonoBehaviour
     public void Init(AttackerSetup attackerSetup)
     {
         _stats = attackerSetup;
-        _attackTrigger.radius = _stats.AttackDistance;
 
         gameObject.SetActive(true);
     }
