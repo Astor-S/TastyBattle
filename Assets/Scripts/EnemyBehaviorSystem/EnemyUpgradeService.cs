@@ -6,11 +6,10 @@ namespace EnemyBehaviorSystem
     {
         [SerializeField] private UpgradeOrderHandler _unitHealthStat;
         [SerializeField] private UpgradeOrderHandler _unitDamagStat;
+        private UpgradeHandler _resourceExtraction;// как инициализировать?
 
-        public void ImproveResourceExtraction()
-        {
-            Debug.Log("Я улучшил добычу ресурсов!");
-        }
+        public void ImproveResourceExtraction() =>
+            _resourceExtraction.IncreaseIncome();
 
         public void ImproveRandomUnitStats()
         {
@@ -22,16 +21,10 @@ namespace EnemyBehaviorSystem
                 ImproveUnitHealth();
         }
 
-        private void ImproveUnitAttack()
-        {
-            Debug.Log("Я улучшил характиристику атаки!");
+        private void ImproveUnitAttack() =>
             _unitDamagStat.OrderUnit();
-        }
 
-        private void ImproveUnitHealth()
-        {
-            Debug.Log("Я улучшил характиристику здоровья!");
+        private void ImproveUnitHealth() =>
             _unitHealthStat.OrderUnit();
-        }
     }
 }
