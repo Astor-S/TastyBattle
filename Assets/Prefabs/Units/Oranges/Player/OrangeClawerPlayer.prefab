@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7814408610753229240}
   - component: {fileID: 609636959403560062}
-  - component: {fileID: 1143987541570859805}
+  - component: {fileID: 4813154958993620753}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -54,7 +54,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &1143987541570859805
+--- !u!114 &4813154958993620753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,10 +63,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2411278165535883405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 766244dec87530944a5a14caa155f3bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6112a7a5279142346a1d43df2a56dfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 2414008243074277323}
+  _orangAbilityHandler: {fileID: 6517327648133073689}
 --- !u!1 &4086228669728904515
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +117,7 @@ GameObject:
   - component: {fileID: 5518870749776336940}
   - component: {fileID: 3107529451347865714}
   - component: {fileID: 6817771846022617118}
+  - component: {fileID: 6517327648133073689}
   m_Layer: 0
   m_Name: OrangeClawerPlayer
   m_TagString: Untagged
@@ -203,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 1143987541570859805}
+  _attackHandler: {fileID: 4813154958993620753}
   _detectionSystem: {fileID: 2414008243074277323}
   _damageTarget: {fileID: 5733566869673714720}
   _navMeshAgent: {fileID: 6817771846022617118}
@@ -250,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 5733566869673714720}
-  _attackHandler: {fileID: 1143987541570859805}
+  _attackHandler: {fileID: 4813154958993620753}
   _detectionSystem: {fileID: 2414008243074277323}
 --- !u!195 &6817771846022617118
 NavMeshAgent:
@@ -274,6 +276,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6517327648133073689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235807610104270308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886105011eb16a44af0d158035366e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orangeAbility: {fileID: 11400000, guid: 5fcfdb9f6e08b2f4bace280d77a8ca31, type: 2}
 --- !u!1 &8873217754696240611
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8209897168811419214}
   - component: {fileID: 4403920454696480880}
   - component: {fileID: 2011045369653883198}
+  - component: {fileID: 3636759784987278766}
   m_Layer: 0
   m_Name: OrangeProtectorPlayer
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 3794210615336383097}
+  _attackHandler: {fileID: 2330158862876875137}
   _detectionSystem: {fileID: 8162568957355289032}
   _damageTarget: {fileID: 7430936050964615691}
   _navMeshAgent: {fileID: 2011045369653883198}
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7430936050964615691}
-  _attackHandler: {fileID: 3794210615336383097}
+  _attackHandler: {fileID: 2330158862876875137}
   _detectionSystem: {fileID: 8162568957355289032}
 --- !u!195 &2011045369653883198
 NavMeshAgent:
@@ -174,6 +175,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3636759784987278766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022445481149930631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886105011eb16a44af0d158035366e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orangeAbility: {fileID: 11400000, guid: 5fcfdb9f6e08b2f4bace280d77a8ca31, type: 2}
 --- !u!1 &1966212882523037812
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5085525683220074265}
   - component: {fileID: 5780069387746435028}
-  - component: {fileID: 3794210615336383097}
+  - component: {fileID: 2330158862876875137}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -261,7 +275,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &3794210615336383097
+--- !u!114 &2330158862876875137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,10 +284,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8331908893554151601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 766244dec87530944a5a14caa155f3bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6112a7a5279142346a1d43df2a56dfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 8162568957355289032}
+  _orangAbilityHandler: {fileID: 3636759784987278766}
 --- !u!1 &8951744849644283376
 GameObject:
   m_ObjectHideFlags: 0

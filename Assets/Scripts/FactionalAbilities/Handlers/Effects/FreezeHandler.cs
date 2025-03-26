@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Units;
 
-namespace FactionalAbilities.Handlers
+namespace FactionalAbilities.Handlers.Effects
 {
     public class FreezeHandler : MonoBehaviour
     {
