@@ -1,20 +1,21 @@
 using UnityEngine;
-using FactionalAbilities.Handlers;
+using AttackSystem.Interfaces;
 using FactionalAbilities.Handlers.Effects;
+using FactionalAbilities.Handlers;
 
-namespace AttackSystem.AttackHandlers
+namespace AttackSystem.RangedAttackHandlers
 {
-    public class OrangeAttackHanlder : AttackHandler
+    public class RangedOrangeAttackHandler : RangedAttackHandler, IOrangeAttacker
     {
         [SerializeField] private OrangeAbilityHandler _orangAbilityHandler;
 
         protected override void Hit()
         {
-            base.Hit(); 
+            base.Hit();
             ApplyOrangeAcid();
         }
 
-        private void ApplyOrangeAcid()
+        public void ApplyOrangeAcid()
         {
             if (_orangAbilityHandler != null)
             {

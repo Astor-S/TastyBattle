@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7968175568085102394}
   - component: {fileID: 4904944716224807496}
   - component: {fileID: 6526754050649372962}
+  - component: {fileID: -5601463472701292512}
   m_Layer: 0
   m_Name: OrangeBlowerPlayer
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 5973634836778866069}
+  _attackHandler: {fileID: 6669416108408872835}
   _detectionSystem: {fileID: 6453936416202799327}
   _damageTarget: {fileID: 8727910315760643452}
   _navMeshAgent: {fileID: 6526754050649372962}
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 8727910315760643452}
-  _attackHandler: {fileID: 5973634836778866069}
+  _attackHandler: {fileID: 6669416108408872835}
   _detectionSystem: {fileID: 6453936416202799327}
 --- !u!195 &6526754050649372962
 NavMeshAgent:
@@ -174,6 +175,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5601463472701292512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783039945491337204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886105011eb16a44af0d158035366e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orangeAbility: {fileID: 11400000, guid: 5fcfdb9f6e08b2f4bace280d77a8ca31, type: 2}
 --- !u!1 &1565731336913928990
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2943839153957807257}
   - component: {fileID: 5058550061096555665}
-  - component: {fileID: 5973634836778866069}
+  - component: {fileID: 6669416108408872835}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -228,7 +242,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5973634836778866069
+--- !u!114 &6669416108408872835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,13 +251,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565731336913928990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
+  m_Script: {fileID: 11500000, guid: e6a6da5bbc6a71f4f98b7b30498c4c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 6453936416202799327}
   _projectilePrefab: {fileID: 6232112112692908980, guid: e6f9533786485004dbd7502e38579e05, type: 3}
   _projectileSpawnPoint: {fileID: 1442627647734642651}
   _projectileSpeed: 12
+  _orangAbilityHandler: {fileID: -5601463472701292512}
 --- !u!1 &2356814934003754136
 GameObject:
   m_ObjectHideFlags: 0
