@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4650902517700737407}
   - component: {fileID: 757926763420623808}
-  - component: {fileID: 3565293308561161806}
+  - component: {fileID: 4931174384604346924}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -54,7 +54,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3565293308561161806
+--- !u!114 &4931174384604346924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,12 +63,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 29771287134629799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f651decd00334fbfddf2f9879f841, type: 3}
+  m_Script: {fileID: 11500000, guid: 5187124d599b08149b543db03fefdd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 6042768442225575988}
-  _damagableTarget: {fileID: 1764610157756591694}
-  _attackTrigger: {fileID: 757926763420623808}
+  _attackAbilityHandler: {fileID: 8168516217850193343}
 --- !u!1 &6118580922747081652
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,8 +117,9 @@ GameObject:
   - component: {fileID: 1764404253236107031}
   - component: {fileID: 244143654940230560}
   - component: {fileID: 376471747067261306}
+  - component: {fileID: 8168516217850193343}
   m_Layer: 0
-  m_Name: Mushrank
+  m_Name: MushrankPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 3565293308561161806}
+  _attackHandler: {fileID: 4931174384604346924}
   _detectionSystem: {fileID: 6042768442225575988}
   _damageTarget: {fileID: 1764610157756591694}
   _navMeshAgent: {fileID: 376471747067261306}
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 1764610157756591694}
-  _attackHandler: {fileID: 3565293308561161806}
+  _attackHandler: {fileID: 4931174384604346924}
   _detectionSystem: {fileID: 6042768442225575988}
 --- !u!195 &376471747067261306
 NavMeshAgent:
@@ -262,7 +262,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6329530634419628083}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: 1479372276
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -276,6 +276,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8168516217850193343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329530634419628083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: ea83dd6b12560c44387f64ed4a0b051a, type: 2}
+  _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!1 &8832658503663573769
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +470,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: _damagableTarget
+      value: 
+      objectReference: {fileID: 1764610157756591694}
     - target: {fileID: 8951532719306805319, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1

@@ -1,6 +1,9 @@
 using System;
 
-public interface IDestroyable<T> where T : IDestroyable<T>
+namespace AttackSystem.Interfaces
 {
-    public event Action<T> Destroyed;
+    public interface IDestroyable<T> where T : IDestroyable<T>
+    {
+        public event Action<T> Destroyed;
+    }
 }

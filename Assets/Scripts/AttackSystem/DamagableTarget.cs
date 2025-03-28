@@ -1,71 +1,75 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using AttackSystem.Interfaces;
 
-public class DamagableTarget : MonoBehaviour, IDamagable
+namespace AttackSystem
 {
-    [SerializeField] private Collider _collider;
-    [SerializeField] private Rigidbody _rigidbody;
-
-    private DamagableSetup _setup;
-    private Health _health;
-    private float _deathTime = 1.5f;
-
-    public Health Health => _health;
-    public bool IsAlive => _health.IsAlive;
-
-    public event Action<DamagableTarget> Dying;
-    public event Action HalfHP;
-    public event Action QuaterHP;
-    public event Action Inited;
-
-    private void OnEnable()
+    public class DamagableTarget : MonoBehaviour, IDamagable
     {
-        _health.Dying += Die;
-        _health.HalfHP += OnHalfHP;
-        _health.QuaterHP += OnQuaterHP;
-    }
+        [SerializeField] private Collider _collider;
+        [SerializeField] private Rigidbody _rigidbody;
 
-    private void OnDisable()
-    {
-        _health.Dying -= Die;
-        _health.HalfHP -= OnHalfHP;
-        _health.QuaterHP -= OnQuaterHP;
-    }
+        private DamagableSetup _setup;
+        private Health _health;
+        private float _deathTime = 1.5f;
 
-    public void Init(DamagableSetup setup)
-    {
-        _setup = setup;
-        _health = new Health(_setup);
+        public Health Health => _health;
+        public bool IsAlive => _health.IsAlive;
 
-        enabled = true;
-        Inited?.Invoke();
-    }
+        public event Action<DamagableTarget> Dying;
+        public event Action HalfHP;
+        public event Action QuaterHP;
+        public event Action Inited;
 
-    private void OnQuaterHP() =>
-        QuaterHP?.Invoke();
+        private void OnEnable()
+        {
+            _health.Dying += Die;
+            _health.HalfHP += OnHalfHP;
+            _health.QuaterHP += OnQuaterHP;
+        }
 
-    private void OnHalfHP() =>
-        HalfHP?.Invoke();
+        private void OnDisable()
+        {
+            _health.Dying -= Die;
+            _health.HalfHP -= OnHalfHP;
+            _health.QuaterHP -= OnQuaterHP;
+        }
 
-    public void TakeDamage(float damage) =>
-        _health.Reduce(damage);
+        public void Init(DamagableSetup setup)
+        {
+            _setup = setup;
+            _health = new Health(_setup);
 
-    private void Die()
-    {
-        Dying?.Invoke(this);
-        StartCoroutine(StartDying());
-    }
+            enabled = true;
+            Inited?.Invoke();
+        }
 
-    private IEnumerator StartDying()
-    {
-        _collider.enabled = false;
-        _rigidbody.isKinematic = true;
+        private void OnQuaterHP() =>
+            QuaterHP?.Invoke();
 
-        enabled = false;
+        private void OnHalfHP() =>
+            HalfHP?.Invoke();
 
-        yield return new WaitForSeconds(_deathTime);
+        public void TakeDamage(float damage) =>
+            _health.Reduce(damage);
 
-        Destroy(gameObject);
+        private void Die()
+        {
+            Dying?.Invoke(this);
+            StartCoroutine(StartDying());
+        }
+
+        private IEnumerator StartDying()
+        {
+            _collider.enabled = false;
+            _rigidbody.isKinematic = true;
+
+            enabled = false;
+
+            yield return new WaitForSeconds(_deathTime);
+
+            Destroy(gameObject);
+        }
     }
 }

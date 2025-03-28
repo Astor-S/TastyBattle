@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using AttackSystem;
+using AttackSystem.AttackHandlers;
 
 public abstract class GameEntityBehaviour : MonoBehaviour
 {
