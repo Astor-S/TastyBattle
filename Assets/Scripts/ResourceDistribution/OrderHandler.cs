@@ -24,16 +24,16 @@ public abstract class OrderHandler : MonoBehaviour
     private void OnEnable()
     {
         if (_button != null)
-            _button.onClick.AddListener(OrderUnit);
+            _button.onClick.AddListener(Order);
     }
 
     private void OnDisable()
     {
         if (_button != null)
-            _button.onClick.RemoveListener(OrderUnit);
+            _button.onClick.RemoveListener(Order);
     }
 
-    public void OrderUnit()
+    public void Order()
     {
         ItemOrdered?.Invoke(_order, _cost);
     }

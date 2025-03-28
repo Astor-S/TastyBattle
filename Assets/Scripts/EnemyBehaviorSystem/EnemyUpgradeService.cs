@@ -6,10 +6,10 @@ namespace EnemyBehaviorSystem
     {
         [SerializeField] private UpgradeOrderHandler _unitHealthStat;
         [SerializeField] private UpgradeOrderHandler _unitDamagStat;
-        private UpgradeHandler _resourceExtraction;// как инициализировать?
+        [SerializeField] private UpgradeOrderHandler _resourceExtraction;
 
         public void ImproveResourceExtraction() =>
-            _resourceExtraction.IncreaseIncome();
+            _resourceExtraction.Order();
 
         public void ImproveRandomUnitStats()
         {
@@ -22,9 +22,9 @@ namespace EnemyBehaviorSystem
         }
 
         private void ImproveUnitAttack() =>
-            _unitDamagStat.OrderUnit();
+            _unitDamagStat.Order();
 
         private void ImproveUnitHealth() =>
-            _unitHealthStat.OrderUnit();
+            _unitHealthStat.Order();
     }
 }
