@@ -37,7 +37,7 @@ namespace AttackSystem.AttackHandlers
         {
             if (_acidParticleEffectPrefab != null)
             {
-                ParticleSystem acidParticleEffect = Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.identity, target);
+                ParticleSystem acidParticleEffect = Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f,0f,0f), target);
                 ParticleSystem.MainModule mainModule = acidParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 acidParticleEffect.Play();
