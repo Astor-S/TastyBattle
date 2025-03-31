@@ -19,11 +19,10 @@ namespace FactionalAbilities.Handlers.Effects
 
         private bool _isFreezing = false;
 
-        public void Initialize(Unit unit, float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate)
+        public void Initialize(float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate)
         {
-            _unit = unit;
-            _defaultMovementSpeed = unit.Stats.MovementSpeed;
-            _defaultAttackSpeed = unit.Stats.AttackSpeed;
+            _defaultMovementSpeed = _unit.Stats.MovementSpeed;
+            _defaultAttackSpeed = _unit.Stats.AttackSpeed;
             _slowDuration = slowDuration;
             _maxSlowPercentage = maxSlowPercentage;
             _slowDecreaseRate = slowDecreaseRate;
