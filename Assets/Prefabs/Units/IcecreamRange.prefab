@@ -200,8 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7991039980486154689}
-  _damagableTarget: {fileID: 7258618766229363941}
-  _attackTrigger: {fileID: 1089374252047057979}
   _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   _projectileSpawnPoint: {fileID: 2234297447284706052}
   _projectileSpeed: 10
@@ -221,6 +219,7 @@ GameObject:
   - component: {fileID: 6128148109624411438}
   - component: {fileID: 9186867661064324744}
   - component: {fileID: -9110894439992595789}
+  - component: {fileID: 5024893857778605009}
   m_Layer: 0
   m_Name: IcecreamRange
   m_TagString: Untagged
@@ -312,7 +311,7 @@ MonoBehaviour:
   _detectionSystem: {fileID: 7991039980486154689}
   _damageTarget: {fileID: 7258618766229363941}
   _navMeshAgent: {fileID: -9110894439992595789}
-  _faction: 0
+  _faction: 4
   _battleRole: 1
 --- !u!114 &7258618766229363941
 MonoBehaviour:
@@ -355,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7258618766229363941}
-  _attackHandler: {fileID: 0}
+  _attackHandler: {fileID: 912346928963595266}
   _detectionSystem: {fileID: 7991039980486154689}
 --- !u!195 &-9110894439992595789
 NavMeshAgent:
@@ -365,7 +364,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9171405283030669546}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: 1479372276
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -379,6 +378,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5024893857778605009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171405283030669546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064da66ac8600f744afe75ff64b4f6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _iceCreamAbility: {fileID: 11400000, guid: a3da202e237df0d459efb90dc3261af4, type: 2}
 --- !u!1001 &1268121083613265246
 PrefabInstance:
   m_ObjectHideFlags: 0

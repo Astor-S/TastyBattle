@@ -1,9 +1,9 @@
 using UnityEngine;
 using FactionalAbilities;
 
-namespace Units
+namespace AttackSystem.AttackHandlers
 {
-    public class IceCreamUnit : MonoBehaviour
+    public class IceCreamAbilityHandler : MonoBehaviour
     {
         [SerializeField] private IceCreamAbility _iceCreamAbility;
 
