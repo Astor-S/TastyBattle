@@ -46,8 +46,8 @@ namespace FactionalAbilities.Handlers.Effects
 
         private void UpdateSlow()
         {
-            //_unit.Stats.MovementSpeed = _defaultMovementSpeed * (DamageMultiplierBase - _totalSlowPercentage);
-            //_unit.Stats.AttackSpeed = _defaultAttackSpeed * (DamageMultiplierBase - _totalSlowPercentage);
+            _unit.SetMovementSpeed(_defaultMovementSpeed * (DamageMultiplierBase - _totalSlowPercentage));
+            _unit.SetAttackSpeed(_defaultAttackSpeed * (DamageMultiplierBase - _totalSlowPercentage));
         }
 
         private IEnumerator SlowDurationCoroutine()
@@ -61,8 +61,8 @@ namespace FactionalAbilities.Handlers.Effects
         {
             _isFreezing = false;
             _totalSlowPercentage = 0;
-            //_unit.Stats.MovementSpeed = _defaultMovementSpeed;
-            //_unit.Stats.AttackSpeed = _defaultAttackSpeed;
+            _unit.SetMovementSpeed(_defaultMovementSpeed); 
+            _unit.SetAttackSpeed(_defaultAttackSpeed); 
             Destroy(this);
         }
     }
