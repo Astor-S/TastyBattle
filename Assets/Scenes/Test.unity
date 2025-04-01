@@ -1269,9 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_text
-      value: 'Mushraxe
-
-        (melee)'
+      value: Melee
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_fontSize
@@ -6391,6 +6389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitHealthStat: {fileID: 782809464}
   _unitDamagStat: {fileID: 22561748}
+  _resourceExtraction: {fileID: 0}
 --- !u!4 &767807030
 Transform:
   m_ObjectHideFlags: 0
@@ -8077,9 +8076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_text
-      value: 'Mushraxe
-
-        (Melee)'
+      value: Tank
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_fontSize
@@ -8652,9 +8649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_text
-      value: 'Mushraxe
-
-        (Melee)'
+      value: Siege
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_fontSize
@@ -9523,6 +9518,10 @@ PrefabInstance:
       propertyPath: _units.Array.data[0]
       value: 
       objectReference: {fileID: 1550041326432337290, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
+    - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _units.Array.data[1]
+      value: 
+      objectReference: {fileID: 6829457117535000717, guid: d61e783dd45a2a94c9bbc28faf0e5d39, type: 3}
     - target: {fileID: 3626559426895696645, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _health
       value: 
@@ -14744,7 +14743,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: f1a3fda20d0a1344e8800c5b1321ea0d, type: 2}
+      objectReference: {fileID: 11400000, guid: f23fa3b6cc08b1a4ba0c1b89e745c03d, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _battleRole
       value: 1
@@ -14831,9 +14830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_text
-      value: 'Arquemellon
-
-        (range)'
+      value: Range
       objectReference: {fileID: 0}
     - target: {fileID: 7059671924585658317, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_fontSize
