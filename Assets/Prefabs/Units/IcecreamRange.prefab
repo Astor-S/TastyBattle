@@ -68,37 +68,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 7258618766229363941}
   _baseTransform: {fileID: 4253336512226444873}
---- !u!1 &4067701718079828736
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2234297447284706052}
-  m_Layer: 0
-  m_Name: ShootPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2234297447284706052
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4067701718079828736}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.015656395, y: -0.07786712, z: -0.80069035, w: -0.59379005}
-  m_LocalPosition: {x: 0.161026, y: 0.97265065, z: 0.56814575}
-  m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4145500298243705902}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4354134707135930843
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,8 +131,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2234297447284706052}
+  m_Children: []
   m_Father: {fileID: 8710713358620324560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1089374252047057979
@@ -200,10 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7991039980486154689}
-  _damagableTarget: {fileID: 7258618766229363941}
-  _attackTrigger: {fileID: 1089374252047057979}
-  _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
-  _projectileSpawnPoint: {fileID: 2234297447284706052}
+  _projectilePrefab: {fileID: 1154727249746607590, guid: 249de11bdbe6e7349960709a4520437b, type: 3}
+  _projectileSpawnPoint: {fileID: 3588647237038063433}
   _projectileSpeed: 10
 --- !u!1 &9171405283030669546
 GameObject:
@@ -312,7 +278,7 @@ MonoBehaviour:
   _detectionSystem: {fileID: 7991039980486154689}
   _damageTarget: {fileID: 7258618766229363941}
   _navMeshAgent: {fileID: -9110894439992595789}
-  _faction: 0
+  _faction: 4
   _battleRole: 1
 --- !u!114 &7258618766229363941
 MonoBehaviour:
@@ -355,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7258618766229363941}
-  _attackHandler: {fileID: 0}
+  _attackHandler: {fileID: 912346928963595266}
   _detectionSystem: {fileID: 7991039980486154689}
 --- !u!195 &-9110894439992595789
 NavMeshAgent:
@@ -365,8 +331,8 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9171405283030669546}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_AgentTypeID: 1479372276
+  m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -782,6 +748,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &3588647237038063433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2329533972232831511, guid: aa121fa2bb7965d42ac0b1baa6a40370, type: 3}
+  m_PrefabInstance: {fileID: 1268121083613265246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7099572588874459900
 PrefabInstance:
   m_ObjectHideFlags: 0
