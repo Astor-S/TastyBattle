@@ -15,16 +15,17 @@ namespace FactionalAbilities.Handlers.Effects
         private float _slowDuration;
         private float _defaultMovementSpeed;
         private float _defaultAttackSpeed;
+        private float _slowDecreaseRate;
 
         private bool _isFreezing = false;
 
-        public void Initialize(Unit unit, float slowPercentage, float slowDuration, float maxSlowPercentage)
+        public void Initialize(float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate)
         {
-            _unit = unit;
-            _defaultMovementSpeed = unit.Stats.MovementSpeed;
-            _defaultAttackSpeed = unit.Stats.AttackSpeed;
+            _defaultMovementSpeed = _unit.Stats.MovementSpeed;
+            _defaultAttackSpeed = _unit.Stats.AttackSpeed;
             _slowDuration = slowDuration;
             _maxSlowPercentage = maxSlowPercentage;
+            _slowDecreaseRate = slowDecreaseRate;
             ApplySlow(slowPercentage);
         }
 
@@ -33,6 +34,9 @@ namespace FactionalAbilities.Handlers.Effects
             _totalSlowPercentage += slowPercentage;
             _totalSlowPercentage = Mathf.Clamp(_totalSlowPercentage, 0, _maxSlowPercentage);
             UpdateSlow();
+
+            Debug.Log($"[FreezeHandler] Применение замедления к {gameObject.name}. Общий процент замедления: {_totalSlowPercentage}");
+
 
             if (_isFreezing == false)
                 StartCoroutine(SlowDurationCoroutine());
@@ -46,14 +50,23 @@ namespace FactionalAbilities.Handlers.Effects
 
         private void UpdateSlow()
         {
-            //_unit.Stats.MovementSpeed = _defaultMovementSpeed * (DamageMultiplierBase - _totalSlowPercentage);
-            //_unit.Stats.AttackSpeed = _defaultAttackSpeed * (DamageMultiplierBase - _totalSlowPercentage);
+            _unit.SetMovementSpeed(_defaultMovementSpeed * (DamageMultiplierBase - _totalSlowPercentage));
+            _unit.SetAttackSpeed(_defaultAttackSpeed * (DamageMultiplierBase - _totalSlowPercentage));
         }
 
         private IEnumerator SlowDurationCoroutine()
         {
             _isFreezing = true;
-            yield return new WaitForSeconds(_slowDuration);
+            Debug.Log($"[FreezeHandler] Запуск корутины длительности замедления на {gameObject.name}. Длительность: {_slowDuration}");
+
+            while (_totalSlowPercentage > 0)
+            {
+                float decreaseAmount = _slowDecreaseRate * Time.deltaTime;
+                RemoveSlow(decreaseAmount); 
+
+                yield return null;
+            }
+
             ResetSlow();
         }
 
@@ -61,8 +74,8 @@ namespace FactionalAbilities.Handlers.Effects
         {
             _isFreezing = false;
             _totalSlowPercentage = 0;
-            //_unit.Stats.MovementSpeed = _defaultMovementSpeed;
-            //_unit.Stats.AttackSpeed = _defaultAttackSpeed;
+            _unit.SetMovementSpeed(_defaultMovementSpeed); 
+            _unit.SetAttackSpeed(_defaultAttackSpeed); 
             Destroy(this);
         }
     }

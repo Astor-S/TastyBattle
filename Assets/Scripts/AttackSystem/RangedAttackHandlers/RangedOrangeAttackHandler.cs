@@ -1,13 +1,14 @@
 using UnityEngine;
 using AttackSystem.Interfaces;
-using FactionalAbilities.Handlers.Effects;
 using FactionalAbilities.Handlers;
+using FactionalAbilities.Handlers.Effects;
 
 namespace AttackSystem.RangedAttackHandlers
 {
-    public class RangedOrangeAttackHandler : RangedAttackHandler, IOrangeAttacker
+    public class RangedOrangeAttackHandler : RangedAttackHandler, IOrangeAttacker, IPlayerAcidEffect
     {
-        [SerializeField] private OrangeAbilityHandler _orangAbilityHandler;
+        [SerializeField] private OrangeAbilityHandler _orangeAbilityHandler;
+        [SerializeField] private ParticleSystem _acidParticleEffectPrefab;
 
         protected override void Hit()
         {
@@ -17,7 +18,7 @@ namespace AttackSystem.RangedAttackHandlers
 
         public void ApplyOrangeAcid()
         {
-            if (_orangAbilityHandler != null)
+            if (_orangeAbilityHandler != null)
             {
                 if (AttackedTarget != null)
                 {
@@ -26,9 +27,21 @@ namespace AttackSystem.RangedAttackHandlers
                     if (acidHandler == null)
                     {
                         acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>();
-                        acidHandler.Initialize(AttackedTarget, _orangAbilityHandler.OrangeAbility.DamagePerSecond, _orangAbilityHandler.OrangeAbility.Duration);
+                        acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration);
+                        PlayAcidParticleEffect(AttackedTarget.transform);
                     }
                 }
+            }
+        }
+
+        public void PlayAcidParticleEffect(Transform target)
+        {
+            if (_acidParticleEffectPrefab != null)
+            {
+                ParticleSystem acidParticleEffect = Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                ParticleSystem.MainModule mainModule = acidParticleEffect.main;
+                mainModule.stopAction = ParticleSystemStopAction.Destroy;
+                acidParticleEffect.Play();
             }
         }
     }

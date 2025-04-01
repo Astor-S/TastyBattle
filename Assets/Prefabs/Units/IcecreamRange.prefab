@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4145500298243705902}
   - component: {fileID: 1089374252047057979}
-  - component: {fileID: 912346928963595266}
+  - component: {fileID: 257336150116472668}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -155,7 +155,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &912346928963595266
+--- !u!114 &257336150116472668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,13 +164,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4854666566784514268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
+  m_Script: {fileID: 11500000, guid: 201adbce742b4ae499ec0892be0ff4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7991039980486154689}
   _projectilePrefab: {fileID: 1154727249746607590, guid: 249de11bdbe6e7349960709a4520437b, type: 3}
   _projectileSpawnPoint: {fileID: 3588647237038063433}
   _projectileSpeed: 10
+  _iceCreamAbilityHandler: {fileID: 5024893857778605009}
 --- !u!1 &9171405283030669546
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +188,7 @@ GameObject:
   - component: {fileID: 6128148109624411438}
   - component: {fileID: 9186867661064324744}
   - component: {fileID: -9110894439992595789}
+  - component: {fileID: 5024893857778605009}
   m_Layer: 0
   m_Name: IcecreamRange
   m_TagString: Untagged
@@ -274,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 912346928963595266}
+  _attackHandler: {fileID: 257336150116472668}
   _detectionSystem: {fileID: 7991039980486154689}
   _damageTarget: {fileID: 7258618766229363941}
   _navMeshAgent: {fileID: -9110894439992595789}
@@ -345,6 +347,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5024893857778605009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171405283030669546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064da66ac8600f744afe75ff64b4f6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _iceCreamAbility: {fileID: 11400000, guid: a3da202e237df0d459efb90dc3261af4, type: 2}
 --- !u!1001 &1268121083613265246
 PrefabInstance:
   m_ObjectHideFlags: 0
