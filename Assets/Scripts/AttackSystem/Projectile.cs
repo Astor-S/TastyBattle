@@ -42,7 +42,6 @@ namespace AttackSystem
                     ReturnToPool();
                 }
             }
-
         }
 
         public void Initialize(DamagableTarget target, float damage, Pool<Projectile> pool)
