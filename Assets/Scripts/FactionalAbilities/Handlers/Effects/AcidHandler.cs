@@ -28,7 +28,6 @@ namespace FactionalAbilities.Handlers.Effects
             while (elapsedTime < _duration)
             {
                 _target.TakeDamage(_damagePerSecond * TickInterval);
-                Debug.Log($"[AcidHandler] {gameObject.name} Получает урон от кислоты: {_damagePerSecond * TickInterval}. Осталось времени: {_duration - elapsedTime}");
                 elapsedTime += TickInterval;
                 
                 yield return new WaitForSeconds(TickInterval);
