@@ -1,6 +1,7 @@
 using UnityEngine;
 using AttackSystem.AttackHandlers;
 using FactionalAbilities.Handlers.Effects;
+using Units;
 
 namespace AttackSystem.RangedAttackHandlers
 {
@@ -20,16 +21,22 @@ namespace AttackSystem.RangedAttackHandlers
             {
                 if (AttackedTarget != null)
                 {
-                    FreezeHandler freezeHandler = AttackedTarget.GetComponent<FreezeHandler>();
+                    UnitPresenter unitPresenter = AttackedTarget.GetComponent<UnitPresenter>();
 
-                    if (freezeHandler == null)
+                    if (unitPresenter != null)
                     {
-                        freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
-                        freezeHandler.Initialize(
-                            _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
-                            _iceCreamAbilityHandler.IceCreamAbility.FreezeDuration,
-                            _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
-                            _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate);
+                        FreezeHandler freezeHandler = AttackedTarget.GetComponent<FreezeHandler>();
+
+                        if (freezeHandler == null)
+                        {
+                            freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
+                            freezeHandler.Initialize(
+                                unitPresenter,
+                                _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
+                                _iceCreamAbilityHandler.IceCreamAbility.FreezeDuration,
+                                _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
+                                _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate);
+                        }
                     }
                 }
             }

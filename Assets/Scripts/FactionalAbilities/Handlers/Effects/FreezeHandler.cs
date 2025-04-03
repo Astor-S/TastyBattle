@@ -8,7 +8,7 @@ namespace FactionalAbilities.Handlers.Effects
     {
         private const float DamageMultiplierBase = 1f;
 
-        private Unit _unit;
+        private UnitPresenter _unitPresenter;
 
         private float _totalSlowPercentage;
         private float _maxSlowPercentage;
@@ -19,10 +19,11 @@ namespace FactionalAbilities.Handlers.Effects
 
         private bool _isFreezing = false;
 
-        public void Initialize(float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate)
+        public void Initialize(UnitPresenter unitPresenter, float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate)
         {
-            _defaultMovementSpeed = _unit.Stats.MovementSpeed;
-            _defaultAttackSpeed = _unit.Stats.AttackSpeed;
+            _unitPresenter = unitPresenter;
+            _defaultMovementSpeed = unitPresenter.Model.Stats.MovementSpeed;
+            _defaultAttackSpeed = unitPresenter.Model.Stats.AttackSpeed;
             _slowDuration = slowDuration;
             _maxSlowPercentage = maxSlowPercentage;
             _slowDecreaseRate = slowDecreaseRate;
@@ -50,8 +51,10 @@ namespace FactionalAbilities.Handlers.Effects
 
         private void UpdateSlow()
         {
-            _unit.SetMovementSpeed(_defaultMovementSpeed * (DamageMultiplierBase - _totalSlowPercentage));
-            _unit.SetAttackSpeed(_defaultAttackSpeed * (DamageMultiplierBase - _totalSlowPercentage));
+            float newMovementSpeed = _defaultMovementSpeed * (DamageMultiplierBase - _totalSlowPercentage);
+            float newAttackSpeed = _defaultAttackSpeed * (DamageMultiplierBase - _totalSlowPercentage);
+            _unitPresenter.SetAgentSpeed(newMovementSpeed);
+            _unitPresenter.SetAttackSpeed(newAttackSpeed);
         }
 
         private IEnumerator SlowDurationCoroutine()
@@ -74,8 +77,8 @@ namespace FactionalAbilities.Handlers.Effects
         {
             _isFreezing = false;
             _totalSlowPercentage = 0;
-            _unit.SetMovementSpeed(_defaultMovementSpeed); 
-            _unit.SetAttackSpeed(_defaultAttackSpeed); 
+            _unitPresenter.ResetAgentSpeed();
+            _unitPresenter.ResetAttackSpeed();
             Destroy(this);
         }
     }
