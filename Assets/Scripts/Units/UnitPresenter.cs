@@ -32,7 +32,7 @@ namespace Units
 
         private void FixedUpdate()
         {
-            if (_detectionSystem.CurrentTarget != null)
+            if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
             {
                 if (_attackHandler.IsAttacking == false)
                     _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
