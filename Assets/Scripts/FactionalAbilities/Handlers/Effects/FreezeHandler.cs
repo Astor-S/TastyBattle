@@ -38,7 +38,6 @@ namespace FactionalAbilities.Handlers.Effects
 
             Debug.Log($"[FreezeHandler] Применение замедления к {gameObject.name}. Общий процент замедления: {_totalSlowPercentage}");
 
-
             if (_isFreezing == false)
                 StartCoroutine(SlowDurationCoroutine());
         }
