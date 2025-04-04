@@ -13,8 +13,11 @@ namespace Units
         [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
         [SerializeField] private NavMeshAgent _navMeshAgent;
-        [SerializeField] Faction _faction;
-        [SerializeField] BattleRole _battleRole;
+        [SerializeField] private Faction _faction;
+        [SerializeField] private BattleRole _battleRole;
+        
+        private float _defaultSpeed;
+        private float _defaultAttackSpeed;
 
         private Action<DamagableTarget> DyingDelegate;
 
@@ -23,8 +26,6 @@ namespace Units
         public DetectionSystem DetectionSystem => _detectionSystem;
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;
-        protected AttackHandler AttackHandler => _attackHandler;
-        protected NavMeshAgent NavMeshAgent => _navMeshAgent;
 
         private void FixedUpdate()
         {
@@ -40,6 +41,7 @@ namespace Units
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
             _navMeshAgent.speed = Model.Stats.MovementSpeed;
+             _defaultSpeed = Model.Stats.MovementSpeed;
             NavMesh.avoidancePredictionTime = 0.5f;
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
@@ -71,6 +73,22 @@ namespace Units
             _damageTarget.Dying -= DyingDelegate;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
+        }
+
+        public void SetAgentSpeed(float speed) =>
+            _navMeshAgent.speed = speed;
+
+        public void SetAttackSpeed(float attackSpeed)
+        {
+            //_attackHandler.AttackSpeedMultiplier = attackSpeed;
+        }
+
+        public void ResetAgentSpeed() =>
+            _navMeshAgent.speed = _defaultSpeed;
+
+        public void ResetAttackSpeed()
+        {
+            //_attackHandler.AttackSpeedMultiplier = _defaultAttackSpeed;
         }
     }
 }

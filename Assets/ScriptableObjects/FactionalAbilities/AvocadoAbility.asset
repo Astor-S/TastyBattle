@@ -9,16 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
-  m_Name: AvocadoMelee
+  m_Script: {fileID: 11500000, guid: de0faca1c9c7797428ba0f052e49a932, type: 3}
+  m_Name: AvocadoAbility
   m_EditorClassIdentifier: 
-  _ownerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _maxHealthPoints: 30
-  _attackDamage: 3
-  _attackSpeed: 0.65
-  _attackDistance: 2
-  _faction: 3
-  _battleRole: 0
-  _movementSpeed: 2
+  _explosionDamage: 10
+  _explosionRadius: 5
