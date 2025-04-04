@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
+  m_Script: {fileID: 11500000, guid: c9e9fe8ed140a874ab07bbafd96d5926, type: 3}
   m_Name: WatermellonSiege
   m_EditorClassIdentifier: 
   _ownerMask:
     serializedVersion: 2
     m_Bits: 64
-  _maxHealthPoints: 0
-  _attackDamage: 0
-  _attackSpeed: 0
-  _attackDistance: 0
+  _maxHealthPoints: 35
+  _attackDamage: 10
+  _attackSpeed: 1
+  _attackDistance: 7
   _faction: 0
   _battleRole: 3
-  _movementSpeed: 0
+  _movementSpeed: 3
+  _hitDistance: 2

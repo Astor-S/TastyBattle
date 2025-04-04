@@ -31,9 +31,12 @@ namespace Units
 
         public void CreateUnit(UnitSetup setup)
         {
-            Unit unit = new Unit(
-                setup,
-                _enemyBase);
+            Unit unit;
+
+            if (setup is WatermellonSiegeSetup)
+                unit = new WatermellonSiege(setup, _enemyBase);
+            else
+                unit = new Unit(setup, _enemyBase);
 
             CreatePresenter(_unitsDictionary[setup.Faction][setup.BattleRole], unit);
             unit.MoveTo(GenerateSpawnPosition());
