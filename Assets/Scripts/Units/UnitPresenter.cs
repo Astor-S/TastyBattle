@@ -23,16 +23,8 @@ namespace Units
         public DetectionSystem DetectionSystem => _detectionSystem;
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;
-
-        private void Start()
-        {
-            _navMeshAgent.updateRotation = false;
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
-            _navMeshAgent.speed = Model.Stats.MovementSpeed;
-            NavMesh.avoidancePredictionTime = 0.5f;
-            View.SetWalkingAnimation();
-            View.SetHealthBarColor();
-        }
+        protected AttackHandler AttackHandler => _attackHandler;
+        protected NavMeshAgent NavMeshAgent => _navMeshAgent;
 
         private void FixedUpdate()
         {
@@ -43,8 +35,15 @@ namespace Units
             }
         }
 
-        public void Enable()
+        public virtual void Enable()
         {
+            _navMeshAgent.updateRotation = false;
+            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
+            _navMeshAgent.speed = Model.Stats.MovementSpeed;
+            NavMesh.avoidancePredictionTime = 0.5f;
+            View.SetWalkingAnimation();
+            View.SetHealthBarColor();
+
             gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
 
             if (_damageTarget.enabled == false)
@@ -56,14 +55,18 @@ namespace Units
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats);
 
-            DyingDelegate = (_) => View.SetDeathAnimation();
+            DyingDelegate = (_) =>
+            {
+                View.SetDeathAnimation();
+                _navMeshAgent.enabled = false;
+            };
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
         }
 
-        public void Disable()
+        public virtual void Disable()
         {
             _damageTarget.Dying -= DyingDelegate;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;

@@ -12,17 +12,24 @@ namespace AttackSystem.AttackHandlers
         private DamagableTarget _attackedTarget;
         private float _attackTimer;
         private bool _isAttacking = false;
+        private Coroutine _timeUpdatingCoroutine;
 
         public event Action AttackStarted;
+        public event Action Hitting;
         public event Action AttackStopped;
 
         public DamagableTarget AttackedTarget => _attackedTarget;
         public bool IsAttacking => _isAttacking;
+        protected AttackerSetup Stats => _stats;
         protected virtual float Damage => _stats.AttackDamage;
         protected float AttackSpeed => _stats.AttackSpeed;
+        protected float AttackTimer => _attackTimer;
 
-        private void Start() =>
+        private void Start()
+        {
             StartCoroutine(nameof(Combat));
+            StartCoroutine(nameof(StartCooldown));
+        }
 
         private void OnEnable()
         {
@@ -52,8 +59,14 @@ namespace AttackSystem.AttackHandlers
         protected virtual void Hit()
         {
             if (_attackedTarget != null)
+            {
+                Hitting?.Invoke();
                 _attackedTarget.TakeDamage(CalculateDamage());
+            }
         }
+
+        protected virtual float CalculateDamage() =>
+           Damage;
 
         protected virtual IEnumerator Combat()
         {
@@ -63,28 +76,50 @@ namespace AttackSystem.AttackHandlers
             {
                 if (_attackedTarget != null && _isAttacking)
                 {
-                    AttackStarted?.Invoke();
-
-                    _attackTimer += Time.deltaTime;
+                    StartAttack();
 
                     if (_attackTimer >= AttackSpeed)
                     {
                         Hit();
-
-                        _attackTimer = 0f;
+                        ResetTimer();
                     }
                 }
                 else
                 {
-                    AttackStopped?.Invoke();
+                    StopAttack();
                 }
 
                 yield return waitForFixedUpdate;
             }
         }
 
-        protected virtual float CalculateDamage() =>
-           Damage;
+        protected void ResetTimer()
+        {
+            _attackTimer = 0f;
+        }
+
+        protected void StartAttack()
+        {
+            AttackStarted?.Invoke();
+        }
+
+        protected void StopAttack()
+        {
+            AttackStopped?.Invoke();
+        }
+
+        private IEnumerator StartCooldown()
+        {
+            WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+
+            while (enabled)
+            {
+                if (_attackTimer < AttackSpeed)
+                    _attackTimer += Time.fixedDeltaTime;
+
+                yield return waitForFixedUpdate;
+            }
+        }
 
         private void ChangeTarget(DamagableTarget enemy) =>
             _attackedTarget = enemy;

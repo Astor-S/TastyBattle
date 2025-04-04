@@ -11,6 +11,8 @@ public class UnitView : View
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
     public readonly int Die = Animator.StringToHash(nameof(Die));
 
+    protected Animator Animator => _animator;
+
     public void SetHealthBarColor()
     {
         if (gameObject.layer == LayerMask.NameToLayer("Player"))

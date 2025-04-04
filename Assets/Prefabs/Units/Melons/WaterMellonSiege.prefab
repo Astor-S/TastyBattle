@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 9007126736329814626}
   - component: {fileID: 5749309098488311461}
   - component: {fileID: 8565804310083418809}
-  - component: {fileID: 7850391799329197698}
-  - component: {fileID: 1887790807130368945}
-  - component: {fileID: 5206807059748393211}
-  - component: {fileID: 1643738174391899938}
   - component: {fileID: 9125412089909110165}
+  - component: {fileID: 5100610510049749713}
+  - component: {fileID: 7855966856468767823}
+  - component: {fileID: 1887790807130368945}
+  - component: {fileID: 1643738174391899938}
   m_Layer: 0
   m_Name: WaterMellonSiege
   m_TagString: Untagged
@@ -91,7 +91,29 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1.0119096, z: 0}
---- !u!114 &7850391799329197698
+--- !u!195 &9125412089909110165
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089651971230663124}
+  m_Enabled: 1
+  m_AgentTypeID: 1479372276
+  m_Radius: 1
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 5000
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5100610510049749713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,15 +122,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 4089651971230663124}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
+  m_Script: {fileID: 11500000, guid: 906980f461ac9f541bfa103c7b4be033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 5668070677068455764}
+  _attackHandler: {fileID: 5472688759227463835}
   _detectionSystem: {fileID: 8559445459339519417}
   _damageTarget: {fileID: 1887790807130368945}
   _navMeshAgent: {fileID: 9125412089909110165}
   _faction: 0
   _battleRole: 3
+--- !u!114 &7855966856468767823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089651971230663124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5a479ae80f15249b3a380d398038f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3227655829944131463}
+  _healthBarView: {fileID: 8718195610643870178}
 --- !u!114 &1887790807130368945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,20 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 8565804310083418809}
   _rigidbody: {fileID: 5749309098488311461}
---- !u!114 &5206807059748393211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4089651971230663124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 3227655829944131463}
-  _healthBarView: {fileID: 8718195610643870178}
 --- !u!114 &1643738174391899938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,30 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 1887790807130368945}
-  _attackHandler: {fileID: 5668070677068455764}
+  _attackHandler: {fileID: 5472688759227463835}
   _detectionSystem: {fileID: 8559445459339519417}
---- !u!195 &9125412089909110165
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4089651971230663124}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 5000
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &4383428213538643939
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +217,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2888261478962216149}
   - component: {fileID: 5535726876777603596}
-  - component: {fileID: 5668070677068455764}
+  - component: {fileID: 5472688759227463835}
+  - component: {fileID: 2870543094712833769}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -261,7 +262,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5668070677068455764
+--- !u!114 &5472688759227463835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,10 +271,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4574415630466480460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f651decd00334fbfddf2f9879f841, type: 3}
+  m_Script: {fileID: 11500000, guid: d3e853b5766fcb24c9a76bd620b91302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 8559445459339519417}
+  _attackAbilityHandler: {fileID: 2870543094712833769}
+--- !u!114 &2870543094712833769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574415630466480460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f74e5033bf94347825161628f0f4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: a2e9885b57ddadd4599ab101816bd1d4, type: 2}
+  _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
+  _damagableTarget: {fileID: 1887790807130368945}
 --- !u!1 &5268738163029874166
 GameObject:
   m_ObjectHideFlags: 0
