@@ -1,16 +1,19 @@
 using System;
+using Units;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DamagableTarget", menuName = "Scriptable Objects/DamagableTarget", order = 51)]
 public class DamagableSetup : ScriptableObject
 {
     [SerializeField] private LayerMask _ownerMask;
+    [SerializeField] private BattleRole _battleRole;
     [SerializeField] private float _maxHealthPoints;
 
     public event Action MaxHealthIncreased;
 
     public LayerMask OwnerMask { get; private set; }
     public float MaxHealthPoints { get; private set; }
+    public BattleRole BattleRole => _battleRole;
 
     private void OnValidate() =>
         Initialize();

@@ -121,7 +121,7 @@ namespace AttackSystem.AttackHandlers
             }
         }
 
-        private void ChangeTarget(DamagableTarget enemy) =>
+        protected void ChangeTarget(DamagableTarget enemy) =>
             _attackedTarget = enemy;
     }
 }
