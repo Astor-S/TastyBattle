@@ -27,9 +27,12 @@ namespace Units
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;
 
+        protected AttackHandler AttackHandler => _attackHandler;
+        protected NavMeshAgent NavMeshAgent => _navMeshAgent;
+
         private void FixedUpdate()
         {
-            if (_detectionSystem.CurrentTarget != null)
+            if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
             {
                 if (_attackHandler.IsAttacking == false)
                     _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
@@ -38,6 +41,7 @@ namespace Units
 
         public virtual void Enable()
         {
+            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
             _navMeshAgent.speed = Model.Stats.MovementSpeed;
@@ -45,8 +49,6 @@ namespace Units
             NavMesh.avoidancePredictionTime = 0.5f;
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
-
-            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
 
             if (_damageTarget.enabled == false)
                 _damageTarget.Init(Model.Stats);
