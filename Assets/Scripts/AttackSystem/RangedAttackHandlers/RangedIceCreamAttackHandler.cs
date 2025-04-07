@@ -26,6 +26,8 @@ namespace AttackSystem.RangedAttackHandlers
                     if (unitPresenter != null)
                     {
                         FreezeHandler freezeHandler = AttackedTarget.GetComponent<FreezeHandler>();
+                        float freezePercentage = _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage;
+                        Debug.Log($"[RangedIceCreamAttackHandler] Applying Freeze. Freeze Percentage: {freezePercentage}");
 
                         if (freezeHandler == null)
                         {
@@ -36,6 +38,11 @@ namespace AttackSystem.RangedAttackHandlers
                                 _iceCreamAbilityHandler.IceCreamAbility.FreezeDuration,
                                 _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
                                 _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate);
+                        }
+                        else
+                        {
+                            freezeHandler.ApplySlow(_iceCreamAbilityHandler.IceCreamAbility.FreezePercentage);
+                            Debug.Log("[RangedIceCreamAttackHandler] FreezeHandler already exists. Applying additional slow.");
                         }
                     }
                 }
