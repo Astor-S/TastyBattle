@@ -17,7 +17,7 @@ namespace Units
         [SerializeField] private BattleRole _battleRole;
         
         private float _defaultSpeed;
-        private float _defaultAttackSpeed;
+        private float _defaultAttackSpeedMultiplier;
 
         private Action<DamagableTarget> DyingDelegate;
 
@@ -80,17 +80,13 @@ namespace Units
         public void SetAgentSpeed(float speed) =>
             _navMeshAgent.speed = speed;
 
-        public void SetAttackSpeed(float attackSpeed)
-        {
-            //_attackHandler.AttackSpeedMultiplier = attackSpeed;
-        }
+        public void SetAttackSpeedMultiplier(float attackSpeedMultiplier) =>
+            _attackHandler.AttackSpeedMultiplier = attackSpeedMultiplier;
 
         public void ResetAgentSpeed() =>
             _navMeshAgent.speed = _defaultSpeed;
 
-        public void ResetAttackSpeed()
-        {
-            //_attackHandler.AttackSpeedMultiplier = _defaultAttackSpeed;
-        }
+        public void ResetAttackSpeedMultiplier() =>
+            _attackHandler.AttackSpeedMultiplier = _defaultAttackSpeedMultiplier;
     }
 }

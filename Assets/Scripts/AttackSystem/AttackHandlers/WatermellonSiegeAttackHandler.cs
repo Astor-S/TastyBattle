@@ -37,7 +37,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
 
                 yield return approachingWaiting;
 
-                if (AttackTimer >= AttackSpeed)
+                if (AttackTimer >= BaseAttackSpeed)
                 {
                     Hit();
                     SpeedChanging?.Invoke(-1f);
