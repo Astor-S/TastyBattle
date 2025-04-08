@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using AttackSystem;
+using Units;
 
 public class DetectionSystem : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DetectionSystem : MonoBehaviour
     private Queue<DamagableTarget> _detectedUnits = new();
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
+    private bool _isSiege = false;
 
     public DamagableTarget CurrentTarget { get; private set; } = null;
 
@@ -37,19 +39,18 @@ public class DetectionSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out DamagableTarget unit) && _detectedUnits.Contains(unit) == false)
+        if (other.TryGetComponent(out DamagableTarget unit) &&
+            _detectedUnits.Contains(unit) == false &&
+            LayerMask.LayerToName(unit.gameObject.layer) == _enemyLayer &&
+            (_isSiege == false || unit.IsBuilding))
         {
-            if (LayerMask.LayerToName(unit.gameObject.layer) == _enemyLayer)
+            unit.Dying += OnDetectedUnitDied;
+            _detectedUnits.Enqueue(unit);
+
+            if (_detectedUnits.Count == 1)
             {
-                unit.Dying += OnDetectedUnitDied;
-
-                _detectedUnits.Enqueue(unit);
-
-                if (_detectedUnits.Count == 1)
-                {
-                    CurrentTarget = unit;
-                    TargetChanged?.Invoke(CurrentTarget);
-                }
+                CurrentTarget = unit;
+                TargetChanged?.Invoke(CurrentTarget);
             }
         }
     }
@@ -69,7 +70,7 @@ public class DetectionSystem : MonoBehaviour
         TargetChanged?.Invoke(CurrentTarget);
     }
 
-    public void Init(int layer, DamagableTarget enemyBase)
+    public void Init(int layer, DamagableTarget enemyBase, BattleRole battleRole = BattleRole.Range)
     {
         if (LayerMask.LayerToName(layer) == Enemy)
             _enemyLayer = Player;
@@ -77,6 +78,7 @@ public class DetectionSystem : MonoBehaviour
             _enemyLayer = Enemy;
 
         _enemyBase = enemyBase;
+        _isSiege = battleRole == BattleRole.Siege;
 
         gameObject.SetActive(true);
     }

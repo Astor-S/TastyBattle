@@ -16,6 +16,7 @@ namespace AttackSystem
 
         public Health Health => _health;
         public bool IsAlive => _health.IsAlive;
+        public bool IsBuilding => _setup.BattleRole == Units.BattleRole.Building;
 
         public event Action<DamagableTarget> Dying;
         public event Action HalfHP;
