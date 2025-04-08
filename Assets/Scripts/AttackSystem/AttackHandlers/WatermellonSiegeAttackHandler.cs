@@ -39,7 +39,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
                 SpeedChanging?.Invoke(15f);
 
                 yield return approachingWaiting;
-
+                
                 Hit();
                 SpeedChanging?.Invoke(-1f);
                 TakingRunUp?.Invoke();

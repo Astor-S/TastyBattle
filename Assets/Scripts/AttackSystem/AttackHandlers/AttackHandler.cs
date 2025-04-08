@@ -6,24 +6,28 @@ namespace AttackSystem.AttackHandlers
 {
     public class AttackHandler : MonoBehaviour
     {
+        private readonly Coroutine _timeUpdatingCoroutine;
+
         [SerializeField] private DetectionSystem _detectionSystem;
 
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
         private float _attackTimer;
         private bool _isAttacking = false;
-        private Coroutine _timeUpdatingCoroutine;
 
         public event Action AttackStarted;
         public event Action Hitting;
         public event Action AttackStopped;
 
+        public float AttackSpeedMultiplier { get; set; } = 1f;
         public DamagableTarget AttackedTarget => _attackedTarget;
         public bool IsAttacking => _isAttacking;
         protected AttackerSetup Stats => _stats;
         protected virtual float Damage => _stats.AttackDamage;
-        protected float AttackSpeed => _stats.AttackSpeed;
+        protected float BaseAttackSpeed => _stats.AttackSpeed;
+        protected float AttackSpeed => BaseAttackSpeed * AttackSpeedMultiplier;
         protected float AttackTimer => _attackTimer;
+
 
         private void Start()
         {
@@ -78,7 +82,7 @@ namespace AttackSystem.AttackHandlers
                 {
                     StartAttack();
 
-                    if (_attackTimer >= AttackSpeed)
+                    if (_attackTimer >= BaseAttackSpeed)
                     {
                         Hit();
                         ResetTimer();
@@ -114,7 +118,7 @@ namespace AttackSystem.AttackHandlers
 
             while (enabled)
             {
-                if (_attackTimer < AttackSpeed)
+                if (_attackTimer < BaseAttackSpeed)
                     _attackTimer += Time.fixedDeltaTime;
 
                 yield return waitForFixedUpdate;
