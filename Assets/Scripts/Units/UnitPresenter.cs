@@ -17,7 +17,7 @@ namespace Units
         [SerializeField] private BattleRole _battleRole;
         
         private float _defaultSpeed;
-        private float _defaultAttackSpeed;
+        private float _defaultAttackSpeedMultiplier;
 
         private Action<DamagableTarget> DyingDelegate;
 
@@ -30,12 +30,11 @@ namespace Units
         protected AttackHandler AttackHandler => _attackHandler;
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
 
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
             {
-                if (_attackHandler.IsAttacking == false)
-                    _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
+                _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
             }
         }
 
@@ -54,7 +53,7 @@ namespace Units
                 _damageTarget.Init(Model.Stats);
 
             if (_detectionSystem.gameObject.activeSelf == false)
-                _detectionSystem.Init(gameObject.layer, Model.EnemyBase);
+                _detectionSystem.Init(gameObject.layer, Model.EnemyBase, _battleRole);
 
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats);
@@ -80,17 +79,13 @@ namespace Units
         public void SetAgentSpeed(float speed) =>
             _navMeshAgent.speed = speed;
 
-        public void SetAttackSpeed(float attackSpeed)
-        {
-            //_attackHandler.AttackSpeedMultiplier = attackSpeed;
-        }
+        public void SetAttackSpeedMultiplier(float attackSpeedMultiplier) =>
+            _attackHandler.AttackSpeedMultiplier = attackSpeedMultiplier;
 
         public void ResetAgentSpeed() =>
             _navMeshAgent.speed = _defaultSpeed;
 
-        public void ResetAttackSpeed()
-        {
-            //_attackHandler.AttackSpeedMultiplier = _defaultAttackSpeed;
-        }
+        public void ResetAttackSpeedMultiplier() =>
+            _attackHandler.AttackSpeedMultiplier = _defaultAttackSpeedMultiplier;
     }
 }

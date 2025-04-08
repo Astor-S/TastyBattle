@@ -6,11 +6,9 @@ using UnityEngine;
 public class UnitSetup : AttackerSetup
 {
     [SerializeField] private Faction _faction;
-    [SerializeField] private BattleRole _battleRole;
     [SerializeField] private float _movementSpeed;
 
-    public Faction Faction { get; private set; }
-    public BattleRole BattleRole { get; private set; }
+    public Faction Faction => _faction;
     public float MovementSpeed { get; private set; }
 
     public void IncreaseSpeed(float defaultSpeedBoostPortion)
@@ -25,8 +23,6 @@ public class UnitSetup : AttackerSetup
     {
         base.Initialize();
 
-        Faction = _faction;
-        BattleRole = _battleRole;
         MovementSpeed = _movementSpeed;
     }
 }

@@ -172,6 +172,7 @@ MonoBehaviour:
   _projectileSpawnPoint: {fileID: 3588647237038063433}
   _projectileSpeed: 10
   _iceCreamAbilityHandler: {fileID: 5024893857778605009}
+  _freezeParticleEffectPrefab: {fileID: 6270031026574745719, guid: 5dfa0173f146f004b84121533e57a1b9, type: 3}
 --- !u!1 &9171405283030669546
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7258618766229363941}
-  _attackHandler: {fileID: 912346928963595266}
+  _attackHandler: {fileID: 912346928963595266, guid: 00000000000000000000000000000000, type: 0}
   _detectionSystem: {fileID: 7991039980486154689}
 --- !u!195 &-9110894439992595789
 NavMeshAgent:
