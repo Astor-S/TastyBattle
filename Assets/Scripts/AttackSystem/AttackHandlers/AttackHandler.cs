@@ -13,26 +13,21 @@ namespace AttackSystem.AttackHandlers
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
         private float _attackTimer;
-        private float _attackSpeedMultiplier = 1f;
         private bool _isAttacking = false;
 
         public event Action AttackStarted;
         public event Action Hitting;
         public event Action AttackStopped;
 
+        public float AttackSpeedMultiplier { get; set; } = 1f;
         public DamagableTarget AttackedTarget => _attackedTarget;
         public bool IsAttacking => _isAttacking;
         protected AttackerSetup Stats => _stats;
         protected virtual float Damage => _stats.AttackDamage;
         protected float BaseAttackSpeed => _stats.AttackSpeed;
-        protected float AttackSpeed => BaseAttackSpeed * _attackSpeedMultiplier;
+        protected float AttackSpeed => BaseAttackSpeed * AttackSpeedMultiplier;
         protected float AttackTimer => _attackTimer;
 
-        public float AttackSpeedMultiplier
-        {
-            get { return _attackSpeedMultiplier; }
-            set { _attackSpeedMultiplier = value; }
-        }
 
         private void Start()
         {
