@@ -4910,6 +4910,7 @@ GameObject:
   - component: {fileID: 2410171153663652173}
   - component: {fileID: 474657713382688135}
   - component: {fileID: 6906428322304871700}
+  - component: {fileID: 8463961594798590383}
   m_Layer: 7
   m_Name: EnemyBaseModel
   m_TagString: Untagged
@@ -5003,6 +5004,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8463961594798590383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132083737192342610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095e9f6078a321747885478e08b2bc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2479028921627043418
 GameObject:
   m_ObjectHideFlags: 0
@@ -10064,9 +10077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ad71937d3bb8246ba95b371c47aea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _units:
-  - {fileID: 514204843160530710, guid: a2548212e1812964eb3bf1df626b1cd1, type: 3}
-  - {fileID: 514204843160530710, guid: 7b09c6ea2ebc71d41a67cd96d6d51f33, type: 3}
+  _units: []
   _enemyBase: {fileID: 0}
   _spawnPoint: {fileID: 8906586584555077194}
 --- !u!114 &67601149303491666

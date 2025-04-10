@@ -12,8 +12,8 @@ namespace AttackSystem.AttackHandlers
 
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
-        private float _attackTimer;
         private WaitForFixedUpdate _waitForFixedUpdate;
+        private float _distanceOffset = 0.5f;
 
         public event Action AttackStarted;
         public event Action Hitting;
@@ -40,7 +40,7 @@ namespace AttackSystem.AttackHandlers
 
         protected bool IsAttacking()
         {
-            if (_attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) <= _stats.AttackDistance * _stats.AttackDistance)
+            if (_attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) - _distanceOffset <= _stats.AttackDistance * _stats.AttackDistance)
                 return true;
 
             return false;

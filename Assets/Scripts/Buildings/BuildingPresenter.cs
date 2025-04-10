@@ -5,7 +5,7 @@ using AttackSystem;
 
 public class BuildingPresenter : Presenter, IActivatable
 {
-    [SerializeField] private DamagableTarget _damagableTarget;
+    [SerializeField] private DamagableTarget _damagableTarget;    
 
     private Action<DamagableTarget> _dyingDelegate;
 

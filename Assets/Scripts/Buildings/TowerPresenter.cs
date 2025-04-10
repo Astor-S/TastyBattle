@@ -12,10 +12,15 @@ namespace Buildings
 
         public new AttackerSetup Stats => base.Stats as AttackerSetup;
 
-        private void Start()
+        public override void Enable()
         {
+            base.Enable();
+
             _attackHandler.Init(Stats);
             _detectionSystem.Init(gameObject.layer, _enemyBase);
+
+            _attackHandler.AttackStarted += View.SetAttackingAnimation;
+            _attackHandler.AttackStopped += View.StopAttackingAnimation;
         }
     }
 }

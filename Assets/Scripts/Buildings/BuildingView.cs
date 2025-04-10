@@ -11,6 +11,7 @@ public class BuildingView : View
     public readonly int Died = Animator.StringToHash(nameof(Died));
     public readonly int HalfHP = Animator.StringToHash(nameof(HalfHP));
     public readonly int QuaterHP = Animator.StringToHash(nameof(QuaterHP));
+    public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
 
     public void SetColor(Color color)
     {
@@ -18,21 +19,27 @@ public class BuildingView : View
             _healthBarView.color = color;
     }
 
-    internal void SetDeathAnimation()
+    public void SetDeathAnimation()
     {
         _animator.SetTrigger(Died);
         _particleSystem.Play();
     }
 
-    internal void SetHalfHPAnimation()
+    public void SetHalfHPAnimation()
     {
         _animator.SetTrigger(HalfHP);
         _particleSystem.Play();
     }
 
-    internal void SetQuaterHPAnimation()
+    public void SetQuaterHPAnimation()
     {
         _animator.SetTrigger(QuaterHP);
         _particleSystem.Play();
     }
+
+    public void SetAttackingAnimation() => 
+        _animator.SetBool(IsAttacking, true);
+    
+    public void StopAttackingAnimation() =>
+        _animator.SetBool(IsAttacking, false);
 }

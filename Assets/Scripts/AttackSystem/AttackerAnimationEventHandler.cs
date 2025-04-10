@@ -1,7 +1,7 @@
 using AttackSystem.AttackHandlers;
 using UnityEngine;
 
-public class AnimationEventHandler : MonoBehaviour
+public class AttackerAnimationEventHandler : DamagableAnimationEventHandler
 {
     public readonly int AttackSpeed = Animator.StringToHash(nameof(AttackSpeed));
 
@@ -13,7 +13,4 @@ public class AnimationEventHandler : MonoBehaviour
 
     public void HitEvent() => 
         _attackHandler.Hit();
-
-    public void DeathEvent() =>
-        Destroy(gameObject);
 }
