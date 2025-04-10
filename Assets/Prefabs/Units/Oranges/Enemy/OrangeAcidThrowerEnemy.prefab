@@ -214,7 +214,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1387095230072216417}
-  - component: {fileID: 7570572755030082153}
   - component: {fileID: 944846056705022570}
   m_Layer: 0
   m_Name: AttackSystem
@@ -238,27 +237,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3861421648206680832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7570572755030082153
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3048694467669777873}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &944846056705022570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +420,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c301053f10efbaf4ead41f216850bae9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2569454950361698911}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c301053f10efbaf4ead41f216850bae9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 58323173275538501}
   m_SourcePrefab: {fileID: 100100000, guid: c301053f10efbaf4ead41f216850bae9, type: 3}
 --- !u!4 &7474171744071273898 stripped
 Transform:
@@ -479,6 +460,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &58323173275538501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850415395181762320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 944846056705022570}
+  _animator: {fileID: 2569454950361698911}
 --- !u!1001 &7406196547951532476
 PrefabInstance:
   m_ObjectHideFlags: 0

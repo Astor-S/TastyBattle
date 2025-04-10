@@ -216,7 +216,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 848918226617754298}
-  - component: {fileID: 3073595596376243875}
   - component: {fileID: 307382849641959213}
   - component: {fileID: 5019972373433295829}
   m_Layer: 0
@@ -241,27 +240,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8268691838820427234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3073595596376243875
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916776918303354974}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &307382849641959213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +564,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47c22e4994de2254ba576e1526dffea1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3831852741468076576}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47c22e4994de2254ba576e1526dffea1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6662078635459597149}
   m_SourcePrefab: {fileID: 100100000, guid: 47c22e4994de2254ba576e1526dffea1, type: 3}
 --- !u!4 &531547383232858241 stripped
 Transform:
@@ -618,6 +599,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6662078635459597149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877004747151921723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 307382849641959213}
+  _animator: {fileID: 3831852741468076576}
 --- !u!1001 &6365588705895120709
 PrefabInstance:
   m_ObjectHideFlags: 0

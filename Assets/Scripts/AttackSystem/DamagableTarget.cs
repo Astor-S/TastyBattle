@@ -12,7 +12,6 @@ namespace AttackSystem
 
         private DamagableSetup _setup;
         private Health _health;
-        private float _deathTime = 1.5f;
 
         public Health Health => _health;
         public bool IsAlive => _health.IsAlive;
@@ -58,19 +57,11 @@ namespace AttackSystem
         private void Die()
         {
             Dying?.Invoke(this);
-            StartCoroutine(StartDying());
-        }
 
-        private IEnumerator StartDying()
-        {
             _collider.enabled = false;
             _rigidbody.isKinematic = true;
 
-            enabled = false;
-
-            yield return new WaitForSeconds(_deathTime);
-
-            Destroy(gameObject);
+            enabled = false;            
         }
     }
 }

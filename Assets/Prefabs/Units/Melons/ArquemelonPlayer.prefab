@@ -405,6 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3715819831367732298}
   - component: {fileID: 7580848323791432377}
+  - component: {fileID: 6307391038689748088}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -450,6 +451,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6307391038689748088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2402742014790768653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 8338457747908667702}
+  _animator: {fileID: 7580848323791432377}
 --- !u!1 &2914330276202060055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1441,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2762666654709032579}
-  - component: {fileID: 216496309784404202}
   - component: {fileID: 8338457747908667702}
   m_Layer: 0
   m_Name: AttackSystem
@@ -1451,27 +1465,6 @@ Transform:
   - {fileID: 8538162855018470003}
   m_Father: {fileID: 6492989649989218212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &216496309784404202
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9170123451767306935}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 7
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &8338457747908667702
 MonoBehaviour:
   m_ObjectHideFlags: 0

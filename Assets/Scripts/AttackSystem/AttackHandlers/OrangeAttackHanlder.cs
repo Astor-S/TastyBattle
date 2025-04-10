@@ -9,7 +9,7 @@ namespace AttackSystem.AttackHandlers
         [SerializeField] private OrangeAbilityHandler _orangAbilityHandler;
         [SerializeField] private ParticleSystem _acidParticleEffectPrefab;
 
-        protected override void Hit()
+        public override void Hit()
         {
             base.Hit(); 
             ApplyOrangeAcid();

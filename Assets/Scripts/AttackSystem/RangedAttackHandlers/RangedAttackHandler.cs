@@ -31,7 +31,7 @@ namespace AttackSystem.RangedAttackHandlers
             });
         }
 
-        protected override void Hit()
+        public override void Hit()
         {
             if (AttackedTarget != null)
             {

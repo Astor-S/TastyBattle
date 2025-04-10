@@ -15,7 +15,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
 
     private void Update()
     {
-        if (IsAttacking)
+        if (IsAttacking())
             DistanceToTarget = Vector3.Distance(AttackedTarget.transform.position, transform.position);
     }
 
@@ -28,7 +28,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
 
         while (enabled)
         {
-            if (AttackedTarget != null && IsAttacking)
+            if (AttackedTarget != null && IsAttacking())
             {
                 StartAttack();
 

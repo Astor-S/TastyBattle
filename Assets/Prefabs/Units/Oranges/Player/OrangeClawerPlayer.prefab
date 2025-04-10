@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7814408610753229240}
-  - component: {fileID: 609636959403560062}
   - component: {fileID: 4813154958993620753}
   m_Layer: 0
   m_Name: AttackSystem
@@ -33,27 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2326629916119570738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &609636959403560062
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2411278165535883405}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &4813154958993620753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +528,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3042530239560085354}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3226484826687784343}
   m_SourcePrefab: {fileID: 100100000, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
 --- !u!1 &8620930744682779768 stripped
 GameObject:
@@ -577,6 +558,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3226484826687784343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620930744682779768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 4813154958993620753}
+  _animator: {fileID: 3042530239560085354}
 --- !u!4 &9000552134457937602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
