@@ -5,7 +5,7 @@ using AttackSystem.Interfaces;
 
 namespace AttackSystem
 {
-    public class DamagableTarget : MonoBehaviour, IDamagable
+    public class DamagableTarget : MonoBehaviour, IDamagable, IIncomeSource
     {
         [SerializeField] private Collider _collider;
         [SerializeField] private Rigidbody _rigidbody;
@@ -22,6 +22,7 @@ namespace AttackSystem
         public event Action HalfHP;
         public event Action QuaterHP;
         public event Action Inited;
+        public event Action<int, IIncomeSource> ResourceRecieved;
 
         private void OnEnable()
         {
@@ -57,6 +58,7 @@ namespace AttackSystem
 
         private void Die()
         {
+            ResourceRecieved?.Invoke(10, this);
             Dying?.Invoke(this);
             StartCoroutine(StartDying());
         }

@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5556729472772711711}
   - component: {fileID: 9163413398835935689}
   - component: {fileID: 2393108300765569387}
-  - component: {fileID: 6915147072732015394}
+  - component: {fileID: 8728071758074328872}
   m_Layer: 7
   m_Name: Tower
   m_TagString: Untagged
@@ -144,7 +144,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.4
   m_Height: 2.2250369
   m_Direction: 1
   m_Center: {x: 0, y: 1.0704824, z: 0}
@@ -173,7 +173,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &950199767411787301
 MonoBehaviour:
@@ -235,7 +235,7 @@ MonoBehaviour:
   _damagableTarget: {fileID: 950199767411787301}
   _attackHandler: {fileID: 739621251359655683}
   _detectionSystem: {fileID: 7212480549341496934}
---- !u!195 &6915147072732015394
+--- !u!195 &8728071758074328872
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,11 +243,11 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740381246540268478}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
-  m_Radius: 0.5
+  m_AgentTypeID: -1923039037
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -256,7 +256,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!1 &1740483309384054462
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,8 +485,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7212480549341496934}
-  _damagableTarget: {fileID: 950199767411787301}
-  _attackTrigger: {fileID: 633230986959915302}
   _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   _projectileSpawnPoint: {fileID: 2688982722085762161}
   _projectileSpeed: 10

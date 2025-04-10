@@ -4260,6 +4260,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1355774924339113292, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+      propertyPath: _unitScaner
+      value: 
+      objectReference: {fileID: 502671745}
+    - target: {fileID: 1355774924339113292, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _damagableSetup
       value: 
       objectReference: {fileID: 11400000, guid: 43acbb6af483990488a3bbabdfc50b1a, type: 2}
@@ -4307,6 +4311,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2197115551251161823, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+      propertyPath: _mainBuilding
+      value: 
+      objectReference: {fileID: 502671742}
     - target: {fileID: 6077727286640892953, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4393,6 +4401,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3e1130a9544b8499f5c59495ab8d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &502671745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2197115551251161823, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+  m_PrefabInstance: {fileID: 502671740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a3d63ad3535a848bdea937e0e464c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &526117602 stripped
@@ -7381,7 +7400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8649358210169854174, guid: 585568937bffba640bb2757cc91a7b6c, type: 3}
       propertyPath: _incomeValue
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8649358210169854174, guid: 585568937bffba640bb2757cc91a7b6c, type: 3}
       propertyPath: _incomeCooldown
@@ -9673,10 +9692,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2338674885155336731, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: outlineMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _enemyBase
       value: 
@@ -9702,25 +9717,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5100610510049749713, guid: 76b205be53458724ca35181bd0f26904, type: 3}
     - target: {fileID: 3626559426895696645, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: _health
+      propertyPath: _unitScaner
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3626559426895696645, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: _damagableSetup
-      value: 
-      objectReference: {fileID: 11400000, guid: 8a1f562f7cd3d3d48b2b8f4b1224f505, type: 2}
-    - target: {fileID: 3727563697212198963, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3742702001116676058, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3742702001116676058, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1212571318}
     - target: {fileID: 3756702701568696834, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
@@ -9793,14 +9792,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8420854227064513104, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420854227064513104, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 8503358278897376425, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _mainBuilding
+      value: 
+      objectReference: {fileID: 1212571315}
     - target: {fileID: 8825516257151857997, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: m_Name
       value: PlayerBase
@@ -9852,6 +9847,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3e1130a9544b8499f5c59495ab8d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1212571318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8503358278897376425, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+  m_PrefabInstance: {fileID: 1212571313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a3d63ad3535a848bdea937e0e464c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1232990952 stripped

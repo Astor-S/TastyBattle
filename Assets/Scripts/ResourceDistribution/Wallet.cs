@@ -1,3 +1,4 @@
+using AttackSystem;
 using StructureElements;
 using System;
 
@@ -6,7 +7,7 @@ namespace ResourceDistribution
     public class Wallet : IActivatable
     {
         private int _resourceCount;
-        private IIncomeSource _mine;
+        private readonly IIncomeSource _mine;
 
         public Wallet(int startResourceCount, IIncomeSource mine)
         {
@@ -29,6 +30,11 @@ namespace ResourceDistribution
             _mine.ResourceRecieved -= GetResource;
         }
 
+        public void AddUnitAsIncomeSource(IIncomeSource unit)
+        {
+            unit.ResourceRecieved += GetResource;
+        }
+
         public void SpendResource(int count)
         {
             if (_resourceCount - count < 0)
@@ -39,11 +45,14 @@ namespace ResourceDistribution
             ResourceSpend?.Invoke();
         }
 
-        private void GetResource(int count)
+        private void GetResource(int count, IIncomeSource incomeSource)
         {
             _resourceCount += count;
 
             ResourceRecieved?.Invoke();
+
+            if (incomeSource is DamagableTarget)
+                incomeSource.ResourceRecieved -= GetResource;
         }
     }
 }
