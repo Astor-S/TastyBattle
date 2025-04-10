@@ -244,71 +244,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
---- !u!1001 &9279683
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 867106075201483605, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_Name
-      value: MushraxePlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956715137473670891, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956715137473670891, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.847132
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2153387
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.7762527
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816820174540189629, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9afca8b8ba3163840a922a96296506fd, type: 3}
 --- !u!4 &19377487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953, type: 3}
@@ -1251,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: 547763c20a1215045a027f97d08eaed7, type: 2}
+      objectReference: {fileID: 11400000, guid: 4a785ee0a9cd48849bfb365f0ff7d908, type: 2}
     - target: {fileID: 5088462273123585770, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 15.1
@@ -3605,7 +3540,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: 1cff776acf2bdbd499a9a3f24a180205, type: 2}
+      objectReference: {fileID: 11400000, guid: 2e34c8cebaaad5f4ca907657da08010b, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _battleRole
       value: 1
@@ -4311,19 +4246,19 @@ PrefabInstance:
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[0]
       value: 
-      objectReference: {fileID: 1744005752923408163, guid: 1a07f875b06022f429c102023d7840c5, type: 3}
+      objectReference: {fileID: 5708932697113814465, guid: 1f91e915120cdb2459f09b18b4cda60b, type: 3}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[1]
       value: 
-      objectReference: {fileID: 4183662812210247699, guid: 8019c5889c4eff6418583ba480769aaa, type: 3}
+      objectReference: {fileID: 2498778404197617977, guid: d61e783dd45a2a94c9bbc28faf0e5d39, type: 3}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[2]
       value: 
-      objectReference: {fileID: 365182212988601422, guid: 0f329688e790d4c4c97a10af7672d44d, type: 3}
+      objectReference: {fileID: 5313909063801543923, guid: e8469f3b769e8b0468cff6ee5d15606d, type: 3}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[3]
       value: 
-      objectReference: {fileID: 1142427999072230278, guid: 851eeed6721f546469e672f2e0aba724, type: 3}
+      objectReference: {fileID: 8778471507211883722, guid: 19729d0a0c600c74b9601a09e4907344, type: 3}
     - target: {fileID: 477179334887714165, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8239,7 +8174,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: d68890a864411e344ba7544d2f6d0b5a, type: 2}
+      objectReference: {fileID: 11400000, guid: 1f352b7c746c7ba46a8832fa71457d49, type: 2}
     - target: {fileID: 5900999178214549138, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8807,7 +8742,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: a2e9885b57ddadd4599ab101816bd1d4, type: 2}
+      objectReference: {fileID: 11400000, guid: 03ad099cf0e624d4eb630b50715116a8, type: 2}
     - target: {fileID: 5900999178214549138, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9017,7 +8952,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: c087155801e3ed64894ae3c9d563f9f8, type: 2}
+      objectReference: {fileID: 11400000, guid: 7f6a71c323223de49a018ce41067e51b, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _priceTextBox
       value: 
@@ -9765,19 +9700,19 @@ PrefabInstance:
     - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _units.Array.data[0]
       value: 
-      objectReference: {fileID: 8156312954116677948, guid: abff26b5b972f354b8b3bf9737fcd77e, type: 3}
+      objectReference: {fileID: 7847026064147193925, guid: 296ab30b21567fd43b8d94128495d381, type: 3}
     - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _units.Array.data[1]
       value: 
-      objectReference: {fileID: 514204843160530710, guid: 7b09c6ea2ebc71d41a67cd96d6d51f33, type: 3}
+      objectReference: {fileID: 7395710149347801785, guid: ce77eaf72652f1843b4bc995732c3c43, type: 3}
     - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _units.Array.data[2]
       value: 
-      objectReference: {fileID: 5645149630095569062, guid: af4cf958ffee2064d938e6f7eaad62a0, type: 3}
+      objectReference: {fileID: 8583061830569844684, guid: 84ed4a6220c87c443b0fc9a2a1dc1675, type: 3}
     - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _units.Array.data[3]
       value: 
-      objectReference: {fileID: 5100610510049749713, guid: 76b205be53458724ca35181bd0f26904, type: 3}
+      objectReference: {fileID: 5141054279036868551, guid: f7d5136e46a2a614b8401a5c42d98f38, type: 3}
     - target: {fileID: 3626559426895696645, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _health
       value: 
@@ -11756,7 +11691,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: 782c70edaea43884c928f3b7bb851a59, type: 2}
+      objectReference: {fileID: 11400000, guid: 3f805b412cb30d1458c5b10d7d770935, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _priceTextBox
       value: 
@@ -15160,7 +15095,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: f1a3fda20d0a1344e8800c5b1321ea0d, type: 2}
+      objectReference: {fileID: 11400000, guid: e87a13445a079634eacc3ebbfc053820, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _battleRole
       value: 1
@@ -17385,7 +17320,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: 3aab464dfc5c21f4689c9141c79fd3d7, type: 2}
+      objectReference: {fileID: 11400000, guid: 82eedb313b5924d43b8d4537b8d507b3, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _priceTextBox
       value: 
@@ -18290,4 +18225,3 @@ SceneRoots:
   - {fileID: 1062962696}
   - {fileID: 497704866}
   - {fileID: 150572944}
-  - {fileID: 9279683}
