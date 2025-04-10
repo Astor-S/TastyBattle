@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 1384906798130888063}
   - component: {fileID: 155205034961165428}
   - component: {fileID: 7077138614049567662}
+  - component: {fileID: 608057791142610212}
   m_Layer: 0
-  m_Name: WaterMellonMelee
+  m_Name: WaterMellonMeleePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,6 +175,21 @@ MonoBehaviour:
   _damagableTarget: {fileID: 1384906798130888063}
   _attackHandler: {fileID: 307382849641959213}
   _detectionSystem: {fileID: 3963247014063712833}
+--- !u!114 &608057791142610212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405704784407216032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f74e5033bf94347825161628f0f4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitSetup: {fileID: 11400000, guid: 547763c20a1215045a027f97d08eaed7, type: 2}
+  _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
+  _damagableTarget: {fileID: 1384906798130888063}
 --- !u!1 &1567226623109323702
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +234,6 @@ GameObject:
   - component: {fileID: 848918226617754298}
   - component: {fileID: 3073595596376243875}
   - component: {fileID: 307382849641959213}
-  - component: {fileID: 5019972373433295829}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -275,22 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3963247014063712833}
-  _attackAbilityHandler: {fileID: 5019972373433295829}
---- !u!114 &5019972373433295829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916776918303354974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f74e5033bf94347825161628f0f4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unitSetup: {fileID: 11400000, guid: 547763c20a1215045a027f97d08eaed7, type: 2}
-  _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
-  _damagableTarget: {fileID: 1384906798130888063}
+  _attackAbilityHandler: {fileID: 0}
 --- !u!1 &7496039816069354530
 GameObject:
   m_ObjectHideFlags: 0
