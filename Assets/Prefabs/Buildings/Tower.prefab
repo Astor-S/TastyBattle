@@ -426,7 +426,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7463711212173889135}
-  - component: {fileID: 633230986959915302}
   - component: {fileID: 739621251359655683}
   m_Layer: 6
   m_Name: AttackSystem
@@ -451,27 +450,6 @@ Transform:
   - {fileID: 2688982722085762161}
   m_Father: {fileID: 7720772090144322690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &633230986959915302
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4365377708815698878}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 8
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &739621251359655683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,8 +463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 7212480549341496934}
-  _damagableTarget: {fileID: 950199767411787301}
-  _attackTrigger: {fileID: 633230986959915302}
   _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   _projectileSpawnPoint: {fileID: 2688982722085762161}
   _projectileSpeed: 10

@@ -19,9 +19,7 @@ namespace AttackSystem.AttackHandlers
         public event Action Hitting;
         public event Action AttackStopped;
 
-        public float AttackSpeedMultiplier { get; set; } = 1f; //???
-        //protected float AttackSpeed => BaseAttackSpeed * AttackSpeedMultiplier;
-        //protected float AttackTimer => _attackTimer;            
+        public float AttackSpeedMultiplier { get; set; } = 1f; //???          
         public DamagableTarget AttackedTarget => _attackedTarget;
         protected AttackerSetup Stats => _stats;
         protected virtual float Damage => _stats.AttackDamage;
@@ -32,7 +30,6 @@ namespace AttackSystem.AttackHandlers
             _waitForFixedUpdate = new WaitForFixedUpdate();
 
             StartCoroutine(nameof(Combat));
-            //StartCoroutine(nameof(StartCooldown));
         }
 
         private void OnEnable() =>
@@ -73,43 +70,19 @@ namespace AttackSystem.AttackHandlers
             while (enabled)
             {
                 if (_attackedTarget != null && IsAttacking())
-                {
                     StartAttack();
-
-                    //if (_attackTimer >= BaseAttackSpeed)
-                    //{
-                    //    Hit();
-                    //    ResetTimer();
-                    //}
-                }
                 else
-                {
                     StopAttack();
-                }
 
                 yield return _waitForFixedUpdate;
             }
         }
-
-        //protected void ResetTimer() => 
-        //    _attackTimer = 0f;
 
         protected void StartAttack() =>
             AttackStarted?.Invoke();
 
         protected void StopAttack() =>
             AttackStopped?.Invoke();
-
-        //private IEnumerator StartCooldown()
-        //{
-        //    while (enabled)
-        //    {
-        //        if (_attackTimer < BaseAttackSpeed)
-        //            _attackTimer += Time.fixedDeltaTime;
-
-        //        yield return _waitForFixedUpdate;
-        //    }
-        //}
 
         protected void ChangeTarget(DamagableTarget enemy) =>
             _attackedTarget = enemy;
