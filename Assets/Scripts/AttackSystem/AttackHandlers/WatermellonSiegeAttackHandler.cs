@@ -1,4 +1,3 @@
-using AttackSystem;
 using AttackSystem.AttackHandlers;
 using System;
 using System.Collections;
@@ -21,7 +20,6 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
 
     protected override IEnumerator Combat()
     {
-        WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
         WaitForSeconds runUpWaiting = new WaitForSeconds(0.3f);
         WaitUntil approachingWaiting = new WaitUntil(() => DistanceToTarget < Stats.HitDistance);
         WaitUntil runUpLongWaiting = new WaitUntil(() => DistanceToTarget > Stats.AttackDistance);
@@ -39,7 +37,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
                 SpeedChanging?.Invoke(15f);
 
                 yield return approachingWaiting;
-                
+
                 Hit();
                 SpeedChanging?.Invoke(-1f);
                 TakingRunUp?.Invoke();
@@ -53,7 +51,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
                 StopAttack();
             }
 
-            yield return waitForFixedUpdate;
+            yield return WaitForFixedUpdate;
         }
     }
 }

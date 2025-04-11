@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 public class BuildingView : View
 {
-    [SerializeField] private Animator _animator;
-    [SerializeField] private Image _healthBarView;
-    [SerializeField] protected ParticleSystem _particleSystem;
-
     public readonly int Died = Animator.StringToHash(nameof(Died));
     public readonly int HalfHP = Animator.StringToHash(nameof(HalfHP));
     public readonly int QuaterHP = Animator.StringToHash(nameof(QuaterHP));
+
+    [SerializeField] private Image _healthBarView;
+    [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] protected Animator Animator;
 
     public void SetColor(Color color)
     {
@@ -18,21 +18,21 @@ public class BuildingView : View
             _healthBarView.color = color;
     }
 
-    internal void SetDeathAnimation()
+    public void SetDeathAnimation()
     {
-        _animator.SetTrigger(Died);
+        Animator.SetTrigger(Died);
         _particleSystem.Play();
     }
 
-    internal void SetHalfHPAnimation()
+    public void SetHalfHPAnimation()
     {
-        _animator.SetTrigger(HalfHP);
+        Animator.SetTrigger(HalfHP);
         _particleSystem.Play();
     }
 
-    internal void SetQuaterHPAnimation()
+    public void SetQuaterHPAnimation()
     {
-        _animator.SetTrigger(QuaterHP);
+        Animator.SetTrigger(QuaterHP);
         _particleSystem.Play();
     }
 }

@@ -183,7 +183,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2210784125040278979}
-  - component: {fileID: 5824907414030517407}
   - component: {fileID: 7638287476966941183}
   - component: {fileID: 5278544228855522323}
   m_Layer: 0
@@ -208,27 +207,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9110408591236356976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5824907414030517407
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5032969382859051235}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &7638287476966941183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +529,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a0df10f67522f94094d11d0463b8881, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4565927960501719606}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a0df10f67522f94094d11d0463b8881, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7351943381549643309}
   m_SourcePrefab: {fileID: 100100000, guid: 1a0df10f67522f94094d11d0463b8881, type: 3}
 --- !u!1 &8547493176081681513 stripped
 GameObject:
@@ -578,6 +559,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7351943381549643309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547493176081681513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 7638287476966941183}
+  _animator: {fileID: 4565927960501719606}
 --- !u!4 &9067183581001733843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a0df10f67522f94094d11d0463b8881, type: 3}

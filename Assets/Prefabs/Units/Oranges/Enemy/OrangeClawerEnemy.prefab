@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 4514591029134479799}
   - component: {fileID: 6197103997551280420}
   - component: {fileID: 934399106529946441}
+  - component: {fileID: -458227512154726899}
   m_Layer: 0
   m_Name: OrangeClawerEnemy
   m_TagString: Untagged
@@ -275,6 +276,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-458227512154726899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027849089433079407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886105011eb16a44af0d158035366e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orangeAbility: {fileID: 11400000, guid: 5fcfdb9f6e08b2f4bace280d77a8ca31, type: 2}
 --- !u!1 &6695972490303801992
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +298,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3601467074775671084}
-  - component: {fileID: 2625085914764341108}
   - component: {fileID: 5237117592465387275}
   m_Layer: 0
   m_Name: AttackSystem
@@ -308,27 +321,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6705561843932132561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2625085914764341108
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6695972490303801992}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &5237117592465387275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +397,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1017346545605876038}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7899356178327474185}
   m_SourcePrefab: {fileID: 100100000, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
 --- !u!4 &2523561720568932415 stripped
 Transform:
@@ -437,6 +432,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7899356178327474185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904450877047222917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 5237117592465387275}
+  _animator: {fileID: 1017346545605876038}
 --- !u!1001 &7650081653216466818
 PrefabInstance:
   m_ObjectHideFlags: 0

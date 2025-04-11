@@ -42,7 +42,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7645824331234043967}
-  - component: {fileID: 2306063527952849767}
   - component: {fileID: 3806344124757455077}
   m_Layer: 0
   m_Name: AttackSystem
@@ -66,27 +65,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445523699793649068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2306063527952849767
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3357443478593226519}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &3806344124757455077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +162,7 @@ GameObject:
   - component: {fileID: 6937565655725772551}
   - component: {fileID: 7022922262128811741}
   - component: {fileID: 5060203767247298419}
+  - component: {fileID: -4631032330020870263}
   m_Layer: 0
   m_Name: OrangeProtectorEnemy
   m_TagString: Untagged
@@ -342,6 +321,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-4631032330020870263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776992040659501829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886105011eb16a44af0d158035366e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orangeAbility: {fileID: 11400000, guid: 5fcfdb9f6e08b2f4bace280d77a8ca31, type: 2}
 --- !u!1001 &3455059126388340034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -405,6 +397,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9980dbe380d372144bb29313b091e355, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5160017752710790240}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9980dbe380d372144bb29313b091e355, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6386763158949199942}
   m_SourcePrefab: {fileID: 100100000, guid: 9980dbe380d372144bb29313b091e355, type: 3}
 --- !u!1 &2536577902209927187 stripped
 GameObject:
@@ -432,6 +427,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6386763158949199942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536577902209927187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 3806344124757455077}
+  _animator: {fileID: 5160017752710790240}
 --- !u!4 &2916200078230442665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9980dbe380d372144bb29313b091e355, type: 3}

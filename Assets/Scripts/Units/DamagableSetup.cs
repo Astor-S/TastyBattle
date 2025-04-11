@@ -5,9 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DamagableTarget", menuName = "Scriptable Objects/DamagableTarget", order = 51)]
 public class DamagableSetup : ScriptableObject
 {
+    public const int MinValue = 1;
+    public const int MaxHPValue = 1000;
+
     [SerializeField] private LayerMask _ownerMask;
     [SerializeField] private BattleRole _battleRole;
-    [SerializeField] private float _maxHealthPoints;
+    [SerializeField, Range(MinValue, MaxHPValue)] private float _maxHealthPoints;
 
     public event Action MaxHealthIncreased;
 

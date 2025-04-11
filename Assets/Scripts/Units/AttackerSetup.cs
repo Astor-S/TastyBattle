@@ -3,10 +3,14 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "AttackerUnit", menuName = "Scriptable Objects/AttackerUnit", order = 52)]
 public class AttackerSetup : DamagableSetup
-{
-    [SerializeField] private float _attackDamage;
-    [SerializeField] private float _attackSpeed;
-    [SerializeField] private float _attackDistance;
+{    
+    public const int MaxAttackSpeed = 10;
+    private const int MaxAttackDamage = 25;
+    private const int MaxAttackRange = 7;
+
+    [SerializeField, Range(MinValue, MaxAttackDamage)] private float _attackDamage;
+    [SerializeField, Range(MinValue, MaxAttackRange)] private float _attackDistance;
+    [SerializeField, Range(MinValue, MaxAttackSpeed)] private float _attackSpeed;
 
     public float AttackDamage { get; private set; }
     public float AttackSpeed { get; private set; }

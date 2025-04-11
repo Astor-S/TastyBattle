@@ -10,7 +10,7 @@ namespace AttackSystem.RangedAttackHandlers
         [SerializeField] private IceCreamAbilityHandler _iceCreamAbilityHandler;
         [SerializeField] private ParticleSystem _freezeParticleEffectPrefab;
 
-        protected override void Hit()
+        public override void Hit()
         {
             base.Hit();
             ApplyFreeze();

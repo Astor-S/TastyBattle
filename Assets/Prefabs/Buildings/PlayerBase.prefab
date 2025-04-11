@@ -4923,7 +4923,7 @@ Transform:
   m_GameObject: {fileID: 850894958073214547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6}
+  m_LocalPosition: {x: -0, y: 0, z: 7.007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9839,6 +9839,7 @@ GameObject:
   - component: {fileID: 141348184695295748}
   - component: {fileID: 2743497175441357774}
   - component: {fileID: 9177211783327707997}
+  - component: {fileID: 4824493370173727406}
   m_Layer: 6
   m_Name: PlayerBaseModel
   m_TagString: Untagged
@@ -9932,6 +9933,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4824493370173727406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400615335587715611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095e9f6078a321747885478e08b2bc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5172136740209519851
 GameObject:
   m_ObjectHideFlags: 0
@@ -14981,9 +14994,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc30ac8c592614640a24fbd888088c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 9177211783327707997}
   _healthBarView: {fileID: 4250943593721401291}
   _particleSystem: {fileID: 3756702701568696834}
+  Animator: {fileID: 0}
   _outline: {fileID: 2338674885155336731}
 --- !u!114 &2508535295967750980
 MonoBehaviour:
@@ -14998,9 +15011,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _units:
-  - {fileID: 514204843160530710, guid: a2548212e1812964eb3bf1df626b1cd1, type: 3}
+  - {fileID: 8156312954116677948, guid: abff26b5b972f354b8b3bf9737fcd77e, type: 3}
   - {fileID: 514204843160530710, guid: 7b09c6ea2ebc71d41a67cd96d6d51f33, type: 3}
-  _enemyBase: {fileID: 4785621668950576721}
+  - {fileID: 5645149630095569062, guid: af4cf958ffee2064d938e6f7eaad62a0, type: 3}
+  - {fileID: 5100610510049749713, guid: 76b205be53458724ca35181bd0f26904, type: 3}
+  _enemyBase: {fileID: 0}
   _spawnPoint: {fileID: 6565689459612909571}
 --- !u!114 &2338674885155336731
 MonoBehaviour:
@@ -15014,7 +15029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 6.93
   precomputeOutline: 1
@@ -16431,7 +16446,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6628176268358430551}
   - component: {fileID: 4785621668950576721}
-  - component: {fileID: 3997745514869453834}
   m_Layer: 6
   m_Name: PlayerBaseDamagableTarget
   m_TagString: Untagged
@@ -16448,7 +16462,7 @@ Transform:
   m_GameObject: {fileID: 9195679999406305591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0.5, z: 4.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16468,27 +16482,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 7510403166869881595}
   _rigidbody: {fileID: 6508554945627782408}
---- !u!65 &3997745514869453834
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9195679999406305591}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.28, y: 3.59, z: 1.5}
-  m_Center: {x: 0.35, y: 1.1045333, z: 0}
 --- !u!1001 &2175510788226964695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16599,6 +16592,10 @@ PrefabInstance:
       objectReference: {fileID: 4785621668950576721}
     - target: {fileID: 8221457268058914955, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951532719306805319, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
