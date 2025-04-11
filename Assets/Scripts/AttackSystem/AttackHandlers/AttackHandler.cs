@@ -16,7 +16,6 @@ namespace AttackSystem.AttackHandlers
         protected WaitForFixedUpdate WaitForFixedUpdate;
 
         public event Action AttackStarted;
-        public event Action Hitting;
         public event Action AttackStopped;
 
         public float AttackSpeedMultiplier { get; set; } = 1f; //???
@@ -49,10 +48,7 @@ namespace AttackSystem.AttackHandlers
         public virtual void Hit()
         {
             if (_attackedTarget != null)
-            {
-                Hitting?.Invoke();
                 _attackedTarget.TakeDamage(CalculateDamage());
-            }
         }
 
         protected virtual float CalculateDamage() =>

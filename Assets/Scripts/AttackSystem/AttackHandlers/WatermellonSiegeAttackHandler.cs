@@ -8,6 +8,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
     public event Action<float> SpeedChanging;
     public event Action TakingRunUp;
     public event Action RunUpTaken;
+    public event Action Hitting;
 
     private float _distanceToTargetSquared;
     protected new WatermellonSiegeSetup Stats => base.Stats as WatermellonSiegeSetup;
@@ -38,7 +39,7 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
 
                 yield return approachingWaiting;
 
-                Hit();
+                Hitting?.Invoke();
                 SpeedChanging?.Invoke(-1f);
                 TakingRunUp?.Invoke();
 
