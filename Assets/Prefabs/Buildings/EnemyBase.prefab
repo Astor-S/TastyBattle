@@ -10043,6 +10043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 8367387138899996630}
+  _mainBuilding: {fileID: 1355774924339113292}
 --- !u!1 &6556685595481180932
 GameObject:
   m_ObjectHideFlags: 0
@@ -10148,7 +10149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 7128493443094753304}
-  _unitScaner: {fileID: 0}
+  _unitScaner: {fileID: 2197115551251161823}
 --- !u!114 &519745959950005578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10163,7 +10164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthBarView: {fileID: 3290585701509109846}
   _particleSystem: {fileID: 1488144723484580939}
-  Animator: {fileID: 0}
+  Animator: {fileID: 6906428322304871700}
   _outline: {fileID: 67601149303491666}
 --- !u!114 &167922940242089229
 MonoBehaviour:
