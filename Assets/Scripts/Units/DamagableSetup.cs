@@ -8,12 +8,14 @@ public class DamagableSetup : ScriptableObject
     [SerializeField] private LayerMask _ownerMask;
     [SerializeField] private BattleRole _battleRole;
     [SerializeField] private float _maxHealthPoints;
+    [SerializeField] private int _reward;
 
     public event Action MaxHealthIncreased;
 
     public LayerMask OwnerMask { get; private set; }
-    public float MaxHealthPoints { get; private set; }
     public BattleRole BattleRole => _battleRole;
+    public float MaxHealthPoints { get; private set; }
+    public int Reward => _reward;
 
     private void OnValidate() =>
         Initialize();

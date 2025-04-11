@@ -58,7 +58,7 @@ namespace AttackSystem
 
         private void Die()
         {
-            ResourceRecieved?.Invoke(10, this);
+            ResourceRecieved?.Invoke(_setup.Reward, this);
             Dying?.Invoke(this);
             StartCoroutine(StartDying());
         }
