@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1741817573148271048}
   - component: {fileID: 1753966527829667186}
   - component: {fileID: 1760944149504383910}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HM_cannon_pivot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5556729472772711711}
   - component: {fileID: 2393108300765569387}
   - component: {fileID: 3405598790078951359}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.3
   m_Height: 2.2250369
   m_Direction: 1
   m_Center: {x: 0, y: 1.0704824, z: 0}
@@ -172,7 +172,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &950199767411787301
 MonoBehaviour:
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 1742110071903007914}
   - component: {fileID: 6800714758958136244}
   - component: {fileID: 164196535810686006}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 1742186424351383662}
   - component: {fileID: 1753321111035779104}
   - component: {fileID: 1761021706071645998}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HM_cannon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7463711212173889135}
   - component: {fileID: 739621251359655683}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AttackSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2688982722085762161}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ Transform:
   m_GameObject: {fileID: 5462733761309100703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.71, y: 2.83, z: -0.01}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -476,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7720772090144322690}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Opportunities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 9151488087610789867}
   - component: {fileID: 7601569320283662624}
   - component: {fileID: 7212480549341496934}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: DetectionSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 687745081909107719, guid: c249bb1dd25bd3543ab2337672f6b21a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3025568634808437156, guid: c249bb1dd25bd3543ab2337672f6b21a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -626,11 +626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525788473581988095, guid: c249bb1dd25bd3543ab2337672f6b21a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7433912917336628050, guid: c249bb1dd25bd3543ab2337672f6b21a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8822058265704207086, guid: c249bb1dd25bd3543ab2337672f6b21a, type: 3}
       propertyPath: lengthInSec
