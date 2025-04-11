@@ -62,6 +62,7 @@ public class LevelRoot : MonoBehaviour
             _defaultUnitSpawnCount,
             _playerUnitFactory,
             playerUnitSetups,
+            playerWallet,
             _playerBase.transform.position,
             _playerBase.transform.rotation));
 
@@ -93,6 +94,7 @@ public class LevelRoot : MonoBehaviour
             _defaultUnitSpawnCount,
             _enemyUnitFactory,
             enemyUnitSetups,
+            enemyWallet,
             _enemyBase.transform.position,
             _enemyBase.transform.rotation));
     }

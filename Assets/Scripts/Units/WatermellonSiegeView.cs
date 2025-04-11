@@ -3,15 +3,15 @@
 public class WatermellonSiegeView : UnitView
 {
     public readonly int Hit = Animator.StringToHash(nameof(Hit));
-    public readonly int DistanceToTarget = Animator.StringToHash(nameof(DistanceToTarget));
+    public readonly int RunUp = Animator.StringToHash(nameof(RunUp));
 
     public void SetHittingAnimation()
     {
         Animator.SetTrigger(Hit);
     }
 
-    public void SetDistanceToTargetInAnimation(float distance)
+    public void SetRunningUpAnimation()
     {
-        Animator.SetFloat(DistanceToTarget, distance);
+        Animator.SetTrigger(RunUp);
     }
 }

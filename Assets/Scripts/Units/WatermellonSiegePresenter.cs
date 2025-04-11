@@ -19,7 +19,6 @@ namespace Units
                 {
                     Vector3 runUpDirection = transform.position - AttackHandler.AttackedTarget.transform.position;
                     NavMeshAgent.SetDestination(new Vector3(runUpDirection.x, transform.position.y, runUpDirection.z));
-                    View.SetDistanceToTargetInAnimation(AttackHandler.DistanceToTarget);
                 }
                 else
                 {
@@ -47,7 +46,7 @@ namespace Units
             AttackHandler.Hitting -= View.SetHittingAnimation;
             AttackHandler.SpeedChanging -= ChangeSpeed;
             AttackHandler.TakingRunUp -= RunUp;
-            AttackHandler.RunUpTaken += OnRunUpTaken;
+            AttackHandler.RunUpTaken -= OnRunUpTaken;
         }
 
         private void RunUp()
@@ -58,6 +57,7 @@ namespace Units
         private void OnRunUpTaken()
         {
             _isRunningUp = false;
+            View.SetRunningUpAnimation();
         }
 
         private void ChangeSpeed(float speed)

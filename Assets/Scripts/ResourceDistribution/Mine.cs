@@ -9,7 +9,7 @@ public class Mine : MonoBehaviour, IIncomeSource
 
     private bool _isMining = true;
 
-    public event Action<int> ResourceRecieved;
+    public event Action<int, IIncomeSource> ResourceRecieved;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class Mine : MonoBehaviour, IIncomeSource
         {
             yield return cooldownWaitng;
 
-            ResourceRecieved?.Invoke(_incomeValue);
+            ResourceRecieved?.Invoke(_incomeValue, this);
         }
     }
 }

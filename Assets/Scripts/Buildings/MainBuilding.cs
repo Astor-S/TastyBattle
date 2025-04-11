@@ -1,3 +1,4 @@
+using ResourceDistribution;
 using Units;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace Buildings
     public class MainBuilding : Building
     {
         public Spawner Spawner { get; }
+        public Wallet Wallet { get; }
 
         public MainBuilding(
             
@@ -14,6 +16,7 @@ namespace Buildings
             int unitSpawnCount,
             UnitFactory unitFactory,
             UnitSetup[] unitSetups,
+            Wallet wallet,
             Vector3 position,
             Quaternion rotation)
             : base(setup, position, rotation)
@@ -23,6 +26,8 @@ namespace Buildings
                 unitSpawnCount,
                 unitFactory,
                 unitSetups);
+
+            Wallet = wallet;
         }
     }
 }
