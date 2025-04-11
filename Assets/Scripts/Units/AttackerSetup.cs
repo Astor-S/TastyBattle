@@ -3,8 +3,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "AttackerUnit", menuName = "Scriptable Objects/AttackerUnit", order = 52)]
 public class AttackerSetup : DamagableSetup
-{
-    public const int MinValue = 1;
+{    
     public const int MaxAttackSpeed = 10;
     private const int MaxAttackDamage = 25;
     private const int MaxAttackRange = 7;

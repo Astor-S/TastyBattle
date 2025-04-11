@@ -5,12 +5,13 @@ using AttackSystem.RangedAttackHandlers;
 namespace Buildings
 {
     public class TowerPresenter : BuildingPresenter
-    {
+    {       
         [SerializeField] private RangedAttackHandler _attackHandler;
         [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _enemyBase;
 
         public new AttackerSetup Stats => base.Stats as AttackerSetup;
+        public new TowerView View => base.View as TowerView;
 
         public override void Enable()
         {
@@ -21,6 +22,6 @@ namespace Buildings
 
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.StopAttackingAnimation;
-        }
+        }        
     }
 }

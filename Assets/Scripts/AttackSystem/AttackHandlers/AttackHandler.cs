@@ -12,38 +12,31 @@ namespace AttackSystem.AttackHandlers
 
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
-        private WaitForFixedUpdate _waitForFixedUpdate;
         private float _distanceOffset = 0.5f;
+        protected WaitForFixedUpdate WaitForFixedUpdate;
 
         public event Action AttackStarted;
         public event Action Hitting;
         public event Action AttackStopped;
 
-        public float AttackSpeedMultiplier { get; set; } = 1f; //???          
+        public float AttackSpeedMultiplier { get; set; } = 1f; //???
+        public bool IsAttacking => _attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) - _distanceOffset <= _stats.AttackDistance * _stats.AttackDistance;                                                 
         public DamagableTarget AttackedTarget => _attackedTarget;
+        public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
         protected virtual float Damage => _stats.AttackDamage;
-        public float BaseAttackSpeed => _stats.AttackSpeed;
-
-        private void Start()
-        {
-            _waitForFixedUpdate = new WaitForFixedUpdate();
-
-            StartCoroutine(nameof(Combat));
-        }
 
         private void OnEnable() =>
             _detectionSystem.TargetChanged += ChangeTarget;
 
         private void OnDisable() =>
-            _detectionSystem.TargetChanged -= ChangeTarget;
-
-        protected bool IsAttacking()
+            _detectionSystem.TargetChanged -= ChangeTarget;      
+        
+        private void Start()
         {
-            if (_attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) - _distanceOffset <= _stats.AttackDistance * _stats.AttackDistance)
-                return true;
+            WaitForFixedUpdate = new WaitForFixedUpdate();
 
-            return false;
+            StartCoroutine(nameof(Combat));
         }
 
         public void Init(AttackerSetup attackerSetup)
@@ -69,12 +62,12 @@ namespace AttackSystem.AttackHandlers
         {
             while (enabled)
             {
-                if (_attackedTarget != null && IsAttacking())
+                if (_attackedTarget != null && IsAttacking)
                     StartAttack();
                 else
                     StopAttack();
 
-                yield return _waitForFixedUpdate;
+                yield return WaitForFixedUpdate;
             }
         }
 
