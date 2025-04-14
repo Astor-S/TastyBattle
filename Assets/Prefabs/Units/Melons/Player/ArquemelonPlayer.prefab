@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8338457747908667702}
+  _attackHandler: {fileID: 0}
   _animator: {fileID: 7580848323791432377}
 --- !u!1 &2914330276202060055
 GameObject:
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8338457747908667702}
+  _attackHandler: {fileID: 7600588622669761359}
   _detectionSystem: {fileID: 2415558512083814679}
   _damageTarget: {fileID: 5717136829546381060}
   _navMeshAgent: {fileID: 7391605921718701908}
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 5717136829546381060}
-  _attackHandler: {fileID: 8338457747908667702}
+  _attackHandler: {fileID: 7600588622669761359}
   _detectionSystem: {fileID: 2415558512083814679}
 --- !u!114 &5995714737180854343
 MonoBehaviour:
@@ -1442,7 +1442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2762666654709032579}
-  - component: {fileID: 8338457747908667702}
+  - component: {fileID: 7600588622669761359}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -1465,7 +1465,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6492989649989218212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8338457747908667702
+--- !u!114 &7600588622669761359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1474,13 +1474,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9170123451767306935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
+  m_Script: {fileID: 11500000, guid: 9587991e215651d439e3b7470db4e221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 2415558512083814679}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 8538162855018470003}
   _projectileSpeed: 10
+  _abilityHandler: {fileID: 5995714737180854343}
 --- !u!1001 &5184960325599985732
 PrefabInstance:
   m_ObjectHideFlags: 0
