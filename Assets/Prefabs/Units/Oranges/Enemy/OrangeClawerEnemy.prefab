@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 5237117592465387275}
+  _attackHandler: {fileID: 5988820365114913956}
   _detectionSystem: {fileID: 4987540117426845095}
   _damageTarget: {fileID: 1368011090491649096}
   _navMeshAgent: {fileID: 934399106529946441}
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 1368011090491649096}
-  _attackHandler: {fileID: 5237117592465387275}
+  _attackHandler: {fileID: 5988820365114913956}
   _detectionSystem: {fileID: 4987540117426845095}
 --- !u!195 &934399106529946441
 NavMeshAgent:
@@ -298,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3601467074775671084}
-  - component: {fileID: 5237117592465387275}
+  - component: {fileID: 5988820365114913956}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -321,7 +321,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6705561843932132561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5237117592465387275
+--- !u!114 &5988820365114913956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -330,10 +330,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6695972490303801992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 766244dec87530944a5a14caa155f3bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6112a7a5279142346a1d43df2a56dfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 4987540117426845095}
+  _orangAbilityHandler: {fileID: -458227512154726899}
+  _acidParticleEffectPrefab: {fileID: 5635756013261618519, guid: e6dfae31ef0ce1f45a5ee241830c92c0, type: 3}
 --- !u!1001 &2634543654470258644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -444,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 5237117592465387275}
+  _attackHandler: {fileID: 5988820365114913956}
   _animator: {fileID: 1017346545605876038}
 --- !u!1001 &7650081653216466818
 PrefabInstance:

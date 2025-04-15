@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 3380778167908364383}
+  _attackHandler: {fileID: 3518262642394418596}
   _animator: {fileID: 3534057720914579373}
 --- !u!1 &2933763403325739598
 GameObject:
@@ -892,7 +892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2613008001417834232}
-  - component: {fileID: 3380778167908364383}
+  - component: {fileID: 3518262642394418596}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -915,7 +915,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2524633850648630077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3380778167908364383
+--- !u!114 &3518262642394418596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -924,13 +924,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6464063540159492044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
+  m_Script: {fileID: 11500000, guid: 9587991e215651d439e3b7470db4e221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3492295004487505235}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
   _projectileSpawnPoint: {fileID: 673815104503727672}
   _projectileSpeed: 10
+  _abilityHandler: {fileID: 5372932057529340475}
 --- !u!1 &6621100499277963522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 3380778167908364383}
+  _attackHandler: {fileID: 3518262642394418596}
   _detectionSystem: {fileID: 3492295004487505235}
   _damageTarget: {fileID: 6184693688351451896}
   _navMeshAgent: {fileID: 2623144175697789885}
@@ -1282,7 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 6184693688351451896}
-  _attackHandler: {fileID: 3380778167908364383}
+  _attackHandler: {fileID: 3518262642394418596}
   _detectionSystem: {fileID: 3492295004487505235}
 --- !u!114 &5372932057529340475
 MonoBehaviour:
