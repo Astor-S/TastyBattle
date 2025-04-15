@@ -35,9 +35,7 @@ namespace FactionalAbilities.Handlers.Effects
             _totalSlowPercentage += slowPercentage;
             _totalSlowPercentage = Mathf.Clamp(_totalSlowPercentage, 0, _maxSlowPercentage);
             UpdateSlow();
-
-            Debug.Log($"[FreezeHandler] Применение замедления к {gameObject.name}. Общий процент замедления: {Mathf.Round(_totalSlowPercentage * 100f) / 100f}");
-
+ 
             if (_isFreezing == false)
                 StartCoroutine(SlowDurationCoroutine());
         }
@@ -58,8 +56,7 @@ namespace FactionalAbilities.Handlers.Effects
 
         private IEnumerator SlowDurationCoroutine()
         {
-            _isFreezing = true;
-            Debug.Log($"[FreezeHandler] Запуск корутины длительности замедления на {gameObject.name}. Длительность: {_slowDuration}");
+            _isFreezing = true;       
 
             while (_totalSlowPercentage > 0)
             {

@@ -1,11 +1,10 @@
 using UnityEngine;
-using AttackSystem.AttackHandlers;
 using FactionalAbilities.Handlers.Effects;
 using Units;
 
-namespace AttackSystem.RangedAttackHandlers
+namespace AttackSystem.AttackHandlers
 {
-    public class RangedIceCreamAttackHandler : RangedAttackHandler
+    public class IceCreamAttackHanlder : AttackHandler
     {
         [SerializeField] private IceCreamAbilityHandler _iceCreamAbilityHandler;
         [SerializeField] private ParticleSystem _freezeParticleEffectPrefab;
