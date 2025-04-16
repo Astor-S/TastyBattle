@@ -10,6 +10,7 @@ public class CameraMovementInput : MonoBehaviour
     [SerializeField] private CameraMovementProperties _properties;
     [SerializeField] private LayerMask _ground;
     [SerializeField] private float _outOfBoundsZone;
+    [SerializeField] private float _rotateDuration;
 
     private Camera _camera;
     private CameraMovementHandler _cameraMovementHandler;

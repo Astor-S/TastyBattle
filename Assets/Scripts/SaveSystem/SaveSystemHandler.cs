@@ -15,4 +15,10 @@ public class SaveSystemHandler : MonoBehaviour
         foreach (SaveSystem saveSystem in _saveSystems)
             saveSystem.Save();
     }
+
+    private void OnApplicationQuit()
+    {
+        foreach (SaveSystem saveSystem in _saveSystems)
+            saveSystem.Save();
+    }
 }
