@@ -7,6 +7,7 @@ namespace GameService.GameHandlerSystem
     public class GameHandler : MonoBehaviour
     {
         [SerializeField] private MainBuildingPresenter _playerBase;
+        [SerializeField] private MainBuildingPresenter _enemyBase;
         [SerializeField] private GameEnder _gameEnder;
         [SerializeField] private LevelCompletionHandler _levelCompletionHandler;
 
@@ -14,12 +15,18 @@ namespace GameService.GameHandlerSystem
         {
             if (_playerBase != null)
                 _playerBase.DamagableTarget.Dying += OnPlayerBaseDied;
+
+            if (_enemyBase != null)
+                _enemyBase.DamagableTarget.Dying += OnEnemyBaseDied;
         }
 
         private void OnDisable()
         {
             if (_playerBase != null)
                 _playerBase.DamagableTarget.Dying -= OnPlayerBaseDied;
+
+            if (_enemyBase != null)
+                _enemyBase.DamagableTarget.Dying -= OnEnemyBaseDied;
         }
 
         private void OnGameOver() =>
@@ -30,5 +37,8 @@ namespace GameService.GameHandlerSystem
 
         private void OnPlayerBaseDied(DamagableTarget target) =>
             OnGameOver();
+
+        private void OnEnemyBaseDied(DamagableTarget target) =>
+            OnCompleteLevel();
     }
 }
