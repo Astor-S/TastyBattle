@@ -1,5 +1,6 @@
 using UnityEngine;
 using UI.Screens.ScreenButtons;
+using YG;
 
 namespace GameService.GameHandlerSystem
 {
@@ -42,7 +43,7 @@ namespace GameService.GameHandlerSystem
 
         private void AddNewLeaderboardScores()
         {
- 
+            //YG2.SetLeaderboard(string "техническое название таблицы", int новый рекорд);
         }
     }
 }
