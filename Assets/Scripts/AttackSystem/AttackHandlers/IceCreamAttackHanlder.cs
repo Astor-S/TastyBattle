@@ -1,10 +1,11 @@
 using UnityEngine;
+using AttackSystem.Interfaces;
 using FactionalAbilities.Handlers.Effects;
 using Units;
 
 namespace AttackSystem.AttackHandlers
 {
-    public class IceCreamAttackHanlder : AttackHandler
+    public class IceCreamAttackHanlder : AttackHandler, IIceCreamAttacker,IFreezeEffector
     {
         [SerializeField] private IceCreamAbilityHandler _iceCreamAbilityHandler;
         [SerializeField] private ParticleSystem _freezeParticleEffectPrefab;
@@ -15,7 +16,7 @@ namespace AttackSystem.AttackHandlers
             ApplyFreeze();
         }
 
-        private void ApplyFreeze()
+        public void ApplyFreeze()
         {
             if (_iceCreamAbilityHandler != null)
             {
@@ -49,7 +50,7 @@ namespace AttackSystem.AttackHandlers
             }
         }
 
-        private void PlayFreezeParticleEffect(Transform target)
+        public void PlayFreezeParticleEffect(Transform target)
         {
             if (_freezeParticleEffectPrefab != null)
             {

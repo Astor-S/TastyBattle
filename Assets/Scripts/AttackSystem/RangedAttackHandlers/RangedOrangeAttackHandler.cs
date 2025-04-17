@@ -5,7 +5,7 @@ using FactionalAbilities.Handlers.Effects;
 
 namespace AttackSystem.RangedAttackHandlers
 {
-    public class RangedOrangeAttackHandler : RangedAttackHandler, IOrangeAttacker, IPlayerAcidEffect
+    public class RangedOrangeAttackHandler : RangedAttackHandler, IOrangeAttacker, IAcidEffector
     {
         [SerializeField] private OrangeAbilityHandler _orangeAbilityHandler;
         [SerializeField] private ParticleSystem _acidParticleEffectPrefab;
