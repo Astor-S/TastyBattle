@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace UI.HomeMenu.CampaignMenu
