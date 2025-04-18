@@ -5,7 +5,7 @@ namespace GameService.GameHandlerSystem
 {
     public class PauseHandler : MonoBehaviour
     {
-        private readonly float _pauseDelayForSeconds = 0.1f;
+        private readonly float _pauseDelayForSeconds = 2f;
         
         private WaitForSeconds _waitPauseDelayForSeconds;
 
