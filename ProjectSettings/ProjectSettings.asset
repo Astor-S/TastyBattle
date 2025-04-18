@@ -759,8 +759,23 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: PLUGIN_YG_2;Authorization_yg;AutoTranslateLangs_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
-    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;YandexGamesPlatform_yg;InterstitialAdv_yg;Authorization_yg;Leaderboards_yg;Storage_yg;RewardedAdv_yg;Localization_yg;EnvirData_yg;AutoTranslateLangs_yg
+    Android: DOTWEEN
+    EmbeddedLinux: DOTWEEN
+    GameCoreScarlett: DOTWEEN
+    GameCoreXboxOne: DOTWEEN
+    LinuxHeadlessSimulation: DOTWEEN
+    Nintendo Switch: DOTWEEN
+    PS4: DOTWEEN
+    PS5: DOTWEEN
+    QNX: DOTWEEN
+    Stadia: DOTWEEN
+    Standalone: PLUGIN_YG_2;Authorization_yg;AutoTranslateLangs_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg;DOTWEEN
+    VisionOS: DOTWEEN
+    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;YandexGamesPlatform_yg;InterstitialAdv_yg;Authorization_yg;Leaderboards_yg;Storage_yg;RewardedAdv_yg;Localization_yg;EnvirData_yg;AutoTranslateLangs_yg;DOTWEEN
+    Windows Store Apps: DOTWEEN
+    XboxOne: DOTWEEN
+    iPhone: DOTWEEN
+    tvOS: DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

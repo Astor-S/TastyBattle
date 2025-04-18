@@ -17,5 +17,5 @@ public class CameraMovementHandler : IMovement
 
         _properties.CameraTransform.position = Vector3.Lerp
             (_properties.CameraTransform.position, _cameraDirection, Time.deltaTime / _properties.Smoothness);
-    }
+    }    
 }
