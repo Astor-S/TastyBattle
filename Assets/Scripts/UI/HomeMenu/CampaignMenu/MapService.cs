@@ -40,6 +40,9 @@ namespace UI.HomeMenu.CampaignMenu
 
         public void LoadCurrentLevel()
         {
+            if (_selectedButton == null)
+                return;
+
             if (_selectedButton.LevelCells == null || _selectedButton.LevelCells.Count == 0)
                 return;
 
