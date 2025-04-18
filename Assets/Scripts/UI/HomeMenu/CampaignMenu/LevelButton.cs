@@ -1,41 +1,44 @@
 using UnityEngine;
 using UnityEngine.UI;
 using GameService;
+using System;
+using System.Collections.Generic;
 
 namespace UI.HomeMenu.CampaignMenu
 {
     public class LevelButton : MonoBehaviour
     {
-        [SerializeField] private LevelCell[] _levelCells;
+        [SerializeField] private List<LevelCell> _levelCells;
         [SerializeField] private Button _button;
+        [SerializeField] private UnitMapView _unitMapView;
 
         private int _currentLevelIndex;
 
-        private void Awake()
-        {
-            _button.onClick.AddListener(LoadCurrentLevel);
-        }
+        public event Action<LevelButton> Selected;
 
-        private void Start()
-        {
+        public UnitMapView UnitMapView => _unitMapView;
+        public IReadOnlyList<LevelCell> LevelCells => _levelCells;
+
+        private void Awake() => 
+            _button.onClick.AddListener(Select);        
+
+        private void Start() => 
             UpdateLevelButton();
-        }
 
         public void SetCurrentLevelIndex(int index)
         {
             _currentLevelIndex = index;
-            UpdateLevelButton();
         }
 
         public void UpdateLevelButton()
         {
-            if (_levelCells == null || _levelCells.Length == 0)
+            if (_levelCells == null || _levelCells.Count == 0)
             {
                 _button.interactable = false;
                 return;
             }
 
-            if (_currentLevelIndex < 0 || _currentLevelIndex >= _levelCells.Length)
+            if (_currentLevelIndex < 0 || _currentLevelIndex >= _levelCells.Count)
             {
                 _button.interactable = false;
                 return;
@@ -44,17 +47,9 @@ namespace UI.HomeMenu.CampaignMenu
             Levels levelToCheck = _levelCells[_currentLevelIndex].LevelsType;
             //bool isLevelOpened = _savesYG.IsLevelOpen(levelToCheck);
             //_button.interactable = isLevelOpened;
-        }
+        }        
 
-        private void LoadCurrentLevel()
-        {
-            if (_levelCells == null || _levelCells.Length == 0)
-                return;
-
-            if (_currentLevelIndex < 0 || _currentLevelIndex >= _levelCells.Length)
-                return;
-
-            _levelCells[_currentLevelIndex].LoadScene();
-        }
+        private void Select() => 
+            Selected?.Invoke(this);
     }
 }

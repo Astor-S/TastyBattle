@@ -1,13 +1,18 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI.HomeMenu.CampaignMenu
 {
     public class MapDisplay : MonoBehaviour
     {
-        [SerializeField] private Image _mapImage;
+        private UnitMapView _unitMapView;
 
-        public void DisplayMap(Map map) =>
-            _mapImage.sprite = map.GetMapImage();
+        public void DisplayMap(UnitMapView unitMapView, Transform container)
+        {
+            if (container.childCount > 0)
+                Destroy(container.GetChild(0).gameObject);
+
+            _unitMapView = Instantiate(unitMapView, container);
+        }
     }
 }
