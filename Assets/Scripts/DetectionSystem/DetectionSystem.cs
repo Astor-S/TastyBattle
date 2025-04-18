@@ -4,6 +4,7 @@ using UnityEngine;
 using AttackSystem;
 using Units;
 
+[RequireComponent(typeof(SphereCollider))]
 public class DetectionSystem : MonoBehaviour
 {
     private const string Enemy = nameof(Enemy);
@@ -12,6 +13,7 @@ public class DetectionSystem : MonoBehaviour
     [SerializeField] private DamagableTarget _currentUnit;
     [SerializeField] private Transform _baseTransform;
 
+    private SphereCollider _collider;
     private Queue<DamagableTarget> _detectedUnits = new();
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
@@ -20,6 +22,12 @@ public class DetectionSystem : MonoBehaviour
     public DamagableTarget CurrentTarget { get; private set; } = null;
 
     public event Action<DamagableTarget> TargetChanged;
+
+    private void OnValidate()
+    {
+        _collider = GetComponent<SphereCollider>();
+        _collider.radius = 8f;
+    }
 
     private void Awake()
     {
