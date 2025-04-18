@@ -213,6 +213,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953, type: 3}
   m_PrefabInstance: {fileID: 655878707}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &19523628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1593590672375245192, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+  m_PrefabInstance: {fileID: 907450957022550051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &22531598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069115365609054727, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
@@ -12690,6 +12701,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4680757731159730826, guid: 0fde05fa0f3321942a21896ff4f0856f, type: 3}
   m_PrefabInstance: {fileID: 2026708300}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2042493272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5205683948554761100, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+  m_PrefabInstance: {fileID: 907450957022550051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2056626513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953, type: 3}
@@ -13404,10 +13426,38 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 1593590672375245192, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_text
+      value: Description
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838669294961188296, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838669294961188296, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838669294961188296, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1882938521270685196, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1508184027}
+    - target: {fileID: 1978367957072351669, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _descriptionField
+      value: 
+      objectReference: {fileID: 19523628}
+    - target: {fileID: 1978367957072351669, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _enemyDescriptionField
+      value: 
+      objectReference: {fileID: 2042493272}
+    - target: {fileID: 1978367957072351669, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _playerDescriptionField
+      value: 
+      objectReference: {fileID: 19523628}
     - target: {fileID: 2140533351352415348, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -13424,6 +13474,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1508184029}
+    - target: {fileID: 2848058174552233155, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _buttonIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848058174552233155, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _currentLevelIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3221655709482581762, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -13452,6 +13510,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1508184029}
+    - target: {fileID: 5962100783839264684, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6266155168897966351, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.48
@@ -13496,6 +13558,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DynamicMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6756001548189880459, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756001548189880459, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756001548189880459, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7061651258244319363, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -13528,10 +13602,70 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 7895797787334669785, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895797787334669785, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895797787334669785, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896495228412737662, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896495228412737662, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896495228412737662, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132490660826549013, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132490660826549013, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132490660826549013, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8361409632110296141, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 8386274042181363168, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _buttonIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386274042181363168, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _currentLevelIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692433310819182468, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _buttonIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692433310819182468, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _currentLevelIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738209468725921415, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _buttonIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738209468725921415, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
+      propertyPath: _currentLevelIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8916326045271988008, guid: 66ee0795a902f074b9e84f4fa9991d39, type: 3}
       propertyPath: _buttonSoundData
       value: 

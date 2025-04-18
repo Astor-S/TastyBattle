@@ -33,7 +33,7 @@ namespace UI.HomeMenu.CampaignMenu
 
         private void MarkSelected(LevelButton button)
         {
-            _mapDisplay.DisplayMap(button.UnitMapView, _enemyContainer);
+            _mapDisplay.DisplayMap(_levelDataByCampaign[button.ButtonIndex], _enemyContainer, _mapDisplay.EnemyDescriptionField);
 
             _selectedButton = button;
         }
@@ -59,7 +59,7 @@ namespace UI.HomeMenu.CampaignMenu
                 _currentCampaignIndex = FirstCampaign;
 
             if (_mapDisplay != null)
-                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer);
+                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescrotionField);
 
             _selectedButton = null;
 

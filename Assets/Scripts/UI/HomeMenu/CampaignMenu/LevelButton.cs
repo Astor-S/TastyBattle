@@ -10,13 +10,14 @@ namespace UI.HomeMenu.CampaignMenu
     {
         [SerializeField] private List<LevelCell> _levelCells;
         [SerializeField] private Button _button;
-        [SerializeField] private UnitMapView _unitMapView;
+        [SerializeField] private int _buttonIndex;
 
         private int _currentLevelIndex;
 
+        public int ButtonIndex => _buttonIndex;
+
         public event Action<LevelButton> Selected;
 
-        public UnitMapView UnitMapView => _unitMapView;
         public IReadOnlyList<LevelCell> LevelCells => _levelCells;
 
         private void Awake() => 
