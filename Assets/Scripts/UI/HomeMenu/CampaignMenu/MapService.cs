@@ -59,7 +59,7 @@ namespace UI.HomeMenu.CampaignMenu
                 _currentCampaignIndex = FirstCampaign;
 
             if (_mapDisplay != null)
-                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescrotionField);
+                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescritionField);
 
             _selectedButton = null;
 
