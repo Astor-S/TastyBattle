@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 446379153400721787}
   - component: {fileID: 5354835255200230619}
+  - component: {fileID: 9024453825228784798}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -48,6 +49,20 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   _projectileSpawnPoint: {fileID: 8381667424917237387}
   _projectileSpeed: 8
+--- !u!114 &9024453825228784798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3066552979250030830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0496f5c29740442a272b190737f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionForce: 0
+  _maxColliders: 10
 --- !u!1 &4713684064693876120
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +81,7 @@ GameObject:
   - component: {fileID: 236615611593794701}
   - component: {fileID: 3251399063890709086}
   m_Layer: 0
-  m_Name: AvocadoSiege
+  m_Name: AvocadoSiegePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _avocadoAbility: {fileID: 11400000, guid: f4468782b7ebace4593914cbb6147e92, type: 2}
   _damageTarget: {fileID: 5195897301217477972}
-  _explosion: {fileID: 0}
+  _explosion: {fileID: 9024453825228784798}
 --- !u!1 &6397917083217820957
 GameObject:
   m_ObjectHideFlags: 0

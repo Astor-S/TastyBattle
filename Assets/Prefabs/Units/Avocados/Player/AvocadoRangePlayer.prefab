@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032686432971325569}
   - component: {fileID: 4341098467890866829}
+  - component: {fileID: 6587211703652626013}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -48,6 +49,20 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 3107012259247320957, guid: 6b6d02bf8e1ddf840be15efe40f98fc3, type: 3}
   _projectileSpawnPoint: {fileID: 4887066304643696396}
   _projectileSpeed: 12
+--- !u!114 &6587211703652626013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539053567466466131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0496f5c29740442a272b190737f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionForce: 0
+  _maxColliders: 10
 --- !u!1 &4177980122983260516
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +81,7 @@ GameObject:
   - component: {fileID: 1530280031460389685}
   - component: {fileID: 406305615441784627}
   m_Layer: 0
-  m_Name: AvocadoRange
+  m_Name: AvocadoRangePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _avocadoAbility: {fileID: 11400000, guid: f4468782b7ebace4593914cbb6147e92, type: 2}
   _damageTarget: {fileID: 4348390351622933419}
-  _explosion: {fileID: 0}
+  _explosion: {fileID: 6587211703652626013}
 --- !u!1 &7911594715480279420
 GameObject:
   m_ObjectHideFlags: 0
