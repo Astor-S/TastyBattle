@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657987, g: 0.49641353, b: 0.5748177, a: 1}
+  m_Sun: {fileID: 1626423598}
+  m_IndirectSpecularColor: {r: 0.29459646, g: 0.39826313, b: 0.5889416, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1338,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: c087155801e3ed64894ae3c9d563f9f8, type: 2}
+      objectReference: {fileID: 11400000, guid: b976fbc43b1d25f48a828bf2910194d9, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _priceTextBox
       value: 
@@ -2803,7 +2803,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: 3aab464dfc5c21f4689c9141c79fd3d7, type: 2}
+      objectReference: {fileID: 11400000, guid: a3d7183debc3a7a4999edcacd1a8b0ed, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _priceTextBox
       value: 
@@ -3289,7 +3289,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: 1cff776acf2bdbd499a9a3f24a180205, type: 2}
+      objectReference: {fileID: 11400000, guid: 0a2077e264313284185eb98f53f62d47, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _battleRole
       value: 1
@@ -6104,19 +6104,19 @@ PrefabInstance:
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[0]
       value: 
-      objectReference: {fileID: 1744005752923408163, guid: 1a07f875b06022f429c102023d7840c5, type: 3}
+      objectReference: {fileID: 4044237943312387221, guid: 19731c0bfc6604a48b4881abc667d25d, type: 3}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[1]
       value: 
-      objectReference: {fileID: 4183662812210247699, guid: 8019c5889c4eff6418583ba480769aaa, type: 3}
+      objectReference: {fileID: 7260525242734965569, guid: 0033b7f22b013df42bb5e7f5d521bf6f, type: 3}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[2]
       value: 
-      objectReference: {fileID: 365182212988601422, guid: 0f329688e790d4c4c97a10af7672d44d, type: 3}
+      objectReference: {fileID: 6841798535665157102, guid: 284fdeed21246504bb089a68ba8d1638, type: 3}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[3]
       value: 
-      objectReference: {fileID: 1142427999072230278, guid: 851eeed6721f546469e672f2e0aba724, type: 3}
+      objectReference: {fileID: 1834023251208656738, guid: 7db464b1afe86004886ea212f7c0bc63, type: 3}
     - target: {fileID: 477179334887714165, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8718,7 +8718,7 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
-      objectReference: {fileID: 11400000, guid: 782c70edaea43884c928f3b7bb851a59, type: 2}
+      objectReference: {fileID: 11400000, guid: 268b19b955282954dab50397d8664e23, type: 2}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _priceTextBox
       value: 
@@ -10899,6 +10899,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _outOfBoundsZone: 28
+  _rotateDuration: 0
 --- !u!114 &1224666531
 MonoBehaviour:
   m_ObjectHideFlags: 0
