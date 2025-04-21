@@ -8253,7 +8253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2857b2802b1744e83baa9a14e68c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 1195541509}
+  _timerView: {fileID: 1195541509}
 --- !u!4 &978172881
 Transform:
   m_ObjectHideFlags: 0
@@ -13770,7 +13770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1495977796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13806,6 +13806,8 @@ MonoBehaviour:
   _homeButton: {fileID: 1039522783}
   _restartButton: {fileID: 681620583}
   _nextLevelButton: {fileID: 1747535362}
+  _victoryTimerView: {fileID: 1499863761}
+  _timer: {fileID: 978172880}
 --- !u!222 &1495977798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13848,7 +13850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.9, y: 0}
+  m_AnchoredPosition: {x: 129.9, y: -6.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499863761
@@ -13871,7 +13873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3 : 21'
+  m_text: '0 : 00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -13898,8 +13900,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
-  m_fontSizeBase: 42
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13947,7 +13949,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499863759}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!4 &1505895333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953, type: 3}

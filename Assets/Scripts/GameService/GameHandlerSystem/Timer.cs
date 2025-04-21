@@ -8,15 +8,16 @@ namespace GameService.GameHandlerSystem
     {
         private const string TwoDigitFormat = "D2";
         private const string Colon = ":";
+        private const int SecondsInMinute = 60;
 
-        [SerializeField] private TMP_Text timerText;
+        [SerializeField] private TMP_Text _timerView;
 
         private float startTime;
         private bool timerRunning = false;
 
         private void Start()
         {
-            if (timerText == null)
+            if (_timerView == null)
             {
                 enabled = false;
 
@@ -28,18 +29,27 @@ namespace GameService.GameHandlerSystem
             StartCoroutine(UpdateTimerCoroutine());
         }
 
+        public string GetCurrentTime()
+        {
+            float timeElapsed = Time.time - startTime;
+
+            string minutes = ((int)timeElapsed / SecondsInMinute).ToString(TwoDigitFormat);
+            string seconds = Mathf.FloorToInt(timeElapsed % SecondsInMinute).ToString(TwoDigitFormat);
+
+            return minutes + Colon + seconds;
+        }
+
+
         private IEnumerator UpdateTimerCoroutine()
         {
-            int secondsInMinute = 60;
-
             while (timerRunning)
             {
                 float timeElapsed = Time.time - startTime;
 
-                string minutes = ((int)timeElapsed / secondsInMinute).ToString(TwoDigitFormat);
-                string seconds = Mathf.FloorToInt(timeElapsed % secondsInMinute).ToString(TwoDigitFormat);
+                string minutes = ((int)timeElapsed / SecondsInMinute).ToString(TwoDigitFormat);
+                string seconds = Mathf.FloorToInt(timeElapsed % SecondsInMinute).ToString(TwoDigitFormat);
 
-                timerText.text = minutes + Colon + seconds;
+                _timerView.text = minutes + Colon + seconds;
 
                 yield return null; 
             }
