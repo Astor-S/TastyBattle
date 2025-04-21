@@ -11,12 +11,9 @@ public class PackShop : MonoBehaviour
     private List<SkinPack> _currentFactionSkins = new();
     private int _skinPackIndex;
 
-    public event Action FactionSwiped;
     public event Action<SkinPack> SkinPackSwiped;
 
-    public IReadOnlyList<SkinPack> SkinPacks => _skinPacks;
-
-    public void SwipeFaction(int index) //дубляж кода
+    public void SwipeFaction(int index) //дубляж кода?
     {
         int factionLength = Enum.GetValues(typeof(Faction)).Length - 1;
         int tempIndex = (int)(_currentFaction + index);
@@ -28,10 +25,10 @@ public class PackShop : MonoBehaviour
 
         _skinPackIndex = default;
 
-        FactionSwiped?.Invoke();
+        SkinPackSwiped?.Invoke(GetFirstSkinPack());
     }
 
-    public void SwipePacks(int index) //дубляж кода
+    public void SwipePacks(int index) //дубляж кода?
     {
         int skinPacksCount = _currentFactionSkins.Count;
         int tempIndex = _skinPackIndex + index;

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
-using Units;
 using UnityEngine;
 
 public class PackShopView : MonoBehaviour
@@ -9,27 +7,23 @@ public class PackShopView : MonoBehaviour
     [SerializeField] private PackShop _packShop;
     [SerializeField] private List<Transform> _containers;
     [SerializeField] private TextMeshProUGUI _packNameField;
+    [SerializeField] private Transform _lockPanel;
 
     private void Awake() =>
-        ShowSkinPack();
+        ShowSkinPack(_packShop.GetFirstSkinPack());
 
     private void OnEnable()
     {
-        _packShop.FactionSwiped += ShowSkinPack;
         _packShop.SkinPackSwiped += ShowSkinPack;
     }
 
     private void OnDisable()
     {
-        _packShop.FactionSwiped -= ShowSkinPack;
         _packShop.SkinPackSwiped -= ShowSkinPack;
     }
 
     private void ShowSkinPack(SkinPack skinPack) => 
         PlaceSkin(skinPack);
-
-    private void ShowSkinPack() => 
-        PlaceSkin(_packShop.GetFirstSkinPack());
 
     private void PlaceSkin(SkinPack skinPack)
     {

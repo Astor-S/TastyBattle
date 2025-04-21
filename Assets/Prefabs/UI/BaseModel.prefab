@@ -254,7 +254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 515495013262674625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3153888833917867374}
+        m_TargetAssemblyTypeName: PackShop, Assembly-CSharp
+        m_MethodName: SwipeFaction
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2559470902163112010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4216734647206634986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3153888833917867374}
+        m_TargetAssemblyTypeName: PackShop, Assembly-CSharp
+        m_MethodName: SwipePacks
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6538852320194166530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,7 +1261,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7635365009628231799}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3153888833917867374}
+        m_TargetAssemblyTypeName: PackShop, Assembly-CSharp
+        m_MethodName: SwipeFaction
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4909633647738214649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,7 +1513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6807102617312254103
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2066,7 +2102,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0, y: 172}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4065865943626654969
 CanvasRenderer:
@@ -2096,7 +2132,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ...
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
   m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
@@ -2285,7 +2321,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3777353231650929738}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3153888833917867374}
+        m_TargetAssemblyTypeName: PackShop, Assembly-CSharp
+        m_MethodName: SwipePacks
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8381800634120149480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2586,7 +2634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6076951002522881258, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6242378763117382828, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
       propertyPath: m_Sprite
@@ -2708,19 +2756,66 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5756530120215143218, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9211725529032923571}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6076951002522881258, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3153888833917867374}
+    - targetCorrespondingSourceObject: {fileID: 6076951002522881258, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 815437940304834011}
   m_SourcePrefab: {fileID: 100100000, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
 --- !u!224 &5193581807243852488 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5756530120215143218, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
   m_PrefabInstance: {fileID: 571959927609874938}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6027408648872219920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6076951002522881258, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
+  m_PrefabInstance: {fileID: 571959927609874938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3153888833917867374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027408648872219920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c0078b47cc23b4c81063d983037129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinPacks:
+  - {fileID: 11400000, guid: 00e703ff57909ad47902ea0435918843, type: 2}
+  - {fileID: 11400000, guid: 82f2b20e52080d5429558e3f4e185e2d, type: 2}
+  - {fileID: 11400000, guid: 3e359e0f6d2c662449d3a717d5b506f2, type: 2}
+  - {fileID: 11400000, guid: f76e3d36b1de0644bbf9fc53137c7376, type: 2}
+--- !u!114 &815437940304834011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027408648872219920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497a2fadbbfd50348a521c8528a4b7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _packShop: {fileID: 3153888833917867374}
+  _containers:
+  - {fileID: 4056653192165570393}
+  - {fileID: 4902730125740267957}
+  - {fileID: 285309620206070060}
+  - {fileID: 9073553204910788872}
+  _packNameField: {fileID: 7050530563900842936}
 --- !u!114 &7263145129962330158 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7150557896813740500, guid: e6838bbb62210444daffc1ba2a591abf, type: 3}
   m_PrefabInstance: {fileID: 571959927609874938}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6027408648872219920}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b28197f534df1864d91aa8ee4a213a5e, type: 3}
