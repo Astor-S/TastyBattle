@@ -115,7 +115,6 @@ GameObject:
   - component: {fileID: 4851330960942924572}
   - component: {fileID: 8474672646858320659}
   - component: {fileID: 3795294543095542951}
-  - component: {fileID: 5050753945010976529}
   - component: {fileID: 7991337058688308161}
   - component: {fileID: 5025070865987302789}
   m_Layer: 0
@@ -239,21 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 2383972182678567002}
   _healthBarView: {fileID: 6026772037036792362}
---- !u!114 &5050753945010976529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398646529770936203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 8474672646858320659}
-  _attackHandler: {fileID: 8488325412879031976}
-  _detectionSystem: {fileID: 6845574052027439030}
 --- !u!195 &7991337058688308161
 NavMeshAgent:
   m_ObjectHideFlags: 0

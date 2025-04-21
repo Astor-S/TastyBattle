@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 5708932697113814465}
   - component: {fileID: 4215839093319598837}
   - component: {fileID: 4432079608223774839}
-  - component: {fileID: 6882306208424525479}
   - component: {fileID: 7381261731820708693}
   m_Layer: 0
   m_Name: IcecreamMeleePlayer
@@ -275,21 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 8164331822074755704}
   _healthBarView: {fileID: 7595322037164257346}
---- !u!114 &6882306208424525479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2747078291167304986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 4215839093319598837}
-  _attackHandler: {fileID: 590194568216955865}
-  _detectionSystem: {fileID: 943640893790012015}
 --- !u!114 &7381261731820708693
 MonoBehaviour:
   m_ObjectHideFlags: 0

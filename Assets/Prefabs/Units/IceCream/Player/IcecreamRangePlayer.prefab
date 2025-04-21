@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 2498778404197617977}
   - component: {fileID: 3993697338022024393}
   - component: {fileID: 923340624065221085}
-  - component: {fileID: 293980482922638950}
   - component: {fileID: 87030282006367958}
   m_Layer: 0
   m_Name: IcecreamRangePlayer
@@ -278,21 +277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4899131970250790796}
   _healthBarView: {fileID: 4780860137794065689}
---- !u!114 &293980482922638950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4661195954172935661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 3993697338022024393}
-  _attackHandler: {fileID: 3082895506403281697}
-  _detectionSystem: {fileID: 956739803087105164}
 --- !u!114 &87030282006367958
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -184,7 +184,6 @@ GameObject:
   - component: {fileID: 6779082006921670252}
   - component: {fileID: 6790259547912960440}
   - component: {fileID: 7060531688647631860}
-  - component: {fileID: 2002046812426787727}
   - component: {fileID: 8645253421632103846}
   m_Layer: 0
   m_Name: WaterMellonTankEnemy
@@ -329,21 +328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 6346753750315696519}
   _healthBarView: {fileID: 7733486686756617270}
---- !u!114 &2002046812426787727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8447557411983880010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 6790259547912960440}
-  _attackHandler: {fileID: 2668166155260922684}
-  _detectionSystem: {fileID: 8034305370492417075}
 --- !u!114 &8645253421632103846
 MonoBehaviour:
   m_ObjectHideFlags: 0

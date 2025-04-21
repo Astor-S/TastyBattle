@@ -30,24 +30,29 @@ namespace Units
         protected AttackHandler AttackHandler => _attackHandler;
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
 
+        private void Awake()
+        {
+            DyingDelegate = (_) => OnDying();
+
+            _navMeshAgent.updateRotation = false;
+            NavMesh.avoidancePredictionTime = 0.5f;
+        }
+
         protected virtual void FixedUpdate()
         {
             if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
-            {
                 _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
-            }
         }
 
         public virtual void Enable()
         {
-            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
-            _navMeshAgent.updateRotation = false;
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
-            _navMeshAgent.speed = Model.Stats.MovementSpeed;
-             _defaultSpeed = Model.Stats.MovementSpeed;
-            NavMesh.avoidancePredictionTime = 0.5f;
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
+
+            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
+            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
+            _navMeshAgent.speed = Model.Stats.MovementSpeed;
+            _defaultSpeed = Model.Stats.MovementSpeed;
 
             if (_damageTarget.enabled == false)
                 _damageTarget.Init(Model.Stats);
@@ -57,12 +62,6 @@ namespace Units
 
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats);
-
-            DyingDelegate = (_) =>
-            {
-                View.SetDeathAnimation();
-                _navMeshAgent.enabled = false;
-            };
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
@@ -87,5 +86,17 @@ namespace Units
 
         public void ResetAttackSpeedMultiplier() =>
             _attackHandler.AttackSpeedMultiplier = _defaultAttackSpeedMultiplier;
+
+        protected void OnDying()
+        {
+            View.SetDeathAnimation();
+            _navMeshAgent.enabled = false;
+
+            if (_attackHandler != null)
+                _attackHandler.enabled = false;
+
+            if (_detectionSystem != null)
+                _detectionSystem.enabled = false;
+        }
     }
 }

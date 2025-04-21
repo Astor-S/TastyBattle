@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5645149630095569062}
   - component: {fileID: 7307387125674592744}
   - component: {fileID: 1508915294560055119}
-  - component: {fileID: 7875974865352312481}
   - component: {fileID: 2545810522908551977}
   m_Layer: 0
   m_Name: WaterMellonTankPlayer
@@ -160,21 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4565927960501719606}
   _healthBarView: {fileID: 4302859845172051545}
---- !u!114 &7875974865352312481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4385376292631531044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 7307387125674592744}
-  _attackHandler: {fileID: 7638287476966941183}
-  _detectionSystem: {fileID: 7954150720020830059}
 --- !u!114 &2545810522908551977
 MonoBehaviour:
   m_ObjectHideFlags: 0

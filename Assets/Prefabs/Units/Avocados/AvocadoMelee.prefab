@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 7994212208187992224}
   - component: {fileID: 4301234616962874002}
   - component: {fileID: 4041031580327880837}
+  - component: {fileID: 892679852112913238}
   - component: {fileID: 7847026064147193925}
   - component: {fileID: 6140204292849052006}
   - component: {fileID: 8558681525681956501}
-  - component: {fileID: 1563540600875091885}
   - component: {fileID: 4131940263367887990}
-  - component: {fileID: 892679852112913238}
   m_Layer: 0
   m_Name: AvocadoMelee
   m_TagString: Untagged
@@ -92,6 +91,28 @@ CapsuleCollider:
   m_Height: 1.217393
   m_Direction: 1
   m_Center: {x: 0, y: 0.6286965, z: 0}
+--- !u!195 &892679852112913238
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673358636675080693}
+  m_Enabled: 1
+  m_AgentTypeID: 1479372276
+  m_Radius: 0.35
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 5000
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &7847026064147193925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,21 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1754467380522829226}
   _healthBarView: {fileID: 650639492128001188}
---- !u!114 &1563540600875091885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673358636675080693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 6140204292849052006}
-  _attackHandler: {fileID: 8511475006496183669}
-  _detectionSystem: {fileID: 4037884487074709909}
 --- !u!114 &4131940263367887990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,28 +174,6 @@ MonoBehaviour:
   _avocadoAbility: {fileID: 11400000, guid: f4468782b7ebace4593914cbb6147e92, type: 2}
   _damageTarget: {fileID: 6140204292849052006}
   _explosion: {fileID: 0}
---- !u!195 &892679852112913238
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673358636675080693}
-  m_Enabled: 1
-  m_AgentTypeID: 1479372276
-  m_Radius: 0.35
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 5000
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1639379218990169005
 GameObject:
   m_ObjectHideFlags: 0
