@@ -5,6 +5,9 @@ namespace GameService.GameHandlerSystem
 {
     public class Timer : MonoBehaviour
     {
+        private const string TwoDigitFormat = "D2";
+        private const string Colon = ":";
+
         [SerializeField] private TMP_Text timerText;
 
         private float startTime;
@@ -31,10 +34,10 @@ namespace GameService.GameHandlerSystem
 
                 int secondsInMinute = 60;
 
-                string minutes = ((int)timeElapsed / secondsInMinute).ToString("D2");
-                string seconds = Mathf.FloorToInt(timeElapsed % secondsInMinute).ToString("D2");
+                string minutes = ((int)timeElapsed / secondsInMinute).ToString(TwoDigitFormat);
+                string seconds = Mathf.FloorToInt(timeElapsed % secondsInMinute).ToString(TwoDigitFormat);
 
-                timerText.text = minutes + ":" + seconds;
+                timerText.text = minutes + Colon + seconds;
             }
         }
     }
