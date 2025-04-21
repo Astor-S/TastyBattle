@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnitMapView : MonoBehaviour
+public class UnitMenuView : MonoBehaviour
 {
     [SerializeField] private string _description;
 

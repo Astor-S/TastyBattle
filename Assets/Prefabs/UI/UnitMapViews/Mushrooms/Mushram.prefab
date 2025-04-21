@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4057551064018604595
+--- !u!1001 &7693544367827800314
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,13 +48,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -1578373571446707184, guid: 572d2c09377c80e46884f8e6c22b34d8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5f9dbd1b1496ebe4eab961960ad47ff0, type: 2}
     - target: {fileID: 919132149155446097, guid: 572d2c09377c80e46884f8e6c22b34d8, type: 3}
       propertyPath: m_Name
-      value: MushramAgaric
+      value: Mushram
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62,24 +58,43 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 572d2c09377c80e46884f8e6c22b34d8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3874423018575644447}
+      addedObject: {fileID: 3648484017092103881}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 572d2c09377c80e46884f8e6c22b34d8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 445455408912728409}
+      addedObject: {fileID: 2913431524441091550}
   m_SourcePrefab: {fileID: 100100000, guid: 572d2c09377c80e46884f8e6c22b34d8, type: 3}
---- !u!1 &3787026871403376482 stripped
+--- !u!1 &7351453519558765995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 572d2c09377c80e46884f8e6c22b34d8, type: 3}
-  m_PrefabInstance: {fileID: 4057551064018604595}
+  m_PrefabInstance: {fileID: 7693544367827800314}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &3874423018575644447
+--- !u!114 &3648484017092103881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351453519558765995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746e1840421887f4395c2531fb4fdae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _description: "\xAB\u0413\u0440\u0438\u0431\u043D\u0438\u0446\u0430\xBB. \u0413\u0440\u0438\u0431\u043D\u0430\u044F
+    \u0441\u0432\u044F\u0437\u044C. \u0427\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0435
+    \u0443 \u0433\u0440\u0438\u0431\u043E\u0432 \u044E\u043D\u0438\u0442\u043E\u0432,
+    \u0442\u0435\u043C \u043E\u043D\u0438 \u0441\u0438\u043B\u044C\u043D\u0435\u0435.
+    +2% \u043A \u0430\u0442\u0430\u043A\u0435 \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439
+    \u044E\u043D\u0438\u0442 \u0433\u0440\u0438\u0431 \u0432 \u0438\u0433\u0440\u0435.
+    (\u041F\u0430\u0441\u0441\u0438\u0432\u043A\u0430)"
+--- !u!95 &2913431524441091550
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3787026871403376482}
+  m_GameObject: {fileID: 7351453519558765995}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: b648762f8b788294a9cbae5c2805033d, type: 2}
@@ -93,22 +108,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &445455408912728409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3787026871403376482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 746e1840421887f4395c2531fb4fdae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: "\xAB\u0413\u0440\u0438\u0431\u043D\u0438\u0446\u0430\xBB. \u0413\u0440\u0438\u0431\u043D\u0430\u044F
-    \u0441\u0432\u044F\u0437\u044C. \u0427\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0435
-    \u0443 \u0433\u0440\u0438\u0431\u043E\u0432 \u044E\u043D\u0438\u0442\u043E\u0432,
-    \u0442\u0435\u043C \u043E\u043D\u0438 \u0441\u0438\u043B\u044C\u043D\u0435\u0435.
-    +2% \u043A \u0430\u0442\u0430\u043A\u0435 \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439
-    \u044E\u043D\u0438\u0442 \u0433\u0440\u0438\u0431 \u0432 \u0438\u0433\u0440\u0435.
-    (\u041F\u0430\u0441\u0441\u0438\u0432\u043A\u0430)"

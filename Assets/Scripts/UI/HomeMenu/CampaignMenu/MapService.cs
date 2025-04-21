@@ -7,7 +7,7 @@ namespace UI.HomeMenu.CampaignMenu
         private const int FirstCampaign = 0;
         private const int CorrectionShift = 1;
 
-        [SerializeField] private UnitMapView[] _levelDataByCampaign;
+        [SerializeField] private UnitMenuView[] _levelDataByCampaign;
         [SerializeField] private LevelButton[] _levelButtons;
         [SerializeField] private MapDisplay _mapDisplay;
         [SerializeField] private Transform _playerContainer;
