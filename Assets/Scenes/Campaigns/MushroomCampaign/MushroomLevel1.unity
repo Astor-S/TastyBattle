@@ -1693,6 +1693,7 @@ GameObject:
   - component: {fileID: 139133217}
   - component: {fileID: 139133216}
   - component: {fileID: 139133215}
+  - component: {fileID: 139133218}
   m_Layer: 5
   m_Name: DoubleMoneyButton
   m_TagString: Untagged
@@ -1719,7 +1720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -35}
+  m_AnchoredPosition: {x: 0, y: -45}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &139133215
@@ -1804,6 +1805,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139133213}
   m_CullTransparentMesh: 1
+--- !u!114 &139133218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139133213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2925d059561fdbd458ef104bc0edd7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rewardAdService: {fileID: 1058065815}
 --- !u!1 &140794397
 GameObject:
   m_ObjectHideFlags: 0
@@ -6098,7 +6112,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 681620584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 681620587}
+        m_TargetAssemblyTypeName: UI.Screens.ScreenButtons.LoadSceneButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &681620584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7899,7 +7925,7 @@ MonoBehaviour:
   _playerBase: {fileID: 1212571315}
   _enemyBase: {fileID: 502671742}
   _gameEnder: {fileID: 1927646379}
-  _levelCompletionHandler: {fileID: 0}
+  _levelCompletionHandler: {fileID: 1633387271}
 --- !u!4 &944031571
 Transform:
   m_ObjectHideFlags: 0
@@ -9049,7 +9075,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1039522784}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039522787}
+        m_TargetAssemblyTypeName: UI.Screens.ScreenButtons.LoadSceneButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1039522784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9229,6 +9267,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5900999178214549138, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
   m_PrefabInstance: {fileID: 1053939182}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1058065814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058065816}
+  - component: {fileID: 1058065815}
+  m_Layer: 0
+  m_Name: RewardAdService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1058065815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058065814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26763f1f2b7e26b4895a50a90a63e273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoinReward: CoinReward
+--- !u!4 &1058065816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058065814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 811.80743, y: 553.55365, z: 5.040101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1064865667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11889,7 +11972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faad26f481d0be64486a17c2ebae5165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinDoubling: {fileID: 0}
+  _coinDoubling: {fileID: 139133218}
   _coinsPerLevel: 100
 --- !u!4 &1345416947
 Transform:
@@ -13611,7 +13694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1495977796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16094,7 +16177,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1747535363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1747535365}
+        m_TargetAssemblyTypeName: UI.Screens.ScreenButtons.LoadSceneButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1747535363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20183,3 +20278,4 @@ SceneRoots:
   - {fileID: 469630552}
   - {fileID: 2116792808}
   - {fileID: 978172881}
+  - {fileID: 1058065816}
