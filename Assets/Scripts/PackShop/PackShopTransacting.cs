@@ -8,18 +8,19 @@ public class PackShopTransacting : MonoBehaviour
     [SerializeField] private Button _purchaseButton;
     [SerializeField] private Button _equipButton;
 
-    public void OnEnable()
-    {
-        _packShop.SkinPackSwiped += CheckAccess;
-    }    
+    public event Action<bool> IsAvailable;
 
-    private void OnDisable()
-    {
+    public void OnEnable() =>
+        _packShop.SkinPackSwiped += CheckAccess;
+
+    private void OnDisable() =>
         _packShop.SkinPackSwiped -= CheckAccess;
-    }
-    
-    private void CheckAccess(SkinPack pack)
+
+    private void CheckAccess(SkinPack skinPack)
     {
-        throw new NotImplementedException();
+        _purchaseButton.gameObject.SetActive(skinPack.IsAvailable == false);
+        _equipButton.gameObject.SetActive(skinPack.IsAvailable);
+
+        IsAvailable.Invoke(skinPack.IsAvailable);
     }
 }

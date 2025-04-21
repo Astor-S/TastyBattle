@@ -5,6 +5,7 @@ using UnityEngine;
 public class PackShopView : MonoBehaviour
 {
     [SerializeField] private PackShop _packShop;
+    [SerializeField] private PackShopTransacting _packShopTransacting;
     [SerializeField] private List<Transform> _containers;
     [SerializeField] private TextMeshProUGUI _packNameField;
     [SerializeField] private Transform _lockPanel;
@@ -15,11 +16,13 @@ public class PackShopView : MonoBehaviour
     private void OnEnable()
     {
         _packShop.SkinPackSwiped += ShowSkinPack;
+        _packShopTransacting.IsAvailable += ShowLock;
     }
 
     private void OnDisable()
     {
         _packShop.SkinPackSwiped -= ShowSkinPack;
+        _packShopTransacting.IsAvailable -= ShowLock;
     }
 
     private void ShowSkinPack(SkinPack skinPack) => 
@@ -42,4 +45,7 @@ public class PackShopView : MonoBehaviour
                 if (_containers[i].GetChild(0).gameObject != null)
                     Destroy(_containers[i].GetChild(0).gameObject);
     }
+
+    private void ShowLock(bool isAvailable) => 
+        _lockPanel.gameObject.SetActive(isAvailable == false);
 }

@@ -7,36 +7,27 @@ public class PackShop : MonoBehaviour
 {
     [SerializeField] private List<SkinPack> _skinPacks;
 
-    private Faction _currentFaction;
+    private int _currentFaction;
     private List<SkinPack> _currentFactionSkins = new();
     private int _skinPackIndex;
 
     public event Action<SkinPack> SkinPackSwiped;
 
-    public void SwipeFaction(int index) //дубляж кода?
-    {
-        int factionLength = Enum.GetValues(typeof(Faction)).Length - 1;
-        int tempIndex = (int)(_currentFaction + index);
+    private void Start() =>
+        SwipePacks(default);
 
-        if (tempIndex < 0 || tempIndex > factionLength)
-            return;
-
-        _currentFaction += index;
-
-        _skinPackIndex = default;
+    public void SwipeFaction(int index)
+    {        
+        Swipe(index, Enum.GetValues(typeof(Faction)).Length, ref _currentFaction);
 
         SkinPackSwiped?.Invoke(GetFirstSkinPack());
-    }
 
-    public void SwipePacks(int index) //дубляж кода?
-    {
-        int skinPacksCount = _currentFactionSkins.Count;
-        int tempIndex = _skinPackIndex + index;
+        _skinPackIndex = default;
+    }    
 
-        if (tempIndex < 0 || tempIndex > skinPacksCount - 1)
-            return;
-
-        _skinPackIndex += index;
+    public void SwipePacks(int index)
+    {       
+        Swipe(index, _currentFactionSkins.Count, ref _skinPackIndex);
 
         SkinPackSwiped?.Invoke(_currentFactionSkins[_skinPackIndex]);
     }
@@ -53,9 +44,19 @@ public class PackShop : MonoBehaviour
         List<SkinPack> currentFactionSkins = new();
 
         foreach (SkinPack skinPack in _skinPacks)
-            if (skinPack.Faction == _currentFaction)
+            if ((int)skinPack.Faction == _currentFaction)
                 currentFactionSkins.Add(skinPack);
 
         return currentFactionSkins;
+    }
+
+    private void Swipe(int extraIndex, int count, ref int currentIndex)
+    {
+        int tempIndex = currentIndex + extraIndex;
+
+        if (tempIndex < 0 || tempIndex > count - 1)
+            return;
+
+        currentIndex = tempIndex;
     }
 }
