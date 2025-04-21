@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -24,20 +25,23 @@ namespace GameService.GameHandlerSystem
 
             startTime = Time.time;
             timerRunning = true;
+            StartCoroutine(UpdateTimerCoroutine());
         }
 
-        private void Update()
+        private IEnumerator UpdateTimerCoroutine()
         {
-            if (timerRunning)
+            int secondsInMinute = 60;
+
+            while (timerRunning)
             {
                 float timeElapsed = Time.time - startTime;
-
-                int secondsInMinute = 60;
 
                 string minutes = ((int)timeElapsed / secondsInMinute).ToString(TwoDigitFormat);
                 string seconds = Mathf.FloorToInt(timeElapsed % secondsInMinute).ToString(TwoDigitFormat);
 
                 timerText.text = minutes + Colon + seconds;
+
+                yield return null; 
             }
         }
     }
