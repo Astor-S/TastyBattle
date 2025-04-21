@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Units;
@@ -10,36 +11,41 @@ public class PackShopView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _packNameField;
 
     private void Awake() =>
-        ShowFactionSkins(_packShop.CurrentFaction);
+        ShowSkinPack();
 
-    private void OnEnable() =>
-        _packShop.FactionSwiped += ShowFactionSkins;
-
-    private void OnDisable() =>
-        _packShop.FactionSwiped -= ShowFactionSkins;
-
-    private void ShowFactionSkins(Faction faction)
+    private void OnEnable()
     {
-        foreach (SkinPack skinPack in _packShop.SkinPacks)
-        {
-            if (skinPack.Faction == faction)
-            {
-                for (int i = 0; i < _containers.Count; i++)
-                    PlaceSkin(i, skinPack);
-
-                break;
-            }
-        }
+        _packShop.FactionSwiped += ShowSkinPack;
+        _packShop.SkinPackSwiped += ShowSkinPack;
     }
 
-    private void PlaceSkin(int i, SkinPack skinPack)
+    private void OnDisable()
     {
-        if (_containers[i].childCount > 0)
-            if (_containers[i].GetChild(0).gameObject != null)
-                Destroy(_containers[i].GetChild(0).gameObject);
+        _packShop.FactionSwiped -= ShowSkinPack;
+        _packShop.SkinPackSwiped -= ShowSkinPack;
+    }
+
+    private void ShowSkinPack(SkinPack skinPack) => 
+        PlaceSkin(skinPack);
+
+    private void ShowSkinPack() => 
+        PlaceSkin(_packShop.GetFirstSkinPack());
+
+    private void PlaceSkin(SkinPack skinPack)
+    {
+        ClearContainers();
 
         _packNameField.text = skinPack.Name;
 
-        Instantiate(skinPack.Skins[i], _containers[i]);
+        for (int i = 0; i < _containers.Count; i++)
+            Instantiate(skinPack.Skins[i], _containers[i]);
+    }
+
+    private void ClearContainers()
+    {
+        for (int i = 0; i < _containers.Count; i++)
+            if (_containers[i].childCount > 0)
+                if (_containers[i].GetChild(0).gameObject != null)
+                    Destroy(_containers[i].GetChild(0).gameObject);
     }
 }
