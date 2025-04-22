@@ -61,10 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0496f5c29740442a272b190737f0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxColliders: 10
+  _explosionParticleEffect: {fileID: 1287126301213800507, guid: ae8e9870b92e9564ba498d9f64682201, type: 3}
   _damageableLayers:
     serializedVersion: 2
     m_Bits: 128
+  _maxColliders: 10
 --- !u!1 &4177980122983260516
 GameObject:
   m_ObjectHideFlags: 0
