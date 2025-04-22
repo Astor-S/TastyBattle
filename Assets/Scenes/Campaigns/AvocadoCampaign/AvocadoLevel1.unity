@@ -7399,6 +7399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _homeButton: {fileID: 0}
+  _restartButton: {fileID: 0}
   _replayButton: {fileID: 0}
 --- !u!222 &980278526
 CanvasRenderer:
@@ -12400,7 +12401,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _homeButton: {fileID: 0}
+  _restartButton: {fileID: 0}
   _nextLevelButton: {fileID: 0}
+  _victoryTimerView: {fileID: 0}
+  _timer: {fileID: 0}
 --- !u!222 &1495977798
 CanvasRenderer:
   m_ObjectHideFlags: 0
