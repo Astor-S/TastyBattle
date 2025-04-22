@@ -9,12 +9,12 @@ namespace UI.HomeMenu.CampaignMenu
         [SerializeField] private TextMeshProUGUI _playerDescriptionField;
         [SerializeField] private TextMeshProUGUI _enemyDescriptionField;
 
-        private UnitMenuView _unitMapView;
+        private UnitModelView _unitMapView;
 
         public TextMeshProUGUI PlayerDescritionField => _playerDescriptionField;
         public TextMeshProUGUI EnemyDescriptionField => _enemyDescriptionField;
 
-        public void DisplayMap(UnitMenuView unitMapView, Transform container, TextMeshProUGUI text)
+        public void DisplayMap(UnitModelView unitMapView, Transform container, TextMeshProUGUI text)
         {
             if (container.childCount > 0)
                 Destroy(container.GetChild(0).gameObject);

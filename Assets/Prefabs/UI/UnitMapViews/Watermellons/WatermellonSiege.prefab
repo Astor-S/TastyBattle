@@ -62,34 +62,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d94676b072b07d4bbe25768c838219f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9081119592763270454}
+      addedObject: {fileID: 3909627933623931589}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d94676b072b07d4bbe25768c838219f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3909627933623931589}
+      addedObject: {fileID: -3518299051088748526}
   m_SourcePrefab: {fileID: 100100000, guid: 8d94676b072b07d4bbe25768c838219f, type: 3}
 --- !u!1 &3388085629316944128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d94676b072b07d4bbe25768c838219f, type: 3}
   m_PrefabInstance: {fileID: 2577620551871229009}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9081119592763270454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3388085629316944128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 746e1840421887f4395c2531fb4fdae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: "\xAB\u0411\u0435\u0440\u0441\u0435\u0440\u043A\xBB. \u041F\u0440\u0438
-    \u043F\u0430\u0434\u0435\u043D\u0438\u0438 \u0443\u0440\u043E\u0432\u043D\u044F
-    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u043D\u0438\u0436\u0435 50%
-    \u0443 \u044E\u043D\u0438\u0442\u043E\u0432 \u0444\u0440\u0430\u043A\u0446\u0438\u0438
-    \u0430\u0440\u0431\u0443\u0437\u043E\u0432 \u0443\u0440\u043E\u043D \u043F\u043E\u0432\u044B\u0448\u0430\u0435\u0442\u0441\u044F
-    \u043D\u0430 25%.(\u041F\u0430\u0441\u0441\u0438\u0432\u043A\u0430)"
 --- !u!95 &3909627933623931589
 Animator:
   serializedVersion: 5
@@ -111,3 +93,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3518299051088748526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388085629316944128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a57502afcca7941ab1c9048e0bc9b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _description: "\xAB\u0411\u0435\u0440\u0441\u0435\u0440\u043A\xBB. \u041F\u0440\u0438
+    \u043F\u0430\u0434\u0435\u043D\u0438\u0438 \u0443\u0440\u043E\u0432\u043D\u044F
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u043D\u0438\u0436\u0435 50%
+    \u0443 \u044E\u043D\u0438\u0442\u043E\u0432 \u0444\u0440\u0430\u043A\u0446\u0438\u0438
+    \u0430\u0440\u0431\u0443\u0437\u043E\u0432 \u0443\u0440\u043E\u043D \u043F\u043E\u0432\u044B\u0448\u0430\u0435\u0442\u0441\u044F
+    \u043D\u0430 25%.(\u041F\u0430\u0441\u0441\u0438\u0432\u043A\u0430)"
