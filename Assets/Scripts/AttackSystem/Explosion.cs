@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace AttackSystem
@@ -30,10 +29,7 @@ namespace AttackSystem
         private void PlayExplosionEffect()
         {
             if (_explosionParticleEffect == null)
-            {
-                Debug.LogWarning("Explosion Particle Effect Prefab не назначен!");
                 return;
-            }
 
             ParticleSystem explosionInstance = Instantiate(_explosionParticleEffect, transform.position, Quaternion.identity);
             explosionInstance.Play();
