@@ -33,9 +33,9 @@ namespace UI.HomeMenu.CampaignMenu
 
         private void MarkSelected(LevelButton button)
         {
-            _mapDisplay.DisplayMap(_levelDataByCampaign[button.ButtonIndex], _enemyContainer, _mapDisplay.EnemyDescriptionField);
-
             _selectedButton = button;
+
+            _mapDisplay.DisplayMap(_levelDataByCampaign[(int)_selectedButton.LevelCells[_currentCampaignIndex].EnemyFaction], _enemyContainer, _mapDisplay.EnemyDescriptionField);
         }
 
         public void LoadCurrentLevel()
