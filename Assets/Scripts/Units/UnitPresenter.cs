@@ -46,10 +46,11 @@ namespace Units
 
         public virtual void Enable()
         {
+            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
+            
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
 
-            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
             _navMeshAgent.speed = Model.Stats.MovementSpeed;
             _defaultSpeed = Model.Stats.MovementSpeed;

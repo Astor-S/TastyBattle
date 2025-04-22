@@ -24,7 +24,10 @@ namespace FactionalAbilities.Handlers
         private void HandleDying(DamagableTarget target)
         {
             if (_avocadoAbility != null && _explosion != null)
+            {
+                Debug.Log($"[DEBUG] Explode called on {gameObject.name} at {Time.time}");
                 _explosion.Explode(_avocadoAbility.ExplosionRadius, _avocadoAbility.ExplosionDamage);
+            }
         }
     }
 }
