@@ -19,14 +19,8 @@ namespace AttackSystem
             int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, _colliders, _damageableLayers);
 
             for (int i = 0; i < numColliders; i++)
-            {
-                Collider collider = _colliders[i];
-
-                if (collider.TryGetComponent(out DamagableTarget target) && target.transform != transform)
-                    target.TakeDamage(explosionDamage);
-            }
-
-            Debug.Log($"[AvocadoUnit] {gameObject.name} exploded, dealing {explosionDamage} damage in radius {explosionRadius}");
+                if (_colliders[i].TryGetComponent(out DamagableTarget target) && target.transform != transform)
+                    target.TakeDamage(explosionDamage);          
         }
     }
 }
