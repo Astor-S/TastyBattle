@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using NaughtyAttributes;
 using GameService;
+using Units;
 
 namespace UI.HomeMenu.CampaignMenu
 {
@@ -11,8 +12,11 @@ namespace UI.HomeMenu.CampaignMenu
         [Scene]
         [SerializeField] private string _sceneToLoad;
         [SerializeField] private int _cellIndex;
+        [SerializeField] private Faction _enemyFaction;
 
         [field: SerializeField] public Levels LevelsType { get; private set; }
+
+        public Faction EnemyFaction => _enemyFaction;
 
         public void LoadScene()
         {

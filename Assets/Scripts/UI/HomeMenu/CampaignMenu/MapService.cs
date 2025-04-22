@@ -7,7 +7,7 @@ namespace UI.HomeMenu.CampaignMenu
         private const int FirstCampaign = 0;
         private const int CorrectionShift = 1;
 
-        [SerializeField] private UnitMapView[] _levelDataByCampaign;
+        [SerializeField] private UnitModelView[] _levelDataByCampaign;
         [SerializeField] private LevelButton[] _levelButtons;
         [SerializeField] private MapDisplay _mapDisplay;
         [SerializeField] private Transform _playerContainer;
@@ -33,13 +33,16 @@ namespace UI.HomeMenu.CampaignMenu
 
         private void MarkSelected(LevelButton button)
         {
-            _mapDisplay.DisplayMap(_levelDataByCampaign[button.ButtonIndex], _enemyContainer, _mapDisplay.EnemyDescriptionField);
-
             _selectedButton = button;
+
+            _mapDisplay.DisplayMap(_levelDataByCampaign[(int)_selectedButton.LevelCells[_currentCampaignIndex].EnemyFaction], _enemyContainer, _mapDisplay.EnemyDescriptionField);
         }
 
         public void LoadCurrentLevel()
         {
+            if (_selectedButton == null)
+                return;
+
             if (_selectedButton.LevelCells == null || _selectedButton.LevelCells.Count == 0)
                 return;
 

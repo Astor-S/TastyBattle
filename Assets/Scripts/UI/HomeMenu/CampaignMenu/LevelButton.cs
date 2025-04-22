@@ -26,10 +26,8 @@ namespace UI.HomeMenu.CampaignMenu
         private void Start() => 
             UpdateLevelButton();
 
-        public void SetCurrentLevelIndex(int index)
-        {
+        public void SetCurrentLevelIndex(int index) => 
             _currentLevelIndex = index;
-        }
 
         public void UpdateLevelButton()
         {
@@ -44,10 +42,6 @@ namespace UI.HomeMenu.CampaignMenu
                 _button.interactable = false;
                 return;
             }
-
-            Levels levelToCheck = _levelCells[_currentLevelIndex].LevelsType;
-            //bool isLevelOpened = _savesYG.IsLevelOpen(levelToCheck);
-            //_button.interactable = isLevelOpened;
         }        
 
         private void Select() => 

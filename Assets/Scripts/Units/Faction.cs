@@ -2,9 +2,9 @@ namespace Units
 {
     public enum Faction
     {
+        Mushroom,
         Watermellon,
         Orange,
-        Mushroom,
         Avocado,
         IceCream,
     }
