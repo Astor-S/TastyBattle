@@ -9,6 +9,8 @@ namespace FactionalAbilities.Handlers
         [SerializeField] private DamagableTarget _damageTarget;
         [SerializeField] private Explosion _explosion;
 
+        private bool _isExploding = false;
+
         private void OnEnable()
         {
             if (_damageTarget != null)
@@ -23,11 +25,15 @@ namespace FactionalAbilities.Handlers
 
         private void HandleDying(DamagableTarget target)
         {
-            if (_avocadoAbility != null && _explosion != null)
-            {
-                Debug.Log($"[DEBUG] Explode called on {gameObject.name} at {Time.time}");
+            if (_isExploding)
+                return; 
+            
+            _isExploding = true; 
+
+            if (_avocadoAbility != null && _explosion != null) 
                 _explosion.Explode(_avocadoAbility.ExplosionRadius, _avocadoAbility.ExplosionDamage);
-            }
+
+            _isExploding = false;
         }
     }
 }
