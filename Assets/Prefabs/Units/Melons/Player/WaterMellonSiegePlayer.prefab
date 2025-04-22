@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5100610510049749713}
   - component: {fileID: 7855966856468767823}
   - component: {fileID: 1887790807130368945}
-  - component: {fileID: 1643738174391899938}
   m_Layer: 0
   m_Name: WaterMellonSiegePlayer
   m_TagString: Untagged
@@ -159,21 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 8565804310083418809}
   _rigidbody: {fileID: 5749309098488311461}
---- !u!114 &1643738174391899938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4089651971230663124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 1887790807130368945}
-  _attackHandler: {fileID: 5472688759227463835}
-  _detectionSystem: {fileID: 8559445459339519417}
 --- !u!1 &4383428213538643939
 GameObject:
   m_ObjectHideFlags: 0

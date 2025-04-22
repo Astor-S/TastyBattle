@@ -39,6 +39,7 @@ namespace FactionalAbilities.Handlers.Effects
             if (_isFreezing == false)
                 StartCoroutine(SlowDurationCoroutine());
         }
+
         private void RemoveSlow(float slowPercentage)
         {
             _totalSlowPercentage -= slowPercentage;

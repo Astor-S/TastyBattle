@@ -184,7 +184,6 @@ GameObject:
   - component: {fileID: 5257064703234511221}
   - component: {fileID: 2417453199538116393}
   - component: {fileID: 2107902381602369256}
-  - component: {fileID: 105211304463595143}
   - component: {fileID: 2811292562113229078}
   m_Layer: 0
   m_Name: WaterMellonMeleeEnemy
@@ -329,21 +328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 7615931989621166876}
   _healthBarView: {fileID: 3199991347013778760}
---- !u!114 &105211304463595143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8769891228106203048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 2417453199538116393}
-  _attackHandler: {fileID: 2848627266341947995}
-  _detectionSystem: {fileID: 9207082998739774786}
 --- !u!114 &2811292562113229078
 MonoBehaviour:
   m_ObjectHideFlags: 0

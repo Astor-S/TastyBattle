@@ -970,7 +970,6 @@ GameObject:
   - component: {fileID: 514204843160530710}
   - component: {fileID: 5717136829546381060}
   - component: {fileID: 3588328787511895972}
-  - component: {fileID: 6996329692227718977}
   - component: {fileID: 5995714737180854343}
   - component: {fileID: 7391605921718701908}
   m_Layer: 0
@@ -1094,21 +1093,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 7580848323791432377}
   _healthBarView: {fileID: 7150089850099684184}
---- !u!114 &6996329692227718977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990312453812153083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e175facde92cf446a53ca1bd4f77fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 5717136829546381060}
-  _attackHandler: {fileID: 7600588622669761359}
-  _detectionSystem: {fileID: 2415558512083814679}
 --- !u!114 &5995714737180854343
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,8 +16,12 @@ public class BuildingPresenter : Presenter, IActivatable
 
     protected virtual void Awake()
     {
-        _dyingDelegate = (_) => View.SetDeathAnimation();
-        SetColorSide();
+        _dyingDelegate = (_) => OnDying();
+
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+            View.SetColor(Color.blue);
+        else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            View.SetColor(Color.red);
     }
 
     public virtual void Enable()
@@ -32,11 +36,8 @@ public class BuildingPresenter : Presenter, IActivatable
         _damagableTarget.Dying -= _dyingDelegate;
     }
 
-    private void SetColorSide()
+    protected virtual void OnDying()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
-            View.SetColor(Color.blue);
-        else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            View.SetColor(Color.red);
+        View.SetDeathAnimation();
     }
 }

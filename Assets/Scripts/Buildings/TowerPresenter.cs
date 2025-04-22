@@ -22,6 +22,17 @@ namespace Buildings
 
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.StopAttackingAnimation;
-        }        
+        }
+
+        protected override void OnDying()
+        {
+            base.OnDying();
+
+            if (_attackHandler != null)
+                _attackHandler.enabled = false;
+
+            if (_detectionSystem != null)
+                _detectionSystem.enabled = false;
+        }
     }
 }
