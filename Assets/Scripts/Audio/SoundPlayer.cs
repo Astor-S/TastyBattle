@@ -1,50 +1,60 @@
+using StructureElements;
 using UnityEngine;
 using UnityEngine.Audio;
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundPlayer : MonoBehaviour
 {
-    [SerializeField] private UnitView _unitView;
+    [SerializeField] private View _view;
     [SerializeField] private AttackerAnimationEventHandler _attackerAnimation;
-    [SerializeField] private SoundPack _soundPack;
+    [SerializeField] private DamagableSoundPack _soundPack;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioMixerGroup _mixerGroup;
+
+    public AttackerSoundPack AttackerSoundPack => _soundPack as AttackerSoundPack;
+    public UnitSoundPack UnitSoundPack => _soundPack as UnitSoundPack;
 
     private void Awake()
     {
         _audioSource.playOnAwake = false;
         _audioSource.outputAudioMixerGroup = _mixerGroup;
-        _audioSource.loop = false;
     }
 
     private void OnEnable()
     {
-        _unitView.WalkingStarted += SetWalkingSound;
-        _unitView.Dead += SetDeathSound;
+        _view.WalkingStarted += SetWalkingSound;
+        _view.Dead += SetDeathSound;
 
-        _attackerAnimation.AttackingStarted += SetAttackingSound;
+        if (_attackerAnimation != null)
+            _attackerAnimation.AttackingStarted += SetAttackingSound;
     }
 
     private void OnDisable()
     {
-        _unitView.WalkingStarted -= SetWalkingSound;
-        _unitView.Dead -= SetDeathSound;
+        _view.WalkingStarted -= SetWalkingSound;
+        _view.Dead -= SetDeathSound;
 
-        _attackerAnimation.AttackingStarted -= SetAttackingSound;
+        if (_attackerAnimation != null)
+            _attackerAnimation.AttackingStarted -= SetAttackingSound;
     }
 
     private void SetWalkingSound() =>
-        PlaySound(_soundPack.WalkingSound);
+        PlaySound(UnitSoundPack.WalkingSound, true);
 
-    private void SetAttackingSound() => 
-        PlaySound(_soundPack.AttackingSound);
+    private void SetAttackingSound() =>
+        PlaySound(AttackerSoundPack.AttackingSound, false);
 
-    private void SetDeathSound() => 
-        PlaySound(_soundPack.DeathSound);
+    private void SetDeathSound() =>
+        PlaySound(_soundPack.DeathSound, false);
 
-    private void PlaySound(AudioClip clip)
+    private void PlaySound(AudioClip clip, bool isLooped)
     {
+        if (_audioSource.clip != clip)
+            _audioSource.Stop();
+
         _audioSource.clip = clip;
+
+        _audioSource.loop = isLooped;
 
         if (_audioSource.isPlaying == false)
             _audioSource.Play();

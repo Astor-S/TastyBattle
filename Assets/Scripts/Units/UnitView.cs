@@ -10,10 +10,7 @@ public class UnitView : View
 
     public readonly int IsWalking = Animator.StringToHash(nameof(IsWalking));
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
-    public readonly int Die = Animator.StringToHash(nameof(Die));
-
-    public event Action WalkingStarted;
-    public event Action Dead;
+    public readonly int Die = Animator.StringToHash(nameof(Die));    
 
     protected Animator Animator => _animator;
 
@@ -30,7 +27,7 @@ public class UnitView : View
         _animator.SetBool(IsAttacking, false);
         _animator.SetBool(IsWalking, true);
 
-        WalkingStarted?.Invoke();
+        StartWalking();
     }
 
     public void SetAttackingAnimation()
@@ -43,6 +40,6 @@ public class UnitView : View
     {
         _animator.SetTrigger(Die);
 
-        Dead?.Invoke();
+        StartDeathSound();
     }
 }
