@@ -1,4 +1,5 @@
 using StructureElements;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ public class UnitView : View
     public readonly int IsWalking = Animator.StringToHash(nameof(IsWalking));
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
     public readonly int Die = Animator.StringToHash(nameof(Die));
+
+    public event Action WalkingStarted;
+    public event Action Dead;
 
     protected Animator Animator => _animator;
 
@@ -25,6 +29,8 @@ public class UnitView : View
     {
         _animator.SetBool(IsAttacking, false);
         _animator.SetBool(IsWalking, true);
+
+        WalkingStarted?.Invoke();
     }
 
     public void SetAttackingAnimation()
@@ -36,5 +42,7 @@ public class UnitView : View
     public void SetDeathAnimation()
     {
         _animator.SetTrigger(Die);
+
+        Dead?.Invoke();
     }
 }

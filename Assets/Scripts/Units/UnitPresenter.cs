@@ -15,7 +15,7 @@ namespace Units
         [SerializeField] private NavMeshAgent _navMeshAgent;
         [SerializeField] private Faction _faction;
         [SerializeField] private BattleRole _battleRole;
-        
+
         private float _defaultSpeed;
         private float _defaultAttackSpeedMultiplier;
 
@@ -47,7 +47,7 @@ namespace Units
         public virtual void Enable()
         {
             gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
-            
+
             View.SetWalkingAnimation();
             View.SetHealthBarColor();
 
@@ -90,7 +90,6 @@ namespace Units
 
         protected void OnDying()
         {
-            View.SetDeathAnimation();
             _navMeshAgent.enabled = false;
 
             if (_attackHandler != null)
@@ -98,6 +97,8 @@ namespace Units
 
             if (_detectionSystem != null)
                 _detectionSystem.enabled = false;
+
+            View.SetDeathAnimation();
         }
     }
 }

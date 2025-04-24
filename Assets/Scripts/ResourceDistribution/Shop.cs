@@ -56,8 +56,6 @@ namespace ResourceDistribution
             {
                 _wallet.SpendResource(cost);
                 _unitFactory.CreateUnit(unit.Setup);
-
-                UnityEngine.Debug.Log($"Account balance: {_wallet.ResourceCount} (-{cost})");
             }
             catch (InvalidOperationException exc)
             {
