@@ -112,10 +112,10 @@ GameObject:
   - component: {fileID: 1680347660525821016}
   - component: {fileID: 2324656414818331965}
   - component: {fileID: 5694519323789542531}
+  - component: {fileID: 7991337058688308161}
   - component: {fileID: 4851330960942924572}
   - component: {fileID: 8474672646858320659}
   - component: {fileID: 3795294543095542951}
-  - component: {fileID: 7991337058688308161}
   - component: {fileID: 5025070865987302789}
   m_Layer: 0
   m_Name: MushrLaoPlayer
@@ -123,7 +123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1680347660525821016
 Transform:
   m_ObjectHideFlags: 0
@@ -192,6 +192,28 @@ CapsuleCollider:
   m_Height: 1.1465416
   m_Direction: 1
   m_Center: {x: 0, y: 0.5491022, z: 0}
+--- !u!195 &7991337058688308161
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398646529770936203}
+  m_Enabled: 1
+  m_AgentTypeID: 1479372276
+  m_Radius: 0.2
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 25
+  m_AngularSpeed: 5000
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &4851330960942924572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,29 +259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2383972182678567002}
-  _healthBarView: {fileID: 6026772037036792362}
---- !u!195 &7991337058688308161
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398646529770936203}
-  m_Enabled: 1
-  m_AgentTypeID: 1479372276
-  m_Radius: 0.2
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 25
-  m_AngularSpeed: 5000
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  _healthBar: {fileID: 1461965247552692042}
+  _animationEventHandler: {fileID: 4953613376416152702}
 --- !u!114 &5025070865987302789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,6 +550,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: _damagableTarget
       value: 
       objectReference: {fileID: 8474672646858320659}
@@ -565,15 +570,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
---- !u!114 &6026772037036792362 stripped
+--- !u!114 &1461965247552692042 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2652221212799849244, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
   m_PrefabInstance: {fileID: 8605798451518966070}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: a78a29ac069c1ae479185bb4bf64bc9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8826901300099359544 stripped

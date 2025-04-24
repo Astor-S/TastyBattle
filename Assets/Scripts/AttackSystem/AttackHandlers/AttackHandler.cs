@@ -10,7 +10,7 @@ namespace AttackSystem.AttackHandlers
 
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
-        protected WaitForFixedUpdate WaitForFixedUpdate;
+        protected WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
 
         public event Action AttackStarted;
         public event Action AttackStopped;
@@ -22,17 +22,15 @@ namespace AttackSystem.AttackHandlers
         protected AttackerSetup Stats => _stats;
         protected virtual float Damage => _stats.AttackDamage;
 
-        private void OnEnable() =>
-            _detectionSystem.TargetChanged += ChangeTarget;
-
-        private void OnDisable() =>
-            _detectionSystem.TargetChanged -= ChangeTarget;      
-        
-        private void Start()
+        private void OnEnable()
         {
-            WaitForFixedUpdate = new WaitForFixedUpdate();
-
+            _detectionSystem.TargetChanged += ChangeTarget;
             StartCoroutine(nameof(Combat));
+        }
+
+        private void OnDisable()
+        {
+            _detectionSystem.TargetChanged -= ChangeTarget;
         }
 
         public void Init(AttackerSetup attackerSetup)

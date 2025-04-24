@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2476636462639652138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 3014767851726770269}
   - component: {fileID: 8221457268058914955}
   - component: {fileID: 7143836820331894396}
-  - component: {fileID: 4056109851189726513}
   m_Layer: 7
   m_Name: HealthBarSlider
   m_TagString: Untagged
@@ -391,18 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78a29ac069c1ae479185bb4bf64bc9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagableTarget: {fileID: 0}
-  _view: {fileID: 4056109851189726513}
---- !u!114 &4056109851189726513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8002877701680145742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e038c9df596cd9d438aa3551a72c52b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _slider: {fileID: 8221457268058914955}
+  _healthColorImage: {fileID: 2652221212799849244}
+  _damagableTarget: {fileID: 0}

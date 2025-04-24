@@ -25,6 +25,11 @@ namespace AttackSystem
         private void OnEnable()
         {
             _health.Reset();
+            _collider.enabled = true;
+
+            if (_setup.BattleRole != Units.BattleRole.Building)
+                _rigidbody.isKinematic = false;
+
             _health.Dying += Die;
             _health.HalfHP += OnHalfHP;
             _health.QuaterHP += OnQuaterHP;

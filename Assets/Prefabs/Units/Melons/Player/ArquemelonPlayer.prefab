@@ -967,11 +967,11 @@ GameObject:
   - component: {fileID: 1128719628983007100}
   - component: {fileID: 7286110889881935018}
   - component: {fileID: 7373862858402763666}
+  - component: {fileID: 7391605921718701908}
   - component: {fileID: 514204843160530710}
   - component: {fileID: 5717136829546381060}
   - component: {fileID: 3588328787511895972}
   - component: {fileID: 5995714737180854343}
-  - component: {fileID: 7391605921718701908}
   m_Layer: 0
   m_Name: ArquemelonPlayer
   m_TagString: Untagged
@@ -1047,6 +1047,28 @@ CapsuleCollider:
   m_Height: 1.2706978
   m_Direction: 1
   m_Center: {x: 0, y: 0.58534884, z: 0.02}
+--- !u!195 &7391605921718701908
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990312453812153083}
+  m_Enabled: 1
+  m_AgentTypeID: 1479372276
+  m_Radius: 0.2
+  m_Speed: 3.5
+  m_Acceleration: 40
+  avoidancePriority: 25
+  m_AngularSpeed: 500
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &514204843160530710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7580848323791432377}
-  _healthBarView: {fileID: 7150089850099684184}
+  _healthBar: {fileID: 2652809626778375736}
 --- !u!114 &5995714737180854343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,28 +1130,6 @@ MonoBehaviour:
   _unitSetup: {fileID: 11400000, guid: f1a3fda20d0a1344e8800c5b1321ea0d, type: 2}
   _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
   _damagableTarget: {fileID: 5717136829546381060}
---- !u!195 &7391605921718701908
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990312453812153083}
-  m_Enabled: 1
-  m_AgentTypeID: 1479372276
-  m_Radius: 0.2
-  m_Speed: 3.5
-  m_Acceleration: 40
-  avoidancePriority: 25
-  m_AngularSpeed: 500
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &6295018592886457770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,19 +1599,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+--- !u!114 &2652809626778375736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_PrefabInstance: {fileID: 5184960325599985732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78a29ac069c1ae479185bb4bf64bc9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5397051911333456458 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 941960337626638862, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
   m_PrefabInstance: {fileID: 5184960325599985732}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7150089850099684184 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2652221212799849244, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
-  m_PrefabInstance: {fileID: 5184960325599985732}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

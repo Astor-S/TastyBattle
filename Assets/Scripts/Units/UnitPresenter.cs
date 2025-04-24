@@ -33,24 +33,11 @@ namespace Units
 
         private void Awake()
         {
+            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
             DyingDelegate = (_) => OnDying();
 
             _navMeshAgent.updateRotation = false;
             NavMesh.avoidancePredictionTime = 0.5f;
-        }
-
-        protected virtual void FixedUpdate()
-        {
-            if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
-                _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
-        }
-
-        public virtual void Enable()
-        {
-            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
-            
-            View.SetWalkingAnimation();
-            View.SetHealthBarColor();
 
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
             _navMeshAgent.speed = Model.Stats.MovementSpeed;
@@ -64,10 +51,27 @@ namespace Units
 
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats);
+        }
+
+        protected virtual void FixedUpdate()
+        {
+            if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
+                _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
+        }
+
+        public virtual void Enable()
+        {
+            View.SetWalkingAnimation();
+
+            _detectionSystem.enabled = true;
+            _attackHandler.enabled = true;
+            _damageTarget.enabled = true;
+            _navMeshAgent.enabled = true;
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
+            View.Decayed += OnDecayed;
         }
 
         public virtual void Disable()
@@ -75,6 +79,7 @@ namespace Units
             _damageTarget.Dying -= DyingDelegate;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
+            View.Decayed -= OnDecayed;
         }
 
         public void SetAgentSpeed(float speed) =>
@@ -99,7 +104,10 @@ namespace Units
 
             if (_detectionSystem != null)
                 _detectionSystem.enabled = false;
+        }
 
+        private void OnDecayed()
+        {
             Releasing?.Invoke(this);
         }
     }

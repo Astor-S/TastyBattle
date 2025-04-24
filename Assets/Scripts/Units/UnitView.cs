@@ -1,24 +1,36 @@
+using AttackSystem.HealthBarSystem;
 using StructureElements;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UnitView : View
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private Image _healthBarView;
+    [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private DamagableAnimationEventHandler _animationEventHandler;
 
     public readonly int IsWalking = Animator.StringToHash(nameof(IsWalking));
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
     public readonly int Die = Animator.StringToHash(nameof(Die));
 
+    public event Action Decayed;
+
     protected Animator Animator => _animator;
 
-    public void SetHealthBarColor()
+    private void Awake()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
-            _healthBarView.color = Color.blue;
-        else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            _healthBarView.color = Color.red;
+        _healthBar.SetColor(gameObject.layer);
+    }
+
+    private void OnEnable()
+    {
+        _healthBar.gameObject.SetActive(true);
+        _animationEventHandler.Decayed += OnDecayed;
+    }
+
+    private void OnDisable()
+    {
+        _animationEventHandler.Decayed -= OnDecayed;
     }
 
     public void SetWalkingAnimation()
@@ -36,5 +48,11 @@ public class UnitView : View
     public void SetDeathAnimation()
     {
         _animator.SetTrigger(Die);
+        _healthBar.gameObject.SetActive(false);
+    }
+
+    private void OnDecayed()
+    {
+        Decayed?.Invoke();
     }
 }

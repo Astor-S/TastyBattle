@@ -1,6 +1,5 @@
 using UnityEngine;
 using AttackSystem;
-using StructureElements;
 using System.Collections.Generic;
 
 namespace Units
@@ -63,7 +62,7 @@ namespace Units
             presenter.gameObject.SetActive(true);
             presenter.Releasing += ReleaseIntoPool;
 
-            unit.MoveTo(GenerateSpawnPosition());
+            presenter.transform.position = GenerateSpawnPosition();
         }
 
         private UnitPresenter CreatePresenter(Unit model)
