@@ -7,18 +7,20 @@ public abstract class OrderHandler : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _priceTextBox;
-    [SerializeField] private int _cost;
+    [SerializeField] private int _initialCost;
 
     private Order _order;
 
-    public event Action<Order, int> ItemOrdered;
+    public event Action<Order> ItemOrdered;
+
+    protected int InitialCost => _initialCost;
 
     private void Awake()
     {
-        if (_priceTextBox != null)
-            _priceTextBox.text = _cost.ToString();
+        _order = InitializeOrder(_initialCost);
 
-        _order = InitializeOrder();
+        if (_priceTextBox != null)
+            _priceTextBox.text = _initialCost.ToString();
     }
 
     private void OnEnable()
@@ -35,8 +37,17 @@ public abstract class OrderHandler : MonoBehaviour
 
     public void Order()
     {
-        ItemOrdered?.Invoke(_order, _cost);
+        try
+        {
+            ItemOrdered?.Invoke(_order);
+            _order.IncreaseCost();
+            _priceTextBox.text = _order.Cost.ToString();
+        }
+        catch (InvalidOperationException exc)
+        {
+            Debug.Log(exc.Message);
+        }
     }
 
-    protected abstract Order InitializeOrder();
+    protected abstract Order InitializeOrder(int initialCost);
 }

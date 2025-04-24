@@ -4,8 +4,8 @@ public class UpgradeOrderHandler : OrderHandler
 {
     [SerializeField] private UpgradeType _upgradeType;
 
-    protected override Order InitializeOrder()
+    protected override Order InitializeOrder(int initialCost)
     {
-        return new UpgradeOrder(_upgradeType);
+        return new UpgradeOrder(initialCost, _upgradeType);
     }
 }

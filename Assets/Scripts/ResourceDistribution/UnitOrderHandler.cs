@@ -6,8 +6,8 @@ public class UnitOrderHandler : OrderHandler
 
     public UnitSetup Setup => _unitSetup;
 
-    protected override Order InitializeOrder()
+    protected override Order InitializeOrder(int initialCost)
     {
-        return new UnitOrder(_unitSetup);
+        return new UnitOrder(initialCost, _unitSetup);
     }
 }

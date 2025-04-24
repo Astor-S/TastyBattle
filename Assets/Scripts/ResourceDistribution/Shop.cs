@@ -48,30 +48,28 @@ namespace ResourceDistribution
             _wallet.Disable();
         }
 
-        private void SpawnUnit(Order order, int cost)
+        private void SpawnUnit(Order order)
         {
             UnitOrder unit = order as UnitOrder;
 
             try
             {
-                _wallet.SpendResource(cost);
+                _wallet.SpendResource(unit.Cost);
                 _unitFactory.CreateUnit(unit.Setup);
-
-                UnityEngine.Debug.Log($"Account balance: {_wallet.ResourceCount} (-{cost})");
             }
             catch (InvalidOperationException exc)
             {
-                UnityEngine.Debug.Log(exc.Message + ": " + unit.Setup.Faction.ToString() + ", " + unit.Setup.BattleRole.ToString());
+                throw new InvalidOperationException(exc.Message + ": " + unit.Setup.BattleRole.ToString() + " " + unit.Setup.Faction.ToString());
             }
         }
 
-        private void MakeUpgrade(Order order, int cost)
+        private void MakeUpgrade(Order order)
         {
             UpgradeOrder upgrade = order as UpgradeOrder;
 
             try
             {
-                _wallet.SpendResource(cost);
+                _wallet.SpendResource(upgrade.Cost);
 
                 switch (upgrade.Type)
                 {
@@ -98,7 +96,7 @@ namespace ResourceDistribution
             }
             catch (InvalidOperationException exc)
             {
-                UnityEngine.Debug.Log(exc.Message + ": " + upgrade.Type.ToString());
+                throw new InvalidOperationException(exc.Message + ": " + upgrade.Type.ToString() + " " + upgrade.Cost.ToString());
             }
         }
     }

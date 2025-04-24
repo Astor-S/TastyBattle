@@ -2,7 +2,7 @@
 {
     public UpgradeType Type { get; }
 
-    public UpgradeOrder(UpgradeType upgradeType)
+    public UpgradeOrder(int cost, UpgradeType upgradeType) : base(cost)
     {
         Type = upgradeType;
     }
