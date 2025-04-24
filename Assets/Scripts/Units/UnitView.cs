@@ -27,7 +27,7 @@ public class UnitView : View
         _animator.SetBool(IsAttacking, false);
         _animator.SetBool(IsWalking, true);
 
-        StartWalking();
+        StartWalkingSound();
     }
 
     public void SetAttackingAnimation()

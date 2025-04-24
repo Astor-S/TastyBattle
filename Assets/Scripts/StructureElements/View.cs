@@ -8,7 +8,7 @@ namespace StructureElements
         public event Action WalkingStarted;
         public event Action Dead;
 
-        protected void StartWalking() => 
+        protected void StartWalkingSound() => 
             WalkingStarted?.Invoke();
 
         protected void StartDeathSound() => 
