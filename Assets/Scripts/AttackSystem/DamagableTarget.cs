@@ -24,6 +24,7 @@ namespace AttackSystem
 
         private void OnEnable()
         {
+            _health.Reset();
             _health.Dying += Die;
             _health.HalfHP += OnHalfHP;
             _health.QuaterHP += OnQuaterHP;
@@ -62,7 +63,7 @@ namespace AttackSystem
             _collider.enabled = false;
             _rigidbody.isKinematic = true;
 
-            enabled = false;            
+            enabled = false;
         }
     }
 }

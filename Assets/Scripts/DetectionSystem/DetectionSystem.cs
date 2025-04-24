@@ -45,6 +45,13 @@ public class DetectionSystem : MonoBehaviour
             _baseTransform.LookAt(CurrentTarget.transform.position);
     }
 
+    private void OnEnable()
+    {
+        _detectedUnits.Clear();
+        CurrentTarget = _enemyBase;
+        TargetChanged?.Invoke(CurrentTarget);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out DamagableTarget unit) &&

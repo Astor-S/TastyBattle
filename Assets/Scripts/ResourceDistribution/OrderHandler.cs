@@ -41,7 +41,9 @@ public abstract class OrderHandler : MonoBehaviour
         {
             ItemOrdered?.Invoke(_order);
             _order.IncreaseCost();
-            _priceTextBox.text = _order.Cost.ToString();
+
+            if (_priceTextBox != null)
+                _priceTextBox.text = _order.Cost.ToString();
         }
         catch (InvalidOperationException exc)
         {

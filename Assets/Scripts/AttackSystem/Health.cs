@@ -40,6 +40,13 @@ namespace AttackSystem
                 Dying?.Invoke();
         }
 
+        public void Reset()
+        {
+            Value = _stats.MaxHealthPoints;
+            _isHalfHP = false;
+            _isQuaterHP = false;
+        }
+
         private void UpdateValue(float value)
         {
             Value = value;

@@ -21,12 +21,13 @@ namespace Units
 
         private Action<DamagableTarget> DyingDelegate;
 
+        public event Action<UnitPresenter> Releasing;
+
         public new Unit Model => base.Model as Unit;
         public new UnitView View => base.View as UnitView;
         public DetectionSystem DetectionSystem => _detectionSystem;
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;
-
         protected AttackHandler AttackHandler => _attackHandler;
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
 
@@ -98,6 +99,8 @@ namespace Units
 
             if (_detectionSystem != null)
                 _detectionSystem.enabled = false;
+
+            Releasing?.Invoke(this);
         }
     }
 }
