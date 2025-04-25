@@ -66,7 +66,7 @@ public class LevelRoot : MonoBehaviour
             _playerBase.transform.position,
             _playerBase.transform.rotation));
 
-        Wallet enemyWallet = new Wallet(300, _enemyMine);
+        Wallet enemyWallet = new Wallet(0, _enemyMine);
         _enemyResourceCounter.Init(enemyWallet);
 
         UnitOrderHandler[] enemyUnitOrderHandlers = _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);

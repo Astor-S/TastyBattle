@@ -22,17 +22,23 @@ public class BuildingView : View
     {
         Animator.SetTrigger(Died);
         _particleSystem.Play();
+
+        StartDeathSound();
     }
 
     public void SetHalfHPAnimation()
     {
         Animator.SetTrigger(HalfHP);
         _particleSystem.Play();
+
+        StartDeathSound();
     }
 
     public void SetQuaterHPAnimation()
     {
         Animator.SetTrigger(QuaterHP);
         _particleSystem.Play();
+
+        StartDeathSound();
     }
 }

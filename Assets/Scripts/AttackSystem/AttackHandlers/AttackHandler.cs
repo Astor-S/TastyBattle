@@ -11,12 +11,13 @@ namespace AttackSystem.AttackHandlers
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
         protected WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
+        private bool _isAttacking;
 
         public event Action AttackStarted;
         public event Action AttackStopped;
 
         public float AttackSpeedMultiplier { get; set; } = 1f;
-        public bool IsAttacking => _attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) <= _stats.AttackDistance * _stats.AttackDistance;                                                 
+        public bool IsAbleToAttack => _attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) <= _stats.AttackDistance * _stats.AttackDistance;
         public DamagableTarget AttackedTarget => _attackedTarget;
         public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
@@ -53,10 +54,19 @@ namespace AttackSystem.AttackHandlers
         {
             while (enabled)
             {
-                if (_attackedTarget != null && IsAttacking)
-                    StartAttack();
-                else
-                    StopAttack();
+                if (_attackedTarget != null)
+                {
+                    if (IsAbleToAttack && _isAttacking == false)
+                    {
+                        StartAttack();
+                        _isAttacking = true;
+                    }
+                    else if (IsAbleToAttack == false && _isAttacking)
+                    {
+                        StopAttack();
+                        _isAttacking = false;
+                    }
+                }
 
                 yield return WaitForFixedUpdate;
             }
