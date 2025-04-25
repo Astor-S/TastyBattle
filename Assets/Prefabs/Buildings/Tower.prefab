@@ -217,7 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d881e8d17bb6ac1479f66f20a7d9c690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBarView: {fileID: 5369825276826642017}
+  _soundPlayer: {fileID: 5167876484861511491}
+  _healthBar: {fileID: 968246683830297345}
   _particleSystem: {fileID: 6712984016649427631}
   Animator: {fileID: 6800714758958136244}
 --- !u!82 &7073708053389168822
@@ -328,7 +329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 3405598790078951359}
   _attackerAnimation: {fileID: 164196535810686006}
   _soundPack: {fileID: 11400000, guid: 1774f315fb3efc546ba9295abb0dd7cf, type: 2}
   _audioSource: {fileID: 7073708053389168822}
@@ -863,6 +863,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: _damagableTarget
       value: 
       objectReference: {fileID: 950199767411787301}
@@ -879,15 +883,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
---- !u!114 &5369825276826642017 stripped
+--- !u!114 &968246683830297345 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2652221212799849244, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
   m_PrefabInstance: {fileID: 7947699437430289789}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: a78a29ac069c1ae479185bb4bf64bc9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &7158864580589166451 stripped

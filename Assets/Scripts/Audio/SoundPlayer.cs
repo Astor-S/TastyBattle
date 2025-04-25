@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioSource))]
 public class SoundPlayer : MonoBehaviour
 {
-    [SerializeField] private View _view;
     [SerializeField] private AttackerAnimationEventHandler _attackerAnimation;
     [SerializeField] private DamagableSoundPack _soundPack;
     [SerializeField] private AudioSource _audioSource;
@@ -20,32 +19,17 @@ public class SoundPlayer : MonoBehaviour
         _audioSource.outputAudioMixerGroup = _mixerGroup;
     }
 
-    private void OnEnable()
-    {
-        _view.WalkingStarted += SetWalkingSound;
-        _view.Dead += SetDeathSound;
-
-        if (_attackerAnimation != null)
-            _attackerAnimation.AttackingStarted += SetAttackingSound;
-    }
-
-    private void OnDisable()
-    {
-        _view.WalkingStarted -= SetWalkingSound;
-        _view.Dead -= SetDeathSound;
-
-        if (_attackerAnimation != null)
-            _attackerAnimation.AttackingStarted -= SetAttackingSound;
-    }
-
-    private void SetWalkingSound() =>
+    public void SetWalkingSound() =>
         PlaySound(UnitSoundPack.WalkingSound, true);
 
-    private void SetAttackingSound() =>
+    public void SetAttackingSound() =>
         PlaySound(AttackerSoundPack.AttackingSound, false);
 
-    private void SetDeathSound() =>
+    public void SetDeathSound() =>
         PlaySound(_soundPack.DeathSound, false);
+
+    public void StopAttackingSound() => 
+        _audioSource.Stop();
 
     private void PlaySound(AudioClip clip, bool isLooped)
     {

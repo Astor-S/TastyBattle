@@ -166,7 +166,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: -1758130690552792840}
   _animator: {fileID: 2383972182678567002}
   _healthBar: {fileID: 1461965247552692042}
   _animationEventHandler: {fileID: 4953613376416152702}
@@ -385,7 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 3795294543095542951}
   _attackerAnimation: {fileID: 4953613376416152702}
   _soundPack: {fileID: 11400000, guid: 91366104b07b333419735e0e074a793c, type: 2}
   _audioSource: {fileID: 8605408978057873583}

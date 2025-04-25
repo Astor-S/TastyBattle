@@ -1,6 +1,6 @@
+using AttackSystem.HealthBarSystem;
 using StructureElements;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BuildingView : View
 {
@@ -8,14 +8,17 @@ public class BuildingView : View
     public readonly int HalfHP = Animator.StringToHash(nameof(HalfHP));
     public readonly int QuaterHP = Animator.StringToHash(nameof(QuaterHP));
 
-    [SerializeField] private Image _healthBarView;
+    [SerializeField] private HealthBar _healthBar;
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] protected Animator Animator;
+
+    private void OnEnable() => 
+        _healthBar.gameObject.SetActive(true);
 
     public void SetColor(Color color)
     {
         if (color != default)
-            _healthBarView.color = color;
+            _healthBar.SetColor(gameObject.layer);
     }
 
     public void SetDeathAnimation()
@@ -23,7 +26,9 @@ public class BuildingView : View
         Animator.SetTrigger(Died);
         _particleSystem.Play();
 
-        StartDeathSound();
+        _healthBar.gameObject.SetActive(false);
+
+        SoundPlayer.SetDeathSound();
     }
 
     public void SetHalfHPAnimation()
@@ -31,7 +36,7 @@ public class BuildingView : View
         Animator.SetTrigger(HalfHP);
         _particleSystem.Play();
 
-        StartDeathSound();
+        SoundPlayer.SetDeathSound();
     }
 
     public void SetQuaterHPAnimation()
@@ -39,6 +44,6 @@ public class BuildingView : View
         Animator.SetTrigger(QuaterHP);
         _particleSystem.Play();
 
-        StartDeathSound();
+        SoundPlayer.SetDeathSound();
     }
 }

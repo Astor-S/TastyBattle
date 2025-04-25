@@ -5,13 +5,8 @@ namespace StructureElements
 {
     public class View : MonoBehaviour
     {
-        public event Action WalkingStarted;
-        public event Action Dead;
+        [SerializeField] private SoundPlayer _soundPlayer;
 
-        protected void StartWalkingSound() => 
-            WalkingStarted?.Invoke();
-
-        protected void StartDeathSound() => 
-            Dead?.Invoke();
+        protected SoundPlayer SoundPlayer => _soundPlayer;
     }
 }

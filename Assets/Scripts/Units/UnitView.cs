@@ -17,11 +17,6 @@ public class UnitView : View
 
     protected Animator Animator => _animator;
 
-    private void OnValidate()
-    {
-        _animationEventHandler = GetComponentInChildren<DamagableAnimationEventHandler>();
-    }
-
     private void Awake()
     {
         _healthBar.SetColor(gameObject.layer);
@@ -42,18 +37,24 @@ public class UnitView : View
     {
         _animator.SetBool(IsAttacking, false);
         _animator.SetBool(IsWalking, true);
+
+        SoundPlayer.SetWalkingSound();
     }
 
     public void SetAttackingAnimation()
     {
         _animator.SetBool(IsWalking, false);
         _animator.SetBool(IsAttacking, true);
+
+        SoundPlayer.SetAttackingSound();
     }
 
     public void SetDeathAnimation()
     {
         _animator.SetTrigger(Die);
         _healthBar.gameObject.SetActive(false);
+
+        SoundPlayer.SetDeathSound();
     }
 
     private void OnDecayed()

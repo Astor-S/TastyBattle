@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: 0}
   _animator: {fileID: 8717359612565879472}
   _healthBar: {fileID: 6844711636723566503}
   _animationEventHandler: {fileID: 0}
@@ -431,7 +432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 718926328151571011}
   _attackerAnimation: {fileID: 2803240427034229166}
   _soundPack: {fileID: 11400000, guid: e90dd990bf12e174ebd8994c4da9f78a, type: 2}
   _audioSource: {fileID: 498460965836649806}

@@ -159,8 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: 0}
   _animator: {fileID: 1938892559690710196}
   _healthBar: {fileID: 1912856678343386007}
+  _animationEventHandler: {fileID: 0}
 --- !u!114 &5487129416650052088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 7258493908786175946}
   _attackerAnimation: {fileID: 3252832945735773740}
   _soundPack: {fileID: 11400000, guid: 76b57267c73275c4a8be598c22811b0e, type: 2}
   _audioSource: {fileID: 8089183563566323704}
