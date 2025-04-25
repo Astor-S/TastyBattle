@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace StructureElements
@@ -8,5 +7,10 @@ namespace StructureElements
         [SerializeField] private SoundPlayer _soundPlayer;
 
         protected SoundPlayer SoundPlayer => _soundPlayer;
+
+        protected virtual void OnValidate()
+        {
+            _soundPlayer = GetComponent<SoundPlayer>();
+        }
     }
 }

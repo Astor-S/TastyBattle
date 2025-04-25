@@ -7,7 +7,6 @@ namespace AttackSystem
     public class DamagableTarget : MonoBehaviour, IDamagable, IIncomeSource
     {
         [SerializeField] private Collider _collider;
-        [SerializeField] private Rigidbody _rigidbody;
 
         private DamagableSetup _setup;
         private Health _health;
@@ -26,10 +25,6 @@ namespace AttackSystem
         {
             _health.Reset();
             _collider.enabled = true;
-
-            if (_setup.BattleRole != Units.BattleRole.Building)
-                _rigidbody.isKinematic = false;
-
             _health.Dying += Die;
             _health.HalfHP += OnHalfHP;
             _health.QuaterHP += OnQuaterHP;
@@ -66,7 +61,6 @@ namespace AttackSystem
             Dying?.Invoke(this);
 
             _collider.enabled = false;
-            _rigidbody.isKinematic = true;
 
             enabled = false;
         }
