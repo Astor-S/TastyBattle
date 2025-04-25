@@ -8,7 +8,7 @@ public class AttackerAnimationEventHandler : DamagableAnimationEventHandler
     [SerializeField] private AttackHandler _attackHandler;
     [SerializeField] private Animator _animator;
 
-    private void Start() => 
+    private void OnEnable() =>
         _animator.SetFloat(AttackSpeed, _attackHandler.BaseAttackSpeed);
 
     public void HitEvent() => 
