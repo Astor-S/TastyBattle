@@ -17,6 +17,11 @@ public class UnitView : View
 
     protected Animator Animator => _animator;
 
+    private void OnValidate()
+    {
+        _animationEventHandler = GetComponentInChildren<DamagableAnimationEventHandler>();
+    }
+
     private void Awake()
     {
         _healthBar.SetColor(gameObject.layer);
