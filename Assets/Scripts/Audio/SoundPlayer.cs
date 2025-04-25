@@ -1,8 +1,6 @@
-using StructureElements;
 using UnityEngine;
 using UnityEngine.Audio;
 
-[RequireComponent(typeof(AudioSource))]
 public class SoundPlayer : MonoBehaviour
 {
     [SerializeField] private AttackerAnimationEventHandler _attackerAnimation;
