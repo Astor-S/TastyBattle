@@ -33,9 +33,6 @@ public class SoundPlayer : MonoBehaviour
 
     private void PlaySound(AudioClip clip, bool isLooped)
     {
-        if (_audioSource.clip != clip)
-            _audioSource.Stop();
-
         _audioSource.clip = clip;
 
         _audioSource.loop = isLooped;

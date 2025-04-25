@@ -7,7 +7,7 @@ public class UnitView : View
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private HealthBar _healthBar;
-    [SerializeField] private DamagableAnimationEventHandler _animationEventHandler;
+    [SerializeField] private AttackerAnimationEventHandler _animationEventHandler;
 
     public readonly int IsWalking = Animator.StringToHash(nameof(IsWalking));
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
@@ -21,7 +21,7 @@ public class UnitView : View
     {
         base.OnValidate();
 
-        _animationEventHandler = GetComponentInChildren<DamagableAnimationEventHandler>();
+        _animationEventHandler = GetComponentInChildren<AttackerAnimationEventHandler>();
     }
 
     private void Awake()
@@ -33,11 +33,13 @@ public class UnitView : View
     {
         _healthBar.gameObject.SetActive(true);
         _animationEventHandler.Decayed += OnDecayed;
+        _animationEventHandler.AttackingStarted += SoundPlayer.SetAttackingSound;
     }
 
     private void OnDisable()
     {
         _animationEventHandler.Decayed -= OnDecayed;
+        _animationEventHandler.AttackingStarted -= SoundPlayer.SetAttackingSound;
     }
 
     public void SetWalkingAnimation()
@@ -52,8 +54,6 @@ public class UnitView : View
     {
         _animator.SetBool(IsWalking, false);
         _animator.SetBool(IsAttacking, true);
-
-        SoundPlayer.SetAttackingSound();
     }
 
     public void SetDeathAnimation()
