@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundPlayer: {fileID: -2729351137077277757}
   _animator: {fileID: 7580848323791432377}
-  _healthBar: {fileID: 0}
+  _healthBar: {fileID: 2652809626778375736}
   _animationEventHandler: {fileID: 6307391038689748088}
 --- !u!114 &5995714737180854343
 MonoBehaviour:
@@ -1714,6 +1714,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+--- !u!114 &2652809626778375736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
+  m_PrefabInstance: {fileID: 5184960325599985732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78a29ac069c1ae479185bb4bf64bc9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5397051911333456458 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 941960337626638862, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
