@@ -4026,6 +4026,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1212571317}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
+      propertyPath: _factionUnits
+      value: 
+      objectReference: {fileID: 11400000, guid: f5bc82ae91b0d094c9dc544cb6f8d863, type: 2}
+    - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -7302,6 +7306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _homeButton: {fileID: 0}
+  _restartButton: {fileID: 0}
   _replayButton: {fileID: 0}
 --- !u!222 &980278526
 CanvasRenderer:
@@ -9598,6 +9603,10 @@ PrefabInstance:
       propertyPath: _enemyBase
       value: 
       objectReference: {fileID: 502671744}
+    - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _factionUnits
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b18cea6e6d17eb4d96f7bb2e43be42d, type: 2}
     - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _units.Array.size
       value: 4
@@ -12253,7 +12262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _homeButton: {fileID: 0}
+  _restartButton: {fileID: 0}
   _nextLevelButton: {fileID: 0}
+  _victoryTimerView: {fileID: 0}
+  _timer: {fileID: 0}
 --- !u!222 &1495977798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12304,6 +12316,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _outOfBoundsZone: 28
+  _rotateDuration: 0
 --- !u!114 &1508184025
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5211579050596040642
 Transform:
   m_ObjectHideFlags: 0
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 6276526037583666403}
-  _rigidbody: {fileID: 6863920991872250630}
 --- !u!114 &8601648894771089668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: 3535746107013427434}
   _animator: {fileID: 143945614826707584}
   _healthBar: {fileID: 1010346089088177828}
+  _animationEventHandler: {fileID: 2751453757060750857}
 --- !u!114 &3768784554562089065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 8601648894771089668}
   _attackerAnimation: {fileID: 2751453757060750857}
   _soundPack: {fileID: 11400000, guid: b698bfdf7ba63b443949062f0d7e0ea0, type: 2}
   _audioSource: {fileID: 8927250343151349209}
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7863700389587271896}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78a29ac069c1ae479185bb4bf64bc9a, type: 3}
   m_Name: 
