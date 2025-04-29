@@ -19,9 +19,9 @@ namespace Units
         private float _defaultSpeed;
         private float _defaultAttackSpeedMultiplier;
 
-        private Action<DamagableTarget> DyingDelegate;
-
+        public event Action OnUnitDying;
         public event Action<UnitPresenter> Releasing;
+        private Action<DamagableTarget> DyingDelegate;
 
         public new Unit Model => base.Model as Unit;
         public new UnitView View => base.View as UnitView;
@@ -69,6 +69,7 @@ namespace Units
             _navMeshAgent.enabled = true;
 
             _damageTarget.Dying += DyingDelegate;
+            _damageTarget.Dying += DyingDelegateHandler;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
             View.Decayed += OnDecayed;
@@ -77,6 +78,7 @@ namespace Units
         public virtual void Disable()
         {
             _damageTarget.Dying -= DyingDelegate;
+            _damageTarget.Dying -= DyingDelegateHandler;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
             View.Decayed -= OnDecayed;
@@ -104,6 +106,12 @@ namespace Units
 
             if (_detectionSystem != null)
                 _detectionSystem.enabled = false;
+        }
+
+        private void DyingDelegateHandler(DamagableTarget target)
+        {
+            OnUnitDying?.Invoke();
+            OnDying();
         }
 
         private void OnDecayed()

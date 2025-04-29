@@ -1,6 +1,7 @@
 using UnityEngine;
 using AttackSystem;
 using System.Collections.Generic;
+using GameService.GameHandlerSystem;
 
 namespace Units
 {
@@ -9,6 +10,7 @@ namespace Units
         [SerializeField] private FactionUnits _factionUnits;
         [SerializeField] private DamagableTarget _enemyBase;
         [SerializeField] private Transform _spawnPoint;
+        [SerializeField] private UnitDeathHandler _enemyDeathHandler;
 
         private int _minSpawnPositionZ = -5;
         private int _maxSpawnPositionZ = 5;
@@ -61,8 +63,8 @@ namespace Units
             UnitPresenter presenter = _pools[setup.BattleRole].GetObject(unit);
             presenter.gameObject.SetActive(true);
             presenter.Releasing += ReleaseIntoPool;
-
             presenter.transform.position = GenerateSpawnPosition();
+            _enemyDeathHandler.OnUnitSpawned(presenter);
         }
 
         private UnitPresenter CreatePresenter(Unit model)

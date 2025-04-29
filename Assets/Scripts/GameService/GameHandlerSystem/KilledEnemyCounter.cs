@@ -22,13 +22,7 @@ namespace GameService.GameHandlerSystem
         private void UpdateKillCountUI()
         {
             if (_killCountText != null)
-            {
-                _killCountText.text = "Kills: " + _enemiesKilled.ToString(); 
-            }
-            else
-            {
-                Debug.LogWarning("KillCountText не назначен в KilledEnemyCounter!");
-            }
+                _killCountText.text = " " + _enemiesKilled.ToString();
         }
     }
 }
