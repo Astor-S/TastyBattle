@@ -144,9 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5a479ae80f15249b3a380d398038f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: -7893684355019598451}
   _animator: {fileID: 2259060150911474645}
   _healthBar: {fileID: 5438010750350845989}
-  _animationEventHandler: {fileID: 0}
+  _animationEventHandler: {fileID: 1843315989624380319}
 --- !u!114 &6257796238367465651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 4967839641128736432}
-  _rigidbody: {fileID: 2470711282006723974}
 --- !u!82 &4072500341935706883
 AudioSource:
   m_ObjectHideFlags: 0
@@ -269,7 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 1380924329125409068}
   _attackerAnimation: {fileID: 1843315989624380319}
   _soundPack: {fileID: 11400000, guid: 541e9b65add732b4ebd07056ff0ea952, type: 2}
   _audioSource: {fileID: 4072500341935706883}

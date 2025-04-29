@@ -13,7 +13,7 @@ public class BuildingView : View
     [SerializeField] protected Animator Animator;
 
     private void OnEnable() => 
-        _healthBar.gameObject.SetActive(true);
+        _healthBar.enabled = true;
 
     public void SetColor(Color color)
     {

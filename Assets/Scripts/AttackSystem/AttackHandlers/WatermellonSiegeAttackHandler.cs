@@ -13,16 +13,15 @@ public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
     private float _distanceToTargetSquared;
     protected new WatermellonSiegeSetup Stats => base.Stats as WatermellonSiegeSetup;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (IsAbleToAttack)
-            _distanceToTargetSquared = Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position);
+        _distanceToTargetSquared = Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position);
     }
 
     protected override IEnumerator Combat()
     {
         WaitForSeconds runUpWaiting = new WaitForSeconds(0.3f);
-        WaitUntil approachingWaiting = new WaitUntil(() => _distanceToTargetSquared < Stats.HitDistance* Stats.HitDistance);
+        WaitUntil approachingWaiting = new WaitUntil(() => _distanceToTargetSquared < Stats.HitDistance * Stats.HitDistance);
         WaitUntil runUpLongWaiting = new WaitUntil(() => _distanceToTargetSquared > Stats.AttackDistance * Stats.AttackDistance);
 
         while (enabled)
