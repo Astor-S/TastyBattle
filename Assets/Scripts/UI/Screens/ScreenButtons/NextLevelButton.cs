@@ -1,4 +1,4 @@
 namespace UI.Screens.ScreenButtons
 {
-    public class NextLevelButton : LoadSceneButton { }
+    public class NextLevelButton : LoadSceneButton {}
 }

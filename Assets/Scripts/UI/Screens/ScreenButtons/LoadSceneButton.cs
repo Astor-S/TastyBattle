@@ -16,7 +16,7 @@ namespace UI.Screens.ScreenButtons
         public void OnButtonClick()
         {
             StartCoroutine(_levelLoader.LoadLevelAsync(_sceneToLoad));
-            GameContinued?.Invoke();
+           GameContinued?.Invoke();
         }
     }
 }
