@@ -29,7 +29,7 @@ namespace UI.Screens
             string spaceSymbol = " ";
 
             _screenTimerView.text = spaceSymbol + _timer.GetCurrentTime();
-            _screenKilledView.text = spaceSymbol + _killedEnemyCounter.GetEnemiesKilled();
+            _screenKilledView.text = spaceSymbol + _killedEnemyCounter.EnemiesKilled;
         }
 
         public void Open() =>

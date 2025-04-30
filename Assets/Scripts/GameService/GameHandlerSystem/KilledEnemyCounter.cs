@@ -9,8 +9,7 @@ namespace GameService.GameHandlerSystem
         
         private int _enemiesKilled = 0;
 
-        public int GetEnemiesKilled() =>
-            _enemiesKilled;
+        public int EnemiesKilled => _enemiesKilled;
 
         public void EnemyKilled()
         {

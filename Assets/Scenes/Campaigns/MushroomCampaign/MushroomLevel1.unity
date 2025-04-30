@@ -1774,7 +1774,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 139133216}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 139133218}
+        m_TargetAssemblyTypeName: UI.Screens.ScreenButtons.CoinDoublingButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &139133216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2852,6 +2864,7 @@ GameObject:
   - component: {fileID: 251369251}
   - component: {fileID: 251369253}
   - component: {fileID: 251369252}
+  - component: {fileID: 251369254}
   m_Layer: 5
   m_Name: LevelMoney
   m_TagString: Untagged
@@ -2917,6 +2930,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251369250}
   m_CullTransparentMesh: 1
+--- !u!114 &251369254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251369250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505b2067d9d4cec40aa8a355d39c23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinText: {fileID: 296418584}
+  _levelRewarder: {fileID: 1345416946}
 --- !u!4 &264091107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310, type: 3}
@@ -3103,7 +3130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: + 310
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -12365,6 +12392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faad26f481d0be64486a17c2ebae5165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _killedEnemyCounter: {fileID: 744934170}
   _coinDoubling: {fileID: 139133218}
   _coinsPerLevel: 100
 --- !u!4 &1345416947
