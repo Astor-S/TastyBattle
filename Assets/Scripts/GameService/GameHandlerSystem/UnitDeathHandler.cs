@@ -25,7 +25,7 @@ namespace GameService.GameHandlerSystem
         private void OnUnitDying()
         {
             if (_killedEnemyCounter != null)
-                _killedEnemyCounter.EnemyKilled();
+                _killedEnemyCounter.EnemyKilled(); 
         }
 
         private void OnDestroy()

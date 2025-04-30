@@ -14,7 +14,6 @@ namespace GameService.GameHandlerSystem
         public void EnemyKilled()
         {
             _enemiesKilled++;
-            Debug.Log(" " + _enemiesKilled);
             UpdateKillCountUI(); 
         }
 
