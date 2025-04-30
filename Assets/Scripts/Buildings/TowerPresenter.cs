@@ -17,7 +17,7 @@ namespace Buildings
         {
             base.Enable();
 
-            _attackHandler.Init(Stats);
+            _attackHandler.Init(Stats, _upgradeHandler);
             _detectionSystem.Init(gameObject.layer, _enemyBase);
 
             _attackHandler.AttackStarted += View.SetAttackingAnimation;

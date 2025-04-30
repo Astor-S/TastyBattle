@@ -1,5 +1,6 @@
 using AttackSystem;
 using StructureElements;
+using UnityEngine;
 
 namespace Units
 {
@@ -12,6 +13,7 @@ namespace Units
         public BattleRole BattleRole { get; }
         public UnitSetup Stats { get; }
         public DamagableTarget EnemyBase { get; }
+        public LayerMask OwnerMask { get; }
 
         public float CurrentMovementSpeed => _currentMovementSpeed;
         public float CurrentAttackSpeed => _currentAttackSpeed;
@@ -22,6 +24,11 @@ namespace Units
             Faction = setup.Faction;
             BattleRole = setup.BattleRole;
             EnemyBase = enemyBase;
+
+            if (LayerMask.LayerToName(EnemyBase.gameObject.layer) == "Player")
+                OwnerMask = LayerMask.NameToLayer("Enemy");
+            else
+                OwnerMask = LayerMask.NameToLayer("Player");
 
             _currentMovementSpeed = Stats.MovementSpeed;
             _currentAttackSpeed = Stats.AttackSpeed;

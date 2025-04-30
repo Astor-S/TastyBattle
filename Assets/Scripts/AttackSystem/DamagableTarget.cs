@@ -37,10 +37,10 @@ namespace AttackSystem
             _health.QuaterHP -= OnQuaterHP;
         }
 
-        public void Init(DamagableSetup setup)
+        public void Init(DamagableSetup setup, UpgradeHandler upgradeHandler)
         {
             _setup = setup;
-            _health = new Health(_setup);
+            _health = new Health(_setup, upgradeHandler);
 
             enabled = true;
             Inited?.Invoke();

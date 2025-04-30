@@ -6,20 +6,17 @@ public class Mine : MonoBehaviour, IIncomeSource
 {
     [SerializeField, Min(0.5f)] private float _incomeCooldown;
     [SerializeField] private int _incomeValue;
+    [SerializeField] private UpgradeHandler _upgradeHandler;
 
+    //private UpgradeHandler _upgradeHandler;
     private bool _isMining = true;
 
     public event Action<int, IIncomeSource> ResourceRecieved;
 
-    private void Start()
-    {
-        StartCoroutine(GetIncome());
-    }
+    public int IncomeValue => _incomeValue;
 
-    public void IncreaseIncome(float portion)
-    {
-        _incomeValue += (int)(_incomeValue * portion);
-    }
+    private void Start() => 
+        StartCoroutine(GetIncome());
 
     private IEnumerator GetIncome()
     {
@@ -29,7 +26,10 @@ public class Mine : MonoBehaviour, IIncomeSource
         {
             yield return cooldownWaitng;
 
-            ResourceRecieved?.Invoke(_incomeValue, this);
+            ResourceRecieved?.Invoke(_incomeValue + (int)_upgradeHandler.GetIncreasedIncome(this), this);
         }
     }
+
+    //public void SetUpgrades(UpgradeHandler upgradeHandler) => 
+    //    _upgradeHandler = upgradeHandler;
 }

@@ -16,14 +16,6 @@ public class AttackerSetup : DamagableSetup
     public float AttackSpeed { get; private set; }
     public float AttackDistance { get; private set; }
 
-    public void IncreaseDamage(float damageBoostPortion)
-    {
-        if (damageBoostPortion < 0 || damageBoostPortion > 1)
-            throw new ArgumentOutOfRangeException("Damage boost portion is a number between 0 and 1.");
-
-        AttackDamage += AttackDamage * damageBoostPortion;
-    }
-
     protected override void Initialize()
     {
         base.Initialize();

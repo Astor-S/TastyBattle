@@ -18,6 +18,7 @@ namespace Units
         
         private float _defaultSpeed;
         private float _defaultAttackSpeedMultiplier;
+        private UpgradeHandler _upgradeHandler;
 
         public event Action OnUnitDying;
         public event Action<UnitPresenter> Releasing;
@@ -33,24 +34,24 @@ namespace Units
 
         private void Awake()
         {
-            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
+            gameObject.layer = Model.OwnerMask;
             DyingDelegate = (_) => OnDying();
 
             _navMeshAgent.updateRotation = false;
             NavMesh.avoidancePredictionTime = 0.5f;
 
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
-            _navMeshAgent.speed = Model.Stats.MovementSpeed;
-            _defaultSpeed = Model.Stats.MovementSpeed;
+            _navMeshAgent.speed = Model.Stats.MovementSpeed + _upgradeHandler.GetIncreasedSpeed(Model.Stats);
+            _defaultSpeed = Model.Stats.MovementSpeed + _upgradeHandler.GetIncreasedSpeed(Model.Stats);
 
             if (_damageTarget.enabled == false)
-                _damageTarget.Init(Model.Stats);
+                _damageTarget.Init(Model.Stats, _upgradeHandler);
 
             if (_detectionSystem.gameObject.activeSelf == false)
                 _detectionSystem.Init(gameObject.layer, Model.EnemyBase, _battleRole);
 
             if (_attackHandler.gameObject.activeSelf == false)
-                _attackHandler.Init(Model.Stats);
+                _attackHandler.Init(Model.Stats, _upgradeHandler);
         }
 
         protected virtual void FixedUpdate()
@@ -96,6 +97,9 @@ namespace Units
         public void ResetAttackSpeedMultiplier() =>
             _attackHandler.AttackSpeedMultiplier = _defaultAttackSpeedMultiplier;
 
+        public void SetUpgrades(UpgradeHandler upgradeHandler) =>
+            _upgradeHandler = upgradeHandler;
+
         protected void OnDying()
         {
             View.SetDeathAnimation();
@@ -114,9 +118,7 @@ namespace Units
             OnDying();
         }
 
-        private void OnDecayed()
-        {
+        private void OnDecayed() => 
             Releasing?.Invoke(this);
-        }
     }
 }

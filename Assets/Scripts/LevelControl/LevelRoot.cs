@@ -16,6 +16,7 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private TowerPresenter[] _playerTowers;
     [SerializeField] private DamagableSetup _playerBaseSetup;
     [SerializeField] private AttackerSetup _playerTowerSetup;
+    [SerializeField] private UpgradeSetup _playerUpgradeSetup;
     [Header("Enemy's fields")]
     [SerializeField] private Mine _enemyMine;
     [SerializeField] private MainBuildingPresenter _enemyBase;
@@ -25,6 +26,7 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private TowerPresenter[] _enemyTowers;
     [SerializeField] private DamagableSetup _enemyBaseSetup;
     [SerializeField] private AttackerSetup _enemyTowerSetup;
+    [SerializeField] private UpgradeSetup _enemyUpgradeSetup;
     [Header("General fields")]
     [SerializeField] private float _defaultUnitSpawnCooldown;
     [SerializeField] private int _defaultUnitSpawnCount;
@@ -34,11 +36,23 @@ public class LevelRoot : MonoBehaviour
 
     private void Awake()
     {
+        _enemyUpgradeSetup.ResetValues();
+        _playerUpgradeSetup.ResetValues();
+
         Wallet playerWallet = new Wallet(300, _playerMine);
         _playerResourceCounter.Init(playerWallet);
 
         Wallet enemyWallet = new Wallet(300, _enemyMine);
         _enemyResourceCounter.Init(enemyWallet);
+
+        //UpgradeHandler playerUpgradeHandler = new(_playerUpgradeSetup);
+        //UpgradeHandler enemyUpgradeHandler = new(_enemyUpgradeSetup);
+
+        //_playerMine.SetUpgrades(playerUpgradeHandler);
+        //_playerUnitFactory.SetUpgrades(playerUpgradeHandler);
+
+        //_enemyMine.SetUpgrades(enemyUpgradeHandler);
+        //_enemyUnitFactory.SetUpgrades(enemyUpgradeHandler);
 
         UnitOrderHandler[] playerUnitOrderHandlers = _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
         UnitSetup[] playerUnitSetups = playerUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
@@ -50,18 +64,20 @@ public class LevelRoot : MonoBehaviour
             _playerUnitFactory,
             _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
             _playerOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
-            new UpgradeHandler(playerUnitSetups, _playerMine),
+            _playerUpgradeSetup,
             playerWallet));
 
         _enemyShop.Init(new Shop(
             _enemyUnitFactory,
             _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
             _enemyOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
-            new UpgradeHandler(enemyUnitSetups, _enemyMine),
+            _enemyUpgradeSetup,
             enemyWallet));
 
         foreach (BuildingPresenter tower in _playerTowers)
         {
+            //tower.SetUpgrades(playerUpgradeHandler);
+
             tower.Init(new Building(
                 _playerTowerSetup,
                 tower.transform.position,
@@ -71,6 +87,8 @@ public class LevelRoot : MonoBehaviour
 
         foreach (BuildingPresenter tower in _enemyTowers)
         {
+            //tower.SetUpgrades(enemyUpgradeHandler);
+
             tower.Init(new Building(
                 _enemyTowerSetup,
                 tower.transform.position,

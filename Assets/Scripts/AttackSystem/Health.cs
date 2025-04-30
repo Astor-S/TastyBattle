@@ -22,10 +22,10 @@ namespace AttackSystem
         public float MaxValue => _stats.MaxHealthPoints;
         public bool IsAlive => Value > MinValue;
 
-        public Health(DamagableSetup damagableSetup)
+        public Health(DamagableSetup damagableSetup, UpgradeHandler upgradeHandler)
         {
             _stats = damagableSetup;
-            Value = _stats.MaxHealthPoints;
+            Value = _stats.MaxHealthPoints + upgradeHandler.GetIncreasedHealth(damagableSetup);
         }
 
         public void Reduce(float damage)

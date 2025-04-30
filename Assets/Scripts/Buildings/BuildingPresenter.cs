@@ -5,8 +5,10 @@ using AttackSystem;
 
 public class BuildingPresenter : Presenter, IActivatable
 {
-    [SerializeField] private DamagableTarget _damagableTarget;    
+    [SerializeField] private DamagableTarget _damagableTarget;
+    [SerializeField] protected UpgradeHandler _upgradeHandler;
 
+    //protected UpgradeHandler _upgradeHandler;
     private Action<DamagableTarget> _dyingDelegate;
 
     public new BuildingView View => base.View as BuildingView;
@@ -26,7 +28,7 @@ public class BuildingPresenter : Presenter, IActivatable
 
     public virtual void Enable()
     {
-        _damagableTarget.Init(Stats);
+        _damagableTarget.Init(Stats, _upgradeHandler);
 
         _damagableTarget.Dying += _dyingDelegate;
     }
@@ -35,6 +37,9 @@ public class BuildingPresenter : Presenter, IActivatable
     {
         _damagableTarget.Dying -= _dyingDelegate;
     }
+
+    //public void SetUpgrades(UpgradeHandler upgradeHandler) => 
+    //    _upgradeHandler = upgradeHandler;
 
     protected virtual void OnDying()
     {
