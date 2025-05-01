@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
   m_Name: WatermellonTank
   m_EditorClassIdentifier: 
-  _ownerMask:
-    serializedVersion: 2
-    m_Bits: 64
   _battleRole: 2
-  _maxHealthPoints: 200
-  _reward: 10
+  _maxHealthPoints: 90
+  _reward: 16
   _attackDamage: 5
   _attackDistance: 3
   _attackSpeed: 1
   _faction: 1
-  _movementSpeed: 1.5
+  _movementSpeed: 2

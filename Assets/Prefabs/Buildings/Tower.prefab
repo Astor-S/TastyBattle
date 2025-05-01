@@ -220,6 +220,7 @@ MonoBehaviour:
   _healthBar: {fileID: 968246683830297345}
   _particleSystem: {fileID: 6712984016649427631}
   Animator: {fileID: 6800714758958136244}
+  _attackerAnimationEventHandler: {fileID: 164196535810686006}
 --- !u!82 &7073708053389168822
 AudioSource:
   m_ObjectHideFlags: 0
@@ -650,7 +651,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &7212480549341496934
 MonoBehaviour:

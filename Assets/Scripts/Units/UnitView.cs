@@ -64,8 +64,6 @@ public class UnitView : View
         SoundPlayer.SetDeathSound();
     }
 
-    private void OnDecayed()
-    {
+    private void OnDecayed() => 
         Decayed?.Invoke();
-    }
 }
