@@ -6,6 +6,9 @@ namespace Units
 {
     public class Unit : Transformable
     {
+        private const string Enemy = nameof(Enemy);
+        private const string Player = nameof(Player);
+
         private float _currentMovementSpeed;
         private float _currentAttackSpeed;
 
@@ -25,10 +28,10 @@ namespace Units
             BattleRole = setup.BattleRole;
             EnemyBase = enemyBase;
 
-            if (LayerMask.LayerToName(EnemyBase.gameObject.layer) == "Player")
-                OwnerMask = LayerMask.NameToLayer("Enemy");
+            if (LayerMask.LayerToName(EnemyBase.gameObject.layer) == Player)
+                OwnerMask = LayerMask.NameToLayer(Enemy);
             else
-                OwnerMask = LayerMask.NameToLayer("Player");
+                OwnerMask = LayerMask.NameToLayer(Player);
 
             _currentMovementSpeed = Stats.MovementSpeed;
             _currentAttackSpeed = Stats.AttackSpeed;
