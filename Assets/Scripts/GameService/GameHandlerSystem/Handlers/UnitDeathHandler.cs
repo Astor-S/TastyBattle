@@ -2,7 +2,7 @@ using UnityEngine;
 using GameService.GameHandlerSystem.Counters;
 using Units;
 
-namespace GameService.GameHandlerSystem
+namespace GameService.GameHandlerSystem.Handlers
 {
     public class UnitDeathHandler : MonoBehaviour
     {
