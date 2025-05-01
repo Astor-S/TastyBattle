@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace GameService.GameHandlerSystem
+namespace GameService.GameHandlerSystem.Counters
 {
     public class KilledEnemyCounter : MonoBehaviour
     {

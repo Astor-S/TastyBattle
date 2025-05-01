@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using GameService.GameHandlerSystem;
 using TMPro;
+using GameService.GameHandlerSystem;
+using GameService.GameHandlerSystem.Counters;
 
 namespace UI.Screens
 {
