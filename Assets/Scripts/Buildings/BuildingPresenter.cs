@@ -3,17 +3,16 @@ using System;
 using UnityEngine;
 using AttackSystem;
 
-public class BuildingPresenter : Presenter, IActivatable
+public class BuildingPresenter : Presenter, IActivatable, IUpgradable
 {
     [SerializeField] private DamagableTarget _damagableTarget;
-    [SerializeField] protected UpgradeHandler _upgradeHandler;
 
-    //protected UpgradeHandler _upgradeHandler;
     private Action<DamagableTarget> _dyingDelegate;
 
     public new BuildingView View => base.View as BuildingView;
     public new Building Model => base.Model as Building;
     public DamagableSetup Stats => Model.Stats;
+    public UpgradeHandler UpgradeHandler => Model.UpgradeHandler;
     public DamagableTarget DamagableTarget => _damagableTarget;
 
     protected virtual void Awake()
@@ -28,21 +27,14 @@ public class BuildingPresenter : Presenter, IActivatable
 
     public virtual void Enable()
     {
-        _damagableTarget.Init(Stats, _upgradeHandler);
+        _damagableTarget.Init(Stats, UpgradeHandler);
 
         _damagableTarget.Dying += _dyingDelegate;
     }
 
-    public virtual void Disable()
-    {
+    public virtual void Disable() => 
         _damagableTarget.Dying -= _dyingDelegate;
-    }
 
-    //public void SetUpgrades(UpgradeHandler upgradeHandler) => 
-    //    _upgradeHandler = upgradeHandler;
-
-    protected virtual void OnDying()
-    {
+    protected virtual void OnDying() => 
         View.SetDeathAnimation();
-    }
 }

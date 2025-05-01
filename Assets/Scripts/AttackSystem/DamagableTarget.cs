@@ -9,6 +9,7 @@ namespace AttackSystem
         [SerializeField] private Collider _collider;
 
         private DamagableSetup _setup;
+        private UpgradeHandler _upgradeHandler;
         private Health _health;
 
         public Health Health => _health;
@@ -40,7 +41,9 @@ namespace AttackSystem
         public void Init(DamagableSetup setup, UpgradeHandler upgradeHandler)
         {
             _setup = setup;
-            _health = new Health(_setup, upgradeHandler);
+            _upgradeHandler = upgradeHandler;
+
+            _health = new Health(_setup, _upgradeHandler);
 
             enabled = true;
             Inited?.Invoke();

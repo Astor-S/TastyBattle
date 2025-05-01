@@ -1,22 +1,20 @@
-using UnityEngine;
-
-public class UpgradeHandler : MonoBehaviour
+public class UpgradeHandler
 {
-    [SerializeField] private UpgradeSetup _upgradeSetup;
+    private const float UpgradeValue = 0.2f;
 
-    private float _upgradeValue = 0.2f;
+    private UpgradeSetup _upgradeSetup;
 
-    //public UpgradeHandler(UpgradeSetup upgradeSetup) => 
-    //    _upgradeSetup = upgradeSetup;
+    public UpgradeHandler(UpgradeSetup upgradeSetup) =>
+        _upgradeSetup = upgradeSetup;
 
     public float GetIncreasedDamage(AttackerSetup attackerSetup) => 
-        attackerSetup.AttackDamage * _upgradeValue * _upgradeSetup.UnitSpeedUpgrade;
+        attackerSetup.AttackDamage * UpgradeValue * _upgradeSetup.UnitDamageUpgrade;
 
     public float GetIncreasedSpeed(UnitSetup unitSetup) => 
-        unitSetup.MovementSpeed * _upgradeValue * _upgradeSetup.UnitSpeedUpgrade;
+        unitSetup.MovementSpeed * UpgradeValue * _upgradeSetup.UnitSpeedUpgrade;
 
     public float GetIncreasedHealth(DamagableSetup damagableSetup) =>
-        damagableSetup.MaxHealthPoints * _upgradeValue * _upgradeSetup.UnitHealthUpgrade;
+        damagableSetup.MaxHealthPoints * UpgradeValue * _upgradeSetup.UnitHealthUpgrade;
 
     //TODO
     public void IncreaseBuldingHealth()
@@ -25,5 +23,5 @@ public class UpgradeHandler : MonoBehaviour
     }
 
     public float GetIncreasedIncome(Mine mine) => 
-        mine.IncomeValue * _upgradeValue * _upgradeSetup.IncomeUpgrade;
+        mine.IncomeValue * UpgradeValue * _upgradeSetup.IncomeUpgrade;
 }

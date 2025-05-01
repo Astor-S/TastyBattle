@@ -45,14 +45,14 @@ public class LevelRoot : MonoBehaviour
         Wallet enemyWallet = new Wallet(300, _enemyMine);
         _enemyResourceCounter.Init(enemyWallet);
 
-        //UpgradeHandler playerUpgradeHandler = new(_playerUpgradeSetup);
-        //UpgradeHandler enemyUpgradeHandler = new(_enemyUpgradeSetup);
+        UpgradeHandler playerUpgradeHandler = new(_playerUpgradeSetup);
+        UpgradeHandler enemyUpgradeHandler = new(_enemyUpgradeSetup);
 
-        //_playerMine.SetUpgrades(playerUpgradeHandler);
-        //_playerUnitFactory.SetUpgrades(playerUpgradeHandler);
+        _playerMine.UpgradeHandler = playerUpgradeHandler;
+        _enemyMine.UpgradeHandler = enemyUpgradeHandler;
 
-        //_enemyMine.SetUpgrades(enemyUpgradeHandler);
-        //_enemyUnitFactory.SetUpgrades(enemyUpgradeHandler);
+        _playerUnitFactory.UpgradeHandler = playerUpgradeHandler;
+        _enemyUnitFactory.UpgradeHandler = enemyUpgradeHandler;
 
         UnitOrderHandler[] playerUnitOrderHandlers = _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
         UnitSetup[] playerUnitSetups = playerUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
@@ -76,10 +76,9 @@ public class LevelRoot : MonoBehaviour
 
         foreach (BuildingPresenter tower in _playerTowers)
         {
-            //tower.SetUpgrades(playerUpgradeHandler);
-
             tower.Init(new Building(
                 _playerTowerSetup,
+                playerUpgradeHandler,
                 tower.transform.position,
                 tower.transform.rotation,
                 tower.transform.localScale));
@@ -87,10 +86,9 @@ public class LevelRoot : MonoBehaviour
 
         foreach (BuildingPresenter tower in _enemyTowers)
         {
-            //tower.SetUpgrades(enemyUpgradeHandler);
-
             tower.Init(new Building(
                 _enemyTowerSetup,
+                enemyUpgradeHandler,
                 tower.transform.position,
                 tower.transform.rotation,
                 tower.transform.localScale));
@@ -98,6 +96,7 @@ public class LevelRoot : MonoBehaviour
 
         _playerBase.Init(new MainBuilding(
             _playerBaseSetup,
+            playerUpgradeHandler,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _playerUnitFactory,
@@ -108,6 +107,7 @@ public class LevelRoot : MonoBehaviour
 
         _enemyBase.Init(new MainBuilding(
             _enemyBaseSetup,
+            enemyUpgradeHandler,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _enemyUnitFactory,

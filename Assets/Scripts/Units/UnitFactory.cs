@@ -5,19 +5,19 @@ using GameService.GameHandlerSystem;
 
 namespace Units
 {
-    public class UnitFactory : MonoBehaviour
+    public class UnitFactory : MonoBehaviour, IUpgradable
     {
         [SerializeField] private FactionUnits _factionUnits;
         [SerializeField] private DamagableTarget _enemyBase;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private UnitDeathHandler _enemyDeathHandler;
-        [SerializeField] private UpgradeHandler _upgradeHandler;
 
         private Dictionary<BattleRole, MVPPool<UnitPresenter, Unit>> _pools;
-        //private UpgradeHandler _upgradeHandler;
         private int _minSpawnPositionZ = -5;
         private int _maxSpawnPositionZ = 5;
         private int _previousSpawnPosition = 0;
+
+        public UpgradeHandler UpgradeHandler { get; set; }
 
         private void Awake()
         {
@@ -63,15 +63,12 @@ namespace Units
                 unit = new Unit(setup, _enemyBase);
 
             UnitPresenter presenter = _pools[setup.BattleRole].GetObject(unit);
-            presenter.SetUpgrades(_upgradeHandler);
+            presenter.UpgradeHandler = UpgradeHandler;
             presenter.gameObject.SetActive(true);
             presenter.Releasing += ReleaseIntoPool;
             presenter.transform.position = GenerateSpawnPosition();
             _enemyDeathHandler.OnUnitSpawned(presenter);
         }
-
-        //public void SetUpgrades(UpgradeHandler upgradeHandler) =>
-        //    _upgradeHandler = upgradeHandler;
 
         private UnitPresenter CreatePresenter(Unit model)
         {

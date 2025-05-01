@@ -22,7 +22,7 @@ namespace AttackSystem.AttackHandlers
         public DamagableTarget AttackedTarget => _attackedTarget;
         public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
-        protected virtual float Damage => _stats.AttackDamage;
+        protected virtual float Damage => _stats.AttackDamage + _upgradeHandler.GetIncreasedDamage(_stats);
 
         private void OnEnable()
         {
@@ -30,10 +30,8 @@ namespace AttackSystem.AttackHandlers
             StartCoroutine(nameof(Combat));
         }
 
-        private void OnDisable()
-        {
+        private void OnDisable() => 
             _detectionSystem.TargetChanged -= ChangeTarget;
-        }
 
         public void Init(AttackerSetup attackerSetup, UpgradeHandler upgradeHandler)
         {
@@ -50,7 +48,7 @@ namespace AttackSystem.AttackHandlers
         }
 
         protected virtual float CalculateDamage() =>
-           Damage + _upgradeHandler.GetIncreasedDamage(Stats);
+           Damage;
 
         protected virtual IEnumerator Combat()
         {
