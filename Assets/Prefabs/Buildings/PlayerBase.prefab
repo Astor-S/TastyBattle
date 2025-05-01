@@ -14957,10 +14957,10 @@ GameObject:
   - component: {fileID: 4322801892242409720}
   - component: {fileID: 6508554945627782408}
   - component: {fileID: 3626559426895696645}
-  - component: {fileID: 2860362713587550979}
   - component: {fileID: 2508535295967750980}
   - component: {fileID: 4082026564499027587}
   - component: {fileID: 5225950130046669571}
+  - component: {fileID: 7553821201924425787}
   m_Layer: 6
   m_Name: PlayerBase
   m_TagString: Untagged
@@ -15031,23 +15031,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 4785621668950576721}
   _unitScaner: {fileID: 8503358278897376425}
---- !u!114 &2860362713587550979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8825516257151857997}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc30ac8c592614640a24fbd888088c89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 5225950130046669571}
-  _healthBar: {fileID: 9013099457749797547}
-  _particleSystem: {fileID: 3756702701568696834}
-  Animator: {fileID: 9177211783327707997}
-  _outline: {fileID: 0}
 --- !u!114 &2508535295967750980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15176,6 +15159,22 @@ MonoBehaviour:
   _soundPack: {fileID: 11400000, guid: 42e209b015162a64a9e4db4e4c59fba4, type: 2}
   _audioSource: {fileID: 4082026564499027587}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+--- !u!114 &7553821201924425787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825516257151857997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a10433ca5b0d24898505927fde9dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: 5225950130046669571}
+  _healthBar: {fileID: 9013099457749797547}
+  _particleSystem: {fileID: 3756702701568696834}
+  Animator: {fileID: 9177211783327707997}
 --- !u!1 &9195679999406305591
 GameObject:
   m_ObjectHideFlags: 0

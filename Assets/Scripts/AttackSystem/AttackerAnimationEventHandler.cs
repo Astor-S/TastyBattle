@@ -11,7 +11,7 @@ public class AttackerAnimationEventHandler : DamagableAnimationEventHandler
 
     public event Action AttackingStarted;
 
-    private void OnEnable() =>
+    private void Start() =>
         _animator.SetFloat(AttackSpeed, _attackHandler.BaseAttackSpeed);
 
     public void HitEvent()
