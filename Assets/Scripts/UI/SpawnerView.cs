@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpawnTimerHandler : MonoBehaviour
+public class SpawnerView : MonoBehaviour
 {
     private const float FullFill = 1f;
 

@@ -32,7 +32,7 @@ public class LevelRoot : MonoBehaviour
     [Header("UI")]
     [SerializeField] private ResourceCounter _playerResourceCounter;
     [SerializeField] private ResourceCounter _enemyResourceCounter;// поле для тестов
-    [SerializeField] private SpawnTimerHandler _spawnTimerHandler;
+    [SerializeField] private SpawnerView _spawnTimerHandler;
 
     private void Awake()
     {
