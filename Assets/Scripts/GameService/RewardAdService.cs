@@ -17,7 +17,7 @@ namespace GameService
 
         private void OnDisable()
         {
-            YG2.onRewardAdv += ShowRewardAd;
+            YG2.onRewardAdv -= ShowRewardAd;
         }
 
         public void ShowRewardAd(string id)

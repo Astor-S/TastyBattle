@@ -4,6 +4,7 @@ using System.Linq;
 using Units;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class LevelRoot : MonoBehaviour
 {
@@ -113,5 +114,7 @@ public class LevelRoot : MonoBehaviour
             enemyWallet,
             _enemyBase.transform.position,
             _enemyBase.transform.rotation));
+
+        YG2.GameplayStart();
     }
 }
