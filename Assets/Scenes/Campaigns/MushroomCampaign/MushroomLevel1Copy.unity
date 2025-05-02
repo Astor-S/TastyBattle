@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _emergencyButton: {fileID: 986530779}
   _target: {fileID: 1212571317}
-  _particleInvulnerabilityEffect: {fileID: 0}
+  _particleInvulnerabilityEffect: {fileID: 1470441861}
   _invulnerabilityDuration: 10
 --- !u!4 &31263246
 Transform:
@@ -14144,6 +14144,11 @@ Transform:
 --- !u!4 &1470441859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409792, guid: 326bf855cf1051146a038746b0f8c282, type: 3}
+  m_PrefabInstance: {fileID: 392728603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1470441861 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19873640, guid: 326bf855cf1051146a038746b0f8c282, type: 3}
   m_PrefabInstance: {fileID: 392728603}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1481267423
