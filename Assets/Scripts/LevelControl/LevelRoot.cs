@@ -32,6 +32,7 @@ public class LevelRoot : MonoBehaviour
     [Header("UI")]
     [SerializeField] private ResourceCounter _playerResourceCounter;
     [SerializeField] private ResourceCounter _enemyResourceCounter;// поле для тестов
+    [SerializeField] private SpawnTimerHandler _spawnTimerHandler;
 
     private void Awake()
     {
@@ -114,6 +115,8 @@ public class LevelRoot : MonoBehaviour
             enemyWallet,
             _enemyBase.transform.position,
             _enemyBase.transform.rotation));
+
+        _spawnTimerHandler.StartCountSpawnTime(_defaultUnitSpawnCooldown);
 
         YG2.GameplayStart();
     }
