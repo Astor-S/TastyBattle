@@ -12,17 +12,17 @@ namespace GameService
 
         private void OnEnable()
         {
-            //YG2.onRewardAdv += ShowRewardAd;
+            YG2.onRewardAdv += ShowRewardAd;
         }
 
         private void OnDisable()
         {
-            //YG2.onRewardAdv += ShowRewardAd;
+            YG2.onRewardAdv += ShowRewardAd;
         }
 
         public void ShowRewardAd(string id)
         {
-            //YG2.RewardedAdvShow(id, Reward);
+            YG2.RewardedAdvShow(id, Reward);
         }
 
         private void Reward() =>
