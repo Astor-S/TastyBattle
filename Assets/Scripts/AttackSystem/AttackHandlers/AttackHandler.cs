@@ -11,6 +11,7 @@ namespace AttackSystem.AttackHandlers
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
         protected WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
+        private UpgradeHandler _upgradeHandler;
         private bool _isAttacking;
 
         public event Action AttackStarted;
@@ -21,7 +22,7 @@ namespace AttackSystem.AttackHandlers
         public DamagableTarget AttackedTarget => _attackedTarget;
         public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
-        protected virtual float Damage => _stats.AttackDamage;
+        protected virtual float Damage => _stats.AttackDamage + _upgradeHandler.GetIncreasedDamage(_stats);
 
         private void OnEnable()
         {
@@ -29,14 +30,13 @@ namespace AttackSystem.AttackHandlers
             StartCoroutine(nameof(Combat));
         }
 
-        private void OnDisable()
-        {
+        private void OnDisable() => 
             _detectionSystem.TargetChanged -= ChangeTarget;
-        }
 
-        public void Init(AttackerSetup attackerSetup)
+        public void Init(AttackerSetup attackerSetup, UpgradeHandler upgradeHandler)
         {
             _stats = attackerSetup;
+            _upgradeHandler = upgradeHandler;
 
             gameObject.SetActive(true);
         }

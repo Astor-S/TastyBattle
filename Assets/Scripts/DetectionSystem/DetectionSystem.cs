@@ -18,6 +18,7 @@ public class DetectionSystem : MonoBehaviour
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
     private bool _isSiege = false;
+    private float _radius = 7f;
 
     public DamagableTarget CurrentTarget { get; private set; } = null;
 
@@ -26,17 +27,7 @@ public class DetectionSystem : MonoBehaviour
     private void OnValidate()
     {
         _collider = GetComponent<SphereCollider>();
-        _collider.radius = 8f;
-    }
-
-    private void Awake()
-    {
-        CurrentTarget = _enemyBase;
-    }
-
-    private void Start()
-    {
-        TargetChanged?.Invoke(_enemyBase);
+        _collider.radius = _radius;
     }
 
     private void FixedUpdate()
@@ -50,9 +41,18 @@ public class DetectionSystem : MonoBehaviour
         _detectedUnits.Clear();
         CurrentTarget = _enemyBase;
         TargetChanged?.Invoke(CurrentTarget);
+
+        //Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, _radius);
+
+        //if (hitColliders.Length > 0)
+        //    foreach (Collider hit in hitColliders)
+        //        FindEnemies(hit);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) =>
+        FindEnemies(other);
+
+    private void FindEnemies(Collider other)
     {
         if (other.TryGetComponent(out DamagableTarget unit) &&
             _detectedUnits.Contains(unit) == false &&

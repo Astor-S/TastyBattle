@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &943640893790012015
 MonoBehaviour:
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4432079608223774839}
   - component: {fileID: 7381261731820708693}
   - component: {fileID: 4366214160574183739}
-  - component: {fileID: -7479833060864746847}
+  - component: {fileID: 570271952881048223}
   m_Layer: 0
   m_Name: IcecreamMeleePlayer
   m_TagString: Untagged
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: -7479833060864746847}
+  _soundPlayer: {fileID: 570271952881048223}
   _animator: {fileID: 8164331822074755704}
   _healthBar: {fileID: 3351405723313698082}
   _animationEventHandler: {fileID: 15157696769666919}
@@ -386,7 +386,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-7479833060864746847
+--- !u!114 &570271952881048223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -395,13 +395,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2747078291167304986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 15157696769666919}
-  _soundPack: {fileID: 11400000, guid: bc5867bab30f68b49b29a1408ef4f56e, type: 2}
   _audioSource: {fileID: 4366214160574183739}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: bc5867bab30f68b49b29a1408ef4f56e, type: 2}
+  _attackerAnimation: {fileID: 15157696769666919}
 --- !u!1 &7097614333776024348
 GameObject:
   m_ObjectHideFlags: 0

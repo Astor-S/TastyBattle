@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4701892874025211090}
   - component: {fileID: 6105299145238766357}
   - component: {fileID: 5960433603414968724}
-  - component: {fileID: 3225906322547488324}
+  - component: {fileID: 4252645296393218393}
   m_Layer: 0
   m_Name: OrangeAcidThrowerPlayer
   m_TagString: Untagged
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 3225906322547488324}
+  _soundPlayer: {fileID: 4252645296393218393}
   _animator: {fileID: 3794181761698062856}
   _healthBar: {fileID: 255330751598602338}
   _animationEventHandler: {fileID: 8681870743688636725}
@@ -302,7 +302,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3225906322547488324
+--- !u!114 &4252645296393218393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,13 +311,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3463093077486082372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 8681870743688636725}
-  _soundPack: {fileID: 11400000, guid: 711ff58cade89a74faa0b831a7c938fe, type: 2}
   _audioSource: {fileID: 5960433603414968724}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: 711ff58cade89a74faa0b831a7c938fe, type: 2}
+  _attackerAnimation: {fileID: 8681870743688636725}
 --- !u!1 &4515222663098922915
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3795654921786018343
 MonoBehaviour:

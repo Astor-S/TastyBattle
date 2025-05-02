@@ -12,7 +12,7 @@ public class BuildingView : View
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] protected Animator Animator;
 
-    private void OnEnable() => 
+    private void Start() => 
         _healthBar.enabled = true;
 
     public void SetColor(Color color)

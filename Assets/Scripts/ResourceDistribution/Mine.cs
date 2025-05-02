@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Mine : MonoBehaviour, IIncomeSource
+public class Mine : MonoBehaviour, IIncomeSource, IUpgradable
 {
     [SerializeField, Min(0.5f)] private float _incomeCooldown;
     [SerializeField] private int _incomeValue;
@@ -11,15 +11,11 @@ public class Mine : MonoBehaviour, IIncomeSource
 
     public event Action<int, IIncomeSource> ResourceRecieved;
 
-    private void Start()
-    {
-        StartCoroutine(GetIncome());
-    }
+    public UpgradeHandler UpgradeHandler { get; set; }
+    public int IncomeValue => _incomeValue;
 
-    public void IncreaseIncome(float portion)
-    {
-        _incomeValue += (int)(_incomeValue * portion);
-    }
+    private void Start() => 
+        StartCoroutine(GetIncome());
 
     private IEnumerator GetIncome()
     {
@@ -29,7 +25,7 @@ public class Mine : MonoBehaviour, IIncomeSource
         {
             yield return cooldownWaitng;
 
-            ResourceRecieved?.Invoke(_incomeValue, this);
+            ResourceRecieved?.Invoke(_incomeValue + (int)UpgradeHandler.GetIncreasedIncome(this), this);
         }
     }
 }

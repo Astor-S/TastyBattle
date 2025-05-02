@@ -4,17 +4,19 @@ public class TowerView : BuildingView
 {
     public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
 
-    public void SetAttackingAnimation()
-    {
+    [SerializeField] private AttackerAnimationEventHandler _attackerAnimationEventHandler;
+
+    public new AttackerSoundPlayer SoundPlayer => _soundPlayer as AttackerSoundPlayer;
+
+    private void OnEnable() => 
+        _attackerAnimationEventHandler.AttackingStarted += this.SoundPlayer.SetAttackingSound;
+
+    private void OnDisable() => 
+        _attackerAnimationEventHandler.AttackingStarted -= this.SoundPlayer.SetAttackingSound;
+
+    public void SetAttackingAnimation() => 
         Animator.SetBool(IsAttacking, true);
 
-        SoundPlayer.SetAttackingSound();
-    }
-
-    public void StopAttackingAnimation()
-    {
+    public void StopAttackingAnimation() => 
         Animator.SetBool(IsAttacking, false);
-
-        SoundPlayer.StopAttackingSound();
-    }
 }

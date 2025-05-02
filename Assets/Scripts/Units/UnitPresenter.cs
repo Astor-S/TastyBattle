@@ -7,7 +7,7 @@ using AttackSystem.AttackHandlers;
 
 namespace Units
 {
-    public class UnitPresenter : Presenter, IActivatable
+    public class UnitPresenter : Presenter, IActivatable, IUpgradable
     {
         [SerializeField] private AttackHandler _attackHandler;
         [SerializeField] private DetectionSystem _detectionSystem;
@@ -30,27 +30,28 @@ namespace Units
         public BattleRole BattleRole => _battleRole;
         protected AttackHandler AttackHandler => _attackHandler;
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
+        public UpgradeHandler UpgradeHandler { get; set; }
 
         private void Awake()
-        {
-            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
+        { 
+            gameObject.layer = Model.OwnerMask;
             DyingDelegate = (_) => OnDying();
 
             _navMeshAgent.updateRotation = false;
             NavMesh.avoidancePredictionTime = 0.5f;
 
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
-            _navMeshAgent.speed = Model.Stats.MovementSpeed;
-            _defaultSpeed = Model.Stats.MovementSpeed;
+            _navMeshAgent.speed = Model.Stats.MovementSpeed + UpgradeHandler.GetIncreasedSpeed(Model.Stats);
+            _defaultSpeed = Model.Stats.MovementSpeed + UpgradeHandler.GetIncreasedSpeed(Model.Stats);
 
             if (_damageTarget.enabled == false)
-                _damageTarget.Init(Model.Stats);
+                _damageTarget.Init(Model.Stats, UpgradeHandler);
 
             if (_detectionSystem.gameObject.activeSelf == false)
                 _detectionSystem.Init(gameObject.layer, Model.EnemyBase, _battleRole);
 
             if (_attackHandler.gameObject.activeSelf == false)
-                _attackHandler.Init(Model.Stats);
+                _attackHandler.Init(Model.Stats, UpgradeHandler);
         }
 
         protected virtual void FixedUpdate()
@@ -108,9 +109,7 @@ namespace Units
             OnUnitDying?.Invoke();
         }
 
-        private void OnDecayed()
-        {
+        private void OnDecayed() => 
             Releasing?.Invoke(this);
-        }
     }
 }

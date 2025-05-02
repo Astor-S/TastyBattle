@@ -9,20 +9,20 @@ namespace ResourceDistribution
         private UnitFactory _unitFactory;
         private UnitOrderHandler[] _unitItems;
         private UpgradeOrderHandler[] _upgradeItems;
-        private UpgradeHandler _upgradeHandler;
+        private UpgradeSetup _upgradeSetup;
         private Wallet _wallet;
 
         public Shop(
             UnitFactory unitFactory,
             UnitOrderHandler[] unitItems,
             UpgradeOrderHandler[] upgradeItems,
-            UpgradeHandler upgradeHandler,
+            UpgradeSetup upgradeSetup,
             Wallet wallet)
         {
             _unitFactory = unitFactory;
             _unitItems = unitItems;
             _upgradeItems = upgradeItems;
-            _upgradeHandler = upgradeHandler;
+            _upgradeSetup = upgradeSetup;
             _wallet = wallet;
         }
 
@@ -74,23 +74,23 @@ namespace ResourceDistribution
                 switch (upgrade.Type)
                 {
                     case UpgradeType.UnitDamageIncrease:
-                        _upgradeHandler.IncreaseUnitDamage();
+                        _upgradeSetup.IncreaseUnitDamage();
                         break;
 
                     case UpgradeType.UnitHealthIncrease:
-                        _upgradeHandler.IncreaseUnitHealth();
+                        _upgradeSetup.IncreaseUnitHealth();
                         break;
 
                     case UpgradeType.UnitSpeedIncrease:
-                        _upgradeHandler.IncreaseUnitSpeed();
+                        _upgradeSetup.IncreaseUnitSpeed();
                         break;
 
                     case UpgradeType.BuildingHealthIncrease:
-                        _upgradeHandler.IncreaseBuldingHealth();
+                        _upgradeSetup.IncreaseBuildingHealth();
                         break;
 
                     case UpgradeType.IncomeIncrease:
-                        _upgradeHandler.IncreaseIncome();
+                        _upgradeSetup.IncreaseMineIncome();
                         break;
                 }
             }

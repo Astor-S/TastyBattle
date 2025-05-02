@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 155205034961165428}
   - component: {fileID: 608057791142610212}
   - component: {fileID: 5136397407379832220}
-  - component: {fileID: 7205212311153409105}
+  - component: {fileID: 3896290961111257650}
   m_Layer: 0
   m_Name: WaterMellonMeleePlayer
   m_TagString: Untagged
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 7205212311153409105}
+  _soundPlayer: {fileID: 3896290961111257650}
   _animator: {fileID: 3831852741468076576}
   _healthBar: {fileID: 4283799069591136569}
   _animationEventHandler: {fileID: 6662078635459597149}
@@ -273,7 +273,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7205212311153409105
+--- !u!114 &3896290961111257650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,13 +282,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405704784407216032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 6662078635459597149}
-  _soundPack: {fileID: 11400000, guid: ad465855bda03694ea0ad3e2e0ddf78f, type: 2}
   _audioSource: {fileID: 5136397407379832220}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: ad465855bda03694ea0ad3e2e0ddf78f, type: 2}
+  _attackerAnimation: {fileID: 6662078635459597149}
 --- !u!1 &1567226623109323702
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3963247014063712833
 MonoBehaviour:

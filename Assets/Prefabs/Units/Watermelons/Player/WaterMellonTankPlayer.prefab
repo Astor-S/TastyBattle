@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1508915294560055119}
   - component: {fileID: 2545810522908551977}
   - component: {fileID: 2192455498431704230}
-  - component: {fileID: 7068964432915623917}
+  - component: {fileID: 4400374858195213211}
   m_Layer: 0
   m_Name: WaterMellonTankPlayer
   m_TagString: Untagged
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 7068964432915623917}
+  _soundPlayer: {fileID: 4400374858195213211}
   _animator: {fileID: 4565927960501719606}
   _healthBar: {fileID: 8961108424469805881}
   _animationEventHandler: {fileID: 7351943381549643309}
@@ -273,7 +273,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7068964432915623917
+--- !u!114 &4400374858195213211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,13 +282,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4385376292631531044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 7351943381549643309}
-  _soundPack: {fileID: 11400000, guid: d7fadb37ba50bca4cb104865b64c6c46, type: 2}
   _audioSource: {fileID: 2192455498431704230}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: d7fadb37ba50bca4cb104865b64c6c46, type: 2}
+  _attackerAnimation: {fileID: 7351943381549643309}
 --- !u!1 &5032969382859051235
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &7954150720020830059
 MonoBehaviour:

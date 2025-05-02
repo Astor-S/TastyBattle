@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1764404253236107031}
   - component: {fileID: 8168516217850193343}
   - component: {fileID: 8934751564987464099}
-  - component: {fileID: 3327458661530277925}
+  - component: {fileID: 1332936876374172981}
   m_Layer: 0
   m_Name: MushrankPlayer
   m_TagString: Untagged
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 3327458661530277925}
+  _soundPlayer: {fileID: 1332936876374172981}
   _animator: {fileID: 735789360034932219}
   _healthBar: {fileID: 5730300951761713845}
   _animationEventHandler: {fileID: 980220356325490712}
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitSetup: {fileID: 11400000, guid: 3501b433330696044a5773d7b32155ad, type: 2}
+  _unitSetup: {fileID: 11400000, guid: ea83dd6b12560c44387f64ed4a0b051a, type: 2}
   _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!82 &8934751564987464099
 AudioSource:
@@ -351,7 +351,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3327458661530277925
+--- !u!114 &1332936876374172981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,13 +360,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6329530634419628083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 980220356325490712}
-  _soundPack: {fileID: 11400000, guid: 006e147753f338a4d9c0cc28c4e77bc8, type: 2}
   _audioSource: {fileID: 8934751564987464099}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: 006e147753f338a4d9c0cc28c4e77bc8, type: 2}
+  _attackerAnimation: {fileID: 980220356325490712}
 --- !u!1 &8832658503663573769
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &6042768442225575988
 MonoBehaviour:

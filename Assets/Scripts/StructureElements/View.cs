@@ -4,13 +4,13 @@ namespace StructureElements
 {
     public class View : MonoBehaviour
     {
-        [SerializeField] private SoundPlayer _soundPlayer;
+        [SerializeField] protected DamagableSoundPlayer _soundPlayer;
 
-        protected SoundPlayer SoundPlayer => _soundPlayer;
+        protected DamagableSoundPlayer SoundPlayer => _soundPlayer;
 
         protected virtual void OnValidate()
         {
-            _soundPlayer = GetComponent<SoundPlayer>();
+            _soundPlayer = GetComponent<DamagableSoundPlayer>();
         }
     }
 }

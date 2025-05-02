@@ -62,8 +62,8 @@ GameObject:
   - component: {fileID: 243090186277497796}
   - component: {fileID: 731633279294993588}
   - component: {fileID: 3513615464885486302}
-  - component: {fileID: 1412154156245432231}
   - component: {fileID: 8873910659209820174}
+  - component: {fileID: 1696828725090296630}
   m_Layer: 0
   m_Name: MushraxePlayer
   m_TagString: Untagged
@@ -192,7 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 4908865121309752104}
-  _rigidbody: {fileID: 6408633619194738434}
 --- !u!114 &731633279294993588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 1412154156245432231}
+  _soundPlayer: {fileID: 1696828725090296630}
   _animator: {fileID: 8871767683962173927}
   _healthBar: {fileID: 2888659967591259816}
   _animationEventHandler: {fileID: 6973216609490517188}
@@ -223,22 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitSetup: {fileID: 11400000, guid: 2fce05b43491aba4ba371b552df99118, type: 2}
   _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
---- !u!114 &1412154156245432231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867106075201483605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 6973216609490517188}
-  _soundPack: {fileID: 11400000, guid: e90dd990bf12e174ebd8994c4da9f78a, type: 2}
-  _audioSource: {fileID: 8873910659209820174}
-  _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
 --- !u!82 &8873910659209820174
 AudioSource:
   m_ObjectHideFlags: 0
@@ -335,6 +318,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1696828725090296630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867106075201483605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 8873910659209820174}
+  _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: e90dd990bf12e174ebd8994c4da9f78a, type: 2}
+  _attackerAnimation: {fileID: 6973216609490517188}
 --- !u!1 &1038446556218470243
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +419,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5722993900146528027
 MonoBehaviour:

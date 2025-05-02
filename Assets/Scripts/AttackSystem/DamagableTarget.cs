@@ -9,6 +9,7 @@ namespace AttackSystem
         [SerializeField] private Collider _collider;
 
         private DamagableSetup _setup;
+        private UpgradeHandler _upgradeHandler;
         private Health _health;
         private bool _isInvulnerable = false;
 
@@ -38,10 +39,12 @@ namespace AttackSystem
             _health.QuaterHP -= OnQuaterHP;
         }
 
-        public void Init(DamagableSetup setup)
+        public void Init(DamagableSetup setup, UpgradeHandler upgradeHandler)
         {
             _setup = setup;
-            _health = new Health(_setup);
+            _upgradeHandler = upgradeHandler;
+
+            _health = new Health(_setup, _upgradeHandler);
 
             enabled = true;
             Inited?.Invoke();

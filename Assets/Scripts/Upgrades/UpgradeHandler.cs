@@ -1,41 +1,20 @@
 public class UpgradeHandler
 {
-    private UnitSetup[] _unitSetups;
-    private Mine _mine;
-    private float _defaultDamageBoostPortion = 0.2f;
-    private float _defaultHealthBoostPortion = 0.2f;
-    private float _defaultSpeedBoostPortion = 0.2f;
-    private float _defaultIncomeBoostPortion = 0.2f;
+    private const float UpgradeValue = 0.2f;
 
-    public UpgradeHandler(UnitSetup[] unitSetups, Mine mine)
-    {
-        _unitSetups = unitSetups;
-        _mine = mine;
-    }
+    private UpgradeSetup _upgradeSetup;
 
-    public void IncreaseUnitDamage()
-    {
-        foreach (UnitSetup unitSetup in _unitSetups)
-            unitSetup.IncreaseDamage(_defaultDamageBoostPortion);
+    public UpgradeHandler(UpgradeSetup upgradeSetup) =>
+        _upgradeSetup = upgradeSetup;
 
-        UnityEngine.Debug.Log("Units' damage has been increased by " + _defaultDamageBoostPortion * 100 + "%");
-    }
+    public float GetIncreasedDamage(AttackerSetup attackerSetup) => 
+        attackerSetup.AttackDamage * UpgradeValue * _upgradeSetup.UnitDamageUpgrade;
 
-    public void IncreaseUnitSpeed()
-    {
-        foreach (UnitSetup unitSetup in _unitSetups)
-            unitSetup.IncreaseSpeed(_defaultSpeedBoostPortion);
+    public float GetIncreasedSpeed(UnitSetup unitSetup) => 
+        unitSetup.MovementSpeed * UpgradeValue * _upgradeSetup.UnitSpeedUpgrade;
 
-        UnityEngine.Debug.Log("Units' speed has been increased by " + _defaultDamageBoostPortion * 100 + "%");
-    }
-
-    public void IncreaseUnitHealth()
-    {
-        foreach (UnitSetup unitSetup in _unitSetups)
-            unitSetup.IncreaseHealth(_defaultHealthBoostPortion);
-
-        UnityEngine.Debug.Log("Units' health has been increased by " + _defaultHealthBoostPortion * 100 + "%");
-    }
+    public float GetIncreasedHealth(DamagableSetup damagableSetup) =>
+        damagableSetup.MaxHealthPoints * UpgradeValue * _upgradeSetup.UnitHealthUpgrade;
 
     //TODO
     public void IncreaseBuldingHealth()
@@ -43,8 +22,6 @@ public class UpgradeHandler
         UnityEngine.Debug.Log("Buildings' health has been increased by ???%");
     }
 
-    public void IncreaseIncome()
-    {
-        _mine.IncreaseIncome(_defaultIncomeBoostPortion);
-    }
+    public float GetIncreasedIncome(Mine mine) => 
+        mine.IncomeValue * UpgradeValue * _upgradeSetup.IncomeUpgrade;
 }
