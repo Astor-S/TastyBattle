@@ -67,7 +67,7 @@ namespace Units
             presenter.gameObject.SetActive(true);
             presenter.Releasing += ReleaseIntoPool;
             presenter.transform.position = GenerateSpawnPosition();
-            //_enemyDeathHandler.OnUnitSpawned(presenter);
+            _enemyDeathHandler.OnUnitSpawned(presenter);
         }
 
         private UnitPresenter CreatePresenter(Unit model)
