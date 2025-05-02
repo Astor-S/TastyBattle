@@ -166,7 +166,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &17870048528595678
 MonoBehaviour:
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 661575121539842106}
   - component: {fileID: 5839869358032648118}
   - component: {fileID: -7382383312802165236}
-  - component: {fileID: 7249371581506882060}
+  - component: {fileID: 6190450297905172934}
   m_Layer: 0
   m_Name: IcecreamSiegePlayer
   m_TagString: Untagged
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 7249371581506882060}
+  _soundPlayer: {fileID: 6190450297905172934}
   _animator: {fileID: 1138907656262820028}
   _healthBar: {fileID: 1648604065683176349}
   _animationEventHandler: {fileID: 2889625341646234430}
@@ -453,7 +453,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7249371581506882060
+--- !u!114 &6190450297905172934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -462,13 +462,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8380770406156886001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 2889625341646234430}
-  _soundPack: {fileID: 11400000, guid: a32585b430eae4a458ee3bdfc2f89219, type: 2}
   _audioSource: {fileID: -7382383312802165236}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: a32585b430eae4a458ee3bdfc2f89219, type: 2}
+  _attackerAnimation: {fileID: 2889625341646234430}
 --- !u!1001 &8486194659384782305
 PrefabInstance:
   m_ObjectHideFlags: 0

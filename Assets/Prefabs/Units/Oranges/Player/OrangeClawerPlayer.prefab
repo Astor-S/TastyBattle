@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5518870749776336940}
   - component: {fileID: 6517327648133073689}
   - component: {fileID: -8219914459253554204}
-  - component: {fileID: 2219392461074084564}
+  - component: {fileID: 1582901919379203182}
   m_Layer: 0
   m_Name: OrangeClawerPlayer
   m_TagString: Untagged
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 2219392461074084564}
+  _soundPlayer: {fileID: 1582901919379203182}
   _animator: {fileID: 3042530239560085354}
   _healthBar: {fileID: 5757332385598555780}
   _animationEventHandler: {fileID: 3226484826687784343}
@@ -351,7 +351,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2219392461074084564
+--- !u!114 &1582901919379203182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,13 +360,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5235807610104270308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 3226484826687784343}
-  _soundPack: {fileID: 11400000, guid: 5ab8b0b23da0ea4468d9a6b636f6c768, type: 2}
   _audioSource: {fileID: -8219914459253554204}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: 5ab8b0b23da0ea4468d9a6b636f6c768, type: 2}
+  _attackerAnimation: {fileID: 3226484826687784343}
 --- !u!1 &8873217754696240611
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &2414008243074277323
 MonoBehaviour:

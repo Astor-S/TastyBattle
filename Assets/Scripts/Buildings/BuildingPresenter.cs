@@ -5,6 +5,9 @@ using AttackSystem;
 
 public class BuildingPresenter : Presenter, IActivatable, IUpgradable
 {
+    private const string Enemy = nameof(Enemy);
+    private const string Player = nameof(Player);
+
     [SerializeField] private DamagableTarget _damagableTarget;
 
     private Action<DamagableTarget> _dyingDelegate;
@@ -19,9 +22,9 @@ public class BuildingPresenter : Presenter, IActivatable, IUpgradable
     {
         _dyingDelegate = (_) => OnDying();
 
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (gameObject.layer == LayerMask.NameToLayer(Player))
             View.SetColor(Color.blue);
-        else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        else if (gameObject.layer == LayerMask.NameToLayer(Enemy))
             View.SetColor(Color.red);
     }
 

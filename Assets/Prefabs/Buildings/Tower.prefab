@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5556729472772711711}
   - component: {fileID: 3405598790078951359}
   - component: {fileID: 7073708053389168822}
-  - component: {fileID: 5167876484861511491}
+  - component: {fileID: 4574848310195840132}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
@@ -204,6 +204,7 @@ MonoBehaviour:
   _attackHandler: {fileID: 739621251359655683}
   _detectionSystem: {fileID: 7212480549341496934}
   _enemyBase: {fileID: 0}
+  _attackerAnimation: {fileID: 164196535810686006}
 --- !u!114 &3405598790078951359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d881e8d17bb6ac1479f66f20a7d9c690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 5167876484861511491}
+  _soundPlayer: {fileID: 4574848310195840132}
   _healthBar: {fileID: 968246683830297345}
   _particleSystem: {fileID: 6712984016649427631}
   Animator: {fileID: 6800714758958136244}
@@ -317,7 +318,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5167876484861511491
+--- !u!114 &4574848310195840132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,13 +327,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1740381246540268478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 164196535810686006}
-  _soundPack: {fileID: 11400000, guid: 1774f315fb3efc546ba9295abb0dd7cf, type: 2}
   _audioSource: {fileID: 7073708053389168822}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: 1774f315fb3efc546ba9295abb0dd7cf, type: 2}
+  _attackerAnimation: {fileID: 164196535810686006}
 --- !u!1 &1740483309384054462
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +397,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740483309384054462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 

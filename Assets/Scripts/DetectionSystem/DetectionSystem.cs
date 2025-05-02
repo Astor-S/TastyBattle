@@ -30,20 +30,6 @@ public class DetectionSystem : MonoBehaviour
         _collider.radius = _radius;
     }
 
-    private void Awake() =>
-        CurrentTarget = _enemyBase;
-
-    private void Start()
-    {
-        TargetChanged?.Invoke(_enemyBase);
-
-        Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, _radius);
-
-        if (hitColliders.Length > 0)
-            foreach (Collider hit in hitColliders)
-                FindEnemies(hit);
-    }
-
     private void FixedUpdate()
     {
         if (CurrentTarget != null)
@@ -55,6 +41,12 @@ public class DetectionSystem : MonoBehaviour
         _detectedUnits.Clear();
         CurrentTarget = _enemyBase;
         TargetChanged?.Invoke(CurrentTarget);
+
+        //Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, _radius);
+
+        //if (hitColliders.Length > 0)
+        //    foreach (Collider hit in hitColliders)
+        //        FindEnemies(hit);
     }
 
     private void OnTriggerEnter(Collider other) =>

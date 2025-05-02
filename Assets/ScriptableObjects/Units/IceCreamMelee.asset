@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad5f19f43c694043ad9655eb27437bc, type: 3}
   m_Name: IceCreamMelee
   m_EditorClassIdentifier: 
-  _ownerMask:
-    serializedVersion: 2
-    m_Bits: 64
   _battleRole: 0
-  _maxHealthPoints: 36
-  _reward: 10
-  _attackDamage: 7
+  _maxHealthPoints: 30
+  _reward: 6
+  _attackDamage: 4
   _attackDistance: 2
   _attackSpeed: 2
   _faction: 4
-  _movementSpeed: 2.5
+  _movementSpeed: 2

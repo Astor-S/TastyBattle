@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8558681525681956501}
   - component: {fileID: 4131940263367887990}
   - component: {fileID: 8033226747669750970}
-  - component: {fileID: 5739508219050928608}
+  - component: {fileID: 8240777139414654725}
   m_Layer: 0
   m_Name: AvocadoMeleePlayer
   m_TagString: Untagged
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: 5739508219050928608}
+  _soundPlayer: {fileID: 8240777139414654725}
   _animator: {fileID: 1754467380522829226}
   _healthBar: {fileID: 5687234557509405124}
   _animationEventHandler: {fileID: 7406406251883621730}
@@ -273,7 +273,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5739508219050928608
+--- !u!114 &8240777139414654725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,13 +282,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 673358636675080693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 7406406251883621730}
-  _soundPack: {fileID: 11400000, guid: b107dd45325780d48aa4b322b1ea66cd, type: 2}
   _audioSource: {fileID: 8033226747669750970}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: b107dd45325780d48aa4b322b1ea66cd, type: 2}
+  _attackerAnimation: {fileID: 7406406251883621730}
 --- !u!1 &1639379218990169005
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &4037884487074709909
 MonoBehaviour:

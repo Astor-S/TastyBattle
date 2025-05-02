@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3795294543095542951}
   - component: {fileID: 5025070865987302789}
   - component: {fileID: 8605408978057873583}
-  - component: {fileID: -1758130690552792840}
+  - component: {fileID: 6381546597838681292}
   m_Layer: 0
   m_Name: MushrLaoPlayer
   m_TagString: Untagged
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundPlayer: {fileID: -1758130690552792840}
+  _soundPlayer: {fileID: 6381546597838681292}
   _animator: {fileID: 2383972182678567002}
   _healthBar: {fileID: 1461965247552692042}
   _animationEventHandler: {fileID: 4953613376416152702}
@@ -373,7 +373,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-1758130690552792840
+--- !u!114 &6381546597838681292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,13 +382,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3398646529770936203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ac20ccd1bf8b14186325a950c26db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackerAnimation: {fileID: 4953613376416152702}
-  _soundPack: {fileID: 11400000, guid: 91366104b07b333419735e0e074a793c, type: 2}
   _audioSource: {fileID: 8605408978057873583}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: 91366104b07b333419735e0e074a793c, type: 2}
+  _attackerAnimation: {fileID: 4953613376416152702}
 --- !u!1 &3925538373590823384
 GameObject:
   m_ObjectHideFlags: 0

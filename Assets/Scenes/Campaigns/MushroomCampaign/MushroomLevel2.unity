@@ -8225,7 +8225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8649358210169854174, guid: 585568937bffba640bb2757cc91a7b6c, type: 3}
       propertyPath: _incomeValue
-      value: 200
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8809,7 +8809,7 @@ Animator:
   m_GameObject: {fileID: 1023071188}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6780f9d724d6cbb418e768fdc772060d, type: 2}
+  m_Controller: {fileID: 9100000, guid: dc0c8656615119048a6f64711e08e4c6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -8896,6 +8896,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1473684133}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1473684134}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10970,6 +10982,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1282304320287619816, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282304320287619816, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _enemyBase
       value: 
@@ -13359,6 +13379,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469edb50dd6cd194b850c76fbf1f742e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1473684134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8817104423453977776, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
+  m_PrefabInstance: {fileID: 1473684131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c550000a321b84d854e7c52cb1d17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477249989
 GameObject:
   m_ObjectHideFlags: 0
@@ -14458,6 +14489,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1473684133}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOff
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1473684134}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20744,7 +20787,6 @@ SceneRoots:
   - {fileID: 1240802057}
   - {fileID: 198967806}
   - {fileID: 2043952479}
-  - {fileID: 2095358350}
   - {fileID: 1617960107}
   - {fileID: 1077875085}
   - {fileID: 502671740}
@@ -20752,3 +20794,4 @@ SceneRoots:
   - {fileID: 150572944}
   - {fileID: 1176569351}
   - {fileID: 936088494}
+  - {fileID: 2095358350}

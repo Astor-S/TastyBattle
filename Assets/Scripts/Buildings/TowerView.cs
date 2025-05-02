@@ -6,11 +6,13 @@ public class TowerView : BuildingView
 
     [SerializeField] private AttackerAnimationEventHandler _attackerAnimationEventHandler;
 
+    public new AttackerSoundPlayer SoundPlayer => _soundPlayer as AttackerSoundPlayer;
+
     private void OnEnable() => 
-        _attackerAnimationEventHandler.AttackingStarted += SoundPlayer.SetAttackingSound;
+        _attackerAnimationEventHandler.AttackingStarted += this.SoundPlayer.SetAttackingSound;
 
     private void OnDisable() => 
-        _attackerAnimationEventHandler.AttackingStarted -= SoundPlayer.SetAttackingSound;
+        _attackerAnimationEventHandler.AttackingStarted -= this.SoundPlayer.SetAttackingSound;
 
     public void SetAttackingAnimation() => 
         Animator.SetBool(IsAttacking, true);

@@ -5,6 +5,9 @@ namespace AttackSystem.HealthBarSystem
 {
     public class HealthBar : MonoBehaviour
     {
+        private const string Player = nameof(Player);
+        private const string Enemy = nameof(Enemy);
+
         [SerializeField] private Slider _slider;
         [SerializeField] private Image _healthColorImage;
         [SerializeField] private DamagableTarget _damagableTarget;
@@ -26,9 +29,9 @@ namespace AttackSystem.HealthBarSystem
 
         public void SetColor(int layer)
         {
-            if (layer == LayerMask.NameToLayer("Player"))
+            if (layer == LayerMask.NameToLayer(Player))
                 _healthColorImage.color = Color.blue;
-            else if (layer == LayerMask.NameToLayer("Enemy"))
+            else if (layer == LayerMask.NameToLayer(Enemy))
                 _healthColorImage.color = Color.red;
         }
 
