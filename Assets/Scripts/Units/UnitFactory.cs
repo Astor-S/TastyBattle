@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using AttackSystem;
-using System.Collections.Generic;
-using GameService.GameHandlerSystem;
+using GameService.GameHandlerSystem.Handlers;
 
 namespace Units
 {

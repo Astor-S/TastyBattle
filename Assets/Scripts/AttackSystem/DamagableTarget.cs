@@ -10,6 +10,7 @@ namespace AttackSystem
 
         private DamagableSetup _setup;
         private Health _health;
+        private bool _isInvulnerable = false;
 
         public Health Health => _health;
         public bool IsAlive => _health.IsAlive;
@@ -46,14 +47,20 @@ namespace AttackSystem
             Inited?.Invoke();
         }
 
+        public void TakeDamage(float damage)
+        {
+            if (_isInvulnerable == false) 
+                _health.Reduce(damage);          
+        }
+
+        public void SetInvulnerable(bool invulnerable) =>
+            _isInvulnerable = invulnerable;
+
         private void OnQuaterHP() =>
             QuaterHP?.Invoke();
 
         private void OnHalfHP() =>
             HalfHP?.Invoke();
-
-        public void TakeDamage(float damage) =>
-            _health.Reduce(damage);
 
         private void Die()
         {

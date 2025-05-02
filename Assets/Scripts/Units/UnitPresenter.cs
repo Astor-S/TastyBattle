@@ -69,7 +69,6 @@ namespace Units
             _navMeshAgent.enabled = true;
 
             _damageTarget.Dying += DyingDelegate;
-            _damageTarget.Dying += DyingDelegateHandler;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
             View.Decayed += OnDecayed;
@@ -78,7 +77,6 @@ namespace Units
         public virtual void Disable()
         {
             _damageTarget.Dying -= DyingDelegate;
-            _damageTarget.Dying -= DyingDelegateHandler;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
             View.Decayed -= OnDecayed;
@@ -106,12 +104,8 @@ namespace Units
 
             if (_detectionSystem != null)
                 _detectionSystem.enabled = false;
-        }
-
-        private void DyingDelegateHandler(DamagableTarget target)
-        {
+            
             OnUnitDying?.Invoke();
-            OnDying();
         }
 
         private void OnDecayed()

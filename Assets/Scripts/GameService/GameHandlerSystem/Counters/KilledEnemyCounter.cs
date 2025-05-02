@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace GameService.GameHandlerSystem
+namespace GameService.GameHandlerSystem.Counters
 {
     public class KilledEnemyCounter : MonoBehaviour
     {
@@ -9,13 +9,11 @@ namespace GameService.GameHandlerSystem
         
         private int _enemiesKilled = 0;
 
-        public int GetEnemiesKilled() =>
-            _enemiesKilled;
+        public int EnemiesKilled => _enemiesKilled;
 
         public void EnemyKilled()
         {
             _enemiesKilled++;
-            Debug.Log(" " + _enemiesKilled);
             UpdateKillCountUI(); 
         }
 

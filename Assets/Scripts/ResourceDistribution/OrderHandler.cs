@@ -1,7 +1,7 @@
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public abstract class OrderHandler : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public abstract class OrderHandler : MonoBehaviour
 
     public event Action<Order> ItemOrdered;
 
-    protected int InitialCost => _initialCost;
+    protected int InitialCost => _initialCost; // неиспользуется?
 
     private void Awake()
     {

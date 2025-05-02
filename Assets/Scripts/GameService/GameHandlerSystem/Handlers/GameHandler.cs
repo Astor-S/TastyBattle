@@ -2,7 +2,7 @@ using UnityEngine;
 using Buildings;
 using AttackSystem;
 
-namespace GameService.GameHandlerSystem
+namespace GameService.GameHandlerSystem.Handlers
 {
     public class GameHandler : MonoBehaviour
     {

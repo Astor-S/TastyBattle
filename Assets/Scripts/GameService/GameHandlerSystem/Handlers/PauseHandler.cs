@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace GameService.GameHandlerSystem
+namespace GameService.GameHandlerSystem.Handlers
 {
     public class PauseHandler : MonoBehaviour
     {

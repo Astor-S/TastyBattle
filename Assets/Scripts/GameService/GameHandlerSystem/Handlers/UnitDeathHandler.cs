@@ -1,7 +1,8 @@
 using UnityEngine;
+using GameService.GameHandlerSystem.Counters;
 using Units;
 
-namespace GameService.GameHandlerSystem
+namespace GameService.GameHandlerSystem.Handlers
 {
     public class UnitDeathHandler : MonoBehaviour
     {
@@ -25,7 +26,7 @@ namespace GameService.GameHandlerSystem
         private void OnUnitDying()
         {
             if (_killedEnemyCounter != null)
-                _killedEnemyCounter.EnemyKilled();
+                _killedEnemyCounter.EnemyKilled(); 
         }
 
         private void OnDestroy()
