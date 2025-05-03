@@ -32,12 +32,8 @@ namespace Units
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
         public UpgradeHandler UpgradeHandler { get; set; }
 
-        private bool _isInitialized = false;
-        private bool _isEnabled = false;
-
         private void Awake()
         {
-            LogState("Awake");
             gameObject.layer = Model.OwnerMask;
             DyingDelegate = (_) => OnDying();
 
@@ -56,9 +52,6 @@ namespace Units
 
             if (_attackHandler.gameObject.activeSelf == false)
                 _attackHandler.Init(Model.Stats, UpgradeHandler);
-
-            _isInitialized = true;
-            LogState("Init");
         }
 
         protected virtual void FixedUpdate()
@@ -69,7 +62,6 @@ namespace Units
 
         public virtual void Enable()
         {
-            LogState("Enable");
             View.SetWalkingAnimation();
 
             _detectionSystem.enabled = true;
@@ -81,17 +73,14 @@ namespace Units
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
             View.Decayed += OnDecayed;
-             _isEnabled = true;
         }
 
         public virtual void Disable()
         {
-            LogState("Disable");
             _damageTarget.Dying -= DyingDelegate;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
             View.Decayed -= OnDecayed;
-            _isEnabled = false;
         }
 
         public void SetAgentSpeed(float speed) =>
@@ -108,7 +97,6 @@ namespace Units
 
         protected void OnDying()
         {
-            LogState("OnDying");
             View.SetDeathAnimation();
             _navMeshAgent.enabled = false;
 
@@ -123,13 +111,7 @@ namespace Units
 
         private void OnDecayed()
         {
-            LogState("OnDecayed");
             Releasing?.Invoke(this);
-        }
-
-        private void LogState(string eventName)
-        {
-            Debug.Log($"{eventName}: InstanceID={GetInstanceID()}, Initialized={_isInitialized}, Enabled={_isEnabled}, GameObject.activeSelf={gameObject.activeSelf}");
         }
     }
 }
