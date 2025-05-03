@@ -12,6 +12,8 @@ namespace EmergencyPlayerService
         [SerializeField] private UnitOrderHandler _melee;
         [SerializeField] private UnitOrderHandler _tank;
         [SerializeField] private float _summonMeleeUnitDelay = 3f;
+        [SerializeField] private int _numberOfTanksToSummon = 2;
+        [SerializeField] private int _numberOfMeleeToSummon = 3;
 
         private void OnEnable()
         {
@@ -33,20 +35,27 @@ namespace EmergencyPlayerService
 
         private IEnumerator LandingSequence()
         {
-            SummonTankUnit();
-            SummonTankUnit();
+            SummonTankUnitPack();
+            
+            yield return new WaitForSeconds(_summonMeleeUnitDelay);
 
-            yield return new WaitForSeconds(_summonMeleeUnitDelay); 
+            SummonMeleeUnitPack();
+            
+            yield return new WaitForSeconds(_summonMeleeUnitDelay);
 
-            SummonMeleeUnit();
-            SummonMeleeUnit();
-            SummonMeleeUnit();
+            SummonMeleeUnitPack();
+        }
 
-            yield return new WaitForSeconds(_summonMeleeUnitDelay); 
+        private void SummonMeleeUnitPack()
+        {
+            for (int i = 0; i < _numberOfMeleeToSummon; i++)
+                SummonMeleeUnit();
+        }
 
-            SummonMeleeUnit();
-            SummonMeleeUnit();
-            SummonMeleeUnit();
+        private void SummonTankUnitPack()
+        {
+            for (int i = 0; i < _numberOfTanksToSummon; i++)
+                SummonTankUnit();
         }
 
         private void SummonMeleeUnit()
@@ -54,7 +63,6 @@ namespace EmergencyPlayerService
             if (_melee != null && _melee.Setup != null && _unitFactory != null) 
                 _unitFactory.CreateUnit(_melee.Setup);       
         }
-
 
         private void SummonTankUnit()
         {
