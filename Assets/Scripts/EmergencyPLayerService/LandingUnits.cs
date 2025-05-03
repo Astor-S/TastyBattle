@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Units;
 
 namespace EmergencyPlayerService
 {
     public class LandingUnits : MonoBehaviour
     {
         [SerializeField] private Button _emergencyButton;
+        [SerializeField] private UnitFactory _unitFactory;
         [SerializeField] private UnitOrderHandler _melee;
         [SerializeField] private UnitOrderHandler _tank;
         [SerializeField] private float _summonMeleeUnitDelay = 3f;
@@ -47,10 +49,17 @@ namespace EmergencyPlayerService
             SummonMeleeUnit();
         }
 
-        private void SummonMeleeUnit() =>
-           _melee.Order();
+        private void SummonMeleeUnit()
+        {
+            if (_melee != null && _melee.Setup != null && _unitFactory != null) 
+                _unitFactory.CreateUnit(_melee.Setup);       
+        }
 
-        private void SummonTankUnit() =>
-            _tank.Order();
+
+        private void SummonTankUnit()
+        {
+            if (_tank != null && _tank.Setup != null && _unitFactory != null) 
+                _unitFactory.CreateUnit(_tank.Setup);            
+        }
     }
 }
