@@ -19,7 +19,7 @@ namespace Units
         private float _defaultSpeed;
         private float _defaultAttackSpeedMultiplier;
 
-        public event Action OnUnitDying;
+        public event Action<UnitPresenter> OnUnitDying;
         public event Action<UnitPresenter> Releasing;
         private Action<DamagableTarget> DyingDelegate;
 
@@ -106,7 +106,7 @@ namespace Units
             if (_detectionSystem != null)
                 _detectionSystem.enabled = false;
             
-            OnUnitDying?.Invoke();
+            OnUnitDying?.Invoke(this);
         }
 
         private void OnDecayed()

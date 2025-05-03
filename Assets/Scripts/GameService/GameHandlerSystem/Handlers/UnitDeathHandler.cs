@@ -7,8 +7,6 @@ namespace GameService.GameHandlerSystem.Handlers
 {
     public class UnitDeathHandler : MonoBehaviour
     {
-        private readonly HashSet<UnitPresenter> _subscribedUnits = new();
-
         [SerializeField] private KilledEnemyCounter _killedEnemyCounter;
         [SerializeField] private LayerMask _enemyLayer;
 
@@ -22,17 +20,17 @@ namespace GameService.GameHandlerSystem.Handlers
         {
             int unitLayer = unitPresenter.gameObject.layer;
 
-            if ((_enemyLayer.value & (1 << unitLayer)) != 0 && !_subscribedUnits.Contains(unitPresenter))
-            {
-                unitPresenter.OnUnitDying += OnUnitDying;
-                _subscribedUnits.Add(unitPresenter); 
-            }
+            if ((_enemyLayer.value & (1 << unitLayer)) != 0)
+                unitPresenter.OnUnitDying += OnUnitDying;          
         }
 
-        private void OnUnitDying()
+        private void OnUnitDying(UnitPresenter unitPresenter)
         {
             if (_killedEnemyCounter != null)
+            {
+                unitPresenter.OnUnitDying -= OnUnitDying;
                 _killedEnemyCounter.EnemyKilled(); 
+            }    
         }
 
         private void OnDestroy()
@@ -46,8 +44,6 @@ namespace GameService.GameHandlerSystem.Handlers
                 if ((_enemyLayer.value & (1 << unitLayer)) != 0)
                     presenter.OnUnitDying -= OnUnitDying;
             }
-
-            _subscribedUnits.Clear();
         }
     }
 }
