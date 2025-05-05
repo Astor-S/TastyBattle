@@ -10,7 +10,7 @@ public class PackShopView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _packNameField;
     [SerializeField] private Transform _lockPanel;
 
-    private void Awake() =>
+    private void Start() => 
         ShowSkinPack(_packShop.GetFirstSkinPack());
 
     private void OnEnable()
@@ -25,17 +25,21 @@ public class PackShopView : MonoBehaviour
         _packShopTransacting.IsAvailable -= ShowLock;
     }
 
-    private void ShowSkinPack(SkinPack skinPack) => 
-        PlaceSkin(skinPack);
+    private void ShowSkinPack(SkinPack skinPack) =>
+        ShowSkins(skinPack);
 
-    private void PlaceSkin(SkinPack skinPack)
+    private void ShowSkins(SkinPack skinPack)
     {
         ClearContainers();
 
         _packNameField.text = skinPack.Name;
 
         for (int i = 0; i < _containers.Count; i++)
-            Instantiate(skinPack.Skins[i], _containers[i]);
+        {
+            skinPack.Previews[i].gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[i];
+
+            Instantiate(skinPack.Previews[i], _containers[i]);
+        }
     }
 
     private void ClearContainers()
@@ -46,6 +50,6 @@ public class PackShopView : MonoBehaviour
                     Destroy(_containers[i].GetChild(0).gameObject);
     }
 
-    private void ShowLock(bool isAvailable) => 
+    private void ShowLock(bool isAvailable) =>
         _lockPanel.gameObject.SetActive(isAvailable == false);
 }
