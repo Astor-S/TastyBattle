@@ -9,7 +9,7 @@ namespace EnemyBehaviorSystem
         [SerializeField] private UpgradeOrderHandler _resourceExtraction;
 
         public void ImproveResourceExtraction() =>
-            _resourceExtraction.Order();
+            _resourceExtraction.MakeOrder();
 
         public void ImproveRandomUnitStats()
         {
@@ -22,9 +22,9 @@ namespace EnemyBehaviorSystem
         }
 
         private void ImproveUnitAttack() =>
-            _unitDamagStat.Order();
+            _unitDamagStat.MakeOrder();
 
         private void ImproveUnitHealth() =>
-            _unitHealthStat.Order();
+            _unitHealthStat.MakeOrder();
     }
 }

@@ -41,15 +41,15 @@ namespace EnemyBehaviorSystem
         }
 
         private void SummonRangeUnit() =>
-            _range.Order();
+            _range.MakeOrder();
 
         private void SummonMeleeUnit() =>
-            _melee.Order();
+            _melee.MakeOrder();
 
         private void SummonTankUnit() =>
-            _tank.Order();
+            _tank.MakeOrder();
 
         private void SummonSiegeUnit() =>
-            _siege.Order();
+            _siege.MakeOrder();
     }
 }
