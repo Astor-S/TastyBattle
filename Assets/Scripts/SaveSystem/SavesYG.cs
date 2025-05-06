@@ -10,5 +10,8 @@ namespace YG
 
         public bool IsMusicOn;
         public bool IsSoundOn;
+
+        //Score
+        public int Score;
     }
 }
