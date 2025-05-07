@@ -11830,6 +11830,7 @@ GameObject:
   - component: {fileID: 1636859587}
   - component: {fileID: 1636859589}
   - component: {fileID: 1636859588}
+  - component: {fileID: 1636859590}
   m_Layer: 5
   m_Name: LevelMoney
   m_TagString: Untagged
@@ -11895,6 +11896,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636859586}
   m_CullTransparentMesh: 1
+--- !u!114 &1636859590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636859586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505b2067d9d4cec40aa8a355d39c23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinText: {fileID: 2041931530}
+  _levelRewarder: {fileID: 1345416946}
 --- !u!1001 &1651781871
 PrefabInstance:
   m_ObjectHideFlags: 0
