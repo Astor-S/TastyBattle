@@ -10,4 +10,9 @@ public class UnitOrderHandler : OrderHandler
     {
         return new UnitOrder(initialCost, _unitSetup);
     }
+
+    protected override void OnOrdered()
+    {
+        Order.IncreaseCost();
+    }
 }

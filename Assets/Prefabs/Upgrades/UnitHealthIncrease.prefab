@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2425573261580006952, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_fontSize
-      value: 21.85
+      value: 18.35
       objectReference: {fileID: 0}
     - target: {fileID: 2425573261580006952, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_fontColor.b
@@ -135,9 +135,17 @@ PrefabInstance:
       propertyPath: m_enableWordWrapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3497229108029854090, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 402755c208aa12149b7d3382a19db081, type: 3}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _cost
       value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _maxLevel
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
@@ -149,7 +157,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4998512453388767906, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_Name
-      value: UnitHealthIncrease Variant
+      value: UnitHealthIncrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737608795740001470, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 79.1009
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737608795740001470, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737608795740001470, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.899
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

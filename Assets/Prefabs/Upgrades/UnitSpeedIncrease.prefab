@@ -95,7 +95,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2425573261580006952, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_fontSize
-      value: 21.85
+      value: 18.95
       objectReference: {fileID: 0}
     - target: {fileID: 2425573261580006952, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -105,9 +105,17 @@ PrefabInstance:
       propertyPath: m_enableWordWrapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3497229108029854090, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e77e2a6cd2d83b4ab7ef7f3bf8e57f8, type: 3}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _cost
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _maxLevel
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
@@ -119,7 +127,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4998512453388767906, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_Name
-      value: UnitSpeedIncrease Variant
+      value: UnitSpeedIncrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737608795740001470, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 88.7489
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737608795740001470, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

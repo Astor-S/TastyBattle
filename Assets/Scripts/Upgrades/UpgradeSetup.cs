@@ -18,9 +18,18 @@ public class UpgradeSetup : ScriptableObject
         IncomeUpgrade = default;
     }
 
-    public void IncreaseUnitHealth() => UnitHealthUpgrade++;
-    public void IncreaseUnitDamage() => UnitDamageUpgrade++;
-    public void IncreaseUnitSpeed() => UnitSpeedUpgrade++;
-    public void IncreaseBuildingHealth() => BuildingsHealthUpgrade++;
-    public void IncreaseMineIncome() => IncomeUpgrade++;
+    public void IncreaseUnitHealth() =>
+        ++UnitHealthUpgrade;
+
+    public void IncreaseUnitDamage() =>
+        ++UnitDamageUpgrade;
+
+    public void IncreaseUnitSpeed() =>
+        ++UnitSpeedUpgrade;
+
+    public void IncreaseBuildingHealth() =>
+        ++BuildingsHealthUpgrade;
+
+    public void IncreaseMineIncome() =>
+        ++IncomeUpgrade;
 }

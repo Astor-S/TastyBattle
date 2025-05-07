@@ -25,7 +25,7 @@ public class Mine : MonoBehaviour, IIncomeSource, IUpgradable
         {
             yield return cooldownWaitng;
 
-            ResourceRecieved?.Invoke(_incomeValue + (int)UpgradeHandler.GetIncreasedIncome(this), this);
+            ResourceRecieved?.Invoke(UpgradeHandler.GetIncreasedIncome(this), this);
         }
     }
 }

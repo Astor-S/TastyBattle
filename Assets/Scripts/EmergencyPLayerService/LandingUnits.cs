@@ -48,9 +48,9 @@ namespace EmergencyPlayerService
         }
 
         private void SummonMeleeUnit() =>
-           _melee.Order();
+           _melee.MakeOrder();
 
         private void SummonTankUnit() =>
-            _tank.Order();
+            _tank.MakeOrder();
     }
 }

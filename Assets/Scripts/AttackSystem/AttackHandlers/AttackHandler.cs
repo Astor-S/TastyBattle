@@ -22,7 +22,7 @@ namespace AttackSystem.AttackHandlers
         public DamagableTarget AttackedTarget => _attackedTarget;
         public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
-        protected virtual float Damage => _stats.AttackDamage + _upgradeHandler.GetIncreasedDamage(_stats);
+        protected virtual float Damage => _upgradeHandler.GetIncreasedDamage(_stats);
 
         private void OnEnable()
         {

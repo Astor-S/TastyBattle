@@ -112,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2425573261580006952, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_fontSize
-      value: 21.85
+      value: 18.35
       objectReference: {fileID: 0}
     - target: {fileID: 2425573261580006952, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_fontColor.b
@@ -134,9 +134,21 @@ PrefabInstance:
       propertyPath: m_enableWordWrapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3497229108029854090, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ee25fb717b8a26f4cacdb2e41bf6ab8f, type: 3}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _cost
       value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _levelBox
+      value: 
+      objectReference: {fileID: 5102718304393860016}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _maxLevel
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
@@ -148,10 +160,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4998512453388767906, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: m_Name
-      value: BuildingHealthIncrease Variant
+      value: BuildingHealthIncrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737608795740001470, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 85.2348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737608795740001470, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+--- !u!114 &5102718304393860016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 890243542173339466, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+  m_PrefabInstance: {fileID: 5371308416433413370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

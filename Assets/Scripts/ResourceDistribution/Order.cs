@@ -9,10 +9,16 @@
         _costMultiplier = costMultiplier;
     }
 
+    public bool IsAvailable { get; private set; } = true;
     public int Cost => _cost;
 
     public void IncreaseCost()
     {
         _cost = (int)(_cost * _costMultiplier);
+    }
+
+    protected void SetUnavailable()
+    {
+        IsAvailable = false;
     }
 }

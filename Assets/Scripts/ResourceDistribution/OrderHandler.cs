@@ -13,7 +13,7 @@ public abstract class OrderHandler : MonoBehaviour
 
     public event Action<Order> ItemOrdered;
 
-    protected int InitialCost => _initialCost; // неиспользуется?
+    protected Order Order => _order;
 
     private void Awake()
     {
@@ -26,24 +26,33 @@ public abstract class OrderHandler : MonoBehaviour
     private void OnEnable()
     {
         if (_button != null)
-            _button.onClick.AddListener(Order);
+            _button.onClick.AddListener(MakeOrder);
     }
 
     private void OnDisable()
     {
         if (_button != null)
-            _button.onClick.RemoveListener(Order);
+            _button.onClick.RemoveListener(MakeOrder);
     }
 
-    public void Order()
+    public void MakeOrder()
     {
         try
         {
-            ItemOrdered?.Invoke(_order);
-            _order.IncreaseCost();
+            if (_order.IsAvailable)
+            {
+                ItemOrdered?.Invoke(_order);
+                OnOrdered();
 
-            if (_priceTextBox != null)
-                _priceTextBox.text = _order.Cost.ToString();
+                if (_priceTextBox != null)
+                    _priceTextBox.text = _order.Cost.ToString();
+
+                if (_order.IsAvailable == false)
+                {
+                    _priceTextBox.gameObject.SetActive(false);
+                    _button.interactable = false;
+                }
+            }
         }
         catch (InvalidOperationException exc)
         {
@@ -52,4 +61,6 @@ public abstract class OrderHandler : MonoBehaviour
     }
 
     protected abstract Order InitializeOrder(int initialCost);
+
+    protected abstract void OnOrdered();
 }
