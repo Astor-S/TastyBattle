@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using GameService.GameHandlerSystem.Counters;
 using Units;
@@ -20,13 +21,16 @@ namespace GameService.GameHandlerSystem.Handlers
             int unitLayer = unitPresenter.gameObject.layer;
 
             if ((_enemyLayer.value & (1 << unitLayer)) != 0)
-                unitPresenter.OnUnitDying += OnUnitDying;
+                unitPresenter.OnUnitDying += OnUnitDying;          
         }
 
-        private void OnUnitDying()
+        private void OnUnitDying(UnitPresenter unitPresenter)
         {
             if (_killedEnemyCounter != null)
+            {
+                unitPresenter.OnUnitDying -= OnUnitDying;
                 _killedEnemyCounter.EnemyKilled(); 
+            }    
         }
 
         private void OnDestroy()
