@@ -10,7 +10,7 @@ public class PackShopTransacting : MonoBehaviour
 
     public event Action<bool> IsAvailable;
 
-    public void OnEnable() =>
+    private void OnEnable() =>
         _packShop.SkinPackSwiped += CheckAccess;
 
     private void OnDisable() =>
