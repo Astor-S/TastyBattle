@@ -17,6 +17,17 @@ public class PackShop : MonoBehaviour
     public event Action<SkinPack> SkinPackSwiped;
     public event Action<bool> IsEquipped;
 
+    private void OnEnable()
+    {
+        _allSkinPacks.AddRange(_defaultSkins);
+        _allSkinPacks.AddRange(_otherSkins);
+
+        SwipeFaction(default);
+        SwipePacks(default);
+
+        EquipDefaultSkins();
+    }
+
     private void EquipDefaultSkins()
     {
         foreach (SkinPack skin in _defaultSkins)
@@ -28,17 +39,6 @@ public class PackShop : MonoBehaviour
                 skin.Unequip();
 
         CheckEquipment();
-    }
-
-    private void OnEnable()
-    {
-        _allSkinPacks.AddRange(_defaultSkins);
-        _allSkinPacks.AddRange(_otherSkins);
-
-        SwipeFaction(default);
-        SwipePacks(default);
-
-        EquipDefaultSkins();
     }
 
     public void SwipeFaction(int index)
@@ -94,13 +94,8 @@ public class PackShop : MonoBehaviour
     public SkinPack GetFirstFactionSkin() =>
             _currentFactionSkins[0];
 
-    private void CheckEquipment()
-    {
-        if (_currentFactionSkins[_skinPackIndex].IsEquipped)
-            IsEquipped?.Invoke(true);
-        else
-            IsEquipped?.Invoke(false);
-    }
+    private void CheckEquipment() => 
+        IsEquipped?.Invoke(_currentFactionSkins[_skinPackIndex].IsEquipped);
 
     private void SetAllFactionSkins()
     {
