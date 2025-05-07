@@ -21,15 +21,19 @@ public class UpgradeOrderHandler : OrderHandler
         Order.IncreaseCost();
         Order.IncreaseLevel();
 
-        if (Order.CurrentLevel == Order.MaxLevel)
+        if (_levelNumberBox != null)
         {
-            _maxLevelBox.gameObject.SetActive(true);
-            _levelTextBox.gameObject.SetActive(false);
-            _levelNumberBox.gameObject.SetActive(false);
+            if (Order.CurrentLevel == Order.MaxLevel)
+            {
+                _maxLevelBox.gameObject.SetActive(true);
+                _levelTextBox.gameObject.SetActive(false);
+                _levelNumberBox.gameObject.SetActive(false);
+            }
+            else
+            {
+                _levelNumberBox.text = Order.CurrentLevel.ToString();
+            }
         }
-        else
-        {
-            _levelNumberBox.text = Order.CurrentLevel.ToString();
-        }
+
     }
 }

@@ -41,8 +41,8 @@ namespace Units
             NavMesh.avoidancePredictionTime = 0.5f;
 
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
-            _navMeshAgent.speed = Model.Stats.MovementSpeed + UpgradeHandler.GetIncreasedSpeed(Model.Stats);
-            _defaultSpeed = Model.Stats.MovementSpeed + UpgradeHandler.GetIncreasedSpeed(Model.Stats);
+            _navMeshAgent.speed = UpgradeHandler.GetIncreasedSpeed(Model.Stats);
+            _defaultSpeed = UpgradeHandler.GetIncreasedSpeed(Model.Stats);
 
             if (_damageTarget.enabled == false)
                 _damageTarget.Init(Model.Stats, UpgradeHandler);

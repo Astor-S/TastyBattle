@@ -28,7 +28,7 @@ namespace AttackSystem
             _stats = damagableSetup;
             _upgradeHandler = upgradeHandler;
 
-            MaxValue = _stats.MaxHealthPoints + _upgradeHandler.GetIncreasedHealth(_stats);
+            MaxValue = _upgradeHandler.GetIncreasedHealth(_stats);
             Value = MaxValue;
         }
 
