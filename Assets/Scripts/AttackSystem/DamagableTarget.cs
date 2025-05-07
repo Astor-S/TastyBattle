@@ -7,10 +7,11 @@ namespace AttackSystem
     public class DamagableTarget : MonoBehaviour, IDamagable, IIncomeSource
     {
         [SerializeField] private Collider _collider;
-        [SerializeField] private Rigidbody _rigidbody;
 
         private DamagableSetup _setup;
+        private UpgradeHandler _upgradeHandler;
         private Health _health;
+        private bool _isInvulnerable = false;
 
         public Health Health => _health;
         public bool IsAlive => _health.IsAlive;
@@ -24,6 +25,8 @@ namespace AttackSystem
 
         private void OnEnable()
         {
+            _health.Reset();
+            _collider.enabled = true;
             _health.Dying += Die;
             _health.HalfHP += OnHalfHP;
             _health.QuaterHP += OnQuaterHP;
@@ -36,14 +39,25 @@ namespace AttackSystem
             _health.QuaterHP -= OnQuaterHP;
         }
 
-        public void Init(DamagableSetup setup)
+        public void Init(DamagableSetup setup, UpgradeHandler upgradeHandler)
         {
             _setup = setup;
-            _health = new Health(_setup);
+            _upgradeHandler = upgradeHandler;
+
+            _health = new Health(_setup, _upgradeHandler);
 
             enabled = true;
             Inited?.Invoke();
         }
+
+        public void TakeDamage(float damage)
+        {
+            if (_isInvulnerable == false) 
+                _health.Reduce(damage);          
+        }
+
+        public void SetInvulnerable(bool invulnerable) =>
+            _isInvulnerable = invulnerable;
 
         private void OnQuaterHP() =>
             QuaterHP?.Invoke();
@@ -51,18 +65,14 @@ namespace AttackSystem
         private void OnHalfHP() =>
             HalfHP?.Invoke();
 
-        public void TakeDamage(float damage) =>
-            _health.Reduce(damage);
-
         private void Die()
         {
             ResourceRecieved?.Invoke(_setup.Reward, this);
             Dying?.Invoke(this);
 
             _collider.enabled = false;
-            _rigidbody.isKinematic = true;
 
-            enabled = false;            
+            enabled = false;
         }
     }
 }

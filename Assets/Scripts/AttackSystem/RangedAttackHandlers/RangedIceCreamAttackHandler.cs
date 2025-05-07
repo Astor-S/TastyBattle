@@ -1,11 +1,12 @@
 using UnityEngine;
 using AttackSystem.AttackHandlers;
+using AttackSystem.Interfaces;
 using FactionalAbilities.Handlers.Effects;
 using Units;
 
 namespace AttackSystem.RangedAttackHandlers
 {
-    public class RangedIceCreamAttackHandler : RangedAttackHandler
+    public class RangedIceCreamAttackHandler : RangedAttackHandler, IIceCreamAttacker, IFreezeEffector
     {
         [SerializeField] private IceCreamAbilityHandler _iceCreamAbilityHandler;
         [SerializeField] private ParticleSystem _freezeParticleEffectPrefab;
@@ -16,7 +17,7 @@ namespace AttackSystem.RangedAttackHandlers
             ApplyFreeze();
         }
 
-        private void ApplyFreeze()
+        public void ApplyFreeze()
         {
             if (_iceCreamAbilityHandler != null)
             {
@@ -27,8 +28,6 @@ namespace AttackSystem.RangedAttackHandlers
                     if (unitPresenter != null)
                     {
                         FreezeHandler freezeHandler = AttackedTarget.GetComponent<FreezeHandler>();
-                        float freezePercentage = _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage;
-                        Debug.Log($"[RangedIceCreamAttackHandler] Applying Freeze. Freeze Percentage: {freezePercentage}");
 
                         if (freezeHandler == null)
                         {
@@ -45,7 +44,6 @@ namespace AttackSystem.RangedAttackHandlers
                         else
                         {
                             freezeHandler.ApplySlow(_iceCreamAbilityHandler.IceCreamAbility.FreezePercentage);
-                            Debug.Log("[RangedIceCreamAttackHandler] FreezeHandler already exists. Applying additional slow.");
                             PlayFreezeParticleEffect(AttackedTarget.transform);
                         }
                     }
@@ -53,7 +51,7 @@ namespace AttackSystem.RangedAttackHandlers
             }
         }
 
-        private void PlayFreezeParticleEffect(Transform target)
+        public void PlayFreezeParticleEffect(Transform target)
         {
             if (_freezeParticleEffectPrefab != null)
             {

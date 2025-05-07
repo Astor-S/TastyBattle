@@ -1,11 +1,11 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AttackSystem
 {
     public class Explosion : MonoBehaviour
     {
-        [SerializeField] private float _explosionForce = 0f;
+        [SerializeField] private ParticleSystem _explosionParticleEffect;
+        [SerializeField] private LayerMask _damageableLayers; 
         [SerializeField] private int _maxColliders = 10;
 
         private Collider[] _colliders;
@@ -17,24 +17,26 @@ namespace AttackSystem
 
         public void Explode(float explosionRadius, float explosionDamage)
         {
-            int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, _colliders);
+            PlayExplosionEffect();
 
-            List<DamagableTarget> targets = new();
+            int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, _colliders, _damageableLayers);
 
             for (int i = 0; i < numColliders; i++)
-            {
-                Collider collider = _colliders[i];
-                
-                if (collider.TryGetComponent(out DamagableTarget target) && target.transform != transform)
-                    targets.Add(target);
-                if (collider.TryGetComponent(out Rigidbody rb))
-                    rb.AddExplosionForce(_explosionForce, transform.position, explosionRadius, 1f, ForceMode.Impulse);
-            }
+                if (_colliders[i].TryGetComponent(out DamagableTarget target) && target.transform != transform)
+                    target.TakeDamage(explosionDamage);          
+        }
 
-            foreach (DamagableTarget target in targets)
-                target.TakeDamage(explosionDamage);
-            
-            Debug.Log($"[AvocadoUnit] {gameObject.name} exploded, dealing {explosionDamage} damage in radius {explosionRadius}");
+        private void PlayExplosionEffect()
+        {
+            if (_explosionParticleEffect == null)
+                return;
+
+            ParticleSystem explosionInstance = Instantiate(_explosionParticleEffect, transform.position, Quaternion.identity);
+            explosionInstance.Play();
+
+            float duration = explosionInstance.main.duration;
+
+            Destroy(explosionInstance.gameObject, duration);
         }
     }
 }

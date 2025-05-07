@@ -1,20 +1,19 @@
 using AttackSystem;
 using StructureElements;
+using UnityEngine;
 
 namespace Units
 {
     public class Unit : Transformable
     {
-        private float _currentMovementSpeed;
-        private float _currentAttackSpeed;
+        private const string Enemy = nameof(Enemy);
+        private const string Player = nameof(Player);
 
         public Faction Faction { get; }
         public BattleRole BattleRole { get; }
         public UnitSetup Stats { get; }
         public DamagableTarget EnemyBase { get; }
-
-        public float CurrentMovementSpeed => _currentMovementSpeed;
-        public float CurrentAttackSpeed => _currentAttackSpeed;
+        public LayerMask OwnerMask { get; }
 
         public Unit(UnitSetup setup, DamagableTarget enemyBase)
         {
@@ -23,14 +22,10 @@ namespace Units
             BattleRole = setup.BattleRole;
             EnemyBase = enemyBase;
 
-            _currentMovementSpeed = Stats.MovementSpeed;
-            _currentAttackSpeed = Stats.AttackSpeed;
+            if (LayerMask.LayerToName(EnemyBase.gameObject.layer) == Player)
+                OwnerMask = LayerMask.NameToLayer(Enemy);
+            else
+                OwnerMask = LayerMask.NameToLayer(Player);
         }
-
-        public void SetMovementSpeed(float newSpeed) =>
-            _currentMovementSpeed = newSpeed;
-
-        public void SetAttackSpeed(float newSpeed) =>
-            _currentAttackSpeed = newSpeed;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using AttackSystem;
 using Units;
 
+[RequireComponent(typeof(SphereCollider))]
 public class DetectionSystem : MonoBehaviour
 {
     private const string Enemy = nameof(Enemy);
@@ -12,23 +13,21 @@ public class DetectionSystem : MonoBehaviour
     [SerializeField] private DamagableTarget _currentUnit;
     [SerializeField] private Transform _baseTransform;
 
+    private SphereCollider _collider;
     private Queue<DamagableTarget> _detectedUnits = new();
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
     private bool _isSiege = false;
+    private float _radius = 7f;
 
     public DamagableTarget CurrentTarget { get; private set; } = null;
 
     public event Action<DamagableTarget> TargetChanged;
 
-    private void Awake()
+    private void OnValidate()
     {
-        CurrentTarget = _enemyBase;
-    }
-
-    private void Start()
-    {
-        TargetChanged?.Invoke(_enemyBase);
+        _collider = GetComponent<SphereCollider>();
+        _collider.radius = _radius;
     }
 
     private void FixedUpdate()
@@ -37,7 +36,23 @@ public class DetectionSystem : MonoBehaviour
             _baseTransform.LookAt(CurrentTarget.transform.position);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnEnable()
+    {
+        _detectedUnits.Clear();
+        CurrentTarget = _enemyBase;
+        TargetChanged?.Invoke(CurrentTarget);
+
+        //Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, _radius);
+
+        //if (hitColliders.Length > 0)
+        //    foreach (Collider hit in hitColliders)
+        //        FindEnemies(hit);
+    }
+
+    private void OnTriggerEnter(Collider other) =>
+        FindEnemies(other);
+
+    private void FindEnemies(Collider other)
     {
         if (other.TryGetComponent(out DamagableTarget unit) &&
             _detectedUnits.Contains(unit) == false &&

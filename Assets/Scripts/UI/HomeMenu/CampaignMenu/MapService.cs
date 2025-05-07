@@ -7,15 +7,49 @@ namespace UI.HomeMenu.CampaignMenu
         private const int FirstCampaign = 0;
         private const int CorrectionShift = 1;
 
-        [SerializeField] private Map[] _levelDataByCampaign;
+        [SerializeField] private UnitModelView[] _levelDataByCampaign;
         [SerializeField] private LevelButton[] _levelButtons;
         [SerializeField] private MapDisplay _mapDisplay;
+        [SerializeField] private Transform _playerContainer;
+        [SerializeField] private Transform _enemyContainer;
 
         private int _currentCampaignIndex;
+        private LevelButton _selectedButton;
 
-        private void Awake()
-        {
+        private void Awake() =>
             ChangeCampaign(FirstCampaign);
+
+        private void OnEnable()
+        {
+            foreach (LevelButton levelButton in _levelButtons)
+                levelButton.Selected += MarkSelected;
+        }
+
+        private void OnDisable()
+        {
+            foreach (LevelButton levelButton in _levelButtons)
+                levelButton.Selected -= MarkSelected;
+        }
+
+        private void MarkSelected(LevelButton button)
+        {
+            _selectedButton = button;
+
+            _mapDisplay.DisplayMap(_levelDataByCampaign[(int)_selectedButton.LevelCells[_currentCampaignIndex].EnemyFaction], _enemyContainer, _mapDisplay.EnemyDescriptionField);
+        }
+
+        public void LoadCurrentLevel()
+        {
+            if (_selectedButton == null)
+                return;
+
+            if (_selectedButton.LevelCells == null || _selectedButton.LevelCells.Count == 0)
+                return;
+
+            if (_currentCampaignIndex < 0 || _currentCampaignIndex >= _selectedButton.LevelCells.Count)
+                return;
+
+            _selectedButton.LevelCells[_currentCampaignIndex].LoadScene();
         }
 
         public void ChangeCampaign(int change)
@@ -28,7 +62,9 @@ namespace UI.HomeMenu.CampaignMenu
                 _currentCampaignIndex = FirstCampaign;
 
             if (_mapDisplay != null)
-                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex]);
+                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescritionField);
+
+            _selectedButton = null;
 
             UpdateLevelButtons();
         }

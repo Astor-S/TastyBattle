@@ -56,11 +56,8 @@ namespace EnemyBehaviorSystem
             TryExecuteRandomImprove();
         }
 
-        private void TrySummonUnit()
-        {
-            Debug.Log("Попытка призвать юнита...");
+        private void TrySummonUnit() =>
             _summonerService.SummonRandomUnit();
-        }
 
         private void TryExecuteRandomImprove()
         {
@@ -72,16 +69,10 @@ namespace EnemyBehaviorSystem
                 TryImroveRandomUnitStats();
         }
 
-        private void TryImroveResourceExtraction()
-        {
-            Debug.Log("Попытка улучшить добычу ресурсов...");
+        private void TryImroveResourceExtraction() =>
             _upgradeService.ImproveResourceExtraction();
-        }
 
-        private void TryImroveRandomUnitStats()
-        {
-            Debug.Log("Попытка улучшить характеристики юнитов...");
+        private void TryImroveRandomUnitStats() =>
             _upgradeService.ImproveRandomUnitStats();
-        }
     }
 }

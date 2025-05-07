@@ -22,6 +22,7 @@ namespace Buildings
 
             DamagableTarget.HalfHP += View.SetHalfHPAnimation;
             DamagableTarget.QuaterHP += View.SetQuaterHPAnimation;
+            Model.Spawner.OnSpawn += StartSpawn;
             _unitScaner.UnitDetected += Model.Wallet.AddUnitAsIncomeSource;
         }
 
@@ -31,7 +32,11 @@ namespace Buildings
 
             DamagableTarget.HalfHP -= View.SetHalfHPAnimation;
             DamagableTarget.QuaterHP -= View.SetQuaterHPAnimation;
-            _unitScaner.UnitDetected -= Model.Wallet.AddUnitAsIncomeSource;
+            Model.Spawner.OnSpawn -= StartSpawn;
+            _unitScaner.UnitDetected -= Model.Wallet.AddUnitAsIncomeSource; 
         }
+
+        private void StartSpawn() => 
+            StartCoroutine(Model.Spawner.DelayedSpawn());
     }
 }

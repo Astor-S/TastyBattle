@@ -7,7 +7,7 @@ using AttackSystem.AttackHandlers;
 
 namespace Units
 {
-    public class UnitPresenter : Presenter, IActivatable
+    public class UnitPresenter : Presenter, IActivatable, IUpgradable
     {
         [SerializeField] private AttackHandler _attackHandler;
         [SerializeField] private DetectionSystem _detectionSystem;
@@ -19,6 +19,8 @@ namespace Units
         private float _defaultSpeed;
         private float _defaultAttackSpeedMultiplier;
 
+        public event Action<UnitPresenter> OnUnitDying;
+        public event Action<UnitPresenter> Releasing;
         private Action<DamagableTarget> DyingDelegate;
 
         public new Unit Model => base.Model as Unit;
@@ -26,47 +28,51 @@ namespace Units
         public DetectionSystem DetectionSystem => _detectionSystem;
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;
-
         protected AttackHandler AttackHandler => _attackHandler;
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
+        public UpgradeHandler UpgradeHandler { get; set; }
 
-        protected virtual void FixedUpdate()
+        private void Awake()
         {
-            if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
-            {
-                _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
-            }
-        }
+            gameObject.layer = Model.OwnerMask;
+            DyingDelegate = (_) => OnDying();
 
-        public virtual void Enable()
-        {
-            gameObject.layer = Mathf.RoundToInt(Mathf.Log(Model.Stats.OwnerMask, 2));
             _navMeshAgent.updateRotation = false;
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
-            _navMeshAgent.speed = Model.Stats.MovementSpeed;
-             _defaultSpeed = Model.Stats.MovementSpeed;
             NavMesh.avoidancePredictionTime = 0.5f;
-            View.SetWalkingAnimation();
-            View.SetHealthBarColor();
+
+            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
+            _navMeshAgent.speed = UpgradeHandler.GetIncreasedSpeed(Model.Stats);
+            _defaultSpeed = UpgradeHandler.GetIncreasedSpeed(Model.Stats);
 
             if (_damageTarget.enabled == false)
-                _damageTarget.Init(Model.Stats);
+                _damageTarget.Init(Model.Stats, UpgradeHandler);
 
             if (_detectionSystem.gameObject.activeSelf == false)
                 _detectionSystem.Init(gameObject.layer, Model.EnemyBase, _battleRole);
 
             if (_attackHandler.gameObject.activeSelf == false)
-                _attackHandler.Init(Model.Stats);
+                _attackHandler.Init(Model.Stats, UpgradeHandler);
+        }
 
-            DyingDelegate = (_) =>
-            {
-                View.SetDeathAnimation();
-                _navMeshAgent.enabled = false;
-            };
+        protected virtual void FixedUpdate()
+        {
+            if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
+                _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
+        }
+
+        public virtual void Enable()
+        {
+            View.SetWalkingAnimation();
+
+            _detectionSystem.enabled = true;
+            _attackHandler.enabled = true;
+            _damageTarget.enabled = true;
+            _navMeshAgent.enabled = true;
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
+            View.Decayed += OnDecayed;
         }
 
         public virtual void Disable()
@@ -74,6 +80,7 @@ namespace Units
             _damageTarget.Dying -= DyingDelegate;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
+            View.Decayed -= OnDecayed;
         }
 
         public void SetAgentSpeed(float speed) =>
@@ -87,5 +94,24 @@ namespace Units
 
         public void ResetAttackSpeedMultiplier() =>
             _attackHandler.AttackSpeedMultiplier = _defaultAttackSpeedMultiplier;
+
+        protected void OnDying()
+        {
+            View.SetDeathAnimation();
+            _navMeshAgent.enabled = false;
+
+            if (_attackHandler != null)
+                _attackHandler.enabled = false;
+
+            if (_detectionSystem != null)
+                _detectionSystem.enabled = false;
+            
+            OnUnitDying?.Invoke(this);
+        }
+
+        private void OnDecayed()
+        {
+            Releasing?.Invoke(this);
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using NaughtyAttributes;
 using GameService;
+using YG;
 
 namespace UI.Screens.ScreenButtons
 {
@@ -15,6 +16,7 @@ namespace UI.Screens.ScreenButtons
 
         public void OnButtonClick()
         {
+            YG2.InterstitialAdvShow();
             StartCoroutine(_levelLoader.LoadLevelAsync(_sceneToLoad));
             GameContinued?.Invoke();
         }

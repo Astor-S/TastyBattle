@@ -10,8 +10,9 @@ namespace Buildings
         public Wallet Wallet { get; }
 
         public MainBuilding(
-            
+
             DamagableSetup setup,
+            UpgradeHandler upgradeHandler,
             float unitSpawnCooldown,
             int unitSpawnCount,
             UnitFactory unitFactory,
@@ -19,7 +20,7 @@ namespace Buildings
             Wallet wallet,
             Vector3 position,
             Quaternion rotation)
-            : base(setup, position, rotation)
+            : base(setup, upgradeHandler, position, rotation)
         {
             Spawner = new Spawner(
                 unitSpawnCooldown,

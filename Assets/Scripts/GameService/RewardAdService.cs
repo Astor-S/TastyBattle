@@ -1,28 +1,31 @@
 using System;
 using UnityEngine;
+using YG;
 
 namespace GameService
 {
     public class RewardAdService : MonoBehaviour
     {
+        public string CoinReward = nameof(CoinReward);
+
         public event Action RewardReceived;
 
-        //private void OnEnable()
-        //{
-        //    YandexGame.RewardVideoEvent += Rewarded;
-        //}
-
-        //private void OnDisable()
-        //{
-        //    YandexGame.RewardVideoEvent -= Rewarded;
-        //}
-
-        public void ShowRewardAd(int id)
+        private void OnEnable()
         {
-            //YandexGame.RewVideoShow(id);
+            YG2.onRewardAdv += ShowRewardAd;
         }
 
-        private void Rewarded(int _) =>
+        private void OnDisable()
+        {
+            YG2.onRewardAdv -= ShowRewardAd;
+        }
+
+        public void ShowRewardAd(string id)
+        {
+            YG2.RewardedAdvShow(id, Reward);
+        }
+
+        private void Reward() =>
             RewardReceived?.Invoke();
     }
 }

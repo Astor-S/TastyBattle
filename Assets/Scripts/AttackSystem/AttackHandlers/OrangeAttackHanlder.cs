@@ -1,10 +1,11 @@
 using UnityEngine;
 using FactionalAbilities.Handlers;
 using FactionalAbilities.Handlers.Effects;
+using AttackSystem.Interfaces;
 
 namespace AttackSystem.AttackHandlers
 {
-    public class OrangeAttackHanlder : AttackHandler
+    public class OrangeAttackHanlder : AttackHandler, IOrangeAttacker, IAcidEffector
     {
         [SerializeField] private OrangeAbilityHandler _orangAbilityHandler;
         [SerializeField] private ParticleSystem _acidParticleEffectPrefab;
@@ -15,7 +16,7 @@ namespace AttackSystem.AttackHandlers
             ApplyOrangeAcid();
         }
 
-        private void ApplyOrangeAcid()
+        public void ApplyOrangeAcid()
         {
             if (_orangAbilityHandler != null)
             {
@@ -33,7 +34,7 @@ namespace AttackSystem.AttackHandlers
             }
         }
 
-        private void PlayAcidParticleEffect(Transform target)
+        public void PlayAcidParticleEffect(Transform target)
         {
             if (_acidParticleEffectPrefab != null)
             {

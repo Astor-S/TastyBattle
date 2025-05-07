@@ -2,10 +2,14 @@ namespace YG
 {
     public partial class SavesYG
     {        
-        public float MusicVolume;
-        public float SoundVolume;
+        //Audio saves
+        public float MusicVolume = 0.3f;
+        public float SoundVolume = 0.3f;
 
-        public bool IsMusicOn;
-        public bool IsSoundOn;
+        public bool IsMusicOn = true;
+        public bool IsSoundOn = true;
+
+        //Score
+        public int Score;
     }
 }

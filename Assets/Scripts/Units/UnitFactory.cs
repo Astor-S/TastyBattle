@@ -1,32 +1,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AttackSystem;
-using StructureElements;
+using GameService.GameHandlerSystem.Handlers;
 
 namespace Units
 {
-    public class UnitFactory : MonoBehaviour
+    public class UnitFactory : MonoBehaviour, IUpgradable
     {
-        [SerializeField] private UnitPresenter[] _units;
+        [SerializeField] private FactionUnits _factionUnits;
         [SerializeField] private DamagableTarget _enemyBase;
         [SerializeField] private Transform _spawnPoint;
+        [SerializeField] private UnitDeathHandler _enemyDeathHandler;
 
-        private Dictionary<Faction, Dictionary<BattleRole, UnitPresenter>> _unitsDictionary;
+        private Dictionary<BattleRole, MVPPool<UnitPresenter, Unit>> _pools;
         private int _minSpawnPositionZ = -5;
         private int _maxSpawnPositionZ = 5;
         private int _previousSpawnPosition = 0;
 
+        public UpgradeHandler UpgradeHandler { get; set; }
+
         private void Awake()
         {
-            _unitsDictionary = new();
-
-            foreach (UnitPresenter unit in _units)
+            _pools = new Dictionary<BattleRole, MVPPool<UnitPresenter, Unit>>()
             {
-                if (_unitsDictionary.ContainsKey(unit.Faction) == false)
-                    _unitsDictionary.Add(unit.Faction, new Dictionary<BattleRole, UnitPresenter>());
+                {
+                    BattleRole.Melee,
+                    new MVPPool<UnitPresenter, Unit>(
+                        (model) => CreatePresenter(model),
+                        (unit) => unit.gameObject.SetActive(false))
+                },
 
-                _unitsDictionary[unit.Faction].Add(unit.BattleRole, unit);
-            }
+                {
+                    BattleRole.Range,
+                    new MVPPool<UnitPresenter, Unit>(
+                        (model) => CreatePresenter(model),
+                        (unit) => unit.gameObject.SetActive(false))
+                },
+
+                {
+                    BattleRole.Tank,
+                    new MVPPool<UnitPresenter, Unit>(
+                        (model) => CreatePresenter(model),
+                        (unit) => unit.gameObject.SetActive(false))
+                },
+
+                {
+                    BattleRole.Siege,
+                    new MVPPool<UnitPresenter, Unit>(
+                        (model) => CreatePresenter(model),
+                        (unit) => unit.gameObject.SetActive(false))
+                },
+            };
         }
 
         public void CreateUnit(UnitSetup setup)
@@ -38,13 +62,18 @@ namespace Units
             else
                 unit = new Unit(setup, _enemyBase);
 
-            CreatePresenter(_unitsDictionary[setup.Faction][setup.BattleRole], unit);
-            unit.MoveTo(GenerateSpawnPosition());
+            UnitPresenter presenter = _pools[setup.BattleRole].GetObject(unit);
+            presenter.UpgradeHandler = UpgradeHandler;
+            presenter.gameObject.SetActive(true);
+            presenter.Releasing += ReleaseIntoPool;
+            presenter.transform.position = GenerateSpawnPosition();
+
+            _enemyDeathHandler.OnUnitSpawned(presenter);
         }
 
-        private Presenter CreatePresenter(Presenter presenterTemplate, Transformable model)
+        private UnitPresenter CreatePresenter(Unit model)
         {
-            Presenter presenter = Instantiate(presenterTemplate);
+            UnitPresenter presenter = Instantiate(_factionUnits.Dictionary[model.BattleRole]);
             presenter.Init(model);
             return presenter;
         }
@@ -59,6 +88,13 @@ namespace Units
             _previousSpawnPosition = randomPositionZ;
 
             return new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, randomPositionZ);
+        }
+
+        private void ReleaseIntoPool(UnitPresenter unitPresenter)
+        {
+            unitPresenter.Releasing -= ReleaseIntoPool;
+
+            _pools[unitPresenter.Model.BattleRole].Release(unitPresenter);
         }
     }
 }

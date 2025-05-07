@@ -6,41 +6,37 @@ namespace AttackSystem.AttackHandlers
 {
     public class AttackHandler : MonoBehaviour
     {
-        private readonly Coroutine _timeUpdatingCoroutine; //???
-
         [SerializeField] private DetectionSystem _detectionSystem;
 
         private AttackerSetup _stats;
         private DamagableTarget _attackedTarget;
-        private float _distanceOffset = 0.5f;
-        protected WaitForFixedUpdate WaitForFixedUpdate;
+        protected WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
+        private UpgradeHandler _upgradeHandler;
+        private bool _isAttacking;
 
         public event Action AttackStarted;
         public event Action AttackStopped;
 
-        public float AttackSpeedMultiplier { get; set; } = 1f; //???
-        public bool IsAttacking => _attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) - _distanceOffset <= _stats.AttackDistance * _stats.AttackDistance;                                                 
+        public float AttackSpeedMultiplier { get; set; } = 1f;
+        public bool IsAbleToAttack => _attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) <= _stats.AttackDistance * _stats.AttackDistance;
         public DamagableTarget AttackedTarget => _attackedTarget;
         public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
-        protected virtual float Damage => _stats.AttackDamage;
+        protected virtual float Damage => _upgradeHandler.GetIncreasedDamage(_stats);
 
-        private void OnEnable() =>
-            _detectionSystem.TargetChanged += ChangeTarget;
-
-        private void OnDisable() =>
-            _detectionSystem.TargetChanged -= ChangeTarget;      
-        
-        private void Start()
+        private void OnEnable()
         {
-            WaitForFixedUpdate = new WaitForFixedUpdate();
-
+            _detectionSystem.TargetChanged += ChangeTarget;
             StartCoroutine(nameof(Combat));
         }
 
-        public void Init(AttackerSetup attackerSetup)
+        private void OnDisable() => 
+            _detectionSystem.TargetChanged -= ChangeTarget;
+
+        public void Init(AttackerSetup attackerSetup, UpgradeHandler upgradeHandler)
         {
             _stats = attackerSetup;
+            _upgradeHandler = upgradeHandler;
 
             gameObject.SetActive(true);
         }
@@ -58,10 +54,19 @@ namespace AttackSystem.AttackHandlers
         {
             while (enabled)
             {
-                if (_attackedTarget != null && IsAttacking)
-                    StartAttack();
-                else
-                    StopAttack();
+                if (_attackedTarget != null)
+                {
+                    if (IsAbleToAttack && _isAttacking == false)
+                    {
+                        StartAttack();
+                        _isAttacking = true;
+                    }
+                    else if (IsAbleToAttack == false && _isAttacking)
+                    {
+                        StopAttack();
+                        _isAttacking = false;
+                    }
+                }
 
                 yield return WaitForFixedUpdate;
             }

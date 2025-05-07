@@ -9,20 +9,20 @@ namespace ResourceDistribution
         private UnitFactory _unitFactory;
         private UnitOrderHandler[] _unitItems;
         private UpgradeOrderHandler[] _upgradeItems;
-        private UpgradeHandler _upgradeHandler;
+        private UpgradeSetup _upgradeSetup;
         private Wallet _wallet;
 
         public Shop(
             UnitFactory unitFactory,
             UnitOrderHandler[] unitItems,
             UpgradeOrderHandler[] upgradeItems,
-            UpgradeHandler upgradeHandler,
+            UpgradeSetup upgradeSetup,
             Wallet wallet)
         {
             _unitFactory = unitFactory;
             _unitItems = unitItems;
             _upgradeItems = upgradeItems;
-            _upgradeHandler = upgradeHandler;
+            _upgradeSetup = upgradeSetup;
             _wallet = wallet;
         }
 
@@ -48,57 +48,55 @@ namespace ResourceDistribution
             _wallet.Disable();
         }
 
-        private void SpawnUnit(Order order, int cost)
+        private void SpawnUnit(Order order)
         {
             UnitOrder unit = order as UnitOrder;
 
             try
             {
-                _wallet.SpendResource(cost);
+                _wallet.SpendResource(unit.Cost);
                 _unitFactory.CreateUnit(unit.Setup);
-
-                UnityEngine.Debug.Log($"Account balance: {_wallet.ResourceCount} (-{cost})");
             }
             catch (InvalidOperationException exc)
             {
-                UnityEngine.Debug.Log(exc.Message + ": " + unit.Setup.Faction.ToString() + ", " + unit.Setup.BattleRole.ToString());
+                throw new InvalidOperationException(exc.Message + ": " + unit.Setup.BattleRole.ToString() + " " + unit.Setup.Faction.ToString());
             }
         }
 
-        private void MakeUpgrade(Order order, int cost)
+        private void MakeUpgrade(Order order)
         {
             UpgradeOrder upgrade = order as UpgradeOrder;
 
             try
             {
-                _wallet.SpendResource(cost);
+                _wallet.SpendResource(upgrade.Cost);
 
                 switch (upgrade.Type)
                 {
                     case UpgradeType.UnitDamageIncrease:
-                        _upgradeHandler.IncreaseUnitDamage();
+                        _upgradeSetup.IncreaseUnitDamage();
                         break;
 
                     case UpgradeType.UnitHealthIncrease:
-                        _upgradeHandler.IncreaseUnitHealth();
+                        _upgradeSetup.IncreaseUnitHealth();
                         break;
 
                     case UpgradeType.UnitSpeedIncrease:
-                        _upgradeHandler.IncreaseUnitSpeed();
+                        _upgradeSetup.IncreaseUnitSpeed();
                         break;
 
                     case UpgradeType.BuildingHealthIncrease:
-                        _upgradeHandler.IncreaseBuldingHealth();
+                        _upgradeSetup.IncreaseBuildingHealth();
                         break;
 
                     case UpgradeType.IncomeIncrease:
-                        _upgradeHandler.IncreaseIncome();
+                        _upgradeSetup.IncreaseMineIncome();
                         break;
                 }
             }
             catch (InvalidOperationException exc)
             {
-                UnityEngine.Debug.Log(exc.Message + ": " + upgrade.Type.ToString());
+                throw new InvalidOperationException(exc.Message + ": " + upgrade.Type.ToString() + " " + upgrade.Cost.ToString());
             }
         }
     }

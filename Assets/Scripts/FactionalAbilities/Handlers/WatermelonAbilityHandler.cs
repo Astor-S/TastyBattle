@@ -51,7 +51,6 @@ namespace FactionalAbilities.Handlers
             float baseDamage = GetBaseAttackDamage();
             float currentDamage = baseDamage * (DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage);
             SetCurrentAttackDamage(currentDamage);
-            Debug.Log($"[{gameObject.name}] Watermelon Ability Activated! Damage increased to {CurrentAttackDamage}");
         }
 
         private void RemoveDamageBoost()
@@ -59,7 +58,6 @@ namespace FactionalAbilities.Handlers
             _isDamageBoostActive = false;
             float baseDamage = GetBaseAttackDamage();
             SetCurrentAttackDamage(baseDamage);
-            Debug.Log($"[{gameObject.name}] Watermelon Ability Deactivated! Damage returned to {CurrentAttackDamage}");
         }
     }
 }

@@ -1,42 +1,66 @@
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public abstract class OrderHandler : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _priceTextBox;
-    [SerializeField] private int _cost;
+    [SerializeField] private int _initialCost;
 
     private Order _order;
 
-    public event Action<Order, int> ItemOrdered;
+    public event Action<Order> ItemOrdered;
+
+    protected Order Order => _order;
 
     private void Awake()
     {
-        if (_priceTextBox != null)
-            _priceTextBox.text = _cost.ToString();
+        _order = InitializeOrder(_initialCost);
 
-        _order = InitializeOrder();
+        if (_priceTextBox != null)
+            _priceTextBox.text = _initialCost.ToString();
     }
 
     private void OnEnable()
     {
         if (_button != null)
-            _button.onClick.AddListener(Order);
+            _button.onClick.AddListener(MakeOrder);
     }
 
     private void OnDisable()
     {
         if (_button != null)
-            _button.onClick.RemoveListener(Order);
+            _button.onClick.RemoveListener(MakeOrder);
     }
 
-    public void Order()
+    public void MakeOrder()
     {
-        ItemOrdered?.Invoke(_order, _cost);
+        try
+        {
+            if (_order.IsAvailable)
+            {
+                ItemOrdered?.Invoke(_order);
+                OnOrdered();
+
+                if (_priceTextBox != null)
+                    _priceTextBox.text = _order.Cost.ToString();
+
+                if (_order.IsAvailable == false)
+                {
+                    _priceTextBox.gameObject.SetActive(false);
+                    _button.interactable = false;
+                }
+            }
+        }
+        catch (InvalidOperationException exc)
+        {
+            Debug.Log(exc.Message);
+        }
     }
 
-    protected abstract Order InitializeOrder();
+    protected abstract Order InitializeOrder(int initialCost);
+
+    protected abstract void OnOrdered();
 }

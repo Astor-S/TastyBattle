@@ -12,6 +12,7 @@ namespace AttackSystem
         private DamagableSetup _stats;
         private bool _isHalfHP = false;
         private bool _isQuaterHP = false;
+        private UpgradeHandler _upgradeHandler;
 
         public event Action<float, float> ValueChanged;
         public event Action Dying;
@@ -19,13 +20,16 @@ namespace AttackSystem
         public event Action QuaterHP;
 
         public float Value { get; private set; }
-        public float MaxValue => _stats.MaxHealthPoints;
+        public float MaxValue { get; private set; }
         public bool IsAlive => Value > MinValue;
 
-        public Health(DamagableSetup damagableSetup)
+        public Health(DamagableSetup damagableSetup, UpgradeHandler upgradeHandler)
         {
             _stats = damagableSetup;
-            Value = _stats.MaxHealthPoints;
+            _upgradeHandler = upgradeHandler;
+
+            MaxValue = _upgradeHandler.GetIncreasedHealth(_stats);
+            Value = MaxValue;
         }
 
         public void Reduce(float damage)
@@ -38,6 +42,13 @@ namespace AttackSystem
 
             if (IsAlive == false)
                 Dying?.Invoke();
+        }
+
+        public void Reset()
+        {
+            Value = MaxValue;
+            _isHalfHP = false;
+            _isQuaterHP = false;
         }
 
         private void UpdateValue(float value)

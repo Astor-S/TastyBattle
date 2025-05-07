@@ -7,6 +7,6 @@ namespace AttackSystem.AttackHandlers
     {
         [SerializeField] private AttackAbilityHandler _attackAbilityHandler;
 
-        protected override float Damage => _attackAbilityHandler.CurrentAttackDamage;
+        protected override float Damage => _attackAbilityHandler.CurrentAttackDamage; 
     }
 }

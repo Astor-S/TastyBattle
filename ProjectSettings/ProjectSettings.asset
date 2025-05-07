@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: MushroomBand
   productName: TastyBattle
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -133,7 +133,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 1.0
+  bundleVersion: 0.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -165,7 +165,7 @@ PlayerSettings:
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
-  stripEngineCode: 1
+  stripEngineCode: 0
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
   ForceInternetPermission: 0
@@ -736,14 +736,14 @@ PlayerSettings:
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
   webGLMemorySize: 32
-  webGLExceptionSupport: 1
+  webGLExceptionSupport: 2
   webGLNameFilesAsHashes: 1
   webGLShowDiagnostics: 0
   webGLDataCaching: 0
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: PROJECT:YandexGames
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
@@ -759,15 +759,30 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: PLUGIN_YG_2;Authorization_yg;AutoTranslateLangs_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
-    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;YandexGamesPlatform_yg;InterstitialAdv_yg;Authorization_yg;Leaderboards_yg;Storage_yg;RewardedAdv_yg;Localization_yg;EnvirData_yg;AutoTranslateLangs_yg
+    Android: DOTWEEN
+    EmbeddedLinux: DOTWEEN
+    GameCoreScarlett: DOTWEEN
+    GameCoreXboxOne: DOTWEEN
+    LinuxHeadlessSimulation: DOTWEEN
+    Nintendo Switch: DOTWEEN
+    PS4: DOTWEEN
+    PS5: DOTWEEN
+    QNX: DOTWEEN
+    Stadia: DOTWEEN
+    Standalone: PLUGIN_YG_2;Authorization_yg;AutoTranslateLangs_yg;EnvirData_yg;InterstitialAdv_yg;Leaderboards_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg;DOTWEEN;Clipboard_yg;Flags_yg;Fullscreen_yg;GameLabel_yg;Metrica_yg;OpenURL_yg;Payments_yg;PlayerStats_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;Review_yg;ServerTime_yg;StickyAdv_yg;TV_yg;NJSON_YG2
+    VisionOS: DOTWEEN
+    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;Authorization_yg;Leaderboards_yg;Storage_yg;RewardedAdv_yg;Localization_yg;EnvirData_yg;AutoTranslateLangs_yg;DOTWEEN;Clipboard_yg;Flags_yg;Fullscreen_yg;GameLabel_yg;Metrica_yg;OpenURL_yg;Payments_yg;PlayerStats_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;Review_yg;ServerTime_yg;StickyAdv_yg;TV_yg;YandexGamesPlatform_yg;NJSON_YG2
+    Windows Store Apps: DOTWEEN
+    XboxOne: DOTWEEN
+    iPhone: DOTWEEN
+    tvOS: DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   managedStrippingLevel:
-    WebGL: 1
+    WebGL: 4
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
@@ -780,7 +795,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: TastyBattle
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -788,7 +803,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: TastyBattle
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: TastyBattle
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
