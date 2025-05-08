@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class MessageViewer : MonoBehaviour
 {
-    [SerializeField] private List<string> _textFields;
     [SerializeField] private float _textSpeed;
     [SerializeField] private TextMeshProUGUI _text;
 
@@ -22,19 +20,16 @@ public class MessageViewer : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && _isTyping == false)
-        {
             _text.text = string.Empty;
-            StartCoroutine(TypeMessage());
-        }
     }
 
-    private IEnumerator TypeMessage()
+    public IEnumerator TypeMessage(TutorialPart tutorialPart)
     {
-        if (_index < _textFields.Count)
+        if (_index < tutorialPart.TextFields.Count)
         {
             _isTyping = true;
 
-            foreach (char character in _textFields[_index].ToCharArray())
+            foreach (char character in tutorialPart.TextFields[_index].ToCharArray())
             {
                 _text.text += character;
 
