@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] private MessageViewer _messageViewer;
+    [SerializeField] private Instruction _messageViewer;
     [SerializeField] private List<TutorialPart> _tutorialParts;
 
     private int _tutorialIndex;
@@ -12,25 +13,29 @@ public class Tutorial : MonoBehaviour
     {
         TimeManager.Pause();
 
-        StartTutorial();
+        StartNextTutorial();
     }
 
-    private void OnEnable() => 
+    private void OnEnable() =>
         _messageViewer.MessagesOut += StartNextTutorial;
 
-    private void OnDisable() => 
+    private void OnDisable() =>
         _messageViewer.MessagesOut -= StartNextTutorial;
 
     private void StartNextTutorial()
     {
         if (_tutorialIndex < _tutorialParts.Count)
         {
-            StartTutorial();
+            _messageViewer.SetTutorialPart(_tutorialParts[_tutorialIndex]);
 
             _tutorialIndex++;
         }
+        else
+        {
+            CloseTutorial();
+        }
     }
 
-    private void StartTutorial() => 
-        StartCoroutine(_messageViewer.TypeMessage(_tutorialParts[_tutorialIndex]));
+    private void CloseTutorial() =>
+        TimeManager.Unpause();
 }
