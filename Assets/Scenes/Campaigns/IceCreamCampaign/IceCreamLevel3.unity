@@ -3122,6 +3122,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &403912215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2760331566062030934, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+  m_PrefabInstance: {fileID: 1895736353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469edb50dd6cd194b850c76fbf1f742e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &413559561
 GameObject:
   m_ObjectHideFlags: 0
@@ -10908,7 +10919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bcaf18821b70346aec5b218ce05d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSettings: {fileID: 0}
+  _audioSettings: {fileID: 403912215}
 --- !u!4 &1426166063
 Transform:
   m_ObjectHideFlags: 0
