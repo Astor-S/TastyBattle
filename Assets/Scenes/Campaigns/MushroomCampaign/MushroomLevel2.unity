@@ -3958,7 +3958,7 @@ PrefabInstance:
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _enemyDeathHandler
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 605499320}
     - target: {fileID: 167922940242089229, guid: 941b8546a926b9643bef6b8564989d9a, type: 3}
       propertyPath: _units.Array.data[0]
       value: 
@@ -8680,6 +8680,10 @@ PrefabInstance:
       propertyPath: _enemyBase
       value: 
       objectReference: {fileID: 502671744}
+    - target: {fileID: 2508535295967750980, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _enemyDeathHandler
+      value: 
+      objectReference: {fileID: 605499320}
     - target: {fileID: 3756702701568696834, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
@@ -9427,6 +9431,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262261259}
   m_CullTransparentMesh: 0
+--- !u!114 &1262570989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2760331566062030934, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+  m_PrefabInstance: {fileID: 2125414425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469edb50dd6cd194b850c76fbf1f742e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1271744660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6239969156481072347, guid: b71b0f8d2f881c743a85228f3030d1cb, type: 3}
@@ -10601,7 +10616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bcaf18821b70346aec5b218ce05d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSettings: {fileID: 0}
+  _audioSettings: {fileID: 1262570989}
 --- !u!4 &1426166063
 Transform:
   m_ObjectHideFlags: 0
