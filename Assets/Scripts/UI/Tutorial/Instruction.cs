@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class Instruction : MonoBehaviour
 {
-    [SerializeField] private float _textSpeed;
+    [SerializeField] private float _textSpeed = 1f;
     [SerializeField] private TextMeshProUGUI _text;
 
     private TutorialPart _currentPart;
-    private WaitForSecondsRealtime _step;
+    private WaitForSeconds _step;
     private int _index;
     private bool _isTyping;
 
     public event Action MessagesOut;
 
     private void OnEnable() =>
-        _step = new WaitForSecondsRealtime(_textSpeed * Time.deltaTime);
+        _step = new WaitForSeconds(_textSpeed * Time.fixedDeltaTime);
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _isTyping == false)
+        if (Input.GetMouseButtonUp(0) && _isTyping == false)
         {
             _text.text = string.Empty;
 
