@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 public class UnitOrderHandler : OrderHandler
 {
@@ -13,6 +14,7 @@ public class UnitOrderHandler : OrderHandler
 
     protected override void OnOrdered()
     {
+        YG2.MetricaSend("unit_ordered");
         Order.IncreaseCost();
     }
 }

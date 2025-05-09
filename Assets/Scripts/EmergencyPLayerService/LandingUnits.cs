@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Units;
+using YG;
 
 namespace EmergencyPlayerService
 {
@@ -30,8 +31,11 @@ namespace EmergencyPlayerService
         private void OnButtonClick() =>
             CallLanding();
 
-        private void CallLanding() =>
+        private void CallLanding()
+        {
+            YG2.MetricaSend("emergency_button_clicked");
             StartCoroutine(LandingSequence());
+        }
 
         private IEnumerator LandingSequence()
         {
