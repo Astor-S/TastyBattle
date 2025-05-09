@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using YG;
 
 namespace UI.HomeMenu.CampaignMenu
 {
@@ -16,7 +18,7 @@ namespace UI.HomeMenu.CampaignMenu
         private int _currentCampaignIndex;
         private LevelButton _selectedButton;
 
-        private void Awake() =>
+        private void Awake() => 
             ChangeCampaign(FirstCampaign);
 
         private void OnEnable()
@@ -76,6 +78,18 @@ namespace UI.HomeMenu.CampaignMenu
                 int buttonIndex = i;
                 _levelButtons[buttonIndex].SetCurrentLevelIndex(_currentCampaignIndex);
                 _levelButtons[buttonIndex].UpdateLevelButton();
+            }
+        }
+
+        public void TryStartTutorial()
+        {
+            if (YG2.saves.IsFirstLaunch == false)
+            {
+                //YG2.saves.IsFirstLaunch = true;
+                //YG2.SaveProgress();
+
+                //Загрузка туториала
+                SceneManager.LoadScene("Tutorial");
             }
         }
     }

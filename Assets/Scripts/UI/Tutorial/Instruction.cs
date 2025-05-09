@@ -10,7 +10,6 @@ public class Instruction : MonoBehaviour
 
     private TutorialPart _currentPart;
     private WaitForSecondsRealtime _step;
-    private Coroutine _coroutine;
     private int _index;
     private bool _isTyping;
 
