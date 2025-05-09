@@ -5,7 +5,7 @@ using GameService.GameHandlerSystem.Handlers;
 
 namespace Units
 {
-    public class UnitFactory : MonoBehaviour, IUpgradable
+    public class UnitFactory : MonoBehaviour
     {
         [SerializeField] private FactionUnits _factionUnits;
         [SerializeField] private DamagableTarget _enemyBase;
@@ -16,8 +16,6 @@ namespace Units
         private int _minSpawnPositionZ = -5;
         private int _maxSpawnPositionZ = 5;
         private int _previousSpawnPosition = 0;
-
-        public UpgradeHandler UpgradeHandler { get; set; }
 
         private void Awake()
         {
@@ -63,7 +61,6 @@ namespace Units
                 unit = new Unit(setup, _enemyBase);
 
             UnitPresenter presenter = _pools[setup.BattleRole].GetObject(unit);
-            presenter.UpgradeHandler = UpgradeHandler;
             presenter.gameObject.SetActive(true);
             presenter.Releasing += ReleaseIntoPool;
             presenter.transform.position = GenerateSpawnPosition();

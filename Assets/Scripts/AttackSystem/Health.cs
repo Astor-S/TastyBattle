@@ -10,9 +10,9 @@ namespace AttackSystem
         private const float Half = 2;
 
         private DamagableSetup _stats;
+        private UpgradesData _upgradesData;
         private bool _isHalfHP = false;
         private bool _isQuaterHP = false;
-        private UpgradeHandler _upgradeHandler;
 
         public event Action<float, float> ValueChanged;
         public event Action Dying;
@@ -21,15 +21,30 @@ namespace AttackSystem
 
         public float Value { get; private set; }
         public float MaxValue { get; private set; }
+        public float MaxValueOld =>
+            _stats.BattleRole == Units.BattleRole.Building ?
+            _upgradesData.GetIncreasedBuldingHealth(_stats) :
+            _upgradesData.GetIncreasedUnitHealth(_stats);
+
         public bool IsAlive => Value > MinValue;
 
-        public Health(DamagableSetup damagableSetup, UpgradeHandler upgradeHandler)
+        public Health(DamagableSetup damagableSetup, UpgradesData upgradesData)
         {
             _stats = damagableSetup;
-            _upgradeHandler = upgradeHandler;
+            _upgradesData = upgradesData;
 
-            MaxValue = _upgradeHandler.GetIncreasedHealth(_stats);
-            Value = MaxValue;
+            if (_stats.BattleRole == Units.BattleRole.Building)
+            {
+                _upgradesData.BuildingHealthUpgraded += OnUpgraded;
+                MaxValue = _upgradesData.GetIncreasedBuldingHealth(damagableSetup);
+            }
+            else
+            {
+                _upgradesData.UnitHealthUpgraded += OnUpgraded;
+                MaxValue = _upgradesData.GetIncreasedUnitHealth(damagableSetup);
+            }
+             
+            Value = MaxValueOld;
         }
 
         public void Reduce(float damage)
@@ -46,22 +61,37 @@ namespace AttackSystem
 
         public void Reset()
         {
-            Value = MaxValue;
+            Value = MaxValueOld;
             _isHalfHP = false;
             _isQuaterHP = false;
+        }
+
+        private void OnUpgraded()
+        {
+            float difference;
+
+            if (_stats.BattleRole == Units.BattleRole.Building)
+                difference = _upgradesData.GetIncreasedBuldingHealth(_stats) - MaxValue;
+            else
+                difference = _upgradesData.GetIncreasedUnitHealth(_stats) - MaxValue;
+
+            MaxValue += difference;
+            Value += difference;
+
+            ValueChanged?.Invoke(Value, MaxValueOld);
         }
 
         private void UpdateValue(float value)
         {
             Value = value;
-            ValueChanged?.Invoke(value, MaxValue);
+            ValueChanged?.Invoke(Value, MaxValueOld);
 
-            if (MaxValue / Quater >= Value && _isQuaterHP == false)
+            if (MaxValueOld / Quater >= Value && _isQuaterHP == false)
             {
                 _isQuaterHP = true;
                 QuaterHP?.Invoke();
             }
-            else if (MaxValue / Half >= Value && _isHalfHP == false)
+            else if (MaxValueOld / Half >= Value && _isHalfHP == false)
             {
                 _isHalfHP = true;
                 HalfHP?.Invoke();

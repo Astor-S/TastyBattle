@@ -2,20 +2,24 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Mine : MonoBehaviour, IIncomeSource, IUpgradable
+public class Mine : MonoBehaviour, IIncomeSource
 {
     [SerializeField, Min(0.5f)] private float _incomeCooldown;
     [SerializeField] private int _incomeValue;
 
     private bool _isMining = true;
+    private UpgradesData _upgradesData;
 
     public event Action<int, IIncomeSource> ResourceRecieved;
 
-    public UpgradeHandler UpgradeHandler { get; set; }
     public int IncomeValue => _incomeValue;
 
-    private void Start() => 
+    private void Start()
+    {
         StartCoroutine(GetIncome());
+
+        _upgradesData = gameObject.layer == LayerMask.NameToLayer("Player") ? Upgrades.Player : Upgrades.Enemy;
+    }
 
     private IEnumerator GetIncome()
     {
@@ -25,7 +29,7 @@ public class Mine : MonoBehaviour, IIncomeSource, IUpgradable
         {
             yield return cooldownWaitng;
 
-            ResourceRecieved?.Invoke(UpgradeHandler.GetIncreasedIncome(this), this);
+            ResourceRecieved?.Invoke(_upgradesData.GetIncreasedIncome(this), this);
         }
     }
 }

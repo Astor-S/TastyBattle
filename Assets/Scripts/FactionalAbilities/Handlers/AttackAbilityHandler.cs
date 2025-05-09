@@ -17,10 +17,13 @@ namespace FactionalAbilities.Handlers
             _currentAttackDamage = _baseAttackDamage;
         }
 
-        protected virtual float GetBaseAttackDamage() =>
+        public float GetChangedDamage(float baseDamage) =>
+            _currentAttackDamage;
+
+        protected float GetBaseAttackDamage() =>
             _baseAttackDamage;
 
-        protected virtual void SetCurrentAttackDamage(float damage) =>
+        protected void SetCurrentAttackDamage(float damage) =>
             _currentAttackDamage = damage;
     }
 }
