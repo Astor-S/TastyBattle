@@ -41,7 +41,7 @@ public class Instruction : MonoBehaviour
 
     public IEnumerator TypeMessage()
     {
-        _textFields = _currentPart.LanguageTextTutorials[YG2.envir.language];
+        _textFields = _currentPart.LanguageTextTutorials[YG2.lang];
 
         if (_index < _textFields.Count)
         {
