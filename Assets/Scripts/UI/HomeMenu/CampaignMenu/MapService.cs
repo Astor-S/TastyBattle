@@ -1,4 +1,7 @@
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using YG;
 
 namespace UI.HomeMenu.CampaignMenu
 {
@@ -76,6 +79,20 @@ namespace UI.HomeMenu.CampaignMenu
                 int buttonIndex = i;
                 _levelButtons[buttonIndex].SetCurrentLevelIndex(_currentCampaignIndex);
                 _levelButtons[buttonIndex].UpdateLevelButton();
+            }
+        }
+
+        //TODO
+        public void StartTutorial()
+        {
+            if (YG2.saves.IsFirstLaunch)
+            {
+                //YG2.saves.IsFirstLaunch = false;
+                //YG2.SaveProgress();
+
+                DOTween.Clear();
+
+                SceneManager.LoadScene("Tutorial");
             }
         }
     }

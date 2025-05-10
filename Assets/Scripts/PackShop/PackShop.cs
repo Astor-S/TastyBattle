@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PackShop : MonoBehaviour
 {
+    private const int FirstCampaign = 0;
+    private const int CorrectionShift = 1;
+
     [SerializeField] private List<SkinPack> _defaultSkins;
     [SerializeField] private List<SkinPack> _otherSkins;
     [SerializeField] private List<FactionUnits> _factionUnits;
@@ -110,8 +113,10 @@ public class PackShop : MonoBehaviour
     {
         int tempIndex = currentIndex + direction;
 
-        if (tempIndex < 0 || tempIndex > count - 1)
-            return;
+        if (tempIndex < FirstCampaign)
+            tempIndex = count - CorrectionShift;
+        else if (tempIndex > count - CorrectionShift)
+            tempIndex = FirstCampaign;
 
         currentIndex = tempIndex;
     }
