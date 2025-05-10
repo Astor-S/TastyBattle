@@ -4,11 +4,14 @@ using UnityEngine.AI;
 using StructureElements;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
+using YG;
 
 namespace Units
 {
     public class UnitPresenter : Presenter, IActivatable
     {
+        private const string Player = nameof(Player);
+
         [SerializeField] private AttackHandler _attackHandler;
         [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
@@ -35,8 +38,7 @@ namespace Units
         private void Awake()
         {
             gameObject.layer = Model.OwnerMask;
-            _upgradesData = gameObject.layer == LayerMask.NameToLayer("Player") ? Upgrades.Player : Upgrades.Enemy;
-
+            _upgradesData = gameObject.layer == LayerMask.NameToLayer(Player) ? Upgrades.Player : Upgrades.Enemy;
             DyingDelegate = (_) => OnDying();
 
             _navMeshAgent.updateRotation = false;

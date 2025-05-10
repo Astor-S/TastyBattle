@@ -1,27 +1,18 @@
+using AttackSystem.AttackHandlers;
 using UnityEngine;
 
 namespace FactionalAbilities.Handlers
 {
     public class AttackAbilityHandler : MonoBehaviour
     {
-        [SerializeField] UnitSetup _unitSetup;
+        [SerializeField] private AttackHandler _attackHandler;
 
-        private float _baseAttackDamage;
         private float _currentAttackDamage;
 
         public float CurrentAttackDamage => _currentAttackDamage;
 
-        private void Awake()
-        {
-            _baseAttackDamage = _unitSetup.AttackDamage;
-            _currentAttackDamage = _baseAttackDamage;
-        }
-
-        public float GetChangedDamage(float baseDamage) =>
-            _currentAttackDamage;
-
         protected float GetBaseAttackDamage() =>
-            _baseAttackDamage;
+            _attackHandler.CalculateDamage();
 
         protected void SetCurrentAttackDamage(float damage) =>
             _currentAttackDamage = damage;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour, IIncomeSource
 {
+    private const string Player = nameof(Player);
+
     [SerializeField, Min(0.5f)] private float _incomeCooldown;
     [SerializeField] private int _incomeValue;
 
@@ -18,7 +20,7 @@ public class Mine : MonoBehaviour, IIncomeSource
     {
         StartCoroutine(GetIncome());
 
-        _upgradesData = gameObject.layer == LayerMask.NameToLayer("Player") ? Upgrades.Player : Upgrades.Enemy;
+        _upgradesData = gameObject.layer == LayerMask.NameToLayer(Player) ? Upgrades.Player : Upgrades.Enemy;
     }
 
     private IEnumerator GetIncome()

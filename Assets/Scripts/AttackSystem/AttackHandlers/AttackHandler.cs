@@ -46,7 +46,7 @@ namespace AttackSystem.AttackHandlers
                 _attackedTarget.TakeDamage(CalculateDamage());
         }
 
-        protected virtual float CalculateDamage() =>
+        public virtual float CalculateDamage() =>
            _upgradesData.GetIncreasedDamage(_stats);
 
         protected virtual IEnumerator Combat()
