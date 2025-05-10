@@ -10,6 +10,9 @@ namespace YG
         public bool IsSoundOn = true;
 
         //Score
-        public int Score;
+        public int Score = 0;
+
+        //OnFirstPlay
+        public bool IsFirstLaunch = true;
     }
 }
