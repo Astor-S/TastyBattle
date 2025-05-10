@@ -20,7 +20,7 @@ namespace AttackSystem.RangedAttackHandlers
         {
             if (_orangeAbilityHandler != null)
             {
-                if (AttackedTarget != null && AttackedTarget.gameObject.activeInHierarchy)
+                if (AttackedTarget != null)
                 {
                     AcidHandler acidHandler = AttackedTarget.GetComponent<AcidHandler>();
 

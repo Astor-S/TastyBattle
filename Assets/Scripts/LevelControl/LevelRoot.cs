@@ -1,9 +1,9 @@
-using System.Linq;
 using Buildings;
+using ResourceDistribution;
+using System.Linq;
+using Units;
 using UnityEngine;
 using UnityEngine.UI;
-using ResourceDistribution;
-using Units;
 using YG;
 
 public class LevelRoot : MonoBehaviour
@@ -29,6 +29,7 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private DamagableSetup _baseSetup;
     [Header("UI")]
     [SerializeField] private ResourceCounter _playerResourceCounter;
+    [SerializeField] private ResourceCounter _enemyResourceCounter;// ���� ��� ������
     [SerializeField] private SpawnerView _spawnTimerHandler;
 
     private void Awake()
@@ -37,6 +38,7 @@ public class LevelRoot : MonoBehaviour
         _playerResourceCounter.Init(playerWallet);
 
         Wallet enemyWallet = new Wallet(300, _enemyMine);
+        _enemyResourceCounter.Init(enemyWallet);
 
         UnitOrderHandler[] playerUnitOrderHandlers = _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
         UnitSetup[] playerUnitSetups = playerUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
