@@ -21,7 +21,7 @@ namespace AttackSystem.RangedAttackHandlers
         {
             if (_iceCreamAbilityHandler != null)
             {
-                if (AttackedTarget != null)
+                if (AttackedTarget != null && AttackedTarget.gameObject.activeInHierarchy)
                 {
                     UnitPresenter unitPresenter = AttackedTarget.GetComponent<UnitPresenter>();
 
