@@ -1,5 +1,7 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 namespace UI.HomeMenu.CampaignMenu
 {
@@ -80,8 +82,18 @@ namespace UI.HomeMenu.CampaignMenu
             }
         }
 
-        public void StartTutorial() =>
-            //Загрузка туториала
-            SceneManager.LoadScene("Tutorial");
+        //TODO
+        public void StartTutorial()
+        {
+            if (YG2.saves.IsFirstLaunch)
+            {
+                //YG2.saves.IsFirstLaunch = false;
+                //YG2.SaveProgress();
+
+                DOTween.Clear();
+
+                SceneManager.LoadScene("Tutorial");
+            }
+        }
     }
 }

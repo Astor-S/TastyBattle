@@ -15,7 +15,7 @@ public class Tutorial : MonoBehaviour
     private float _duration = 2f;
     private int _tutorialIndex;
 
-    private void Awake() => 
+    private void Awake() =>
         StartNextTutorial();
 
     private void OnEnable() =>
@@ -47,11 +47,13 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
+            DOTween.Clear();
+
             CloseTutorial();
         }
     }
 
+    //TODO
     public void CloseTutorial() =>
-        //Загрузка 1 уровня
         SceneManager.LoadScene("MushroomLevel1");
 }

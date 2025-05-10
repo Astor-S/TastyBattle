@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UI.HomeMenu.CampaignMenu;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,15 +14,21 @@ public class PlayButton : MonoBehaviour
 
     private void OnEnable()
     {
-        if (YG2.saves.IsFirstLaunch == false)
+        if (YG2.saves.IsFirstLaunch)
+        {
+            YG2.MetricaSend("new_player");
+
             _button.onClick.AddListener(StartTutorial);
+        }
         else
+        {
             _button.onClick.AddListener(OpenLevelsPanel);
+        }
     }
 
     private void OnDisable()
     {
-        if (YG2.saves.IsFirstLaunch == false)
+        if (YG2.saves.IsFirstLaunch)
             _button.onClick.RemoveListener(StartTutorial);
         else
             _button.onClick.RemoveListener(OpenLevelsPanel);
@@ -32,7 +36,7 @@ public class PlayButton : MonoBehaviour
 
     public void StartTutorial()
     {
-        //YG2.saves.IsFirstLaunch = true;
+        //YG2.saves.IsFirstLaunch = false;
         //YG2.SaveProgress();
 
         _mapService.StartTutorial();

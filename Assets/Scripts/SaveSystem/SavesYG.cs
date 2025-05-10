@@ -13,6 +13,6 @@ namespace YG
         public int Score = 0;
 
         //OnFirstPlay
-        public bool IsFirstLaunch = false;
+        public bool IsFirstLaunch = true;
     }
 }
