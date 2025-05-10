@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class Instruction : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Instruction : MonoBehaviour
 
     private TutorialPart _currentPart;
     private WaitForSeconds _step;
+    private List<string> _textFields = new();
     private int _index;
     private bool _isTyping;
 
@@ -38,11 +41,13 @@ public class Instruction : MonoBehaviour
 
     public IEnumerator TypeMessage()
     {
-        if (_index < _currentPart.TextFields.Count)
+        _textFields = _currentPart.LanguageTextTutorials[YG2.envir.language];
+
+        if (_index < _textFields.Count)
         {
             _isTyping = true;
 
-            foreach (char character in _currentPart.TextFields[_index].ToCharArray())
+            foreach (char character in _textFields[_index].ToCharArray())
             {
                 _text.text += character;
 
