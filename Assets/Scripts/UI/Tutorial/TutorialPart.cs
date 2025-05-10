@@ -14,7 +14,6 @@ public class TutorialPart : ScriptableObject
 
     private Dictionary<string, List<string>> _languageTextTutorials = new();
 
-    //public IReadOnlyList<string> TextFields => _textFields;
     public float CameraPositionX => _cameraPositionX;
     public float SpeakerPositionX => _speakerPositionX;
     public Vector3 CursorPosition => _cursorPosition;
