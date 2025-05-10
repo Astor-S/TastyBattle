@@ -1,6 +1,7 @@
 ﻿using StructureElements;
 using System;
 using Units;
+using UnityEngine;
 
 namespace ResourceDistribution
 {
@@ -9,21 +10,23 @@ namespace ResourceDistribution
         private UnitFactory _unitFactory;
         private UnitOrderHandler[] _unitItems;
         private UpgradeOrderHandler[] _upgradeItems;
-        private UpgradeSetup _upgradeSetup;
         private Wallet _wallet;
+        private UpgradesData _upgradeData;
 
         public Shop(
             UnitFactory unitFactory,
             UnitOrderHandler[] unitItems,
             UpgradeOrderHandler[] upgradeItems,
-            UpgradeSetup upgradeSetup,
             Wallet wallet)
         {
             _unitFactory = unitFactory;
             _unitItems = unitItems;
             _upgradeItems = upgradeItems;
-            _upgradeSetup = upgradeSetup;
             _wallet = wallet;
+            
+            _upgradeData = _unitFactory.gameObject.layer == LayerMask.NameToLayer("Player") ?
+                Upgrades.Player :
+                Upgrades.Enemy;
         }
 
         public void Enable()
@@ -74,23 +77,23 @@ namespace ResourceDistribution
                 switch (upgrade.Type)
                 {
                     case UpgradeType.UnitDamageIncrease:
-                        _upgradeSetup.IncreaseUnitDamage();
+                        _upgradeData.IncreaseUnitDamage();
                         break;
 
                     case UpgradeType.UnitHealthIncrease:
-                        _upgradeSetup.IncreaseUnitHealth();
+                        _upgradeData.IncreaseUnitHealth();
                         break;
 
                     case UpgradeType.UnitSpeedIncrease:
-                        _upgradeSetup.IncreaseUnitSpeed();
+                        _upgradeData.IncreaseUnitSpeed();
                         break;
 
                     case UpgradeType.BuildingHealthIncrease:
-                        _upgradeSetup.IncreaseBuildingHealth();
+                        _upgradeData.IncreaseBuildingHealth();
                         break;
 
                     case UpgradeType.IncomeIncrease:
-                        _upgradeSetup.IncreaseMineIncome();
+                        _upgradeData.IncreaseMineIncome();
                         break;
                 }
             }

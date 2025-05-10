@@ -1,6 +1,8 @@
 using UnityEngine;
 using GameService.GameHandlerSystem.Handlers;
 using UI.Screens;
+using YG;
+using UnityEngine.SceneManagement;
 
 namespace GameService.GameHandlerSystem
 {
@@ -13,6 +15,7 @@ namespace GameService.GameHandlerSystem
 
         public void HandleLevelCompletion()
         {
+            YG2.MetricaSend($"level{SceneManager.GetActiveScene().buildIndex}_complete");
             _levelRewarder.AwardCoins();
             _levelUnlocker.RequestToOpenLevel();
             _completeScreen.Open();

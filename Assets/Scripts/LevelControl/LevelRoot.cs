@@ -15,7 +15,6 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private ShopPresenter _playerShop;
     [SerializeField] private UnitFactory _playerUnitFactory;
     [SerializeField] private TowerPresenter[] _playerTowers;
-    [SerializeField] private UpgradeSetup _playerUpgradeSetup;
     [Header("Enemy's fields")]
     [SerializeField] private Mine _enemyMine;
     [SerializeField] private MainBuildingPresenter _enemyBase;
@@ -23,7 +22,6 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private ShopPresenter _enemyShop;
     [SerializeField] private UnitFactory _enemyUnitFactory;
     [SerializeField] private TowerPresenter[] _enemyTowers;
-    [SerializeField] private UpgradeSetup _enemyUpgradeSetup;
     [Header("General fields")]
     [SerializeField] private float _defaultUnitSpawnCooldown;
     [SerializeField] private int _defaultUnitSpawnCount;
@@ -31,28 +29,16 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private DamagableSetup _baseSetup;
     [Header("UI")]
     [SerializeField] private ResourceCounter _playerResourceCounter;
-    [SerializeField] private ResourceCounter _enemyResourceCounter;// поле для тестов
+    [SerializeField] private ResourceCounter _enemyResourceCounter;// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     [SerializeField] private SpawnerView _spawnTimerHandler;
 
     private void Awake()
     {
-        _enemyUpgradeSetup.ResetValues();
-        _playerUpgradeSetup.ResetValues();
-
         Wallet playerWallet = new Wallet(300, _playerMine);
         _playerResourceCounter.Init(playerWallet);
 
         Wallet enemyWallet = new Wallet(300, _enemyMine);
         _enemyResourceCounter.Init(enemyWallet);
-
-        UpgradeHandler playerUpgradeHandler = new(_playerUpgradeSetup);
-        UpgradeHandler enemyUpgradeHandler = new(_enemyUpgradeSetup);
-
-        _playerMine.UpgradeHandler = playerUpgradeHandler;
-        _enemyMine.UpgradeHandler = enemyUpgradeHandler;
-
-        _playerUnitFactory.UpgradeHandler = playerUpgradeHandler;
-        _enemyUnitFactory.UpgradeHandler = enemyUpgradeHandler;
 
         UnitOrderHandler[] playerUnitOrderHandlers = _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true);
         UnitSetup[] playerUnitSetups = playerUnitOrderHandlers.Select(handler => handler.Setup).ToArray();
@@ -64,21 +50,18 @@ public class LevelRoot : MonoBehaviour
             _playerUnitFactory,
             _playerOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
             _playerOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
-            _playerUpgradeSetup,
             playerWallet));
 
         _enemyShop.Init(new Shop(
             _enemyUnitFactory,
             _enemyOrderItems.GetComponentsInChildren<UnitOrderHandler>(true),
             _enemyOrderItems.GetComponentsInChildren<UpgradeOrderHandler>(true),
-            _enemyUpgradeSetup,
             enemyWallet));
 
         foreach (BuildingPresenter tower in _playerTowers)
         {
             tower.Init(new Building(
                 _towerSetup,
-                playerUpgradeHandler,
                 tower.transform.position,
                 tower.transform.rotation,
                 tower.transform.localScale));
@@ -88,7 +71,6 @@ public class LevelRoot : MonoBehaviour
         {
             tower.Init(new Building(
                 _towerSetup,
-                enemyUpgradeHandler,
                 tower.transform.position,
                 tower.transform.rotation,
                 tower.transform.localScale));
@@ -96,7 +78,6 @@ public class LevelRoot : MonoBehaviour
 
         _playerBase.Init(new MainBuilding(
             _baseSetup,
-            playerUpgradeHandler,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _playerUnitFactory,
@@ -107,7 +88,6 @@ public class LevelRoot : MonoBehaviour
 
         _enemyBase.Init(new MainBuilding(
             _baseSetup,
-            enemyUpgradeHandler,
             _defaultUnitSpawnCooldown,
             _defaultUnitSpawnCount,
             _enemyUnitFactory,

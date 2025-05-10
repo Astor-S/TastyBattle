@@ -7,7 +7,7 @@ namespace AttackSystem.RangedAttackHandlers
     {
         [SerializeField] private AttackAbilityHandler _abilityHandler;
 
-        protected override float CalculateDamage() =>
+        public override float CalculateDamage() =>
             _abilityHandler.CurrentAttackDamage;
     }
 }

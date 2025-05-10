@@ -19,6 +19,9 @@ public class DamagableSetup : ScriptableObject
     private void OnValidate() =>
         Initialize();
 
+    private void Awake() =>
+        Initialize();
+
     protected virtual void Initialize() => 
         MaxHealthPoints = _maxHealthPoints;
 }

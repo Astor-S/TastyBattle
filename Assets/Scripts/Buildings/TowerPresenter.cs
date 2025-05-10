@@ -18,7 +18,7 @@ namespace Buildings
         {
             base.Awake();
 
-            _attackHandler.Init(Stats, UpgradeHandler);
+            _attackHandler.Init(Stats, UpgradesData);
             _detectionSystem.Init(gameObject.layer, _enemyBase);
 
             _attackerAnimation.enabled = true;

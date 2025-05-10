@@ -15,7 +15,7 @@ namespace AttackSystem.HealthBarSystem
         private void OnEnable()
         {
             _damagableTarget.Health.ValueChanged += UpdateVisualHealth;
-            UpdateVisualHealth(_damagableTarget.Health.Value, _damagableTarget.Health.MaxValue);
+            UpdateVisualHealth(_damagableTarget.Health.Value, _damagableTarget.Health.MaxValueOld);
         }
 
         private void OnDisable() => 

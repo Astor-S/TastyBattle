@@ -4,11 +4,14 @@ using UnityEngine.AI;
 using StructureElements;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
+using YG;
 
 namespace Units
 {
-    public class UnitPresenter : Presenter, IActivatable, IUpgradable
+    public class UnitPresenter : Presenter, IActivatable
     {
+        private const string Player = nameof(Player);
+
         [SerializeField] private AttackHandler _attackHandler;
         [SerializeField] private DetectionSystem _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
@@ -18,6 +21,7 @@ namespace Units
         
         private float _defaultSpeed;
         private float _defaultAttackSpeedMultiplier;
+        private UpgradesData _upgradesData;
 
         public event Action<UnitPresenter> OnUnitDying;
         public event Action<UnitPresenter> Releasing;
@@ -30,28 +34,28 @@ namespace Units
         public BattleRole BattleRole => _battleRole;
         protected AttackHandler AttackHandler => _attackHandler;
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
-        public UpgradeHandler UpgradeHandler { get; set; }
 
         private void Awake()
         {
             gameObject.layer = Model.OwnerMask;
+            _upgradesData = gameObject.layer == LayerMask.NameToLayer(Player) ? Upgrades.Player : Upgrades.Enemy;
             DyingDelegate = (_) => OnDying();
 
             _navMeshAgent.updateRotation = false;
             NavMesh.avoidancePredictionTime = 0.5f;
 
             _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
-            _navMeshAgent.speed = UpgradeHandler.GetIncreasedSpeed(Model.Stats);
-            _defaultSpeed = UpgradeHandler.GetIncreasedSpeed(Model.Stats);
+            _navMeshAgent.speed = _upgradesData.GetIncreasedSpeed(Model.Stats);
+            _defaultSpeed = _upgradesData.GetIncreasedSpeed(Model.Stats);
 
             if (_damageTarget.enabled == false)
-                _damageTarget.Init(Model.Stats, UpgradeHandler);
+                _damageTarget.Init(Model.Stats, _upgradesData);
 
             if (_detectionSystem.gameObject.activeSelf == false)
                 _detectionSystem.Init(gameObject.layer, Model.EnemyBase, _battleRole);
 
             if (_attackHandler.gameObject.activeSelf == false)
-                _attackHandler.Init(Model.Stats, UpgradeHandler);
+                _attackHandler.Init(Model.Stats, _upgradesData);
         }
 
         protected virtual void FixedUpdate()
