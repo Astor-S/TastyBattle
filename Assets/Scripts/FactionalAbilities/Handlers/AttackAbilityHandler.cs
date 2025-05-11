@@ -1,5 +1,5 @@
-using AttackSystem.AttackHandlers;
 using UnityEngine;
+using AttackSystem.AttackHandlers;
 
 namespace FactionalAbilities.Handlers
 {
@@ -11,8 +11,11 @@ namespace FactionalAbilities.Handlers
 
         public float CurrentAttackDamage => _currentAttackDamage;
 
-        protected float GetBaseAttackDamage() =>
-            _attackHandler.CalculateDamage();
+        protected float GetBaseAttackDamage()
+        {
+            Debug.Log("Calculate" + _attackHandler.CalculateDamage());
+            return _attackHandler.CalculateDamage();
+        }
 
         protected void SetCurrentAttackDamage(float damage) =>
             _currentAttackDamage = damage;
