@@ -11,30 +11,17 @@ namespace FactionalAbilities.Handlers
         [SerializeField] private DamagableTarget _damagableTarget;  
 
         private bool _isDamageBoostActive = false;
-        private bool _inited = false;
 
         private void OnEnable()
         {
-            if (_inited)
-                _damagableTarget.Health.ValueChanged += OnHealthChanged;
-            else
-                _damagableTarget.Inited += OnDamagableTargetInited;
+            _damagableTarget.Health.ValueChanged += OnHealthChanged;
 
             ApplyBaseDamage();
         }
 
         private void OnDisable()
         {
-            if (_inited)
-                _damagableTarget.Health.ValueChanged -= OnHealthChanged;
-            else
-                _damagableTarget.Inited -= OnDamagableTargetInited;
-        }
-
-        private void OnDamagableTargetInited()
-        {
-            _inited = true;
-            _damagableTarget.Health.ValueChanged += OnHealthChanged;
+            _damagableTarget.Health.ValueChanged -= OnHealthChanged;
         }
 
         private void OnHealthChanged(float currentHealth, float maxHealth)
@@ -49,7 +36,6 @@ namespace FactionalAbilities.Handlers
 
         private void ApplyDamageBoost()
         {
-            Debug.Log("Берсерк активирован!");
             _isDamageBoostActive = true;
             float currentBonusDamage = DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage;
             SetCurrentDamageBonus(currentBonusDamage);
