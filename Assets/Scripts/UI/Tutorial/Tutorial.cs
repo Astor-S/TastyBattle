@@ -15,14 +15,14 @@ public class Tutorial : MonoBehaviour
     private float _duration = 2f;
     private int _tutorialIndex;
 
-    private void OnEnable()
-    {
-        StartNextTutorial();
+    private void OnEnable() => 
         _messageViewer.MessagesOut += StartNextTutorial;
-    }
 
     private void OnDisable() =>
         _messageViewer.MessagesOut -= StartNextTutorial;
+
+    //private void Start() => 
+    //    StartNextTutorial();
 
     private void StartNextTutorial()
     {
