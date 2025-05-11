@@ -8,10 +8,6 @@ namespace FactionalAbilities.Handlers
 
         [SerializeField] MushroomAbility _mushroomAbility;
 
-        private float _damageBonus;
-
-        public float DamageBonus => _damageBonus;
-
         private void OnEnable()
         {
             _mushroomAbility.AddUnit();
@@ -27,7 +23,9 @@ namespace FactionalAbilities.Handlers
         private void UpdateDamageBonus()
         {
             float abilityDamageBonus = _mushroomAbility.MushroomUnitCount * _mushroomAbility.DamageBonusPerUnit;
-            _damageBonus = DamageMultiplierBase + abilityDamageBonus;
+            float damageBonus = DamageMultiplierBase + abilityDamageBonus;
+
+            SetCurrentDamageBonus(damageBonus);
         }
     }
 }

@@ -41,23 +41,13 @@ namespace FactionalAbilities.Handlers
 
             if (healthPercentage < _watermelonAbility.DamageBoostThreshold && _isDamageBoostActive == false)
                 ApplyDamageBoost();
-            else if (healthPercentage >= _watermelonAbility.DamageBoostThreshold && _isDamageBoostActive)
-                RemoveDamageBoost();
         }
 
         private void ApplyDamageBoost()
         {
             _isDamageBoostActive = true;
-            float baseDamage = GetBaseAttackDamage();
-            float currentDamage = baseDamage * (DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage);
-            SetCurrentAttackDamage(currentDamage);
-        }
-
-        private void RemoveDamageBoost()
-        {
-            _isDamageBoostActive = false;
-            float baseDamage = GetBaseAttackDamage();
-            SetCurrentAttackDamage(baseDamage);
+            float currentBonusDamage = DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage;
+            SetCurrentDamageBonus(currentBonusDamage);
         }
     }
 }
