@@ -20,29 +20,26 @@ public class PackShop : MonoBehaviour
     public event Action<SkinPack> SkinPackSwiped;
     public event Action<bool> IsEquipped;
 
+    public IReadOnlyList<SkinPack> AllSkinPacks => _allSkinPacks;
+
     private void OnEnable()
     {
-        _allSkinPacks.AddRange(_defaultSkins);
-        _allSkinPacks.AddRange(_otherSkins);
+        if (_allSkinPacks.Count == 0)
+        {
+            _allSkinPacks.AddRange(_defaultSkins);
+            _allSkinPacks.AddRange(_otherSkins);
+        }
 
         SwipeFaction(default);
         SwipePacks(default);
 
-        EquipDefaultSkins();
-    }
-
-    private void EquipDefaultSkins()
-    {
-        foreach (SkinPack skin in _defaultSkins)
-            if (skin.IsEquipped == false)
-                skin.Equip();
-
-        foreach (SkinPack skin in _otherSkins)
-            if (skin.IsEquipped)
-                skin.Unequip();
-
         CheckEquipment();
+
+        //EquipDefaultSkins();        
     }
+
+    public void SetSkins(List<SkinPack> skinPacks) =>
+        _allSkinPacks = skinPacks;    
 
     public void SwipeFaction(int index)
     {
@@ -97,8 +94,21 @@ public class PackShop : MonoBehaviour
     public SkinPack GetFirstFactionSkin() =>
             _currentFactionSkins[0];
 
-    private void CheckEquipment() => 
+    private void CheckEquipment() =>
         IsEquipped?.Invoke(_currentFactionSkins[_skinPackIndex].IsEquipped);
+
+    private void EquipDefaultSkins()
+    {
+        foreach (SkinPack skin in _defaultSkins)
+            if (skin.IsEquipped == false)
+                skin.Equip();
+
+        foreach (SkinPack skin in _otherSkins)
+            if (skin.IsEquipped)
+                skin.Unequip();
+
+        CheckEquipment();
+    }
 
     private void SetAllFactionSkins()
     {

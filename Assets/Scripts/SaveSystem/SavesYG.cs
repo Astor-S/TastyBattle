@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace YG
 {
     public partial class SavesYG
@@ -14,5 +16,11 @@ namespace YG
 
         //OnFirstPlay
         public bool IsFirstLaunch = true;
+
+        //Language
+        public string Language = default;
+
+        //Skins
+        public List<SkinPack> SkinPacks = new();
     }
 }

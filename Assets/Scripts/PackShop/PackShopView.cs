@@ -6,32 +6,30 @@ using UnityEngine.UI;
 public class PackShopView : MonoBehaviour
 {
     [SerializeField] private PackShop _packShop;
-    [SerializeField] private PackShopTransacting _packShopTransacting;
     [SerializeField] private List<Transform> _containers;
     [SerializeField] private TextMeshProUGUI _packNameField;
     [SerializeField] private Transform _lockPanel;
+    [SerializeField] private Transform _equipMark;
     [SerializeField] private Button _equipButton;
-    [SerializeField] private Image _equipImage;
+    [SerializeField] private Button _purchaseButton;
 
     private void OnEnable()
     {
         _packShop.SkinPackSwiped += ShowSkinPack;
-        _packShopTransacting.IsAvailable += ShowLock;
-        _packShop.IsEquipped += ShowEquipButton;
+        _packShop.IsEquipped += TryShowEquipButton;
 
-        ShowSkinPack(_packShop.GetFirstFactionSkin());
+        ShowSkinPack(_packShop.GetFirstFactionSkin());        
     }
 
     private void OnDisable()
     {
         _packShop.SkinPackSwiped -= ShowSkinPack;
-        _packShopTransacting.IsAvailable -= ShowLock;
-        _packShop.IsEquipped -= ShowEquipButton;
+        _packShop.IsEquipped -= TryShowEquipButton;
     }
 
-    private void ShowEquipButton(bool isEquipped)
+    private void TryShowEquipButton(bool isEquipped)
     {
-        _equipImage.gameObject.SetActive(isEquipped);
+        _equipMark.gameObject.SetActive(isEquipped);
         _equipButton.gameObject.SetActive(isEquipped == false);
     }
 
@@ -50,6 +48,8 @@ public class PackShopView : MonoBehaviour
 
             Instantiate(skinPack.Previews[i], _containers[i]);
         }
+
+        TryShowLock(skinPack.IsAvailable);
     }
 
     private void ClearContainers()
@@ -60,6 +60,9 @@ public class PackShopView : MonoBehaviour
                     Destroy(_containers[i].GetChild(0).gameObject);
     }
 
-    private void ShowLock(bool isAvailable) =>
+    private void TryShowLock(bool isAvailable)
+    {
         _lockPanel.gameObject.SetActive(isAvailable == false);
+        _purchaseButton.gameObject.SetActive(isAvailable == false);
+    }
 }

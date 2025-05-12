@@ -21,8 +21,8 @@ public class Tutorial : MonoBehaviour
     private void OnDisable() =>
         _messageViewer.MessagesOut -= StartNextTutorial;
 
-    //private void Start() => 
-    //    StartNextTutorial();
+    private void Start() =>
+        StartNextTutorial();
 
     private void StartNextTutorial()
     {
