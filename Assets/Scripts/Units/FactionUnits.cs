@@ -14,7 +14,7 @@ public class FactionUnits : ScriptableObject
 
     public IReadOnlyDictionary<BattleRole, UnitPresenter> Dictionary => _dictionary;
 
-    private void OnValidate()
+    private void Awake()
     {
         _dictionary = new Dictionary<BattleRole, UnitPresenter>()
         {
