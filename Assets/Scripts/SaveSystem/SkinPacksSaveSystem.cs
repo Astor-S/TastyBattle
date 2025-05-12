@@ -11,16 +11,14 @@ public class SkinPacksSaveSystem : SaveSystem
             return;
 
         _packShop.SetSkins(YG2.saves.SkinPacks);
-
-        Debug.Log(YG2.saves.SkinPacks.Count);
+        _packShop.EquipAllEquippedSkins();
     }
 
     public override void Save()
     {
         YG2.saves.SkinPacks = (System.Collections.Generic.List<SkinPack>)_packShop.AllSkinPacks;
+        _packShop.EquipAllEquippedSkins();
 
         YG2.SaveProgress();
-
-        Debug.Log(YG2.saves.SkinPacks.Count);
     }
 }

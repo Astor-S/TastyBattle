@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Units;
 using UnityEngine;
 
@@ -35,11 +36,12 @@ public class PackShop : MonoBehaviour
 
         CheckEquipment();
 
+        EquipAllEquippedSkins();
         //EquipDefaultSkins();        
     }
 
     public void SetSkins(List<SkinPack> skinPacks) =>
-        _allSkinPacks = skinPacks;    
+        _allSkinPacks = skinPacks;
 
     public void SwipeFaction(int index)
     {
@@ -86,6 +88,29 @@ public class PackShop : MonoBehaviour
                     }
 
                     currentPack.Equip();
+                }
+            }
+        }
+    }
+
+    public void EquipAllEquippedSkins()
+    {
+        int index = 0;
+
+        foreach (SkinPack skin in _allSkinPacks)
+        {
+            if (skin.IsEquipped == false)
+                return;
+
+            foreach (FactionUnits factionUnit in _factionUnits)
+            {
+                if (factionUnit.Dictionary[BattleRole.Melee].Faction == skin.Faction)
+                {                    
+                    foreach (UnitPresenter presenter in factionUnit.Dictionary.Values)
+                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = skin.Skins[index++];
+
+                    index = 0;
+                    break;
                 }
             }
         }
