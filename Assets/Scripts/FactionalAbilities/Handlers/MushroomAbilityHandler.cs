@@ -6,7 +6,7 @@ namespace FactionalAbilities.Handlers
     {
         private const float DamageMultiplierBase = 1f;
 
-        [SerializeField] MushroomAbility _mushroomAbility;
+        [SerializeField] private MushroomAbility _mushroomAbility;
 
         private void OnEnable()
         {
