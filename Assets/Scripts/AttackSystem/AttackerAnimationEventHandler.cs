@@ -11,6 +11,7 @@ public class AttackerAnimationEventHandler : DamagableAnimationEventHandler
 
     public event Action AttackingStarted;
 
+    //TODO: Dynamic attack speed reduce/increase
     private void OnEnable() =>
         _animator.SetFloat(AttackSpeed, _attackHandler.BaseAttackSpeed);
 
