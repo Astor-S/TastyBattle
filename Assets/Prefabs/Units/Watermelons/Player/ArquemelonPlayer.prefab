@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2378510051575923593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5292819181225870219}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5292819181225870219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378510051575923593}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.01069, z: 0.00019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1133981394798266685}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5025273366122156488
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,13 +230,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5990312453812153083}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c07fc3bb79d26940bbf12f468a95b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _soundPlayer: {fileID: 657828539477653055}
-  _animator: {fileID: 0}
+  _animator: {fileID: 8587978909560942998}
   _healthBar: {fileID: 2652809626778375736}
   _animationEventHandler: {fileID: 1713424621948238802}
 --- !u!114 &5995714737180854343
@@ -436,7 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 2415558512083814679}
   _projectilePrefab: {fileID: 2050136560588413173, guid: ae2e6f1d2e0caaa499466c2a7169d0c4, type: 3}
-  _projectileSpawnPoint: {fileID: 0}
+  _projectileSpawnPoint: {fileID: 5292819181225870219}
   _projectileSpeed: 10
   _abilityHandler: {fileID: 5995714737180854343}
 --- !u!1001 &5184960325599985732
@@ -537,11 +568,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151619087348885055, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1151619087348885055, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6350936683859459825, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -642,7 +673,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -2494870841513243176, guid: 8294b7793a31dc84e8c3595858741082, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5292819181225870219}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8294b7793a31dc84e8c3595858741082, type: 3}
       insertIndex: -1
@@ -651,6 +685,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1713424621948238802}
   m_SourcePrefab: {fileID: 100100000, guid: 8294b7793a31dc84e8c3595858741082, type: 3}
+--- !u!4 &1133981394798266685 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2494870841513243176, guid: 8294b7793a31dc84e8c3595858741082, type: 3}
+  m_PrefabInstance: {fileID: 5970865056018449637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6149242388687135502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8294b7793a31dc84e8c3595858741082, type: 3}
@@ -695,4 +734,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackHandler: {fileID: 7600588622669761359}
-  _animator: {fileID: 0}
+  _animator: {fileID: 8587978909560942998}
