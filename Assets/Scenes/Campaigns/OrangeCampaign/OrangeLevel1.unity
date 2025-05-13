@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _summonerService: {fileID: 1259834232}
   _upgradeService: {fileID: 597620342}
-  _summonRangeUnitDelay: 9
+  _summonRangeUnitDelay: 16
   _improveResourceExtractionDelay: 28
   _summonRandomUnitDelay: 30
   _improveUnitStatsDelay: 20
@@ -2412,6 +2412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _homeButtonInPausePanel: {fileID: 1000078746}
+  _restartButtonInPausePanel: {fileID: 555875212}
 --- !u!1 &315970719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,6 +3993,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4591715719189586224, guid: 73ae04cfb27c5994d8792a71a7820dc4, type: 3}
   m_PrefabInstance: {fileID: 568056244}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &568056246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2934789774489851157, guid: 73ae04cfb27c5994d8792a71a7820dc4, type: 3}
+  m_PrefabInstance: {fileID: 568056244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5393e1dba117f164982c76765bae2d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &570391528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
@@ -6013,7 +6026,7 @@ PrefabInstance:
     - target: {fileID: 3558322978869736862, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: _buttonSoundData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 568056246}
     - target: {fileID: 3791429004175151480, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -19.999878
@@ -9851,6 +9864,10 @@ PrefabInstance:
       propertyPath: _units.Array.data[3]
       value: 
       objectReference: {fileID: 398110606692551107, guid: 7b4509ee8ed6cc94d84d3cd27a04ee7d, type: 3}
+    - target: {fileID: 2614605258919823984, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _emergencyButton
+      value: 
+      objectReference: {fileID: 884293752}
     - target: {fileID: 2860362713587550979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: Animator
       value: 
@@ -9920,6 +9937,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1408447336}
     - target: {fileID: 4457377385732778129, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _emergencyButton
+      value: 
+      objectReference: {fileID: 884293752}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _tank
+      value: 
+      objectReference: {fileID: 24237791}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _melee
+      value: 
+      objectReference: {fileID: 1408447336}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _emergencyButton
       value: 
       objectReference: {fileID: 884293752}

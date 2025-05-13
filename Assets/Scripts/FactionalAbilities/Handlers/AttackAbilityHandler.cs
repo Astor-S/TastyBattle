@@ -1,5 +1,5 @@
-using AttackSystem.AttackHandlers;
 using UnityEngine;
+using AttackSystem.AttackHandlers;
 
 namespace FactionalAbilities.Handlers
 {
@@ -7,14 +7,11 @@ namespace FactionalAbilities.Handlers
     {
         [SerializeField] private AttackHandler _attackHandler;
 
-        private float _currentAttackDamage;
+        private float _currentDamageBonus;
 
-        public float CurrentAttackDamage => _currentAttackDamage;
+        public float CurrentDamageBonus => _currentDamageBonus;
 
-        protected float GetBaseAttackDamage() =>
-            _attackHandler.CalculateDamage();
-
-        protected void SetCurrentAttackDamage(float damage) =>
-            _currentAttackDamage = damage;
+        protected void SetCurrentDamageBonus(float damage) =>
+            _currentDamageBonus = damage;
     }
 }

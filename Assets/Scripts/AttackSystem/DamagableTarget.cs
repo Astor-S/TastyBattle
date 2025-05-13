@@ -50,8 +50,8 @@ namespace AttackSystem
 
         public void TakeDamage(float damage)
         {
-            if (_isInvulnerable == false) 
-                _health.Reduce(damage);          
+            if (_isInvulnerable == false)
+                _health.Reduce(damage);                 
         }
 
         public void SetInvulnerable(bool invulnerable) =>

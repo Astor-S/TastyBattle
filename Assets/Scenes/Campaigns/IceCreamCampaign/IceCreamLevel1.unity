@@ -4088,6 +4088,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4591715719189586224, guid: 73ae04cfb27c5994d8792a71a7820dc4, type: 3}
   m_PrefabInstance: {fileID: 568056244}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &568056246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2934789774489851157, guid: 73ae04cfb27c5994d8792a71a7820dc4, type: 3}
+  m_PrefabInstance: {fileID: 568056244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5393e1dba117f164982c76765bae2d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &570391528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
@@ -5826,7 +5837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _summonerService: {fileID: 664610324}
   _upgradeService: {fileID: 486956586}
-  _summonRangeUnitDelay: 9
+  _summonRangeUnitDelay: 16
   _improveResourceExtractionDelay: 28
   _summonRandomUnitDelay: 30
   _improveUnitStatsDelay: 20
@@ -8936,6 +8947,10 @@ PrefabInstance:
       propertyPath: _units.Array.data[3]
       value: 
       objectReference: {fileID: 8778471507211883722, guid: 19729d0a0c600c74b9601a09e4907344, type: 3}
+    - target: {fileID: 2614605258919823984, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _emergencyButton
+      value: 
+      objectReference: {fileID: 1993597581}
     - target: {fileID: 2860362713587550979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: Animator
       value: 
@@ -9005,6 +9020,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1708941832}
     - target: {fileID: 4457377385732778129, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _emergencyButton
+      value: 
+      objectReference: {fileID: 1993597581}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _tank
+      value: 
+      objectReference: {fileID: 1421262378}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _melee
+      value: 
+      objectReference: {fileID: 1708941832}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _emergencyButton
       value: 
       objectReference: {fileID: 1993597581}
@@ -9541,6 +9568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _homeButtonInPausePanel: {fileID: 134608129}
+  _restartButtonInPausePanel: {fileID: 700762130}
 --- !u!4 &1316278034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310, type: 3}
@@ -11510,7 +11539,7 @@ PrefabInstance:
     - target: {fileID: 3558322978869736862, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: _buttonSoundData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 568056246}
     - target: {fileID: 3791429004175151480, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -19.999878

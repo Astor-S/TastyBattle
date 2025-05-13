@@ -22,6 +22,7 @@ namespace AttackSystem.AttackHandlers
         public DamagableTarget AttackedTarget => _attackedTarget;
         public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
+        protected UpgradesData UpgradesData => _upgradesData;
 
         private void OnEnable()
         {

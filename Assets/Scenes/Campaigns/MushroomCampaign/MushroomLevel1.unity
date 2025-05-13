@@ -1258,7 +1258,6 @@ MonoBehaviour:
   _towerSetup: {fileID: 11400000, guid: 6d7a126f896409246a4f76c93e9beea7, type: 2}
   _baseSetup: {fileID: 11400000, guid: 43acbb6af483990488a3bbabdfc50b1a, type: 2}
   _playerResourceCounter: {fileID: 705897341}
-  _enemyResourceCounter: {fileID: 0}
   _spawnTimerHandler: {fileID: 691851997}
 --- !u!4 &156566201
 Transform:
@@ -7337,6 +7336,10 @@ PrefabInstance:
       propertyPath: _enemyDeathHandler
       value: 
       objectReference: {fileID: 668712469}
+    - target: {fileID: 2614605258919823984, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _emergencyButton
+      value: 
+      objectReference: {fileID: 2563359611270186515}
     - target: {fileID: 3756702701568696834, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
@@ -7390,6 +7393,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 571709815}
     - target: {fileID: 4457377385732778129, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _emergencyButton
+      value: 
+      objectReference: {fileID: 2563359611270186515}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _tank
+      value: 
+      objectReference: {fileID: 420322276}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+      propertyPath: _melee
+      value: 
+      objectReference: {fileID: 571709815}
+    - target: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
       propertyPath: _emergencyButton
       value: 
       objectReference: {fileID: 2563359611270186515}
@@ -10982,7 +10997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _summonerService: {fileID: 607199442}
   _upgradeService: {fileID: 767807029}
-  _summonRangeUnitDelay: 9
+  _summonRangeUnitDelay: 16
   _improveResourceExtractionDelay: 28
   _summonRandomUnitDelay: 30
   _improveUnitStatsDelay: 20
@@ -12573,7 +12588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d50ecee4f8038940a881d93f59ed820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelLoader: {fileID: 0}
+  _levelLoader: {fileID: 670218089}
 --- !u!114 &2048458546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13077,7 +13092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
-  _levelLoader: {fileID: 0}
+  _levelLoader: {fileID: 670218089}
 --- !u!114 &2133977635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14140,6 +14155,14 @@ PrefabInstance:
       propertyPath: _coinDoubling
       value: 
       objectReference: {fileID: 139133218}
+    - target: {fileID: 1166990305754880577, guid: 7b0fd4b903271a04abd0992abaef38ef, type: 3}
+      propertyPath: _homeButtonInPausePanel
+      value: 
+      objectReference: {fileID: 2133977635}
+    - target: {fileID: 1166990305754880577, guid: 7b0fd4b903271a04abd0992abaef38ef, type: 3}
+      propertyPath: _restartButtonInPausePanel
+      value: 
+      objectReference: {fileID: 2048458546}
     - target: {fileID: 1402215289863826466, guid: 7b0fd4b903271a04abd0992abaef38ef, type: 3}
       propertyPath: _enemyBase
       value: 
