@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Units;
 using UnityEngine;
 
@@ -20,29 +21,27 @@ public class PackShop : MonoBehaviour
     public event Action<SkinPack> SkinPackSwiped;
     public event Action<bool> IsEquipped;
 
+    public IReadOnlyList<SkinPack> AllSkinPacks => _allSkinPacks;
+
     private void OnEnable()
     {
-        _allSkinPacks.AddRange(_defaultSkins);
-        _allSkinPacks.AddRange(_otherSkins);
+        if (_allSkinPacks.Count == 0)
+        {
+            _allSkinPacks.AddRange(_defaultSkins);
+            _allSkinPacks.AddRange(_otherSkins);
+        }
 
         SwipeFaction(default);
         SwipePacks(default);
 
-        EquipDefaultSkins();
-    }
-
-    private void EquipDefaultSkins()
-    {
-        foreach (SkinPack skin in _defaultSkins)
-            if (skin.IsEquipped == false)
-                skin.Equip();
-
-        foreach (SkinPack skin in _otherSkins)
-            if (skin.IsEquipped)
-                skin.Unequip();
-
         CheckEquipment();
+
+        EquipAllEquippedSkins();
+        //EquipDefaultSkins();        
     }
+
+    public void SetSkins(List<SkinPack> skinPacks) =>
+        _allSkinPacks = skinPacks;
 
     public void SwipeFaction(int index)
     {
@@ -94,11 +93,47 @@ public class PackShop : MonoBehaviour
         }
     }
 
+    public void EquipAllEquippedSkins()
+    {
+        int index = 0;
+
+        foreach (SkinPack skin in _allSkinPacks)
+        {
+            if (skin.IsEquipped == false)
+                return;
+
+            foreach (FactionUnits factionUnit in _factionUnits)
+            {
+                if (factionUnit.Dictionary[BattleRole.Melee].Faction == skin.Faction)
+                {                    
+                    foreach (UnitPresenter presenter in factionUnit.Dictionary.Values)
+                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = skin.Skins[index++];
+
+                    index = 0;
+                    break;
+                }
+            }
+        }
+    }
+
     public SkinPack GetFirstFactionSkin() =>
             _currentFactionSkins[0];
 
-    private void CheckEquipment() => 
+    private void CheckEquipment() =>
         IsEquipped?.Invoke(_currentFactionSkins[_skinPackIndex].IsEquipped);
+
+    private void EquipDefaultSkins()
+    {
+        foreach (SkinPack skin in _defaultSkins)
+            if (skin.IsEquipped == false)
+                skin.Equip();
+
+        foreach (SkinPack skin in _otherSkins)
+            if (skin.IsEquipped)
+                skin.Unequip();
+
+        CheckEquipment();
+    }
 
     private void SetAllFactionSkins()
     {
