@@ -9230,6 +9230,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1212571317}
+    - target: {fileID: 4906318756616694918, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _rewardAdService
+      value: 
+      objectReference: {fileID: 1379642550}
     - target: {fileID: 5020893366067806992, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: _unitSetup
       value: 
@@ -11526,7 +11530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26763f1f2b7e26b4895a50a90a63e273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinReward: CoinReward
 --- !u!4 &1379642551
 Transform:
   m_ObjectHideFlags: 0
