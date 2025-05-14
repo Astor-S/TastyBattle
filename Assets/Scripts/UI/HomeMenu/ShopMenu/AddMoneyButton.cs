@@ -11,8 +11,6 @@ namespace UI.HomeMenu.ShopMenu
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
         [SerializeField] private RewardAdService _rewardAdService;
 
-        private string _rewardName = "Coins";
-
         private void OnEnable()
         {
             _rewardAdService.RewardReceived += AddMoney;
@@ -24,7 +22,7 @@ namespace UI.HomeMenu.ShopMenu
         }
 
         public override void OnButtonClick() =>
-            _rewardAdService.ShowRewardAd(_rewardName);
+            _rewardAdService.ShowRewardAd(default);
 
         private void AddMoney()
         {
