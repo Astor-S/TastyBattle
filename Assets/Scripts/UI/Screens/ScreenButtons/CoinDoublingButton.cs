@@ -14,7 +14,7 @@ namespace UI.Screens.ScreenButtons
             _rewardAdService.RewardReceived += AddDoubleAwards;
 
         private void OnDisable() => 
-            _rewardAdService.RewardReceived += AddDoubleAwards;
+            _rewardAdService.RewardReceived -= AddDoubleAwards;
 
         public void OnButtonClick() =>
             _rewardAdService.ShowRewardAd(default);
