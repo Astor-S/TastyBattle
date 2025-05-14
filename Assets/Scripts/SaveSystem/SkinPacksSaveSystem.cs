@@ -7,6 +7,8 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
+        YG2.saves.skinPacks.Clear();
+
         if (YG2.saves.skinPacks.Count == 0)
         {
             YG2.saves.skinPacks.AddRange(_packShop.DefaultSkins);
