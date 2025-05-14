@@ -4,7 +4,7 @@ using GameService;
 
 namespace UI.HomeMenu.ShopMenu
 {
-    public class AddMoneyButton : MonoBehaviour
+    public class AddMoneyButton : MenuButton
     {
         private readonly int _coinsForWathAD = 200;
 
@@ -21,7 +21,7 @@ namespace UI.HomeMenu.ShopMenu
             _rewardAdService.RewardReceived -= AddMoney;
         }
 
-        //public void OnButtonClick() =>
+        //public override void OnButtonClick() =>
         //    _rewardAdService.ShowRewardAd(0);
 
         private void AddMoney()
