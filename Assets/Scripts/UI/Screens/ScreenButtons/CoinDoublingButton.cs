@@ -8,6 +8,8 @@ namespace UI.Screens.ScreenButtons
     {
         [SerializeField] private RewardAdService _rewardAdService;
 
+        private string _rewardName = "coinsAdd";
+
         public event Action DoubledAwards;
 
         private void OnEnable() => 
@@ -17,7 +19,7 @@ namespace UI.Screens.ScreenButtons
             _rewardAdService.RewardReceived += AddDoubleAwards;
 
         public void OnButtonClick() =>
-            _rewardAdService.ShowRewardAd(_rewardAdService.CoinReward);
+            _rewardAdService.ShowRewardAd(_rewardName);
 
         private void AddDoubleAwards()
         {
