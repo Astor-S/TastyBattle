@@ -7,12 +7,12 @@ public class LanguageSaveSystem : SaveSystem
 
     public override void Load()
     {
-        if (YG2.saves.Language == default)
+        if (YG2.saves.language == default)
             _languageChanger.ChangeLanguage(YG2.envir.language);
         else
-            _languageChanger.ChangeLanguage(YG2.saves.Language);
+            _languageChanger.ChangeLanguage(YG2.saves.language);
     }
 
     public override void Save() => 
-        YG2.saves.Language = _languageChanger.GetLanguage();
+        YG2.saves.language = _languageChanger.GetLanguage();
 }

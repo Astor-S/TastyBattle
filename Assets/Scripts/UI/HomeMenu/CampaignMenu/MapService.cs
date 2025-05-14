@@ -85,10 +85,10 @@ namespace UI.HomeMenu.CampaignMenu
         //TODO
         public void StartTutorial()
         {
-            if (YG2.saves.IsFirstLaunch)
+            if (YG2.saves.isFirstLaunch)
             {
 //#if UNITY_EDITOR == false
-                YG2.saves.IsFirstLaunch = false;
+                YG2.saves.isFirstLaunch = false;
                 YG2.SaveProgress();
 //#endif
 
