@@ -73,6 +73,11 @@ public class PackShop : MonoBehaviour
         }
     }
 
+    public void Purchase()
+    {
+        SkinPack currentPack = _currentFactionSkins[_skinPackIndex];
+    }
+
     public void EquipAllEquippedSkins()
     {
         int index = 0;

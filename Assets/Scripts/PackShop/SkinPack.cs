@@ -11,6 +11,7 @@ public class SkinPack : ScriptableObject
     [SerializeField] private bool _isAvailable;
     [SerializeField] private bool _isEquipped;
     [SerializeField] private List<UnitModelView> _previews;
+    [SerializeField] private PurchaseType _purchaseType;
 
     public string Name => _name;
     public Faction Faction => _faction;
