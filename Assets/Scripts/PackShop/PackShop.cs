@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Units;
 using UnityEngine;
+using YG;
 
 public class PackShop : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class PackShop : MonoBehaviour
     [SerializeField] private List<SkinPack> _otherSkins;
     [SerializeField] private List<FactionUnits> _factionUnits;
 
-    private List<SkinPack> _allSkinPacks = new();
     private List<SkinPack> _currentFactionSkins = new();
     private int _currentFaction;
     private int _skinPackIndex;
@@ -20,26 +20,8 @@ public class PackShop : MonoBehaviour
     public event Action<SkinPack> SkinPackSwiped;
     public event Action<bool> IsEquipped;
 
-    public IReadOnlyList<SkinPack> AllSkinPacks => _allSkinPacks;
-
-    private void OnEnable()
-    {
-        if (_allSkinPacks.Count == 0)
-        {
-            _allSkinPacks.AddRange(_defaultSkins);
-            _allSkinPacks.AddRange(_otherSkins);
-        }
-
-        SwipeFaction(default);
-        SwipePacks(default);
-
-        CheckEquipment();
-        EquipAllEquippedSkins();
-        //EquipDefaultSkins();        
-    }
-
-    public void SetSkins(List<SkinPack> skinPacks) =>
-        _allSkinPacks = skinPacks;
+    public IReadOnlyList<SkinPack> DefaultSkins => _defaultSkins;
+    public IReadOnlyList<SkinPack> OtherSkins => _otherSkins;
 
     public void SwipeFaction(int index)
     {
@@ -95,9 +77,7 @@ public class PackShop : MonoBehaviour
     {
         int index = 0;
 
-        Debug.Log(_allSkinPacks.Count);
-
-        foreach (SkinPack skin in _allSkinPacks)
+        foreach (SkinPack skin in YG2.saves.skinPacks)
         {
             if (skin.IsEquipped)
             {
@@ -119,27 +99,27 @@ public class PackShop : MonoBehaviour
     public SkinPack GetFirstFactionSkin() =>
             _currentFactionSkins[0];
 
-    private void CheckEquipment() =>
+    public void CheckEquipment() =>
         IsEquipped?.Invoke(_currentFactionSkins[_skinPackIndex].IsEquipped);
 
-    //private void EquipDefaultSkins()
-    //{
-    //    foreach (SkinPack skin in _defaultSkins)
-    //        if (skin.IsEquipped == false)
-    //            skin.Equip();
+    public void EquipDefaultSkins()
+    {
+        foreach (SkinPack skin in _defaultSkins)
+            if (skin.IsEquipped == false)
+                skin.Equip();
 
-    //    foreach (SkinPack skin in _otherSkins)
-    //        if (skin.IsEquipped)
-    //            skin.Unequip();
+        foreach (SkinPack skin in _otherSkins)
+            if (skin.IsEquipped)
+                skin.Unequip();
 
-    //    CheckEquipment();
-    //}
+        CheckEquipment();
+    }
 
     private void SetAllFactionSkins()
     {
         _currentFactionSkins.Clear();
 
-        foreach (SkinPack skinPack in _allSkinPacks)
+        foreach (SkinPack skinPack in YG2.saves.skinPacks)
             if ((int)skinPack.Faction == _currentFaction)
                 _currentFactionSkins.Add(skinPack);
     }

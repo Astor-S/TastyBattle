@@ -7,15 +7,24 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
-        if (YG2.saves.SkinPacks.Count == 0)
-            return;
+        if (YG2.saves.skinPacks.Count == 0)
+        {
+            YG2.saves.skinPacks.AddRange(_packShop.DefaultSkins);
+            YG2.saves.skinPacks.AddRange(_packShop.OtherSkins);
+        }
 
-        _packShop.SetSkins(YG2.saves.SkinPacks);
+        _packShop.SwipeFaction(default);
+        _packShop.SwipePacks(default);
+
+        if (YG2.saves.isFirstLaunch)
+            _packShop.EquipDefaultSkins();
+
+        _packShop.EquipAllEquippedSkins();
+        _packShop.CheckEquipment();
     }
 
     public override void Save()
     {
-        YG2.saves.SkinPacks = (System.Collections.Generic.List<SkinPack>)_packShop.AllSkinPacks;
         _packShop.EquipAllEquippedSkins();
 
         YG2.SaveProgress();
