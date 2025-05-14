@@ -25,18 +25,18 @@ namespace YG
         public List<SkinPack> SkinPacks = new();
 
         //Levels
-        public List<Levels> openedLeveles = new();
+        public List<Levels> openedLevels = new();
 
         public SavesYG()
         {
-            openedLeveles.Add(Levels.Level1);
-            openedLeveles.Add(Levels.Level6);
-            openedLeveles.Add(Levels.Level11);
-            openedLeveles.Add(Levels.Level16);
-            openedLeveles.Add(Levels.Level21);
+            openedLevels.Add(Levels.Level1);
+            openedLevels.Add(Levels.Level6);
+            openedLevels.Add(Levels.Level11);
+            openedLevels.Add(Levels.Level16);
+            openedLevels.Add(Levels.Level21);
         }
 
         public bool IsLevelOpened(Levels level) =>
-            openedLeveles.Contains(level);
+            openedLevels.Contains(level);
     }
 }

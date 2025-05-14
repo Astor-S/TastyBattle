@@ -9,14 +9,14 @@ namespace GameService.GameHandlerSystem
 
         public void RequestToOpenLevel()
         {
-            //if (YG2.saves.openedLevels.Contains(_levelsToOpen) == false)
-            //    OpenLevel();
+            if (YG2.saves.openedLevels.Contains(_levelsToOpen) == false)
+                OpenLevel();
         }
 
         private void OpenLevel()
         {
-            //YG2.saves.openedLevels.Add(_levelsToOpen);
-            //YandexGame.SaveProgress();
+            YG2.saves.openedLevels.Add(_levelsToOpen);
+            YG2.SaveProgress();
         }
     }
 }
