@@ -1,6 +1,7 @@
 using UnityEngine;
 using GameService.GameHandlerSystem.Counters;
 using UI.Screens.ScreenButtons;
+using YG;
 
 namespace GameService.GameHandlerSystem
 {
@@ -40,16 +41,13 @@ namespace GameService.GameHandlerSystem
 
         private void SaveProgress()
         {
-            //_savesYG.balanceMoney += _levelCoins;
-            //_savesYG.score += _levelCoins;
-            //YandexGame.SaveProgress();
+            YG2.saves.balanceMoney += _levelCoins;
+            YG2.saves.score += _levelCoins;
+            YG2.SaveProgress();
             AddNewLeaderboardScores();
         }
 
-        private void AddNewLeaderboardScores()
-        {
-           // int score = _savesYG.score;
-            //YG2.SetLeaderboard(string "техническое название таблицы", int новый рекорд);
-        }
+        private void AddNewLeaderboardScores() =>
+            YG2.SetLeaderboard("Leaderboard", YG2.saves.score);
     }
 }
