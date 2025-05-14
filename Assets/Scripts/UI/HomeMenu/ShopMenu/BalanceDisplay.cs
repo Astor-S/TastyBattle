@@ -19,10 +19,7 @@ namespace UI.HomeMenu.ShopMenu
                 _balanceText.text = YG2.saves.balanceMoney.ToString();
         }
 
-        public void RefreshBalance()
-        {
-            //YG2.saves = YG2.savesData;
+        public void RefreshBalance() =>
             UpdateBalanceText();
-        }
     }
 }
