@@ -11,7 +11,6 @@ public class SkinPacksSaveSystem : SaveSystem
             return;
 
         _packShop.SetSkins(YG2.saves.SkinPacks);
-        _packShop.EquipAllEquippedSkins();
     }
 
     public override void Save()
