@@ -19,7 +19,9 @@ public class SkinPacksSaveSystem : SaveSystem
         _packShop.SwipePacks(default);
 
         if (YG2.saves.isFirstLaunch)
+#if UNITY_EDITOR
             _packShop.EquipDefaultSkins();
+#endif
 
         _packShop.EquipAllEquippedSkins();
         _packShop.CheckEquipment();
