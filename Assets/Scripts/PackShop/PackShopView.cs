@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class PackShopView : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class PackShopView : MonoBehaviour
     {
         ClearContainers();
 
-        _packNameField.text = skinPack.Name;
+        _packNameField.text = skinPack.LanguageNames[YG2.lang];
 
         for (int i = 0; i < _containers.Count; i++)
         {

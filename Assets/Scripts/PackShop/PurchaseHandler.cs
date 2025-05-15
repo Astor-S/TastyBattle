@@ -20,39 +20,8 @@ public class PurchaseHandler : MonoBehaviour
         _button.onClick.RemoveAllListeners();
     }
 
-    //public void Purchase()
-    //{
-    //    SkinPack currentPack = _shop.CurrentSkinPack;
-
-    //    foreach (SkinPack skin in _shop.OtherSkins)
-    //    {
-    //        if (skin == currentPack)
-    //        {
-    //            if (skin.PurchaseType == PurchaseType.ByAd)
-    //            {
-    //                ShowAdForReward();
-    //            }
-    //            else if (skin.PurchaseType == PurchaseType.ByCoins)
-    //            {
-    //                if (YG2.saves.balanceMoney >= skin.Price)
-    //                {
-    //                    YG2.saves.balanceMoney -= skin.Price;
-    //                    YG2.SaveProgress();
-
-    //                    skin.Purchase();
-    //                }
-    //            }
-    //            else if (skin.PurchaseType == PurchaseType.ByLevelPassing)
-    //            {
-    //                //levelLogic
-    //            }
-    //        }
-    //    }
-    //}
-
     private void SetState(SkinPack skin)
     {
-        Debug.Log(123);
         _button.onClick.RemoveAllListeners();
 
         switch (skin.PurchaseType)
@@ -68,12 +37,6 @@ public class PurchaseHandler : MonoBehaviour
             case PurchaseType.ByLevelPassing:
                 _button.onClick.AddListener(CheckLevelPassing);
                 _description.text = "Complete the mushroom campaign to get this skin";
-                break;
-            case PurchaseType.None:
-                _description.text = "None";
-                break;
-            default:
-                _description.text = "null";
                 break;
         }
     }

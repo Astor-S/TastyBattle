@@ -20,6 +20,7 @@ public class TutorialPart : ScriptableObject
     public Quaternion CursorRotation => _cursorRotation;
     public IReadOnlyDictionary<string, List<string>> LanguageTextTutorials => _languageTextTutorials;
 
+    //TODO: Magic values
     private void Awake()
     {
         _languageTextTutorials.Add("ru", _textFields);  
