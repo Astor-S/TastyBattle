@@ -27,6 +27,7 @@ namespace YG
 
         //Levels
         public List<Levels> openedLevels = new();
+        public bool isMushroomCampaignCompleted = false;
 
         public SavesYG()
         {

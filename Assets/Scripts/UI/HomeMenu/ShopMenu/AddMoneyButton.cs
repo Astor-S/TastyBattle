@@ -6,27 +6,23 @@ namespace UI.HomeMenu.ShopMenu
 {
     public class AddMoneyButton : MenuButton
     {
-        private readonly int _coinsForWathAD = 200;
+        private readonly int _coinsForWatchAD = 200;
 
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
         [SerializeField] private RewardAdService _rewardAdService;
 
-        private void OnEnable()
-        {
+        private void OnEnable() => 
             _rewardAdService.RewardReceived += AddMoney;
-        }
 
-        private void OnDisable()
-        {
+        private void OnDisable() => 
             _rewardAdService.RewardReceived -= AddMoney;
-        }
 
         public override void OnButtonClick() =>
             _rewardAdService.ShowRewardAd(default);
 
         private void AddMoney()
         {
-            YG2.saves.balanceMoney += _coinsForWathAD;
+            YG2.saves.balanceMoney += _coinsForWatchAD;
             YG2.SaveProgress();
             _balanceDisplayShop.RefreshBalance();
         }

@@ -18,7 +18,7 @@ public class PackShopView : MonoBehaviour
         _packShop.SkinPackSwiped += ShowSkinPack;
         _packShop.IsEquipped += TryShowEquipButton;
 
-        ShowSkinPack(_packShop.GetFirstFactionSkin());        
+        ShowSkinPack(_packShop.GetFirstFactionSkin());
     }
 
     private void OnDisable()
@@ -49,7 +49,7 @@ public class PackShopView : MonoBehaviour
             Instantiate(skinPack.Previews[i], _containers[i]);
         }
 
-        TryShowLock(skinPack.IsAvailable);
+        TryShowLock(skinPack);
     }
 
     private void ClearContainers()
@@ -60,9 +60,9 @@ public class PackShopView : MonoBehaviour
                     Destroy(_containers[i].GetChild(0).gameObject);
     }
 
-    private void TryShowLock(bool isAvailable)
+    private void TryShowLock(SkinPack skins)
     {
-        _lockPanel.gameObject.SetActive(isAvailable == false);
-        _purchaseButton.gameObject.SetActive(isAvailable == false);
+        _lockPanel.gameObject.SetActive(skins.IsAvailable == false);
+        _purchaseButton.gameObject.SetActive(skins.IsAvailable == false);
     }
 }
