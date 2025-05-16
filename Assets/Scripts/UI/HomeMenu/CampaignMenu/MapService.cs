@@ -86,9 +86,12 @@ namespace UI.HomeMenu.CampaignMenu
         public void StartTutorial()
         {
             if (YG2.saves.isFirstLaunch)
-            {
+            {           
+                
+#if UNITY_EDITOR == false
                 YG2.saves.isFirstLaunch = false;
                 YG2.SaveProgress();
+#endif
 
                 DOTween.Clear();
 

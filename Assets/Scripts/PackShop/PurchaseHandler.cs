@@ -87,14 +87,14 @@ public class PurchaseHandler : MonoBehaviour
 
     private void ShowAdForReward()
     {
-        _rewardAdService.CoinsReceived += OpenSkin;
+        _rewardAdService.SkinReceived += OpenSkin;
         _rewardAdService.ShowRewardAd(_skinRewardId);
     }
 
     private void OpenSkin()
     {
         _shop.CurrentSkinPack.Purchase();
-        _rewardAdService.CoinsReceived -= OpenSkin;
+        _rewardAdService.SkinReceived -= OpenSkin;
         HideButton();
     }
 

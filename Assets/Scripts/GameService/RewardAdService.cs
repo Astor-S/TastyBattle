@@ -8,7 +8,9 @@ namespace GameService
     {
         public event Action CoinsReceived;
         public event Action SkinReceived;
+        public event Action CampaignReceived;
 
+        private string _campaign = "campaign";
         private string _coinsRewardId = "coins";
         private string _skinRewardId = "skin";
 
@@ -27,6 +29,8 @@ namespace GameService
                 CoinsReceived?.Invoke();
             else if (id == _skinRewardId)
                 SkinReceived?.Invoke();
+            else if (id == _campaign)
+                CampaignReceived?.Invoke();
         }
     }
 }
