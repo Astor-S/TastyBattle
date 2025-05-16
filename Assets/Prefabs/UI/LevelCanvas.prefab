@@ -3494,6 +3494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: MushroomLevel2
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &5733601877894972743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3653,6 +3654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &5953639524892804647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +3813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &6031553519752544005
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,6 +4331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &7431887095339603131
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &7652741201635813204
 GameObject:
   m_ObjectHideFlags: 0
@@ -7605,7 +7610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531535418073762055, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_IsOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2531535418073762055, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_Transition
@@ -7638,6 +7643,10 @@ PrefabInstance:
     - target: {fileID: 3787992373507792712, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420503378467643947, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
+      propertyPath: m_IsOn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4420503378467643947, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_Transition

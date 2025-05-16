@@ -9,8 +9,8 @@ namespace YG
         public float musicVolume = 0.3f;
         public float soundVolume = 0.3f;
 
-        public bool isMusicOn = true;
-        public bool isSoundOn = true;
+        public bool isMusicOn = false;
+        public bool isSoundOn = false;
 
         //Score
         public int score = 0;
