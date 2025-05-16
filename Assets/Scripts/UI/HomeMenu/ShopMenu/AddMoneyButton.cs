@@ -11,14 +11,16 @@ namespace UI.HomeMenu.ShopMenu
         [SerializeField] private BalanceDisplay _balanceDisplayShop;
         [SerializeField] private RewardAdService _rewardAdService;
 
+        private string _coinRewardId = "coins";
+
         private void OnEnable() => 
-            _rewardAdService.RewardReceived += AddMoney;
+            _rewardAdService.CoinsReceived += AddMoney;
 
         private void OnDisable() => 
-            _rewardAdService.RewardReceived -= AddMoney;
+            _rewardAdService.CoinsReceived -= AddMoney;
 
         public override void OnButtonClick() =>
-            _rewardAdService.ShowRewardAd("coin");
+            _rewardAdService.ShowRewardAd(_coinRewardId);
 
         private void AddMoney()
         {

@@ -8,6 +8,7 @@ using YG;
 
 public class PurchaseHandler : MonoBehaviour
 {
+    //TODO: add translation
     private const string AdCondition = "Watch ad and take this skin";
     private const string PriceCondition = "Price: ";
     private const string LevelPassCondition = "Complete the mushroom campaign to get this skin";
@@ -17,6 +18,8 @@ public class PurchaseHandler : MonoBehaviour
     [SerializeField] private PackShop _shop;
     [SerializeField] private RewardAdService _rewardAdService;
     [SerializeField] private Transform _lockPanel;
+
+    private string _skinRewardId = "skin";
 
     public event Action TransactionCompleted;
 
@@ -84,14 +87,14 @@ public class PurchaseHandler : MonoBehaviour
 
     private void ShowAdForReward()
     {
-        _rewardAdService.RewardReceived += OpenSkin;
-        _rewardAdService.ShowRewardAd("skin");
+        _rewardAdService.CoinsReceived += OpenSkin;
+        _rewardAdService.ShowRewardAd(_skinRewardId);
     }
 
     private void OpenSkin()
     {
         _shop.CurrentSkinPack.Purchase();
-        _rewardAdService.RewardReceived -= OpenSkin;
+        _rewardAdService.CoinsReceived -= OpenSkin;
         HideButton();
     }
 
