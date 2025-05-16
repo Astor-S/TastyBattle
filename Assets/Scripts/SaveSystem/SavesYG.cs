@@ -35,7 +35,6 @@ namespace YG
             openedLevels.Add(Levels.Level6);
             openedLevels.Add(Levels.Level11);
             openedLevels.Add(Levels.Level16);
-            openedLevels.Add(Levels.Level21);
         }
 
         public bool IsLevelOpened(Levels level) =>
