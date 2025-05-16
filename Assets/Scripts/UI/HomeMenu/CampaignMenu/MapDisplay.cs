@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using YG;
 
 namespace UI.HomeMenu.CampaignMenu
 {
@@ -11,7 +12,7 @@ namespace UI.HomeMenu.CampaignMenu
 
         private UnitModelView _unitMapView;
 
-        public TextMeshProUGUI PlayerDescritionField => _playerDescriptionField;
+        public TextMeshProUGUI PlayerDescriptionField => _playerDescriptionField;
         public TextMeshProUGUI EnemyDescriptionField => _enemyDescriptionField;
 
         public void DisplayMap(UnitModelView unitMapView, Transform container, TextMeshProUGUI text)
@@ -21,7 +22,7 @@ namespace UI.HomeMenu.CampaignMenu
 
             _unitMapView = Instantiate(unitMapView, container);
 
-            text.text = _unitMapView.Description;
+            text.text = _unitMapView.LanguageDescription[YG2.lang];
         }
     }
 }

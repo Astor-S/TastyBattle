@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class PackShopView : MonoBehaviour
 {
@@ -18,13 +19,16 @@ public class PackShopView : MonoBehaviour
         _packShop.SkinPackSwiped += ShowSkinPack;
         _packShop.IsEquipped += TryShowEquipButton;
 
-        ShowSkinPack(_packShop.GetFirstFactionSkin());        
+        ClearContainers();
+        ShowSkinPack(_packShop.GetFirstFactionSkin());
     }
 
     private void OnDisable()
     {
         _packShop.SkinPackSwiped -= ShowSkinPack;
         _packShop.IsEquipped -= TryShowEquipButton;
+
+        ClearContainers();
     }
 
     private void TryShowEquipButton(bool isEquipped)
@@ -40,16 +44,16 @@ public class PackShopView : MonoBehaviour
     {
         ClearContainers();
 
-        _packNameField.text = skinPack.Name;
+        _packNameField.text = skinPack.LanguageNames[YG2.lang];
 
         for (int i = 0; i < _containers.Count; i++)
         {
-            skinPack.Previews[i].gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[i];
+            UnitModelView skin = Instantiate(skinPack.Previews[i], _containers[i]);
 
-            Instantiate(skinPack.Previews[i], _containers[i]);
+            skin.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[i];
         }
 
-        TryShowLock(skinPack.IsAvailable);
+        TryShowLock(skinPack);
     }
 
     private void ClearContainers()
@@ -60,9 +64,9 @@ public class PackShopView : MonoBehaviour
                     Destroy(_containers[i].GetChild(0).gameObject);
     }
 
-    private void TryShowLock(bool isAvailable)
+    private void TryShowLock(SkinPack skins)
     {
-        _lockPanel.gameObject.SetActive(isAvailable == false);
-        _purchaseButton.gameObject.SetActive(isAvailable == false);
+        _lockPanel.gameObject.SetActive(skins.IsAvailable == false);
+        _purchaseButton.gameObject.SetActive(skins.IsAvailable == false);
     }
 }

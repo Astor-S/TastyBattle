@@ -22,6 +22,7 @@ public class PackShop : MonoBehaviour
 
     public IReadOnlyList<SkinPack> DefaultSkins => _defaultSkins;
     public IReadOnlyList<SkinPack> OtherSkins => _otherSkins;
+    public SkinPack CurrentSkinPack => _currentFactionSkins[_skinPackIndex];
 
     public void SwipeFaction(int index)
     {
@@ -29,7 +30,7 @@ public class PackShop : MonoBehaviour
 
         SetAllFactionSkins();
 
-        SkinPackSwiped?.Invoke(GetFirstFactionSkin());
+        SkinPackSwiped?.Invoke(GetFirstFactionSkin());     
 
         _skinPackIndex = default;
 
@@ -40,14 +41,14 @@ public class PackShop : MonoBehaviour
     {
         Swipe(index, _currentFactionSkins.Count, ref _skinPackIndex);
 
-        SkinPackSwiped?.Invoke(_currentFactionSkins[_skinPackIndex]);
+        SkinPackSwiped?.Invoke(CurrentSkinPack);
 
         CheckEquipment();
     }
 
     public void Equip()
     {
-        SkinPack currentPack = _currentFactionSkins[_skinPackIndex];
+        SkinPack currentPack = CurrentSkinPack;
         int index = 0;
 
         if (currentPack.IsAvailable && currentPack.IsEquipped == false)
@@ -71,7 +72,7 @@ public class PackShop : MonoBehaviour
                 }
             }
         }
-    }
+    }    
 
     public void EquipAllEquippedSkins()
     {

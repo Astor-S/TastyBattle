@@ -65,7 +65,7 @@ namespace UI.HomeMenu.CampaignMenu
                 _currentCampaignIndex = FirstCampaign;
 
             if (_mapDisplay != null)
-                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescritionField);
+                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescriptionField);
 
             _selectedButton = null;
 
@@ -87,10 +87,8 @@ namespace UI.HomeMenu.CampaignMenu
         {
             if (YG2.saves.isFirstLaunch)
             {
-#if UNITY_EDITOR == false
                 YG2.saves.isFirstLaunch = false;
                 YG2.SaveProgress();
-#endif
 
                 DOTween.Clear();
 
