@@ -482,6 +482,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 38335279662569219, guid: 34d3f526198dae440bb2ce6005d86055, type: 3}
   m_PrefabInstance: {fileID: 48474542}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &60065752 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2857746139574504604, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+  m_PrefabInstance: {fileID: 517936117057116585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &76192413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5440707293445741943, guid: 494f6d43e170e9145bc7865d243ee00b, type: 3}
@@ -3350,6 +3355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _balanceText: {fileID: 1778161996}
+  _purchaseHandler: {fileID: 1052330014}
 --- !u!1001 &486294160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6804,6 +6810,7 @@ MonoBehaviour:
   _description: {fileID: 671225894}
   _shop: {fileID: 1052330012}
   _rewardAdService: {fileID: 1111281922}
+  _lockPanel: {fileID: 60065752}
 --- !u!1001 &1064865667
 PrefabInstance:
   m_ObjectHideFlags: 0

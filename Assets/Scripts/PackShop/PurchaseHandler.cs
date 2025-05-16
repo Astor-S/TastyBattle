@@ -1,15 +1,24 @@
 using GameService;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using YG;
 
 public class PurchaseHandler : MonoBehaviour
 {
+    private const string AdCondition = "Watch ad and take this skin";
+    private const string PriceCondition = "Price: ";
+    private const string LevelPassCondition = "Complete the mushroom campaign to get this skin";
+
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _description;
     [SerializeField] private PackShop _shop;
     [SerializeField] private RewardAdService _rewardAdService;
+    [SerializeField] private Transform _lockPanel;
+
+    public event Action TransactionCompleted;
 
     private void OnEnable() =>
         _shop.SkinPackSwiped += SetState;
@@ -27,18 +36,21 @@ public class PurchaseHandler : MonoBehaviour
         switch (skin.PurchaseType)
         {
             case PurchaseType.ByAd:
-                _button.onClick.AddListener(ShowAdForReward);
-                _description.text = "Watch ad and take this skin";
+                PrapareButton(ShowAdForReward, AdCondition);
                 break;
             case PurchaseType.ByCoins:
-                _button.onClick.AddListener(SpendCoins);
-                _description.text = $"Price: {skin.Price}";
+                PrapareButton(SpendCoins, PriceCondition + skin.Price);
                 break;
             case PurchaseType.ByLevelPassing:
-                _button.onClick.AddListener(CheckLevelPassing);
-                _description.text = "Complete the mushroom campaign to get this skin";
+                PrapareButton(CheckLevelPassing, LevelPassCondition);
                 break;
         }
+    }
+
+    private void PrapareButton(UnityAction action, string condition)
+    {
+        _button.onClick.AddListener(action);
+        _description.text = condition;
     }
 
     private void CheckLevelPassing()
@@ -50,7 +62,7 @@ public class PurchaseHandler : MonoBehaviour
             YG2.saves.isMushroomCampaignCompleted = true;
             YG2.SaveProgress();
 
-            _button.onClick.RemoveAllListeners();
+            HideButton();
         }
     }
 
@@ -65,7 +77,9 @@ public class PurchaseHandler : MonoBehaviour
 
             _shop.CurrentSkinPack.Purchase();
 
-            _button.onClick.RemoveAllListeners();
+            TransactionCompleted?.Invoke();
+
+            HideButton();
         }
     }
 
@@ -79,6 +93,13 @@ public class PurchaseHandler : MonoBehaviour
     {
         _shop.CurrentSkinPack.Purchase();
         _rewardAdService.RewardReceived -= OpenSkin;
+        HideButton();
+    }
+
+    private void HideButton()
+    {
         _button.onClick.RemoveAllListeners();
+        _button.gameObject.SetActive(false);
+        _lockPanel.gameObject.SetActive(false);
     }
 }

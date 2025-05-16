@@ -45,9 +45,9 @@ public class PackShopView : MonoBehaviour
 
         for (int i = 0; i < _containers.Count; i++)
         {
-            skinPack.Previews[i].gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[i];
+            UnitModelView skin = Instantiate(skinPack.Previews[i], _containers[i]);
 
-            Instantiate(skinPack.Previews[i], _containers[i]);
+            skin.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[i];
         }
 
         TryShowLock(skinPack);
