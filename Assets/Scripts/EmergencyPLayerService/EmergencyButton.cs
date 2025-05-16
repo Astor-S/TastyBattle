@@ -19,13 +19,17 @@ namespace EmergencyPlayerService
         private void OnEnable()
         {
             if (_target != null)
-                _target.HalfHP += OnHalfHPReached;   
+                _target.HalfHP += OnHalfHPReached;
+
+            _rewardAdService.EmergencyReceived += OnButtonClick;
         }
 
         private void OnDisable()
         {
             if (_target != null)
                 _target.HalfHP -= OnHalfHPReached;
+
+            _rewardAdService.EmergencyReceived -= OnButtonClick;
         }
 
         public void OnButtonClick()

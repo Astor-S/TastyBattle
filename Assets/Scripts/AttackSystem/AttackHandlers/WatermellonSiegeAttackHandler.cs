@@ -1,57 +1,60 @@
-using AttackSystem.AttackHandlers;
 using System;
 using System.Collections;
 using UnityEngine;
 
-public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
+namespace AttackSystem.AttackHandlers
 {
-    public event Action<float> SpeedChanging;
-    public event Action TakingRunUp;
-    public event Action RunUpTaken;
-    public event Action Hitting;
-
-    private float _distanceToTargetSquared;
-    protected new WatermellonSiegeSetup Stats => base.Stats as WatermellonSiegeSetup;
-
-    private void FixedUpdate()
+    public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
     {
-        _distanceToTargetSquared = Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position);
-    }
+        public event Action<float> SpeedChanging;
+        public event Action TakingRunUp;
+        public event Action RunUpTaken;
+        public event Action Hitting;
 
-    protected override IEnumerator Combat()
-    {
-        WaitForSeconds runUpWaiting = new WaitForSeconds(0.3f);
-        WaitUntil approachingWaiting = new WaitUntil(() => _distanceToTargetSquared < Stats.HitDistance * Stats.HitDistance);
-        WaitUntil runUpLongWaiting = new WaitUntil(() => _distanceToTargetSquared > Stats.AttackDistance * Stats.AttackDistance);
+        private float _distanceToTargetSquared;
+        protected new WatermellonSiegeSetup Stats => base.Stats as WatermellonSiegeSetup;
 
-        while (enabled)
+        private void FixedUpdate()
         {
-            if (AttackedTarget != null && IsAbleToAttack)
+            if (AttackedTarget != null)
+                _distanceToTargetSquared = Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position);
+        }
+
+        protected override IEnumerator Combat()
+        {
+            WaitForSeconds runUpWaiting = new WaitForSeconds(0.3f);
+            WaitUntil approachingWaiting = new WaitUntil(() => _distanceToTargetSquared < Stats.HitDistance * Stats.HitDistance);
+            WaitUntil runUpLongWaiting = new WaitUntil(() => _distanceToTargetSquared > Stats.AttackDistance * Stats.AttackDistance);
+
+            while (enabled)
             {
-                StartAttack();
+                if (AttackedTarget != null && IsAbleToAttack)
+                {
+                    StartAttack();
 
-                SpeedChanging?.Invoke(0f);
+                    SpeedChanging?.Invoke(0f);
 
-                yield return runUpWaiting;
+                    yield return runUpWaiting;
 
-                SpeedChanging?.Invoke(15f);
+                    SpeedChanging?.Invoke(15f);
 
-                yield return approachingWaiting;
+                    yield return approachingWaiting;
 
-                Hitting?.Invoke();
-                SpeedChanging?.Invoke(-1f);
-                TakingRunUp?.Invoke();
+                    Hitting?.Invoke();
+                    SpeedChanging?.Invoke(-1f);
+                    TakingRunUp?.Invoke();
 
-                yield return runUpLongWaiting;
+                    yield return runUpLongWaiting;
 
-                RunUpTaken?.Invoke();
+                    RunUpTaken?.Invoke();
+                }
+                else
+                {
+                    StopAttack();
+                }
+
+                yield return WaitForFixedUpdate;
             }
-            else
-            {
-                StopAttack();
-            }
-
-            yield return WaitForFixedUpdate;
         }
     }
 }
