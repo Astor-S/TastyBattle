@@ -11,10 +11,10 @@ namespace UI.Screens.ScreenButtons
         public event Action DoubledAwards;
 
         private void OnEnable() => 
-            _rewardAdService.RewardReceived += AddDoubleAwards;
+            _rewardAdService.CoinsReceived += AddDoubleAwards;
 
         private void OnDisable() => 
-            _rewardAdService.RewardReceived -= AddDoubleAwards;
+            _rewardAdService.CoinsReceived -= AddDoubleAwards;
 
         public void OnButtonClick() =>
             _rewardAdService.ShowRewardAd(default);
