@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using AttackSystem;
+using GameService;
 
 namespace EmergencyPlayerService
 {
@@ -8,6 +9,7 @@ namespace EmergencyPlayerService
     {
         [SerializeField] private Button _emergencyButton;
         [SerializeField] private DamagableTarget _target;
+        [SerializeField] private RewardAdService _rewardAdService;
 
         private void Start()
         {
@@ -26,8 +28,11 @@ namespace EmergencyPlayerService
                 _target.HalfHP -= OnHalfHPReached;
         }
 
-        public void OnButtonClick() =>
+        public void OnButtonClick()
+        {
+            _rewardAdService.ShowRewardAd(_rewardAdService.EmergencyId);
             gameObject.SetActive(false);
+        }
 
         private void OnHalfHPReached() =>
             _emergencyButton.interactable = true;

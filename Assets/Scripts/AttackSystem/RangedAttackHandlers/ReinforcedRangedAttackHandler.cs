@@ -8,6 +8,6 @@ namespace AttackSystem.RangedAttackHandlers
         [SerializeField] private AttackAbilityHandler _abilityHandler;
 
         public override float CalculateDamage() =>
-            _abilityHandler.CurrentAttackDamage;
+            base.CalculateDamage() * _abilityHandler.CurrentDamageBonus;
     }
 }

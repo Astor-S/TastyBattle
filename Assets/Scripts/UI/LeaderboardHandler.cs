@@ -23,8 +23,8 @@ public class LeaderboardHandler : MonoBehaviour
     {
         if (score >= 0)
         {
-            YG2.saves.Score += score;
-            YG2.SetLeaderboard(LeaderboardName, YG2.saves.Score);
+            YG2.saves.score += score;
+            YG2.SetLeaderboard(LeaderboardName, YG2.saves.score);
 
             YG2.SaveProgress();
         }

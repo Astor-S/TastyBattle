@@ -7,8 +7,8 @@ public class AudioSaveSystem : SaveSystem
 
     public override void Load()
     {
-        _audioSettings.Music.Setup(YG2.saves.MusicVolume, YG2.saves.IsMusicOn);
-        _audioSettings.Sound.Setup(YG2.saves.SoundVolume, YG2.saves.IsSoundOn);
+        _audioSettings.Music.Setup(YG2.saves.musicVolume, YG2.saves.isMusicOn);
+        _audioSettings.Sound.Setup(YG2.saves.soundVolume, YG2.saves.isSoundOn);
 
         _audioSettings.SwitchToggle(_audioSettings.Music);
         _audioSettings.SwitchToggle(_audioSettings.Sound);
@@ -16,11 +16,11 @@ public class AudioSaveSystem : SaveSystem
 
     public override void Save()
     {
-        YG2.saves.MusicVolume = _audioSettings.Music.Slider.value;
-        YG2.saves.SoundVolume = _audioSettings.Sound.Slider.value;
+        YG2.saves.musicVolume = _audioSettings.Music.Slider.value;
+        YG2.saves.soundVolume = _audioSettings.Sound.Slider.value;
 
-        YG2.saves.IsMusicOn = _audioSettings.Music.Toggle.isOn;
-        YG2.saves.IsSoundOn = _audioSettings.Sound.Toggle.isOn;
+        YG2.saves.isMusicOn = _audioSettings.Music.Toggle.isOn;
+        YG2.saves.isSoundOn = _audioSettings.Sound.Toggle.isOn;
 
         YG2.SaveProgress();
     }

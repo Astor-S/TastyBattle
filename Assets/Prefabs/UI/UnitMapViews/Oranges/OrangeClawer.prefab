@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1578373571446707184, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5479af10196ec3d4fa3e9361aeb65ed0, type: 2}
     - target: {fileID: 919132149155446097, guid: 7f990db3c048da947ad234063fe5f1fc, type: 3}
       propertyPath: m_Name
       value: OrangeClawer
@@ -109,3 +113,7 @@ MonoBehaviour:
     \u043F\u043E 25 \u0445\u043F \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443
     \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435 3 \u0441\u0435\u043A\u0443\u043D\u0434.
     (\u041F\u0430\u0441\u0441\u0438\u0432\u043A\u0430)"
+  _enDescription: '"Citric acid." Orange attacks have an acid effect that takes 25
+    hp per second for 3 seconds. (Passive)'
+  _trDescription: "\"Narenciye asidi\"\xBB Portakallar\u0131n sald\u0131r\u0131lar\u0131,
+    3 saniye boyunca saniyede 25 hp alan bir asit etkisi yarat\u0131r. (Y\xFCk\xFCml\xFCl\xFCk)"

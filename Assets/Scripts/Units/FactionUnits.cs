@@ -24,4 +24,15 @@ public class FactionUnits : ScriptableObject
             { BattleRole.Siege, _siegeUnit },
         };
     }
+
+    private void Awake()
+    {
+        _dictionary = new Dictionary<BattleRole, UnitPresenter>()
+        {
+            { BattleRole.Melee, _meleeUnit },
+            { BattleRole.Range, _rangeUnit },
+            { BattleRole.Tank, _tankUnit },
+            { BattleRole.Siege, _siegeUnit },
+        };
+    }
 }

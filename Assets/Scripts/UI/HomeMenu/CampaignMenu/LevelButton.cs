@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using GameService;
 using System;
 using System.Collections.Generic;
+using YG;
 
 namespace UI.HomeMenu.CampaignMenu
 {
@@ -42,6 +43,10 @@ namespace UI.HomeMenu.CampaignMenu
                 _button.interactable = false;
                 return;
             }
+
+            Levels levelToCheck = _levelCells[_currentLevelIndex].LevelsType;
+            bool isLevelOpened = YG2.saves.IsLevelOpened(levelToCheck);
+            _button.interactable = isLevelOpened;
         }        
 
         private void Select() => 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 public class SkinPacksSaveSystem : SaveSystem
 {
@@ -6,11 +7,29 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
-        throw new System.NotImplementedException();
+        YG2.saves.skinPacks.Clear();
+
+        if (YG2.saves.skinPacks.Count == 0)
+        {
+            YG2.saves.skinPacks.AddRange(_packShop.DefaultSkins);
+            YG2.saves.skinPacks.AddRange(_packShop.OtherSkins);
+        }
+
+        _packShop.SwipeFaction(default);
+
+#if UNITY_EDITOR == false
+        if (YG2.saves.isFirstLaunch)
+            _packShop.EquipDefaultSkins();
+#endif
+
+        _packShop.EquipAllEquippedSkins();
+        _packShop.CheckEquipment();
     }
 
     public override void Save()
     {
-        throw new System.NotImplementedException();
+        _packShop.EquipAllEquippedSkins();
+
+        YG2.SaveProgress();
     }
 }

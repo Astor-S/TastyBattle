@@ -14,7 +14,7 @@ public class PlayButton : MonoBehaviour
 
     private void OnEnable()
     {
-        if (YG2.saves.IsFirstLaunch)
+        if (YG2.saves.isFirstLaunch)
         {
             YG2.MetricaSend("new_player");
 
@@ -28,7 +28,7 @@ public class PlayButton : MonoBehaviour
 
     private void OnDisable()
     {
-        if (YG2.saves.IsFirstLaunch)
+        if (YG2.saves.isFirstLaunch)
             _button.onClick.RemoveListener(StartTutorial);
         else
             _button.onClick.RemoveListener(OpenLevelsPanel);

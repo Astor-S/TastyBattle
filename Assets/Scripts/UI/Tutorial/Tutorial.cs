@@ -1,10 +1,13 @@
-using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using NaughtyAttributes;
 
 public class Tutorial : MonoBehaviour
 {
+    [Scene]
+    [SerializeField] private string _sceneToLoad;
     [SerializeField] private Instruction _messageViewer;
     [SerializeField] private List<TutorialPart> _tutorialParts;
     [SerializeField] private RectTransform _speakerTransform;
@@ -15,14 +18,14 @@ public class Tutorial : MonoBehaviour
     private float _duration = 2f;
     private int _tutorialIndex;
 
-    private void Awake() =>
-        StartNextTutorial();
-
-    private void OnEnable() =>
+    private void OnEnable() => 
         _messageViewer.MessagesOut += StartNextTutorial;
 
     private void OnDisable() =>
         _messageViewer.MessagesOut -= StartNextTutorial;
+
+    private void Start() =>
+        StartNextTutorial();
 
     private void StartNextTutorial()
     {
@@ -55,5 +58,5 @@ public class Tutorial : MonoBehaviour
 
     //TODO
     public void CloseTutorial() =>
-        SceneManager.LoadScene("MushroomLevel1");
+        SceneManager.LoadScene(_sceneToLoad);
 }

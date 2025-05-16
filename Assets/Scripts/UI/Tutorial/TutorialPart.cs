@@ -14,13 +14,13 @@ public class TutorialPart : ScriptableObject
 
     private Dictionary<string, List<string>> _languageTextTutorials = new();
 
-    //public IReadOnlyList<string> TextFields => _textFields;
     public float CameraPositionX => _cameraPositionX;
     public float SpeakerPositionX => _speakerPositionX;
     public Vector3 CursorPosition => _cursorPosition;
     public Quaternion CursorRotation => _cursorRotation;
     public IReadOnlyDictionary<string, List<string>> LanguageTextTutorials => _languageTextTutorials;
 
+    //TODO: Magic values
     private void Awake()
     {
         _languageTextTutorials.Add("ru", _textFields);  

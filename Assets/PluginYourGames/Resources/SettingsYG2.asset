@@ -81,9 +81,11 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont: []
-      ru: []
+      ru:
+      - {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
       en: []
-      tr: []
+      tr:
+      - {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
       az: []
       be: []
       he: []
@@ -398,8 +400,8 @@ MonoBehaviour:
     loadAdv: 0
     testFailAds: 0
   Templates:
-    logoImageFormat: 0
-    backgroundImgFormat: 0
+    logoImageFormat: 1
+    backgroundImgFormat: 4
     gradientBackgroundByLoadGame:
       radial: 0
       angleInclination: 140

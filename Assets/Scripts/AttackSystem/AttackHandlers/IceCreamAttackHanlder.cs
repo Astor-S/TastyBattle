@@ -20,7 +20,7 @@ namespace AttackSystem.AttackHandlers
         {
             if (_iceCreamAbilityHandler != null)
             {
-                if (AttackedTarget != null && AttackedTarget.gameObject.activeInHierarchy)
+                if (AttackedTarget != null)
                 {
                     UnitPresenter unitPresenter = AttackedTarget.GetComponent<UnitPresenter>();
 

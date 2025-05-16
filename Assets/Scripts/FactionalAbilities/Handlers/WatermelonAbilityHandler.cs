@@ -11,28 +11,17 @@ namespace FactionalAbilities.Handlers
         [SerializeField] private DamagableTarget _damagableTarget;  
 
         private bool _isDamageBoostActive = false;
-        private bool _inited = false;
 
         private void OnEnable()
         {
-            if (_inited)
-                _damagableTarget.Health.ValueChanged += OnHealthChanged;
-            else
-                _damagableTarget.Inited += OnDamagableTargetInited;
+            _damagableTarget.Health.ValueChanged += OnHealthChanged;
+
+            ApplyBaseDamage();
         }
 
         private void OnDisable()
         {
-            if (_inited)
-                _damagableTarget.Health.ValueChanged -= OnHealthChanged;
-            else
-                _damagableTarget.Inited -= OnDamagableTargetInited;
-        }
-
-        private void OnDamagableTargetInited()
-        {
-            _inited = true;
-            _damagableTarget.Health.ValueChanged += OnHealthChanged;
+            _damagableTarget.Health.ValueChanged -= OnHealthChanged;
         }
 
         private void OnHealthChanged(float currentHealth, float maxHealth)
@@ -42,22 +31,21 @@ namespace FactionalAbilities.Handlers
             if (healthPercentage < _watermelonAbility.DamageBoostThreshold && _isDamageBoostActive == false)
                 ApplyDamageBoost();
             else if (healthPercentage >= _watermelonAbility.DamageBoostThreshold && _isDamageBoostActive)
-                RemoveDamageBoost();
+                ApplyBaseDamage();
         }
 
         private void ApplyDamageBoost()
         {
             _isDamageBoostActive = true;
-            float baseDamage = GetBaseAttackDamage();
-            float currentDamage = baseDamage * (DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage);
-            SetCurrentAttackDamage(currentDamage);
+            float currentBonusDamage = DamageMultiplierBase + _watermelonAbility.DamageBoostPercentage;
+            SetCurrentDamageBonus(currentBonusDamage);
         }
 
-        private void RemoveDamageBoost()
+        private void ApplyBaseDamage()
         {
             _isDamageBoostActive = false;
-            float baseDamage = GetBaseAttackDamage();
-            SetCurrentAttackDamage(baseDamage);
+            float baseDamage = DamageMultiplierBase;
+            SetCurrentDamageBonus(baseDamage);
         }
     }
 }
