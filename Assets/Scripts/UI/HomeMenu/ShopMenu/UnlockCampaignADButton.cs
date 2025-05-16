@@ -1,4 +1,5 @@
 using GameService;
+using UI.HomeMenu.CampaignMenu;
 using UnityEngine;
 using YG;
 
@@ -7,19 +8,16 @@ namespace UI.HomeMenu.ShopMenu
     public class UnlockCampaignADButton : MenuButton
     {
         [SerializeField] private RewardAdService _rewardAdService;
+        [SerializeField] private MapService _mapService;
         [SerializeField] private Levels _unlockLevels = Levels.Level21;
 
         private string _campaign = "campaign";
 
-        private void OnEnable()
-        {
+        private void OnEnable() => 
             _rewardAdService.CampaignReceived += UnlockCampaign;
-        }
 
-        private void OnDisable()
-        {
+        private void OnDisable() => 
             _rewardAdService.CampaignReceived -= UnlockCampaign;
-        }
 
         public override void OnButtonClick() =>
             _rewardAdService.ShowRewardAd(_campaign);
@@ -28,6 +26,10 @@ namespace UI.HomeMenu.ShopMenu
         {
             YG2.saves.openedLevels.Add(_unlockLevels);
             YG2.SaveProgress();
+
+            gameObject.SetActive(false);
+
+            _mapService.UpdateLevelButtons();
         }
     }
 }

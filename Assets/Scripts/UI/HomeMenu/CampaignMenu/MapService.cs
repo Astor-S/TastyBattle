@@ -1,6 +1,9 @@
 using DG.Tweening;
+using GameService;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using YG;
 
 namespace UI.HomeMenu.CampaignMenu
@@ -9,13 +12,14 @@ namespace UI.HomeMenu.CampaignMenu
     {
         private const int FirstCampaign = 0;
         private const int CorrectionShift = 1;
-
         [SerializeField] private UnitModelView[] _levelDataByCampaign;
         [SerializeField] private LevelButton[] _levelButtons;
+        [SerializeField] private Button _watchAdButton;
         [SerializeField] private MapDisplay _mapDisplay;
         [SerializeField] private Transform _playerContainer;
         [SerializeField] private Transform _enemyContainer;
 
+        private int _iceCreamCampaignIndex = 4;
         private int _currentCampaignIndex;
         private LevelButton _selectedButton;
 
@@ -59,6 +63,9 @@ namespace UI.HomeMenu.CampaignMenu
         {
             _currentCampaignIndex += change;
 
+            if (_currentCampaignIndex == _iceCreamCampaignIndex && YG2.saves.openedLevels.Contains(Levels.Level21) == false)
+                _watchAdButton.gameObject.SetActive(true);           
+
             if (_currentCampaignIndex < FirstCampaign)
                 _currentCampaignIndex = _levelDataByCampaign.Length - CorrectionShift;
             else if (_currentCampaignIndex > _levelDataByCampaign.Length - CorrectionShift)
@@ -72,7 +79,7 @@ namespace UI.HomeMenu.CampaignMenu
             UpdateLevelButtons();
         }
 
-        private void UpdateLevelButtons()
+        public void UpdateLevelButtons()
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
@@ -86,12 +93,9 @@ namespace UI.HomeMenu.CampaignMenu
         public void StartTutorial()
         {
             if (YG2.saves.isFirstLaunch)
-            {           
-                
-#if UNITY_EDITOR == false
+            {                      
                 YG2.saves.isFirstLaunch = false;
                 YG2.SaveProgress();
-#endif
 
                 DOTween.Clear();
 

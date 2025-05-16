@@ -2059,6 +2059,7 @@ GameObject:
   - component: {fileID: 285579827}
   - component: {fileID: 285579826}
   - component: {fileID: 285579825}
+  - component: {fileID: 285579830}
   m_Layer: 5
   m_Name: WatchAdButton
   m_TagString: Untagged
@@ -2165,16 +2166,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 257098197}
-        m_TargetAssemblyTypeName: UI.HomeMenu.CampaignMenu.MapService, Assembly-CSharp
-        m_MethodName: LoadCurrentLevel
+      - m_Target: {fileID: 285579830}
+        m_TargetAssemblyTypeName: UI.HomeMenu.ShopMenu.UnlockCampaignADButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: campaign
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &285579828
@@ -2215,6 +2216,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285579823}
   m_CullTransparentMesh: 1
+--- !u!114 &285579830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285579823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f622f9630e774d874d37cceec62d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rewardAdService: {fileID: 1111281922}
+  _mapService: {fileID: 257098197}
+  _unlockLevels: 20
 --- !u!1001 &288522888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14065,6 +14081,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2301356670405737344, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: _watchAdButton
+      value: 
+      objectReference: {fileID: 285579827}
     - target: {fileID: 2377214537058790496, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14075,6 +14095,14 @@ PrefabInstance:
       objectReference: {fileID: 1257363000}
     - target: {fileID: 2503786162658818533, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746600669848807634, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 320663081872788190, guid: aa339768a06e92c44a3b75bcae9026d3, type: 2}
+    - target: {fileID: 2746600669848807634, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2866345948333011570, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
@@ -14101,6 +14129,14 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 3067385102994996188, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 320663081872788190, guid: aa339768a06e92c44a3b75bcae9026d3, type: 2}
+    - target: {fileID: 3067385102994996188, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3270582538541084301, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -14293,6 +14329,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6786340925108950645, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 320663081872788190, guid: aa339768a06e92c44a3b75bcae9026d3, type: 2}
+    - target: {fileID: 6786340925108950645, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6876419671433962492, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14305,6 +14349,22 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 7508454140552002235, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 320663081872788190, guid: aa339768a06e92c44a3b75bcae9026d3, type: 2}
+    - target: {fileID: 7508454140552002235, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550823520382203953, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 320663081872788190, guid: aa339768a06e92c44a3b75bcae9026d3, type: 2}
+    - target: {fileID: 7550823520382203953, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7765111586346258144, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_fontAsset
       value: 
