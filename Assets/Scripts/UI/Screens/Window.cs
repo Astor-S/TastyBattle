@@ -15,6 +15,7 @@ namespace UI.Screens
         [SerializeField] private KilledEnemyCounter _killedEnemyCounter;
         [SerializeField] private TMP_Text _screenTimerView;
         [SerializeField] private TMP_Text _screenKilledView;
+        [SerializeField] private AudioSettings _audioSettings;
         
         public event Action ScreenActivated;
 
@@ -25,6 +26,8 @@ namespace UI.Screens
 
         private void OnEnable()
         {
+            _audioSettings.TurnOff(_audioSettings.Sound);
+
             ScreenActivated?.Invoke();
 
             string spaceSymbol = " ";

@@ -1521,6 +1521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 1214407906}
+  _pauseHandler: {fileID: 1305410690}
 --- !u!114 &134608129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3442,6 +3443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: IceCreamLevel2
   _levelLoader: {fileID: 1214407906}
+  _pauseHandler: {fileID: 1305410690}
 --- !u!114 &421919439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5293,6 +5295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 1214407906}
+  _pauseHandler: {fileID: 1305410690}
 --- !u!114 &700762130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6014,6 +6017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 1214407906}
+  _pauseHandler: {fileID: 1305410690}
 --- !u!114 &766359115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6570,6 +6574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 1214407906}
+  _pauseHandler: {fileID: 1305410690}
 --- !u!114 &915819969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9568,8 +9573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 134608129}
-  _restartButtonInPausePanel: {fileID: 700762130}
 --- !u!4 &1316278034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310, type: 3}
@@ -11508,6 +11511,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 1214407906}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1305410690}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -11548,6 +11555,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 1214407906}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1305410690}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
