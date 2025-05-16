@@ -2578,6 +2578,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 47953762}
   _screenTimerView: {fileID: 1657746100}
   _screenKilledView: {fileID: 1267736846}
+  _audioSettings: {fileID: 1654676039}
   _nextLevelButton: {fileID: 1029606508}
 --- !u!222 &340234903
 CanvasRenderer:
@@ -3628,6 +3629,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 883253566}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1331095275}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3668,6 +3673,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 883253566}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1331095275}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7667,6 +7676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: IceCreamLevel3
   _levelLoader: {fileID: 883253566}
+  _pauseHandler: {fileID: 1331095275}
 --- !u!114 &1029606508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8340,6 +8350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 883253566}
+  _pauseHandler: {fileID: 1331095275}
 --- !u!114 &1144944367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10220,6 +10231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 883253566}
+  _pauseHandler: {fileID: 1331095275}
 --- !u!114 &1310167330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10532,8 +10544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 1620374855}
-  _restartButtonInPausePanel: {fileID: 1852930109}
 --- !u!4 &1331210013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6239969156481072347, guid: b71b0f8d2f881c743a85228f3030d1cb, type: 3}
@@ -12648,6 +12658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 883253566}
+  _pauseHandler: {fileID: 1331095275}
 --- !u!114 &1620374855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14754,6 +14765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 883253566}
+  _pauseHandler: {fileID: 1331095275}
 --- !u!114 &1852930109
 MonoBehaviour:
   m_ObjectHideFlags: 0

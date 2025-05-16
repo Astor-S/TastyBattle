@@ -20,7 +20,7 @@ namespace Units
         [SerializeField] private BattleRole _battleRole;
         
         private float _defaultSpeed;
-        private float _defaultAttackSpeedMultiplier;
+        private float _defaultAttackSpeedMultiplier = 1f;
         private UpgradesData _upgradesData;
 
         public event Action<UnitPresenter> OnUnitDying;

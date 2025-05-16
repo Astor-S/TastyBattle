@@ -583,6 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 620253553}
+  _pauseHandler: {fileID: 186940405}
 --- !u!114 &45767702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1944,8 +1945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 45767702}
-  _restartButtonInPausePanel: {fileID: 1877422787}
 --- !u!1001 &198967806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5647,6 +5646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 620253553}
+  _pauseHandler: {fileID: 186940405}
 --- !u!114 &683903869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7279,6 +7279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: MushroomLevel3
   _levelLoader: {fileID: 620253553}
+  _pauseHandler: {fileID: 186940405}
 --- !u!114 &992067639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7508,6 +7509,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 1938233960}
   _screenTimerView: {fileID: 293102128}
   _screenKilledView: {fileID: 1332678732}
+  _audioSettings: {fileID: 1262570989}
   _nextLevelButton: {fileID: 992067639}
 --- !u!222 &1003820953
 CanvasRenderer:
@@ -12538,6 +12540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 620253553}
+  _pauseHandler: {fileID: 186940405}
 --- !u!114 &1724046188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13799,6 +13802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 620253553}
+  _pauseHandler: {fileID: 186940405}
 --- !u!114 &1877422787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16109,6 +16113,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 620253553}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 186940405}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16149,6 +16157,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 620253553}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 186940405}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

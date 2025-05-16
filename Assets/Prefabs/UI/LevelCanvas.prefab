@@ -891,6 +891,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2760331566062030934}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOff
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1520165672508745208}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3558322978869736862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2808,6 +2820,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 0}
   _screenTimerView: {fileID: 2718242593742930647}
   _screenKilledView: {fileID: 6576131970744852333}
+  _audioSettings: {fileID: 2760331566062030934}
 --- !u!1 &4697498274059039076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3455,6 +3468,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2760331566062030934}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1520165672508745208}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2783259368156157257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3469,6 +3494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: MushroomLevel2
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &5733601877894972743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,6 +3628,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2760331566062030934}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1520165672508745208}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3897285584197117732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3616,6 +3654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &5953639524892804647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3749,6 +3788,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2760331566062030934}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1520165672508745208}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2918654492439116055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3762,6 +3813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &6031553519752544005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3902,6 +3954,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 0}
   _screenTimerView: {fileID: 1166351088588647182}
   _screenKilledView: {fileID: 7041973832167896859}
+  _audioSettings: {fileID: 2760331566062030934}
   _nextLevelButton: {fileID: 4605846462531688295}
 --- !u!1 &6801708755174623395
 GameObject:
@@ -4253,6 +4306,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2760331566062030934}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1520165672508745208}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &998095939509025098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4266,6 +4331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &7431887095339603131
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,6 +4516,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2760331566062030934}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: TurnOn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1520165672508745208}
+          m_ObjectArgumentAssemblyTypeName: AudioSetup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &563062869126649234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4464,6 +4542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 0}
+  _pauseHandler: {fileID: 0}
 --- !u!1 &7652741201635813204
 GameObject:
   m_ObjectHideFlags: 0
@@ -7531,7 +7610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531535418073762055, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_IsOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2531535418073762055, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_Transition
@@ -7564,6 +7643,10 @@ PrefabInstance:
     - target: {fileID: 3787992373507792712, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420503378467643947, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
+      propertyPath: m_IsOn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4420503378467643947, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
       propertyPath: m_Transition
@@ -7719,6 +7802,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7066529821616417421, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
   m_PrefabInstance: {fileID: 8017554530786838856}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1520165672508745208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8817104423453977776, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
+  m_PrefabInstance: {fileID: 8017554530786838856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c550000a321b84d854e7c52cb1d17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2760331566062030934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5263223292310018334, guid: ed3955dde7826124396e07fbc677b1bc, type: 3}
+  m_PrefabInstance: {fileID: 8017554530786838856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469edb50dd6cd194b850c76fbf1f742e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8125763010326341847
 PrefabInstance:
   m_ObjectHideFlags: 0

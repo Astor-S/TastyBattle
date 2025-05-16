@@ -3813,6 +3813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 1767405264}
+  _pauseHandler: {fileID: 746612195}
 --- !u!114 &506201909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6070,6 +6071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 1767405264}
+  _pauseHandler: {fileID: 746612195}
 --- !u!114 &717683379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6564,8 +6566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 717683379}
-  _restartButtonInPausePanel: {fileID: 1484546179}
 --- !u!4 &817372857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069115365609054727, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
@@ -9062,6 +9062,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 1767405264}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 746612195}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9102,6 +9106,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 1767405264}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 746612195}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -11994,6 +12002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 1767405264}
+  _pauseHandler: {fileID: 746612195}
 --- !u!114 &1484546179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15640,6 +15649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 1767405264}
+  _pauseHandler: {fileID: 746612195}
 --- !u!114 &1964395919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16370,6 +16380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: WatermelonLevel3
   _levelLoader: {fileID: 1767405264}
+  _pauseHandler: {fileID: 746612195}
 --- !u!114 &2049308018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16540,6 +16551,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 265803866}
   _screenTimerView: {fileID: 284333931}
   _screenKilledView: {fileID: 1206872324}
+  _audioSettings: {fileID: 1078828141}
   _nextLevelButton: {fileID: 2049308018}
 --- !u!222 &2066771966
 CanvasRenderer:

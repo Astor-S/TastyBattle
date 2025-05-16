@@ -2412,8 +2412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 1000078746}
-  _restartButtonInPausePanel: {fileID: 555875212}
 --- !u!1 &315970719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,6 +3823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 1515657868}
+  _pauseHandler: {fileID: 312663325}
 --- !u!114 &555875212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5462,6 +5461,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 2022080994}
   _screenTimerView: {fileID: 655412419}
   _screenKilledView: {fileID: 1368835964}
+  _audioSettings: {fileID: 786020301}
   _nextLevelButton: {fileID: 1077701899}
 --- !u!222 &714068095
 CanvasRenderer:
@@ -5988,6 +5988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 1515657868}
+  _pauseHandler: {fileID: 312663325}
 --- !u!114 &775771426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6298,6 +6299,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 1515657868}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 312663325}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6338,6 +6343,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 1515657868}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 312663325}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7907,6 +7916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 1515657868}
+  _pauseHandler: {fileID: 312663325}
 --- !u!114 &1000078746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8661,6 +8671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OrangeLevel2
   _levelLoader: {fileID: 1515657868}
+  _pauseHandler: {fileID: 312663325}
 --- !u!114 &1077701899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10538,6 +10549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 1515657868}
+  _pauseHandler: {fileID: 312663325}
 --- !u!114 &1240988344
 MonoBehaviour:
   m_ObjectHideFlags: 0

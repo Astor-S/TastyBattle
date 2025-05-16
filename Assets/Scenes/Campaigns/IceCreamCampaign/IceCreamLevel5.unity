@@ -3345,6 +3345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 735248260}
+  _pauseHandler: {fileID: 0}
 --- !u!114 &493766812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3796,6 +3797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 735248260}
+  _pauseHandler: {fileID: 570774369}
 --- !u!114 &510888721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4297,8 +4299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 615119493}
-  _restartButtonInPausePanel: {fileID: 493766812}
 --- !u!1 &571551600
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,6 +4682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 735248260}
+  _pauseHandler: {fileID: 0}
 --- !u!114 &615119493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6156,6 +6157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: MushroomLevel1
   _levelLoader: {fileID: 735248260}
+  _pauseHandler: {fileID: 570774369}
 --- !u!114 &746261047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7787,6 +7789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 735248260}
+  _pauseHandler: {fileID: 570774369}
 --- !u!114 &1042603749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8678,6 +8681,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 735248260}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 570774369}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8718,6 +8725,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 735248260}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 570774369}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -15249,6 +15260,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 236519483}
   _screenTimerView: {fileID: 1329780358}
   _screenKilledView: {fileID: 2124139919}
+  _audioSettings: {fileID: 1301866925}
   _nextLevelButton: {fileID: 746261047}
 --- !u!222 &1774017931
 CanvasRenderer:

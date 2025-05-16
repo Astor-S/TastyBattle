@@ -598,6 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 2027147349}
+  _pauseHandler: {fileID: 1571690302}
 --- !u!114 &60720102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,6 +2257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 2027147349}
+  _pauseHandler: {fileID: 1571690302}
 --- !u!114 &218625073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4613,6 +4615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OrangeLevel5
   _levelLoader: {fileID: 2027147349}
+  _pauseHandler: {fileID: 1571690302}
 --- !u!114 &569090245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5809,6 +5812,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 2027147349}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1571690302}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5849,6 +5856,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 2027147349}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1571690302}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8054,6 +8065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 2027147349}
+  _pauseHandler: {fileID: 1571690302}
 --- !u!114 &942815881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12732,6 +12744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 2027147349}
+  _pauseHandler: {fileID: 1571690302}
 --- !u!114 &1525828298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13130,8 +13143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 1525828298}
-  _restartButtonInPausePanel: {fileID: 218625073}
 --- !u!1001 &1604668053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14019,6 +14030,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 1787028560}
   _screenTimerView: {fileID: 1098970958}
   _screenKilledView: {fileID: 709942820}
+  _audioSettings: {fileID: 738464472}
   _nextLevelButton: {fileID: 569090245}
 --- !u!222 &1720695271
 CanvasRenderer:

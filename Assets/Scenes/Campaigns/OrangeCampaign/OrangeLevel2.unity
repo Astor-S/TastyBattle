@@ -974,6 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 441693463}
+  _pauseHandler: {fileID: 2026896158}
 --- !u!114 &117974475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,6 +1297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OrangeLevel3
   _levelLoader: {fileID: 441693463}
+  _pauseHandler: {fileID: 2026896158}
 --- !u!114 &128151880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 441693463}
+  _pauseHandler: {fileID: 2026896158}
 --- !u!114 &147972431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,6 +5148,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 441693463}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 2026896158}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5185,6 +5192,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 441693463}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 2026896158}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6044,6 +6055,7 @@ MonoBehaviour:
   _killedEnemyCounter: {fileID: 1111639224}
   _screenTimerView: {fileID: 1313763976}
   _screenKilledView: {fileID: 1927994224}
+  _audioSettings: {fileID: 987804128}
   _nextLevelButton: {fileID: 128151880}
 --- !u!222 &651613232
 CanvasRenderer:
@@ -10715,6 +10727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 441693463}
+  _pauseHandler: {fileID: 2026896158}
 --- !u!114 &1248083739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14249,6 +14262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 441693463}
+  _pauseHandler: {fileID: 2026896158}
 --- !u!114 &1753917427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16389,8 +16403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 117974475}
-  _restartButtonInPausePanel: {fileID: 1248083739}
 --- !u!1001 &2043952479
 PrefabInstance:
   m_ObjectHideFlags: 0
