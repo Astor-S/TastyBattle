@@ -59,7 +59,6 @@ public class PurchaseHandler : MonoBehaviour
         {
             _shop.CurrentSkinPack.Purchase();
 
-            YG2.saves.isMushroomCampaignCompleted = true;
             YG2.SaveProgress();
 
             HideButton();

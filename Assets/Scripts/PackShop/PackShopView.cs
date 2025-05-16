@@ -19,6 +19,7 @@ public class PackShopView : MonoBehaviour
         _packShop.SkinPackSwiped += ShowSkinPack;
         _packShop.IsEquipped += TryShowEquipButton;
 
+        ClearContainers();
         ShowSkinPack(_packShop.GetFirstFactionSkin());
     }
 
@@ -26,6 +27,8 @@ public class PackShopView : MonoBehaviour
     {
         _packShop.SkinPackSwiped -= ShowSkinPack;
         _packShop.IsEquipped -= TryShowEquipButton;
+
+        ClearContainers();
     }
 
     private void TryShowEquipButton(bool isEquipped)
