@@ -63,13 +63,15 @@ namespace UI.HomeMenu.CampaignMenu
         {
             _currentCampaignIndex += change;
 
-            if (_currentCampaignIndex == _iceCreamCampaignIndex && YG2.saves.openedLevels.Contains(Levels.Level21) == false)
-                _watchAdButton.gameObject.SetActive(true);           
-
             if (_currentCampaignIndex < FirstCampaign)
                 _currentCampaignIndex = _levelDataByCampaign.Length - CorrectionShift;
             else if (_currentCampaignIndex > _levelDataByCampaign.Length - CorrectionShift)
                 _currentCampaignIndex = FirstCampaign;
+
+            if (_currentCampaignIndex == _iceCreamCampaignIndex && YG2.saves.openedLevels.Contains(Levels.Level21) == false)
+                _watchAdButton.gameObject.SetActive(true);
+            else
+                _watchAdButton.gameObject.SetActive(false);
 
             if (_mapDisplay != null)
                 _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescriptionField);

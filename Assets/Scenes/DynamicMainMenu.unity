@@ -14011,7 +14011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2031336495087297026, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2117997295592191409, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14262,6 +14262,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6216311729629965803, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6216311729629965803, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
@@ -14269,6 +14273,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 8145960459075542855, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 6216311729629965803, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6216311729629965803, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -14366,6 +14374,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7765111586346258144, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765111586346258144, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
@@ -14373,6 +14385,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 8145960459075542855, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 7765111586346258144, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7765111586346258144, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
