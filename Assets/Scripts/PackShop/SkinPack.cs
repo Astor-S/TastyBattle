@@ -38,6 +38,17 @@ public class SkinPack : ScriptableObject
         _languageNames.Add("tr", _trName);
     }
 
+    //TODO: Magic values
+    private void Awake()
+    {
+        if (_languageNames.Count > 0)
+            return;
+
+        _languageNames.Add("ru", _name);
+        _languageNames.Add("en", _enName);
+        _languageNames.Add("tr", _trName);
+    }
+
     public void Purchase() =>
         _isAvailable = true;
 
