@@ -18,7 +18,7 @@ namespace UI.HomeMenu.ShopMenu
             _rewardAdService.RewardReceived -= AddMoney;
 
         public override void OnButtonClick() =>
-            _rewardAdService.ShowRewardAd(default);
+            _rewardAdService.ShowRewardAd("coin");
 
         private void AddMoney()
         {

@@ -85,7 +85,7 @@ public class PurchaseHandler : MonoBehaviour
     private void ShowAdForReward()
     {
         _rewardAdService.RewardReceived += OpenSkin;
-        _rewardAdService.ShowRewardAd(default);
+        _rewardAdService.ShowRewardAd("skin");
     }
 
     private void OpenSkin()
