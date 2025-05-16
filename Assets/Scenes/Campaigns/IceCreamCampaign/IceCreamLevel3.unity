@@ -4381,6 +4381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: IceCreamLevel4
   _levelLoader: {fileID: 2121798633}
+  _pauseHandler: {fileID: 1593918859}
 --- !u!114 &583515408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5947,6 +5948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 2121798633}
+  _pauseHandler: {fileID: 1593918859}
 --- !u!114 &736744632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7358,6 +7360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 2121798633}
+  _pauseHandler: {fileID: 1593918859}
 --- !u!114 &1029342993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10137,6 +10140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 2121798633}
+  _pauseHandler: {fileID: 1593918859}
 --- !u!114 &1303517909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12082,8 +12086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 736744632}
-  _restartButtonInPausePanel: {fileID: 1029342993}
 --- !u!1001 &1604668053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14717,6 +14719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 2121798633}
+  _pauseHandler: {fileID: 1593918859}
 --- !u!114 &1889933297
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1423,6 +1423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 183521244}
+  _pauseHandler: {fileID: 1296216918}
 --- !u!114 &167937312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,6 +2350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 183521244}
+  _pauseHandler: {fileID: 1296216918}
 --- !u!114 &275141148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7707,6 +7709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 183521244}
+  _pauseHandler: {fileID: 1296216918}
 --- !u!114 &1121045842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9183,8 +9186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 1830267116}
-  _restartButtonInPausePanel: {fileID: 167937312}
 --- !u!1001 &1298853574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13677,6 +13678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 183521244}
+  _pauseHandler: {fileID: 1296216918}
 --- !u!114 &1830267116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14803,6 +14805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: WatermelonLevel2
   _levelLoader: {fileID: 183521244}
+  _pauseHandler: {fileID: 1296216918}
 --- !u!114 &1975470363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15991,6 +15994,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 183521244}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1296216918}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16031,6 +16038,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 183521244}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1296216918}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

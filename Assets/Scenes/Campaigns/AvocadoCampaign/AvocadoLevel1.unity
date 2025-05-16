@@ -1435,6 +1435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 2079060606}
+  _pauseHandler: {fileID: 1821911990}
 --- !u!114 &156701120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5758,6 +5759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 2079060606}
+  _pauseHandler: {fileID: 0}
 --- !u!114 &888404299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10262,6 +10264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 2079060606}
+  _pauseHandler: {fileID: 0}
 --- !u!114 &1500597997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12538,6 +12541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: AvocadoLevel2
   _levelLoader: {fileID: 2079060606}
+  _pauseHandler: {fileID: 1821911990}
 --- !u!114 &1748668689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14067,6 +14071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 2079060606}
+  _pauseHandler: {fileID: 1821911990}
 --- !u!114 &1791943469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14342,8 +14347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 1500597997}
-  _restartButtonInPausePanel: {fileID: 888404299}
 --- !u!1001 &1822357964
 PrefabInstance:
   m_ObjectHideFlags: 0

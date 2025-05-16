@@ -12589,6 +12589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 670218089}
+  _pauseHandler: {fileID: 7422512821153466641}
 --- !u!114 &2048458546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13093,6 +13094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 670218089}
+  _pauseHandler: {fileID: 7422512821153466641}
 --- !u!114 &2133977635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13535,10 +13537,18 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 670218089}
+    - target: {fileID: 563062869126649234, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 7422512821153466641}
     - target: {fileID: 998095939509025098, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 670218089}
+    - target: {fileID: 998095939509025098, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 7422512821153466641}
     - target: {fileID: 1034915488768335117, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -13675,6 +13685,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 670218089}
+    - target: {fileID: 2783259368156157257, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 7422512821153466641}
     - target: {fileID: 2856641713140394454, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_text
       value: 0
@@ -14361,6 +14375,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: faad26f481d0be64486a17c2ebae5165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7422512821153466641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1166990305754880577, guid: 7b0fd4b903271a04abd0992abaef38ef, type: 3}
+  m_PrefabInstance: {fileID: 7422512821153466639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
