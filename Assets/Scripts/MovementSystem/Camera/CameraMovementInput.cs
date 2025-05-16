@@ -16,23 +16,14 @@ public class CameraMovementInput : MonoBehaviour
     private CameraMovementHandler _cameraMovementHandler;
     private bool _isDragged;
 
-    private Vector3 _velocity;
-
     private void Awake()
     {
         _camera = GetComponent<Camera>();
         _cameraMovementHandler = new CameraMovementHandler(_properties);
     }
 
-    private void Update()
-    {
-        _velocity = Read();
-    }
-
-    private void FixedUpdate()
-    {
-        _cameraMovementHandler.Move(_velocity);
-    }
+    private void Update() =>
+        _cameraMovementHandler.Move(Read());
 
     private Vector3 Read()
     {
