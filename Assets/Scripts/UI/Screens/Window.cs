@@ -26,7 +26,7 @@ namespace UI.Screens
 
         private void OnEnable()
         {
-            _audioSettings.TurnOff(_audioSettings.Sound);
+            _audioSettings.TurnOff();
 
             ScreenActivated?.Invoke();
 

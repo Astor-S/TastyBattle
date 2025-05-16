@@ -13,19 +13,11 @@ public class AudioSettings : MonoBehaviour
     public AudioSetup Music => _music;
     public AudioSetup Sound => _sound;
 
-    public void TurnOff(AudioSetup audio)
-    {
-        _paused = true;
+    public void TurnOff() => 
+        Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, MinVolumeValue);
 
-        audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
-    }
-
-    public void TurnOn(AudioSetup audio)
-    {
-        _paused = false;
-
-        ChangeVolume(audio);
-    }
+    public void TurnOn() => 
+        Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, Mathf.Log10(Sound.Slider.value) * Multiplier);
 
     public void SwitchToggle(AudioSetup audio)
     {
@@ -37,7 +29,8 @@ public class AudioSettings : MonoBehaviour
 
     public void ChangeVolume(AudioSetup audio)
     {
-        if (audio.Toggle.isOn == false && _paused == false)
-            audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+        if (audio.Toggle.isOn == false)
+            if (audio.AudioMixerGroup.name != Sound.AudioMixerGroup.name)
+                audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
     }
 }
