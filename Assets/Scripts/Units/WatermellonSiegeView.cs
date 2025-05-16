@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 
-public class WatermellonSiegeView : UnitView
+namespace Units
 {
-    public readonly int Hit = Animator.StringToHash(nameof(Hit));
-    public readonly int RunUp = Animator.StringToHash(nameof(RunUp));
-
-    public void SetHittingAnimation()
+    public class WatermellonSiegeView : UnitView
     {
-        Animator.SetTrigger(Hit);
-    }
+        public readonly int Hit = Animator.StringToHash(nameof(Hit));
+        public readonly int RunUp = Animator.StringToHash(nameof(RunUp));
 
-    public void SetRunningUpAnimation()
-    {
-        Animator.SetTrigger(RunUp);
+        public void SetHittingAnimation() =>
+            Animator.SetTrigger(Hit);
+
+        public void SetRunningUpAnimation() =>
+            Animator.SetTrigger(RunUp);
     }
 }
