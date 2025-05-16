@@ -10,17 +10,17 @@ using YG;
 public class PurchaseHandler : MonoBehaviour
 {
     //TODO: Different logic
-    private const string RuAdCondition = "Watch ad and take this skin";
-    private const string EnAdCondition = "Посмотрите рекламу и заберите этот скин";
-    private const string TrAdCondition = "Reklamı izleyin ve bu cildi alın";
+    private string RuAdCondition = "Посмотрите рекламу и заберите этот скин";
+    private string EnAdCondition = "Watch ad and take this skin";
+    private string TrAdCondition = "Reklamı izleyin ve bu cildi alın";
 
-    private const string RuPriceCondition = "Price: ";
-    private const string EnPriceCondition = "Цена: ";
-    private const string TrPriceCondition = "Fiyat: ";
+    private string RuPriceCondition = "Цена: ";
+    private string EnPriceCondition = "Price: ";
+    private string TrPriceCondition = "Fiyat: ";
 
-    private const string RuLevelPassCondition = "Complete the mushroom campaign to get this skin";
-    private const string EnLevelPassCondition = "Завершите грибную кампанию, чтобы получить этот скин";
-    private const string TrLevelPassCondition = "Bu cildi elde etmek için mantar kampanyasını tamamlayın";
+    private string RuLevelPassCondition = "Завершите грибную кампанию, чтобы получить этот скин";
+    private string EnLevelPassCondition = "Complete the mushroom campaign to get this skin";
+    private string TrLevelPassCondition = "Bu cildi elde etmek için mantar kampanyasını tamamlayın";
 
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _description;
@@ -39,24 +39,22 @@ public class PurchaseHandler : MonoBehaviour
         _shop.SkinPackSwiped += SetState;
 
         //TODO: Magic
-        if (_languageAdCondition.Count == 0)
-        {
-            _languageAdCondition.Add("ru", RuAdCondition);
-            _languageAdCondition.Add("en", EnAdCondition);
-            _languageAdCondition.Add("tr", TrAdCondition);
-        }
-        else if (_languagePriceCondition.Count == 0)
-        {
-            _languagePriceCondition.Add("ru", RuPriceCondition);
-            _languagePriceCondition.Add("en", EnPriceCondition);
-            _languagePriceCondition.Add("tr", TrPriceCondition);
-        }
-        else if (_languageLevelCondition.Count == 0)
-        {
-            _languageLevelCondition.Add("ru", RuLevelPassCondition);
-            _languageLevelCondition.Add("en", EnLevelPassCondition);
-            _languageLevelCondition.Add("tr", TrLevelPassCondition);
-        }
+        _languageAdCondition.Clear();
+        _languagePriceCondition.Clear();
+        _languageLevelCondition.Clear();
+
+        _languageAdCondition.Add("ru", RuAdCondition);
+        _languageAdCondition.Add("en", EnAdCondition);
+        _languageAdCondition.Add("tr", TrAdCondition);
+
+        _languagePriceCondition.Add("ru", RuPriceCondition);
+        _languagePriceCondition.Add("en", EnPriceCondition);
+        _languagePriceCondition.Add("tr", TrPriceCondition);
+
+        _languageLevelCondition.Add("ru", RuLevelPassCondition);
+        _languageLevelCondition.Add("en", EnLevelPassCondition);
+        _languageLevelCondition.Add("tr", TrLevelPassCondition);
+
     }
 
     private void OnDisable()
