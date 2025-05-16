@@ -2289,6 +2289,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 993306440}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 330788895}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2329,6 +2333,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 993306440}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 330788895}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3488,8 +3496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 1971877082}
-  _restartButtonInPausePanel: {fileID: 1383179698}
 --- !u!1001 &334758668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9737,6 +9743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 993306440}
+  _pauseHandler: {fileID: 330788895}
 --- !u!114 &1248083074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11091,6 +11098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 993306440}
+  _pauseHandler: {fileID: 330788895}
 --- !u!114 &1383179698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12173,6 +12181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 993306440}
+  _pauseHandler: {fileID: 330788895}
 --- !u!114 &1521480964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13273,6 +13282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: AvocadoLevel4
   _levelLoader: {fileID: 993306440}
+  _pauseHandler: {fileID: 330788895}
 --- !u!114 &1686594406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16089,6 +16099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 993306440}
+  _pauseHandler: {fileID: 330788895}
 --- !u!114 &1971877082
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1697,6 +1697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 812582578}
+  _pauseHandler: {fileID: 1127743709}
 --- !u!114 &181210102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,6 +2780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 812582578}
+  _pauseHandler: {fileID: 1127743709}
 --- !u!114 &329864138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4234,6 +4236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: IceCreamLevel1
   _levelLoader: {fileID: 812582578}
+  _pauseHandler: {fileID: 1127743709}
 --- !u!114 &511970300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4654,6 +4657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: DynamicMainMenu
   _levelLoader: {fileID: 812582578}
+  _pauseHandler: {fileID: 0}
 --- !u!114 &564416545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6868,6 +6872,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 812582578}
+    - target: {fileID: 2918654492439116055, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1127743709}
     - target: {fileID: 3163396372756331370, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6908,6 +6916,10 @@ PrefabInstance:
       propertyPath: _levelLoader
       value: 
       objectReference: {fileID: 812582578}
+    - target: {fileID: 3897285584197117732, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1127743709}
     - target: {fileID: 4200082618031838867, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9060,8 +9072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButtonInPausePanel: {fileID: 564416545}
-  _restartButtonInPausePanel: {fileID: 1208001989}
 --- !u!1 &1130213014
 GameObject:
   m_ObjectHideFlags: 0
@@ -10082,6 +10092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelLoader: {fileID: 812582578}
+  _pauseHandler: {fileID: 0}
 --- !u!114 &1208001989
 MonoBehaviour:
   m_ObjectHideFlags: 0
