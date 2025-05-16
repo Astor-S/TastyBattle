@@ -7,12 +7,16 @@ namespace GameService
     public class RewardAdService : MonoBehaviour
     {
         public event Action CoinsReceived;
+        public event Action DoubleCoinsReceived;
         public event Action SkinReceived;
         public event Action CampaignReceived;
+        public event Action EmergencyReceived;
 
-        private string _campaign = "campaign";
-        private string _coinsRewardId = "coins";
-        private string _skinRewardId = "skin";
+        public string CampaignId { get; private set; } = "campaign";
+        public string CoinsId { get; private set; } = "coins";
+        public string DoubleCoinsId { get; private set; } = "double coins";
+        public string SkinId { get; private set; } = "skin";
+        public string EmergencyId { get; private set; } = "emergency";
 
         private void OnEnable() =>
             YG2.onRewardAdv += Reward;
@@ -25,12 +29,16 @@ namespace GameService
 
         private void Reward(string id)
         {
-            if (id == _coinsRewardId)
+            if (id == CoinsId)
                 CoinsReceived?.Invoke();
-            else if (id == _skinRewardId)
+            else if (id == DoubleCoinsId)
+                DoubleCoinsReceived?.Invoke();
+            else if (id == SkinId)
                 SkinReceived?.Invoke();
-            else if (id == _campaign)
+            else if (id == CampaignId)
                 CampaignReceived?.Invoke();
+            else if (id == EmergencyId)
+                EmergencyReceived?.Invoke();
         }
     }
 }

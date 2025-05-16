@@ -11,8 +11,6 @@ namespace UI.HomeMenu.ShopMenu
         [SerializeField] private MapService _mapService;
         [SerializeField] private Levels _unlockLevels = Levels.Level21;
 
-        private string _campaign = "campaign";
-
         private void OnEnable() => 
             _rewardAdService.CampaignReceived += UnlockCampaign;
 
@@ -20,7 +18,7 @@ namespace UI.HomeMenu.ShopMenu
             _rewardAdService.CampaignReceived -= UnlockCampaign;
 
         public override void OnButtonClick() =>
-            _rewardAdService.ShowRewardAd(_campaign);
+            _rewardAdService.ShowRewardAd(_rewardAdService.CampaignId);
 
         private void UnlockCampaign()
         {

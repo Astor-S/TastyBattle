@@ -17,7 +17,7 @@ namespace UI.Screens.ScreenButtons
             _rewardAdService.CoinsReceived -= AddDoubleAwards;
 
         public void OnButtonClick() =>
-            _rewardAdService.ShowRewardAd(default);
+            _rewardAdService.ShowRewardAd(_rewardAdService.DoubleCoinsId);
 
         private void AddDoubleAwards()
         {

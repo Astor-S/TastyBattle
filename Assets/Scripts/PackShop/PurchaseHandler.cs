@@ -19,8 +19,6 @@ public class PurchaseHandler : MonoBehaviour
     [SerializeField] private RewardAdService _rewardAdService;
     [SerializeField] private Transform _lockPanel;
 
-    private string _skinRewardId = "skin";
-
     public event Action TransactionCompleted;
 
     private void OnEnable() =>
@@ -88,7 +86,7 @@ public class PurchaseHandler : MonoBehaviour
     private void ShowAdForReward()
     {
         _rewardAdService.SkinReceived += OpenSkin;
-        _rewardAdService.ShowRewardAd(_skinRewardId);
+        _rewardAdService.ShowRewardAd(_rewardAdService.SkinId);
     }
 
     private void OpenSkin()

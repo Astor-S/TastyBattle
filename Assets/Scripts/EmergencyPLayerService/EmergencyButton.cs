@@ -30,7 +30,7 @@ namespace EmergencyPlayerService
 
         public void OnButtonClick()
         {
-            _rewardAdService.ShowRewardAd(default);
+            _rewardAdService.ShowRewardAd(_rewardAdService.EmergencyId);
             gameObject.SetActive(false);
         }
 
