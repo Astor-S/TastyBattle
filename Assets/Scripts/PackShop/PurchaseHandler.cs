@@ -1,5 +1,6 @@
-using GameService;
+﻿using GameService;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,10 +9,18 @@ using YG;
 
 public class PurchaseHandler : MonoBehaviour
 {
-    //TODO: add translation
-    private const string AdCondition = "Watch ad and take this skin";
-    private const string PriceCondition = "Price: ";
-    private const string LevelPassCondition = "Complete the mushroom campaign to get this skin";
+    //TODO: Different logic
+    private const string RuAdCondition = "Watch ad and take this skin";
+    private const string EnAdCondition = "Посмотрите рекламу и заберите этот скин";
+    private const string TrAdCondition = "Reklamı izleyin ve bu cildi alın";
+
+    private const string RuPriceCondition = "Price: ";
+    private const string EnPriceCondition = "Цена: ";
+    private const string TrPriceCondition = "Fiyat: ";
+
+    private const string RuLevelPassCondition = "Complete the mushroom campaign to get this skin";
+    private const string EnLevelPassCondition = "Завершите грибную кампанию, чтобы получить этот скин";
+    private const string TrLevelPassCondition = "Bu cildi elde etmek için mantar kampanyasını tamamlayın";
 
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _description;
@@ -19,10 +28,36 @@ public class PurchaseHandler : MonoBehaviour
     [SerializeField] private RewardAdService _rewardAdService;
     [SerializeField] private Transform _lockPanel;
 
+    private Dictionary<string, string> _languageAdCondition = new();
+    private Dictionary<string, string> _languagePriceCondition = new();
+    private Dictionary<string, string> _languageLevelCondition = new();
+
     public event Action TransactionCompleted;
 
-    private void OnEnable() =>
+    private void OnEnable()
+    {
         _shop.SkinPackSwiped += SetState;
+
+        //TODO: Magic
+        if (_languageAdCondition.Count == 0)
+        {
+            _languageAdCondition.Add("ru", RuAdCondition);
+            _languageAdCondition.Add("en", EnAdCondition);
+            _languageAdCondition.Add("tr", TrAdCondition);
+        }
+        else if (_languagePriceCondition.Count == 0)
+        {
+            _languagePriceCondition.Add("ru", RuPriceCondition);
+            _languagePriceCondition.Add("en", EnPriceCondition);
+            _languagePriceCondition.Add("tr", TrPriceCondition);
+        }
+        else if (_languageLevelCondition.Count == 0)
+        {
+            _languageLevelCondition.Add("ru", RuLevelPassCondition);
+            _languageLevelCondition.Add("en", EnLevelPassCondition);
+            _languageLevelCondition.Add("tr", TrLevelPassCondition);
+        }
+    }
 
     private void OnDisable()
     {
@@ -37,13 +72,13 @@ public class PurchaseHandler : MonoBehaviour
         switch (skin.PurchaseType)
         {
             case PurchaseType.ByAd:
-                PrapareButton(ShowAdForReward, AdCondition);
+                PrapareButton(ShowAdForReward, _languageAdCondition[YG2.lang]);
                 break;
             case PurchaseType.ByCoins:
-                PrapareButton(SpendCoins, PriceCondition + skin.Price);
+                PrapareButton(SpendCoins, _languagePriceCondition[YG2.lang] + skin.Price);
                 break;
             case PurchaseType.ByLevelPassing:
-                PrapareButton(CheckLevelPassing, LevelPassCondition);
+                PrapareButton(CheckLevelPassing, _languageLevelCondition[YG2.lang]);
                 break;
         }
     }
