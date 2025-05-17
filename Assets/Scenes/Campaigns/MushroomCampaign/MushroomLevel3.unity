@@ -9564,7 +9564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelRewarder: {fileID: 2098134094}
   _levelUnlocker: {fileID: 2127369739}
-  _completeScreen: {fileID: 0}
+  _completeScreen: {fileID: 1549254050}
   _pauseHandler: {fileID: 531185964}
 --- !u!1001 &1481267423
 PrefabInstance:
@@ -11046,6 +11046,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1549254050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6323912770865441897, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+  m_PrefabInstance: {fileID: 1549254048}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb118cca3568fb4f84742a6aca1aafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1549254052 stripped
