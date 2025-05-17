@@ -13953,14 +13953,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 133944290774978722, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1508184027}
-    - target: {fileID: 144318098660743207, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 72
-      objectReference: {fileID: 0}
     - target: {fileID: 500139581020270794, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -13981,15 +13973,7 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
-    - target: {fileID: 642806887987962129, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1508184029}
     - target: {fileID: 836955436443779703, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: _buttonSoundData
-      value: 
-      objectReference: {fileID: 1257363000}
-    - target: {fileID: 988401407719419453, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
@@ -14085,10 +14069,6 @@ PrefabInstance:
       propertyPath: _watchAdButton
       value: 
       objectReference: {fileID: 285579827}
-    - target: {fileID: 2377214537058790496, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1508184029}
     - target: {fileID: 2410379195058808077, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -14107,6 +14087,14 @@ PrefabInstance:
       objectReference: {fileID: 1257363000}
     - target: {fileID: 2503786162658818533, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644497511184787348, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644497511184787348, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2746600669848807634, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
@@ -14137,10 +14125,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1052330012}
-    - target: {fileID: 2928458005074699553, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: _buttonSoundData
-      value: 
-      objectReference: {fileID: 1257363000}
     - target: {fileID: 3067385102994996188, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -14161,6 +14145,14 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 3319413601206970670, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319413601206970670, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3506754904920585091, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -14205,6 +14197,18 @@ PrefabInstance:
       propertyPath: _purchaseHandler
       value: 
       objectReference: {fileID: 1052330014}
+    - target: {fileID: 4702626821742047981, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.3993994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702626821742047981, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702626821742047981, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.3993994
+      objectReference: {fileID: 0}
     - target: {fileID: 4730319202749741768, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14225,6 +14229,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 5383131028089484068, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.3993994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383131028089484068, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383131028089484068, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.3993994
+      objectReference: {fileID: 0}
     - target: {fileID: 5417888385286475800, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14233,10 +14249,6 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
-    - target: {fileID: 5579706011415649334, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: nameLB
-      value: Leaderboard
-      objectReference: {fileID: 0}
     - target: {fileID: 5666321060105760218, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -14253,22 +14265,6 @@ PrefabInstance:
       propertyPath: _rewardAdService
       value: 
       objectReference: {fileID: 1111281922}
-    - target: {fileID: 5967063975098801750, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5967063975098801750, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5967063975098801750, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5967063975098801750, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6068274669935945767, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_SizeDelta.x
       value: -20
@@ -14381,6 +14377,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1508184029}
+    - target: {fileID: 6929196116300603734, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7077683998171292332, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -14389,6 +14389,10 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 7090511330182219210, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7508454140552002235, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -14469,6 +14473,10 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 8283333162605919937, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 18.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8403192387876883589, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14507,7 +14515,7 @@ PrefabInstance:
       objectReference: {fileID: 1257363000}
     - target: {fileID: 8850847641146366691, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8850847641146366691, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_fontStyle
@@ -14525,6 +14533,10 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 8934557546805205453, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 28.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8986552862269264541, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_SizeDelta.x
       value: 500
@@ -14541,10 +14553,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9206005848139025100, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
-      propertyPath: _buttonSoundData
-      value: 
-      objectReference: {fileID: 1257363000}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
