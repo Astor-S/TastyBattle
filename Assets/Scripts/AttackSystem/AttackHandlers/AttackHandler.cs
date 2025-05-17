@@ -9,29 +9,34 @@ namespace AttackSystem.AttackHandlers
         [SerializeField] private DetectionSystem _detectionSystem;
 
         private AttackerSetup _stats;
-        private DamagableTarget _attackedTarget;
         protected WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
         private UpgradesData _upgradesData;
         private bool _isAttacking;
+        private Coroutine _combat;
 
         public event Action AttackStarted;
         public event Action AttackStopped;
 
+        public bool ReadyToAttack =>
+            Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position) <= _stats.AttackDistance * _stats.AttackDistance;
+
         public float AttackSpeedMultiplier { get; set; } = 1f;
-        public bool IsAbleToAttack => _attackedTarget != null && Vector3.SqrMagnitude(_attackedTarget.transform.position - transform.position) <= _stats.AttackDistance * _stats.AttackDistance;
-        public DamagableTarget AttackedTarget => _attackedTarget;
+        public DamagableTarget AttackedTarget => _detectionSystem.CurrentTarget;
         public float BaseAttackSpeed => _stats.AttackSpeed;
         protected AttackerSetup Stats => _stats;
         protected UpgradesData UpgradesData => _upgradesData;
 
-        private void OnEnable()
-        {
-            _detectionSystem.TargetChanged += ChangeTarget;
-            StartCoroutine(nameof(Combat));
-        }
+        private void OnEnable() =>
+            _combat = StartCoroutine(nameof(Combat));
 
-        private void OnDisable() => 
-            _detectionSystem.TargetChanged -= ChangeTarget;
+        private void OnDisable()
+        {
+            if (_combat != null)
+            {
+                StopCoroutine(_combat);
+                _combat = null;
+            }
+        }
 
         public void Init(AttackerSetup attackerSetup, UpgradesData upgradesData)
         {
@@ -43,8 +48,8 @@ namespace AttackSystem.AttackHandlers
 
         public virtual void Hit()
         {
-            if (_attackedTarget != null)
-                _attackedTarget.TakeDamage(CalculateDamage());
+            if (AttackedTarget != null)
+                AttackedTarget.TakeDamage(CalculateDamage());
         }
 
         public virtual float CalculateDamage() =>
@@ -54,18 +59,15 @@ namespace AttackSystem.AttackHandlers
         {
             while (enabled)
             {
-                if (_attackedTarget != null)
+                if (ReadyToAttack && _isAttacking == false)
                 {
-                    if (IsAbleToAttack && _isAttacking == false)
-                    {
-                        StartAttack();
-                        _isAttacking = true;
-                    }
-                    else if (IsAbleToAttack == false && _isAttacking)
-                    {
-                        StopAttack();
-                        _isAttacking = false;
-                    }
+                    StartAttack();
+                    _isAttacking = true;
+                }
+                else if (ReadyToAttack == false && _isAttacking)
+                {
+                    StopAttack();
+                    _isAttacking = false;
                 }
 
                 yield return WaitForFixedUpdate;
@@ -77,8 +79,5 @@ namespace AttackSystem.AttackHandlers
 
         protected void StopAttack() =>
             AttackStopped?.Invoke();
-
-        protected void ChangeTarget(DamagableTarget enemy) =>
-            _attackedTarget = enemy;
     }
 }

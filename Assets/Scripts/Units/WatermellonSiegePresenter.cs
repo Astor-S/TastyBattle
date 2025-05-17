@@ -14,7 +14,7 @@ namespace Units
 
         protected override void FixedUpdate()
         {
-            if (DetectionSystem.CurrentTarget != null && NavMeshAgent.enabled == true)
+            if (NavMeshAgent.enabled == true)
             {
                 if (_isRunningUp)
                 {
@@ -32,7 +32,9 @@ namespace Units
         {
             base.Enable();
 
+            NavMeshAgent.speed = Model.Stats.MovementSpeed;
             NavMeshAgent.stoppingDistance = Model.Stats.HitDistance;
+            _isRunningUp = false;
 
             AttackHandler.Hitting += View.SetHittingAnimation;
             AttackHandler.SpeedChanging += ChangeSpeed;

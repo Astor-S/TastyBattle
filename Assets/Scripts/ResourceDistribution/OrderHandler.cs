@@ -13,6 +13,7 @@ public abstract class OrderHandler : MonoBehaviour
 
     public event Action<Order> ItemOrdered;
 
+    public TextMeshProUGUI PriceTextBox => _priceTextBox;
     protected Order Order => _order;
 
     private void Awake()

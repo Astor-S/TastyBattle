@@ -61,9 +61,9 @@ namespace Units
                 unit = new Unit(setup, _enemyBase);
 
             UnitPresenter presenter = _pools[setup.BattleRole].GetObject(unit);
+            presenter.transform.position = GenerateSpawnPosition();
             presenter.gameObject.SetActive(true);
             presenter.Releasing += ReleaseIntoPool;
-            presenter.transform.position = GenerateSpawnPosition();
 
             _enemyDeathHandler.OnUnitSpawned(presenter);
         }

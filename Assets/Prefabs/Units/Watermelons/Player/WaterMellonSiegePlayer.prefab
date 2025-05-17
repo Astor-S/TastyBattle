@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5100610510049749713}
   - component: {fileID: 7855966856468767823}
   - component: {fileID: 1887790807130368945}
-  - component: {fileID: 318921565774793224}
   - component: {fileID: 5849797603765286824}
+  - component: {fileID: 318921565774793224}
   m_Layer: 0
   m_Name: WaterMellonSiegePlayer
   m_TagString: Untagged
@@ -161,6 +161,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 8565804310083418809}
+--- !u!114 &5849797603765286824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089651971230663124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 318921565774793224}
+  _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
+  _soundPack: {fileID: 11400000, guid: 541e9b65add732b4ebd07056ff0ea952, type: 2}
+  _attackerAnimation: {fileID: 5975875693928533099}
 --- !u!82 &318921565774793224
 AudioSource:
   m_ObjectHideFlags: 0
@@ -257,22 +273,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5849797603765286824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4089651971230663124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c8c0c185ace6142b7a7b0b7b5895f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 318921565774793224}
-  _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
-  _soundPack: {fileID: 11400000, guid: 541e9b65add732b4ebd07056ff0ea952, type: 2}
-  _attackerAnimation: {fileID: 5975875693928533099}
 --- !u!1 &4383428213538643939
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 1887790807130368945}
   _baseTransform: {fileID: 9007126736329814626}
+  _collider: {fileID: 834645389238024750}
 --- !u!1001 &6643888705062626046
 PrefabInstance:
   m_ObjectHideFlags: 0

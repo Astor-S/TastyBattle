@@ -14,7 +14,9 @@ public class UnitOrderHandler : OrderHandler
 
     protected override void OnOrdered()
     {
-        YG2.MetricaSend("unit_ordered");
+        if (PriceTextBox != null)
+            YG2.MetricaSend("unit_ordered");
+
         Order.IncreaseCost();
     }
 }

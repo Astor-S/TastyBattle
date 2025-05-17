@@ -68,10 +68,9 @@ namespace Units
         {
             View.SetWalkingAnimation();
 
+            _navMeshAgent.enabled = true;
             _detectionSystem.enabled = true;
             _attackHandler.enabled = true;
-            _damageTarget.enabled = true;
-            _navMeshAgent.enabled = true;
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
@@ -102,6 +101,7 @@ namespace Units
         protected void OnDying()
         {
             View.SetDeathAnimation();
+
             _navMeshAgent.enabled = false;
 
             if (_attackHandler != null)
