@@ -20,8 +20,6 @@ public class DetectionSystem : MonoBehaviour
     private bool _isSiege = false;
     private float _radius = 7f;
 
-    public event Action TargetChanged;
-
     public DamagableTarget CurrentTarget { get; private set; } = null;
 
 #if UNITY_EDITOR
@@ -98,7 +96,5 @@ public class DetectionSystem : MonoBehaviour
             CurrentTarget = _enemyBase;
         else
             CurrentTarget = _detectedUnits.Peek();
-
-        TargetChanged?.Invoke();
     }
 }
