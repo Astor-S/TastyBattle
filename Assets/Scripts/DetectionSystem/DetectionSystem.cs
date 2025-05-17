@@ -12,23 +12,31 @@ public class DetectionSystem : MonoBehaviour
 
     [SerializeField] private DamagableTarget _currentUnit;
     [SerializeField] private Transform _baseTransform;
+    [SerializeField] private SphereCollider _collider;
 
-    private SphereCollider _collider;
     private Queue<DamagableTarget> _detectedUnits = new();
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
     private bool _isSiege = false;
     private float _radius = 7f;
 
+    public event Action TargetChanged;
+
     public DamagableTarget CurrentTarget { get; private set; } = null;
 
-    public event Action<DamagableTarget> TargetChanged;
-
+#if UNITY_EDITOR
     private void OnValidate()
     {
         _collider = GetComponent<SphereCollider>();
         _collider.radius = _radius;
     }
+#else
+    private void Awake()
+    {
+        _collider = GetComponent<SphereCollider>();
+        _collider.radius = _radius;
+    }
+#endif
 
     private void FixedUpdate()
     {
@@ -39,14 +47,26 @@ public class DetectionSystem : MonoBehaviour
     private void OnEnable()
     {
         _detectedUnits.Clear();
-        CurrentTarget = _enemyBase;
-        TargetChanged?.Invoke(CurrentTarget);
 
         //Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, _radius);
 
         //if (hitColliders.Length > 0)
         //    foreach (Collider hit in hitColliders)
         //        FindEnemies(hit);
+    }
+
+    public void Init(int layer, DamagableTarget enemyBase, BattleRole battleRole = BattleRole.Range)
+    {
+        if (LayerMask.LayerToName(layer) == Enemy)
+            _enemyLayer = Player;
+        else
+            _enemyLayer = Enemy;
+
+        _enemyBase = enemyBase;
+        CurrentTarget = _enemyBase;
+        _isSiege = battleRole == BattleRole.Siege;
+
+        gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other) =>
@@ -63,10 +83,7 @@ public class DetectionSystem : MonoBehaviour
             _detectedUnits.Enqueue(unit);
 
             if (_detectedUnits.Count == 1)
-            {
                 CurrentTarget = unit;
-                TargetChanged?.Invoke(CurrentTarget);
-            }
         }
     }
 
@@ -82,19 +99,6 @@ public class DetectionSystem : MonoBehaviour
         else
             CurrentTarget = _detectedUnits.Peek();
 
-        TargetChanged?.Invoke(CurrentTarget);
-    }
-
-    public void Init(int layer, DamagableTarget enemyBase, BattleRole battleRole = BattleRole.Range)
-    {
-        if (LayerMask.LayerToName(layer) == Enemy)
-            _enemyLayer = Player;
-        else
-            _enemyLayer = Enemy;
-
-        _enemyBase = enemyBase;
-        _isSiege = battleRole == BattleRole.Siege;
-
-        gameObject.SetActive(true);
+        TargetChanged?.Invoke();
     }
 }

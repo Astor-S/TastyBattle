@@ -69,8 +69,6 @@ namespace AttackSystem
             Dying?.Invoke(this);
 
             _collider.enabled = false;
-
-            enabled = false;
         }
     }
 }

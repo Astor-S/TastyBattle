@@ -18,8 +18,8 @@ namespace Buildings
         {
             base.Awake();
 
-            _attackHandler.Init(Stats, UpgradesData);
             _detectionSystem.Init(gameObject.layer, _enemyBase);
+            _attackHandler.Init(Stats, UpgradesData);
 
             _attackerAnimation.enabled = true;
         }
