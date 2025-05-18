@@ -102,13 +102,9 @@ namespace Units
         {
             View.SetDeathAnimation();
 
+            _attackHandler.enabled = false;
             _navMeshAgent.enabled = false;
-
-            if (_attackHandler != null)
-                _attackHandler.enabled = false;
-
-            if (_detectionSystem != null)
-                _detectionSystem.enabled = false;
+            _detectionSystem.enabled = false;
             
             OnUnitDying?.Invoke(this);
         }
