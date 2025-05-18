@@ -47,8 +47,6 @@ namespace Units
         {
             _animator.SetBool(IsAttacking, false);
             _animator.SetBool(IsWalking, true);
-
-            this.SoundPlayer.SetWalkingSound();
         }
 
         public void SetAttackingAnimation()
