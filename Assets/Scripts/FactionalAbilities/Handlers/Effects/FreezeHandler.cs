@@ -9,6 +9,7 @@ namespace FactionalAbilities.Handlers.Effects
         private const float DamageMultiplierBase = 1f;
 
         private UnitPresenter _unitPresenter;
+        private Coroutine _freezeCoroutine;
 
         private float _totalSlowPercentage;
         private float _maxSlowPercentage;
@@ -18,6 +19,15 @@ namespace FactionalAbilities.Handlers.Effects
         private float _slowDecreaseRate;
 
         private bool _isFreezing = false;
+
+        private void OnDisable()
+        {
+            if (_freezeCoroutine != null)
+            {
+                StopCoroutine(_freezeCoroutine);
+                gameObject.SetActive(false);
+            }
+        }
 
         public void Initialize(UnitPresenter unitPresenter, float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate)
         {
@@ -37,7 +47,7 @@ namespace FactionalAbilities.Handlers.Effects
             UpdateSlow();
  
             if (_isFreezing == false)
-                StartCoroutine(SlowDurationCoroutine());
+                _freezeCoroutine = StartCoroutine(SlowDurationCoroutine());
         }
 
         private void RemoveSlow(float slowPercentage)

@@ -13,6 +13,15 @@ namespace FactionalAbilities.Handlers.Effects
         private float _damagePerSecond;
         private float _duration;
 
+        private void OnDisable()
+        {
+            if (_acidCoroutine != null)
+            {
+                StopCoroutine(_acidCoroutine);
+                gameObject.SetActive(false);
+            }
+        }
+
         public void Initialize(DamagableTarget target, float damagePerSecond, float duration)
         {
             _target = target;
