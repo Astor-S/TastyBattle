@@ -26,16 +26,16 @@ namespace AttackSystem.AttackHandlers
         protected AttackerSetup Stats => _stats;
         protected UpgradesData UpgradesData => _upgradesData;
 
-        private void OnEnable() =>
-            _combat = StartCoroutine(nameof(Combat));
+        private void OnEnable()
+        {
+            _isAttacking = false;
+            _combat = StartCoroutine(Combat());
+        }
 
         private void OnDisable()
         {
-            if (_combat != null)
-            {
-                StopCoroutine(_combat);
-                _combat = null;
-            }
+            StopCoroutine(_combat);
+            _combat = null;
         }
 
         public void Init(AttackerSetup attackerSetup, UpgradesData upgradesData)
@@ -59,6 +59,8 @@ namespace AttackSystem.AttackHandlers
         {
             while (enabled)
             {
+                yield return WaitForFixedUpdate;
+
                 if (ReadyToAttack && _isAttacking == false)
                 {
                     StartAttack();
@@ -69,8 +71,6 @@ namespace AttackSystem.AttackHandlers
                     StopAttack();
                     _isAttacking = false;
                 }
-
-                yield return WaitForFixedUpdate;
             }
         }
 
