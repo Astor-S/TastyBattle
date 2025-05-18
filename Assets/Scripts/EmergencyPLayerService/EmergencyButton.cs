@@ -8,6 +8,8 @@ namespace EmergencyPlayerService
     public class EmergencyButton : MonoBehaviour
     {
         [SerializeField] private Button _emergencyButton;
+        [SerializeField] private LandingUnits _landingUnits;
+        [SerializeField] private InvulnerabilityPlayerBase _invulnerabilityPlayer;
         [SerializeField] private DamagableTarget _target;
         [SerializeField] private RewardAdService _rewardAdService;
 
@@ -21,7 +23,7 @@ namespace EmergencyPlayerService
             if (_target != null)
                 _target.HalfHP += OnHalfHPReached;
 
-            _rewardAdService.EmergencyReceived += OnButtonClick;
+            _rewardAdService.EmergencyReceived += ActivateBonus;
         }
 
         private void OnDisable()
@@ -29,12 +31,16 @@ namespace EmergencyPlayerService
             if (_target != null)
                 _target.HalfHP -= OnHalfHPReached;
 
-            _rewardAdService.EmergencyReceived -= OnButtonClick;
+            _rewardAdService.EmergencyReceived -= ActivateBonus;
         }
 
-        public void OnButtonClick()
-        {
+        public void OnButtonClick() =>
             _rewardAdService.ShowRewardAd(_rewardAdService.EmergencyId);
+
+        private void ActivateBonus()
+        {
+            _landingUnits.CallLanding();
+            _invulnerabilityPlayer.OnActivateInvulnerability();
             gameObject.SetActive(false);
         }
 
