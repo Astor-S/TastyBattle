@@ -774,9 +774,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 568843255}
     - target: {fileID: 4906318756616694918, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _landingUnits
+      value: 
+      objectReference: {fileID: 568843260}
+    - target: {fileID: 4906318756616694918, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: _rewardAdService
       value: 
       objectReference: {fileID: 589634651}
+    - target: {fileID: 4906318756616694918, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
+      propertyPath: _invulnerabilityPlayer
+      value: 
+      objectReference: {fileID: 568843259}
     - target: {fileID: 5020893366067806992, guid: 0b91a7a6a41e81140a04951c6660cc94, type: 3}
       propertyPath: _unitSetup
       value: 
@@ -3921,6 +3929,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37ad71937d3bb8246ba95b371c47aea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &568843259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2614605258919823984, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+  m_PrefabInstance: {fileID: 568843254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e845a850e0df4499239905eff6e7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &568843260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6042089900013941979, guid: 895f7f1d29202c64a888eca22f54fc3f, type: 3}
+  m_PrefabInstance: {fileID: 568843254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b7ddd714d3977419566984e7d03d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &570016565
@@ -9248,7 +9278,7 @@ MonoBehaviour:
   _ground:
     serializedVersion: 2
     m_Bits: 8
-  _outOfBoundsZone: 28
+  _outOfBoundsZone: 25
   _rotateDuration: 0
 --- !u!114 &1224666531
 MonoBehaviour:
@@ -9263,8 +9293,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 1224666533}
-  _speed: 2
+  _speed: 1.5
   _smoothness: 0.2
+  _minX: -30
+  _maxX: 30
 --- !u!81 &1224666532
 AudioListener:
   m_ObjectHideFlags: 0
