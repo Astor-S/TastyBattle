@@ -7,11 +7,10 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
-        if (YG2.saves.skinPacks.Count == 0)
-        {
-            YG2.saves.skinPacks.AddRange(_packShop.DefaultSkins);
-            YG2.saves.skinPacks.AddRange(_packShop.OtherSkins);
-        }
+        YG2.saves.skinPacks.Clear();
+
+        YG2.saves.skinPacks.AddRange(_packShop.DefaultSkins);
+        YG2.saves.skinPacks.AddRange(_packShop.OtherSkins);
 
         _packShop.SwipeFaction(default);
 

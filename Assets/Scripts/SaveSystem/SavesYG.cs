@@ -55,8 +55,6 @@ namespace YG
 
             language = default;
 
-            skinPacks.Clear();
-
             openedLevels.Clear();
 
             openedLevels.Add(Levels.Level1);
