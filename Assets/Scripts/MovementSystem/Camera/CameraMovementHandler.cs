@@ -15,6 +15,8 @@ public class CameraMovementHandler : IMovement
     {
         _cameraDirection += new Vector3(direction.x, 0, direction.y) * _properties.Speed;
 
+        _cameraDirection.x = Mathf.Clamp(_cameraDirection.x, _properties.MinX, _properties.MaxX);
+
         _properties.CameraTransform.position = Vector3.Lerp
             (_properties.CameraTransform.position, _cameraDirection, Time.deltaTime / _properties.Smoothness);
     }    
