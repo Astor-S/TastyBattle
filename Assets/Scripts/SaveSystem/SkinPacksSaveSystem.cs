@@ -7,8 +7,6 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
-        YG2.saves.skinPacks.Clear();
-
         if (YG2.saves.skinPacks.Count == 0)
         {
             YG2.saves.skinPacks.AddRange(_packShop.DefaultSkins);
@@ -17,10 +15,8 @@ public class SkinPacksSaveSystem : SaveSystem
 
         _packShop.SwipeFaction(default);
 
-#if UNITY_EDITOR == false
         if (YG2.saves.isFirstLaunch)
             _packShop.EquipDefaultSkins();
-#endif
 
         _packShop.EquipAllEquippedSkins();
         _packShop.CheckEquipment();

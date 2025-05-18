@@ -14,7 +14,7 @@ namespace YG
 
         //Score
         public int score = 0;
-        public int balanceMoney;
+        public int balanceMoney = 0;
 
         //OnFirstPlay
         public bool isFirstLaunch = true;
@@ -39,5 +39,25 @@ namespace YG
 
         public bool IsLevelOpened(Levels level) =>
             openedLevels.Contains(level);
+
+        public void Refresh()
+        {
+            musicVolume = 0.3f;
+            soundVolume = 0.3f;
+
+            isMusicOn = false;
+            isSoundOn = false;
+
+            score = 0;
+            balanceMoney = 0;
+
+            isFirstLaunch = true;
+
+            language = default;
+
+            skinPacks.Clear();
+
+            isMushroomCampaignCompleted = false;
+        }
     }
 }
