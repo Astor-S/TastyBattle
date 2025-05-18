@@ -6,8 +6,8 @@ namespace YG
     public partial class SavesYG
     {
         //Audio saves
-        public float musicVolume = 0.3f;
-        public float soundVolume = 0.3f;
+        public float musicVolume = 0.4f;
+        public float soundVolume = 0.4f;
 
         public bool isMusicOn = false;
         public bool isSoundOn = false;
@@ -30,7 +30,7 @@ namespace YG
         public bool isMushroomCampaignCompleted = false;
 
         public SavesYG()
-        {
+        {           
             openedLevels.Add(Levels.Level1);
             openedLevels.Add(Levels.Level6);
             openedLevels.Add(Levels.Level11);
@@ -42,8 +42,8 @@ namespace YG
 
         public void Refresh()
         {
-            musicVolume = 0.3f;
-            soundVolume = 0.3f;
+            musicVolume = 0.4f;
+            soundVolume = 0.4f;
 
             isMusicOn = false;
             isSoundOn = false;
@@ -56,6 +56,13 @@ namespace YG
             language = default;
 
             skinPacks.Clear();
+
+            openedLevels.Clear();
+
+            openedLevels.Add(Levels.Level1);
+            openedLevels.Add(Levels.Level6);
+            openedLevels.Add(Levels.Level11);
+            openedLevels.Add(Levels.Level16);
 
             isMushroomCampaignCompleted = false;
         }
