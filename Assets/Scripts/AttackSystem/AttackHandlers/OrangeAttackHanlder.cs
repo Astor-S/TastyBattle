@@ -7,7 +7,7 @@ namespace AttackSystem.AttackHandlers
 {
     public class OrangeAttackHanlder : AttackHandler, IOrangeAttacker, IAcidEffector
     {
-        [SerializeField] private OrangeAbilityHandler _orangAbilityHandler;
+        [SerializeField] private OrangeAbilityHandler _orangeAbilityHandler;
         [SerializeField] private ParticleSystem _acidParticleEffectPrefab;
 
         public override void Hit()
@@ -18,7 +18,7 @@ namespace AttackSystem.AttackHandlers
 
         public void ApplyOrangeAcid()
         {
-            if (_orangAbilityHandler != null)
+            if (_orangeAbilityHandler != null)
             {
                 if (AttackedTarget != null && AttackedTarget.gameObject.activeInHierarchy)
                 {
@@ -26,23 +26,27 @@ namespace AttackSystem.AttackHandlers
 
                     if (acidHandler == null)
                     {
+                        ParticleSystem acidParticleEffectInstance = PlayAcidParticleEffect(AttackedTarget.transform);
                         acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>();
-                        acidHandler.Initialize(AttackedTarget, _orangAbilityHandler.OrangeAbility.DamagePerSecond, _orangAbilityHandler.OrangeAbility.Duration);
-                        PlayAcidParticleEffect(AttackedTarget.transform);
+                        acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration, acidParticleEffectInstance);
                     }
                 }
             }
         }
 
-        public void PlayAcidParticleEffect(Transform target)
+        public ParticleSystem PlayAcidParticleEffect(Transform target)
         {
             if (_acidParticleEffectPrefab != null)
             {
-                ParticleSystem acidParticleEffect = Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f,0f,0f), target);
+                ParticleSystem acidParticleEffect = Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
                 ParticleSystem.MainModule mainModule = acidParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 acidParticleEffect.Play();
+
+                return acidParticleEffect; 
             }
+
+            return null; 
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.AI;
 using StructureElements;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
-using YG;
+using FactionalAbilities.Handlers.Effects;
 
 namespace Units
 {
@@ -105,13 +105,21 @@ namespace Units
             _attackHandler.enabled = false;
             _navMeshAgent.enabled = false;
             _detectionSystem.enabled = false;
-            
+            ResetEffects();
+
             OnUnitDying?.Invoke(this);
         }
 
-        private void OnDecayed()
+        private void ResetEffects()
         {
-            Releasing?.Invoke(this);
+            if (TryGetComponent<AcidHandler>(out var acidHandler))
+                Destroy(acidHandler);
+
+            if (TryGetComponent<FreezeHandler>(out var freezeHandler))
+                Destroy(freezeHandler);
         }
+
+        private void OnDecayed() =>
+            Releasing?.Invoke(this);
     }
 }

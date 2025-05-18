@@ -26,15 +26,15 @@ namespace AttackSystem.RangedAttackHandlers
 
                     if (acidHandler == null)
                     {
+                        ParticleSystem acidParticleEffectInstance = PlayAcidParticleEffect(AttackedTarget.transform);
                         acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>();
-                        acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration);
-                        PlayAcidParticleEffect(AttackedTarget.transform);
+                        acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration, acidParticleEffectInstance);
                     }
                 }
             }
         }
 
-        public void PlayAcidParticleEffect(Transform target)
+        public ParticleSystem PlayAcidParticleEffect(Transform target)
         {
             if (_acidParticleEffectPrefab != null)
             {
@@ -42,7 +42,11 @@ namespace AttackSystem.RangedAttackHandlers
                 ParticleSystem.MainModule mainModule = acidParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 acidParticleEffect.Play();
+
+                return acidParticleEffect;
             }
+
+            return null;
         }
     }
 }
