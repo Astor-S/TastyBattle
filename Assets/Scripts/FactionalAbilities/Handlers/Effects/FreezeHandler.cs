@@ -20,15 +20,6 @@ namespace FactionalAbilities.Handlers.Effects
 
         private bool _isFreezing = false;
 
-        private void OnDisable()
-        {
-            if (_freezeCoroutine != null)
-            {
-                StopCoroutine(_freezeCoroutine);
-                gameObject.SetActive(false);
-            }
-        }
-
         public void Initialize(UnitPresenter unitPresenter, float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate)
         {
             _unitPresenter = unitPresenter;
