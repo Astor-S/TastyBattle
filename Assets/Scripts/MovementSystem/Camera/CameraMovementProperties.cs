@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraMovementProperties : MonoBehaviour
 {
     [SerializeField] private Transform _cameraTransform;
-    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _speed = 1.3f;
     [SerializeField] private float _smoothness = 0.2f;
     [SerializeField] private float _minX = 0f;
     [SerializeField] private float _maxX = 1f;
