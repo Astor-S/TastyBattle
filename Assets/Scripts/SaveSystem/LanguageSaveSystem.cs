@@ -13,6 +13,9 @@ public class LanguageSaveSystem : SaveSystem
             _languageChanger.ChangeLanguage(YG2.saves.language);
     }
 
-    public override void Save() => 
+    public override void Save()
+    {
         YG2.saves.language = _languageChanger.GetLanguage();
+        YG2.SaveProgress();
+    }
 }

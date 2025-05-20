@@ -91,12 +91,16 @@ public class PurchaseHandler : MonoBehaviour
     {
         if (YG2.saves.isMushroomCampaignCompleted)
         {
-            _shop.CurrentSkinPack.Purchase();
-
-            YG2.SaveProgress();
+            SaveSkinPack();
 
             HideButton();
         }
+    }
+
+    private void SaveSkinPack()
+    {
+        YG2.saves.availableSkinPacks[_shop.CurrentSkinPack] = true;
+        YG2.SaveProgress();
     }
 
     private void SpendCoins()
@@ -106,9 +110,7 @@ public class PurchaseHandler : MonoBehaviour
         if (YG2.saves.balanceMoney >= price)
         {
             YG2.saves.balanceMoney -= price;
-            YG2.SaveProgress();
-
-            _shop.CurrentSkinPack.Purchase();
+            SaveSkinPack();
 
             TransactionCompleted?.Invoke();
 
@@ -124,8 +126,10 @@ public class PurchaseHandler : MonoBehaviour
 
     private void OpenSkin()
     {
-        _shop.CurrentSkinPack.Purchase();
+        SaveSkinPack();
+
         _rewardAdService.SkinReceived -= OpenSkin;
+
         HideButton();
     }
 

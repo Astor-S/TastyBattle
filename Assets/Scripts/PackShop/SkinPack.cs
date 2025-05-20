@@ -49,9 +49,6 @@ public class SkinPack : ScriptableObject
         _languageNames.Add("tr", _trName);
     }
 
-    public void Purchase() =>
-        _isAvailable = true;
-
     public void Equip() =>
         _isEquipped = true;
 

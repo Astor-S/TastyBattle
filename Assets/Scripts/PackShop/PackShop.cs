@@ -78,7 +78,7 @@ public class PackShop : MonoBehaviour
     {
         int index = 0;
 
-        foreach (SkinPack skin in YG2.saves.skinPacks)
+        foreach (SkinPack skin in YG2.saves.availableSkinPacks.Keys)
         {
             if (skin.IsEquipped)
             {
@@ -120,7 +120,7 @@ public class PackShop : MonoBehaviour
     {
         _currentFactionSkins.Clear();
 
-        foreach (SkinPack skinPack in YG2.saves.skinPacks)
+        foreach (SkinPack skinPack in YG2.saves.availableSkinPacks.Keys)
             if ((int)skinPack.Faction == _currentFaction)
                 _currentFactionSkins.Add(skinPack);
     }

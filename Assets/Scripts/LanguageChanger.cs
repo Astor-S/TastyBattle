@@ -9,6 +9,8 @@ public class LanguageChanger : MonoBehaviour
     {
         YG2.SwitchLanguage(lang);
         _language = lang;
+
+        YG2.SaveProgress();
     }
 
     public string GetLanguage() => 
