@@ -29,13 +29,7 @@ public class PackShopView : MonoBehaviour
         _packShop.IsEquipped -= TryShowEquipButton;
 
         ClearContainers();
-    }
-
-    private void TryShowEquipButton(bool isEquipped)
-    {
-        _equipMark.gameObject.SetActive(isEquipped);
-        _equipButton.gameObject.SetActive(isEquipped == false);
-    }
+    }       
 
     private void ShowSkinPack(SkinPack skinPack) =>
         ShowSkins(skinPack);
@@ -53,7 +47,7 @@ public class PackShopView : MonoBehaviour
             skin.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[i];
         }
 
-        TryShowLock(skinPack);
+        TryShowLock(YG2.saves.availableSkins.Contains(skinPack));
     }
 
     private void ClearContainers()
@@ -64,9 +58,15 @@ public class PackShopView : MonoBehaviour
                     Destroy(_containers[i].GetChild(0).gameObject);
     }
 
-    private void TryShowLock(SkinPack skins)
+    private void TryShowEquipButton(bool isEquipped)
     {
-        _lockPanel.gameObject.SetActive(skins.IsAvailable == false);
-        _purchaseButton.gameObject.SetActive(skins.IsAvailable == false);
+        _equipMark.gameObject.SetActive(isEquipped);
+        _equipButton.gameObject.SetActive(isEquipped == false);
+    }
+
+    private void TryShowLock(bool isAvailable)
+    {
+        _lockPanel.gameObject.SetActive(isAvailable == false);
+        _purchaseButton.gameObject.SetActive(isAvailable == false);
     }
 }

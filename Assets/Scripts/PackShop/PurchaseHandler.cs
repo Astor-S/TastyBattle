@@ -67,7 +67,7 @@ public class PurchaseHandler : MonoBehaviour
     {
         _button.onClick.RemoveAllListeners();
 
-        if (YG2.saves.availableSkinPacks[skin] == false)
+        if (YG2.saves.availableSkins.Contains(skin) == false)
         {
             switch (skin.PurchaseType)
             {
@@ -102,7 +102,7 @@ public class PurchaseHandler : MonoBehaviour
 
     private void SaveSkinPack()
     {
-        YG2.saves.availableSkinPacks[_shop.CurrentSkinPack] = true;
+        YG2.saves.availableSkins.Add(_shop.CurrentSkinPack);
         YG2.SaveProgress();
     }
 
@@ -131,9 +131,9 @@ public class PurchaseHandler : MonoBehaviour
     {
         SaveSkinPack();
 
-        _rewardAdService.SkinReceived -= OpenSkin;
-
         HideButton();
+
+        _rewardAdService.SkinReceived -= OpenSkin;
     }
 
     private void HideButton()

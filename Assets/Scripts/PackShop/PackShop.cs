@@ -30,7 +30,7 @@ public class PackShop : MonoBehaviour
 
         SetAllFactionSkins();
 
-        SkinPackSwiped?.Invoke(GetFirstFactionSkin());     
+        SkinPackSwiped?.Invoke(GetFirstFactionSkin());
 
         _skinPackIndex = default;
 
@@ -48,50 +48,48 @@ public class PackShop : MonoBehaviour
 
     public void Equip()
     {
-        SkinPack currentPack = CurrentSkinPack;
         int index = 0;
 
-        if (YG2.saves.availableSkinPacks[currentPack] && YG2.saves.equippedSkinPacks[currentPack] == false)
+        if (YG2.saves.availableSkins.Contains(CurrentSkinPack) && YG2.saves.equippedSkins.Contains(CurrentSkinPack) == false)
         {
             foreach (FactionUnits factionUnit in _factionUnits)
             {
-                if (factionUnit.Dictionary[BattleRole.Melee].Faction == currentPack.Faction)
+                if (factionUnit.Dictionary[BattleRole.Melee].Faction == CurrentSkinPack.Faction)
                 {
                     foreach (UnitPresenter presenter in factionUnit.Dictionary.Values)
-                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = currentPack.Skins[index++];
+                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = CurrentSkinPack.Skins[index++];
 
                     foreach (SkinPack skinPack in _currentFactionSkins)
                     {
-                        if (skinPack == currentPack)
+                        if (skinPack == CurrentSkinPack)
                             continue;
 
-                        YG2.saves.equippedSkinPacks[skinPack] = false;
+                        YG2.saves.equippedSkins.Remove(skinPack);
                     }
 
-                    YG2.saves.equippedSkinPacks[currentPack] = true;
+                    YG2.saves.equippedSkins.Add(CurrentSkinPack);
                 }
             }
         }
-    }    
+
+        YG2.SaveProgress();
+    }
 
     public void EquipAllEquippedSkins()
     {
         int index = 0;
 
-        foreach (SkinPack skin in YG2.saves.availableSkinPacks.Keys)
+        foreach (SkinPack skin in YG2.saves.equippedSkins)
         {
-            if (YG2.saves.equippedSkinPacks[skin])
+            foreach (FactionUnits factionUnit in _factionUnits)
             {
-                foreach (FactionUnits factionUnit in _factionUnits)
+                if (factionUnit.Dictionary[BattleRole.Melee].Faction == skin.Faction)
                 {
-                    if (factionUnit.Dictionary[BattleRole.Melee].Faction == skin.Faction)
-                    {
-                        foreach (UnitPresenter presenter in factionUnit.Dictionary.Values)
-                            presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = skin.Skins[index++];
+                    foreach (UnitPresenter presenter in factionUnit.Dictionary.Values)
+                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = skin.Skins[index++];
 
-                        index = 0;
-                        break;
-                    }
+                    index = 0;
+                    break;
                 }
             }
         }
@@ -101,15 +99,15 @@ public class PackShop : MonoBehaviour
             _currentFactionSkins[0];
 
     public void CheckEquipment() =>
-        IsEquipped?.Invoke(YG2.saves.equippedSkinPacks[CurrentSkinPack]);
+        IsEquipped?.Invoke(YG2.saves.equippedSkins.Contains(CurrentSkinPack));
 
-    public void EquipDefaultSkins()
+    public void SetDefaultSkins()
     {
         foreach (SkinPack skin in _defaultSkins)
-            YG2.saves.equippedSkinPacks.Add(skin, true);
-
-        foreach (SkinPack skin in _otherSkins)
-            YG2.saves.equippedSkinPacks.Add(skin, false);
+        {
+            YG2.saves.equippedSkins.Add(skin);
+            YG2.saves.availableSkins.Add(skin);
+        }
 
         YG2.SaveProgress();
 
@@ -120,7 +118,11 @@ public class PackShop : MonoBehaviour
     {
         _currentFactionSkins.Clear();
 
-        foreach (SkinPack skinPack in YG2.saves.availableSkinPacks.Keys)
+        foreach (SkinPack skinPack in _defaultSkins)
+            if ((int)skinPack.Faction == _currentFaction)
+                _currentFactionSkins.Add(skinPack);
+        
+        foreach (SkinPack skinPack in _otherSkins)
             if ((int)skinPack.Faction == _currentFaction)
                 _currentFactionSkins.Add(skinPack);
     }

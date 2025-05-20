@@ -23,11 +23,11 @@ namespace YG
         public string language = default;
 
         //Skins
-        public Dictionary<SkinPack, bool> availableSkinPacks = new();
-        public Dictionary<SkinPack, bool> equippedSkinPacks = new();
+        public List<SkinPack> equippedSkins = new ();
+        public List<SkinPack> availableSkins = new ();
 
         //Levels
-        public List<Levels> openedLevels = new();
+        public List<Levels> openedLevels = new ();
         public bool isMushroomCampaignCompleted = false;
 
         public SavesYG()
@@ -57,6 +57,9 @@ namespace YG
             language = default;
 
             openedLevels.Clear();
+
+            equippedSkins.Clear();
+            availableSkins.Clear();
 
             openedLevels.Add(Levels.Level1);
             openedLevels.Add(Levels.Level6);
