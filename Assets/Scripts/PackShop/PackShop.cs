@@ -51,7 +51,7 @@ public class PackShop : MonoBehaviour
         SkinPack currentPack = CurrentSkinPack;
         int index = 0;
 
-        if (currentPack.IsAvailable && currentPack.IsEquipped == false)
+        if (YG2.saves.availableSkinPacks[currentPack] && YG2.saves.equippedSkinPacks[currentPack] == false)
         {
             foreach (FactionUnits factionUnit in _factionUnits)
             {
@@ -65,10 +65,10 @@ public class PackShop : MonoBehaviour
                         if (skinPack == currentPack)
                             continue;
 
-                        skinPack.Unequip();
+                        YG2.saves.equippedSkinPacks[skinPack] = false;
                     }
 
-                    currentPack.Equip();
+                    YG2.saves.equippedSkinPacks[currentPack] = true;
                 }
             }
         }
@@ -80,7 +80,7 @@ public class PackShop : MonoBehaviour
 
         foreach (SkinPack skin in YG2.saves.availableSkinPacks.Keys)
         {
-            if (skin.IsEquipped)
+            if (YG2.saves.equippedSkinPacks[skin])
             {
                 foreach (FactionUnits factionUnit in _factionUnits)
                 {
@@ -101,17 +101,17 @@ public class PackShop : MonoBehaviour
             _currentFactionSkins[0];
 
     public void CheckEquipment() =>
-        IsEquipped?.Invoke(_currentFactionSkins[_skinPackIndex].IsEquipped);
+        IsEquipped?.Invoke(YG2.saves.equippedSkinPacks[CurrentSkinPack]);
 
     public void EquipDefaultSkins()
     {
         foreach (SkinPack skin in _defaultSkins)
-            if (skin.IsEquipped == false)
-                skin.Equip();
+            YG2.saves.equippedSkinPacks.Add(skin, true);
 
         foreach (SkinPack skin in _otherSkins)
-            if (skin.IsEquipped)
-                skin.Unequip();
+            YG2.saves.equippedSkinPacks.Add(skin, false);
+
+        YG2.SaveProgress();
 
         CheckEquipment();
     }

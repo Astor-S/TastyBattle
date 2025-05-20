@@ -48,10 +48,4 @@ public class SkinPack : ScriptableObject
         _languageNames.Add("en", _enName);
         _languageNames.Add("tr", _trName);
     }
-
-    public void Equip() =>
-        _isEquipped = true;
-
-    public void Unequip() =>
-        _isEquipped = false;
 }

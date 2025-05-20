@@ -24,6 +24,7 @@ namespace YG
 
         //Skins
         public Dictionary<SkinPack, bool> availableSkinPacks = new();
+        public Dictionary<SkinPack, bool> equippedSkinPacks = new();
 
         //Levels
         public List<Levels> openedLevels = new();

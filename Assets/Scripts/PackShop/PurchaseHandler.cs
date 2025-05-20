@@ -67,17 +67,20 @@ public class PurchaseHandler : MonoBehaviour
     {
         _button.onClick.RemoveAllListeners();
 
-        switch (skin.PurchaseType)
+        if (YG2.saves.availableSkinPacks[skin] == false)
         {
-            case PurchaseType.ByAd:
-                PrapareButton(ShowAdForReward, _languageAdCondition[YG2.lang]);
-                break;
-            case PurchaseType.ByCoins:
-                PrapareButton(SpendCoins, _languagePriceCondition[YG2.lang] + skin.Price);
-                break;
-            case PurchaseType.ByLevelPassing:
-                PrapareButton(CheckLevelPassing, _languageLevelCondition[YG2.lang]);
-                break;
+            switch (skin.PurchaseType)
+            {
+                case PurchaseType.ByAd:
+                    PrapareButton(ShowAdForReward, _languageAdCondition[YG2.lang]);
+                    break;
+                case PurchaseType.ByCoins:
+                    PrapareButton(SpendCoins, _languagePriceCondition[YG2.lang] + skin.Price);
+                    break;
+                case PurchaseType.ByLevelPassing:
+                    PrapareButton(CheckLevelPassing, _languageLevelCondition[YG2.lang]);
+                    break;
+            }
         }
     }
 
