@@ -7,13 +7,15 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
-        if (YG2.saves.availableSkinPacks.Count == 0)
+        if (YG2.saves.skinPacks.Count == 0)
         {
             foreach (SkinPack skin in _packShop.DefaultSkins)
-                YG2.saves.availableSkinPacks.Add(skin, true);
+                YG2.saves.skinPacks.Add(skin);
 
             foreach (SkinPack skin in _packShop.OtherSkins)
-                YG2.saves.availableSkinPacks.Add(skin, false);
+                YG2.saves.skinPacks.Add(skin);
+
+            YG2.SaveProgress();
         }
 
         _packShop.SwipeFaction(default);

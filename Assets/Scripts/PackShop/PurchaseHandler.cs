@@ -99,7 +99,7 @@ public class PurchaseHandler : MonoBehaviour
 
     private void SaveSkinPack()
     {
-        YG2.saves.availableSkinPacks[_shop.CurrentSkinPack] = true;
+        _shop.CurrentSkinPack.Purchase();
         YG2.SaveProgress();
     }
 

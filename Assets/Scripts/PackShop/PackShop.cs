@@ -72,13 +72,15 @@ public class PackShop : MonoBehaviour
                 }
             }
         }
+
+        YG2.SaveProgress();
     }    
 
     public void EquipAllEquippedSkins()
     {
         int index = 0;
 
-        foreach (SkinPack skin in YG2.saves.availableSkinPacks.Keys)
+        foreach (SkinPack skin in YG2.saves.skinPacks)
         {
             if (skin.IsEquipped)
             {
@@ -113,6 +115,8 @@ public class PackShop : MonoBehaviour
             if (skin.IsEquipped)
                 skin.Unequip();
 
+        YG2.SaveProgress();
+
         CheckEquipment();
     }
 
@@ -120,7 +124,7 @@ public class PackShop : MonoBehaviour
     {
         _currentFactionSkins.Clear();
 
-        foreach (SkinPack skinPack in YG2.saves.availableSkinPacks.Keys)
+        foreach (SkinPack skinPack in YG2.saves.skinPacks)
             if ((int)skinPack.Faction == _currentFaction)
                 _currentFactionSkins.Add(skinPack);
     }
