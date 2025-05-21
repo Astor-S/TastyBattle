@@ -66,7 +66,7 @@ namespace AttackSystem.AttackHandlers
                     StartAttack();
                     _isAttacking = true;
                 }
-                else if (ReadyToAttack == false && _isAttacking)
+                else if (ReadyToAttack == false)
                 {
                     StopAttack();
                     _isAttacking = false;
