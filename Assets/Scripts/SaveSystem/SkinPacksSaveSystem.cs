@@ -10,8 +10,8 @@ public class SkinPacksSaveSystem : SaveSystem
         if (YG2.saves.equippedSkins.Count == 0 && YG2.saves.availableSkins.Count == 0)
             _packShop.SetDefaultSkins();
 
-        _packShop.SwipeFaction(default);
         _packShop.EquipAllEquippedSkins();
+        _packShop.SwipeFaction(default);
     }
 
     public override void Save()

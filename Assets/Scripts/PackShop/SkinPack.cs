@@ -18,6 +18,7 @@ public class SkinPack : ScriptableObject
 
     private Dictionary<string, string> _languageNames = new();
 
+    public string Name => _name;
     public Faction Faction => _faction;
     public PurchaseType PurchaseType => _purchaseType;
     public IReadOnlyList<Material> Skins => _skins;

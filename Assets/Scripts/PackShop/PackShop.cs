@@ -103,6 +103,9 @@ public class PackShop : MonoBehaviour
 
     public void SetDefaultSkins()
     {
+        YG2.saves.equippedSkins.Clear();
+        YG2.saves.availableSkins.Clear();
+
         foreach (SkinPack skin in _defaultSkins)
         {
             YG2.saves.equippedSkins.Add(skin);
