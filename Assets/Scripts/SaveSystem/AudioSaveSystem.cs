@@ -1,8 +1,12 @@
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 using UnityEngine;
 using YG;
 
 public class AudioSaveSystem : SaveSystem
 {
+    private const string MusicVolumeKey = "musicVolume";
+    private const string SoundVolumeKey = "soundVolume";
+
     [SerializeField] private AudioSettings _audioSettings;
 
     public override void Load()
@@ -14,8 +18,19 @@ public class AudioSaveSystem : SaveSystem
         _audioSettings.SwitchToggle(_audioSettings.Sound);
     }
 
+    public override void LoadLocal()
+    {
+        _audioSettings.Music.Setup(PlayerPrefs.GetFloat(MusicVolumeKey), false);
+        _audioSettings.Sound.Setup(PlayerPrefs.GetFloat(SoundVolumeKey), false);
+    }
+
     public override void Save()
     {
+        PlayerPrefs.SetFloat(MusicVolumeKey, _audioSettings.Music.Slider.value);
+        PlayerPrefs.SetFloat(SoundVolumeKey, _audioSettings.Sound.Slider.value);
+
+        PlayerPrefs.Save();
+
         YG2.saves.musicVolume = _audioSettings.Music.Slider.value;
         YG2.saves.soundVolume = _audioSettings.Sound.Slider.value;
 

@@ -14,6 +14,14 @@ public class SkinPacksSaveSystem : SaveSystem
         _packShop.SwipeFaction(default);
     }
 
+    public override void LoadLocal()
+    {          
+        _packShop.SetDefaultSkins();
+
+        _packShop.EquipAllEquippedSkins();
+        _packShop.SwipeFaction(default);
+    }
+
     public override void Save()
     {
         _packShop.EquipAllEquippedSkins();

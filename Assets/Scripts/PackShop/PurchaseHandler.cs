@@ -67,7 +67,7 @@ public class PurchaseHandler : MonoBehaviour
     {
         _button.onClick.RemoveAllListeners();
 
-        if (YG2.saves.availableSkins.Contains(skin) == false)
+        if (YG2.saves.availableSkins.Contains(skin.Id) == false)
         {
             switch (skin.PurchaseType)
             {
@@ -108,7 +108,7 @@ public class PurchaseHandler : MonoBehaviour
 
     private void SpendCoins()
     {
-        int price = _shop.CurrentSkinPack.Price;
+        int price = _shop.GetSkinPack(_shop.CurrentSkinPack).Price;
 
         if (YG2.saves.balanceMoney >= price)
         {

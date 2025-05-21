@@ -8,6 +8,7 @@ public class SkinPack : ScriptableObject
     [SerializeField] private string _name;
     [SerializeField] private string _enName;
     [SerializeField] private string _trName;
+    [SerializeField] private int _id;
     [SerializeField] private Faction _faction;
     [SerializeField] private PurchaseType _purchaseType;
     [SerializeField] private bool _isAvailable;
@@ -18,6 +19,7 @@ public class SkinPack : ScriptableObject
 
     private Dictionary<string, string> _languageNames = new();
 
+    public int Id => _id;
     public Faction Faction => _faction;
     public PurchaseType PurchaseType => _purchaseType;
     public IReadOnlyList<Material> Skins => _skins;

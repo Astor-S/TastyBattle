@@ -23,8 +23,8 @@ namespace YG
         public string language = default;
 
         //Skins
-        public List<SkinPack> equippedSkins = new ();
-        public List<SkinPack> availableSkins = new ();
+        public List<int> equippedSkins = new ();
+        public List<int> availableSkins = new ();
 
         //Levels
         public List<Levels> openedLevels = new ();
