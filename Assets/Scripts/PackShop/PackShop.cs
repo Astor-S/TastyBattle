@@ -26,13 +26,13 @@ public class PackShop : MonoBehaviour
     public IReadOnlyList<SkinPack> AvailableSkinPacks => _availableSkinPacks;
     public SkinPack CurrentSkinPack => _currentFactionSkins[_skinPackIndex];
 
-    public bool IsAvailable(SkinPack skin) => 
+    public bool IsAvailable(SkinPack skin) =>
         _availableSkinPacks.Contains(skin);
-    
-    public void AddAvailableSkin(SkinPack skin) => 
+
+    public void AddAvailableSkin(SkinPack skin) =>
         _availableSkinPacks.Add(skin);
 
-    public void SetSkinsById(string equipped, string available)
+    public void SetSkinsById(ref string equipped, ref string available)
     {
         _equippedSkinPacks.Clear();
         _availableSkinPacks.Clear();
@@ -74,8 +74,7 @@ public class PackShop : MonoBehaviour
 
     public void SetDefault()
     {
-        if (_equippedSkinPacks.Count == 0 && _availableSkinPacks.Count == 0)
-            SetDefaultSkins();
+        SetDefaultSkins();
 
         EquipAllEquippedSkins();
         SwipeFaction(default);
@@ -132,7 +131,7 @@ public class PackShop : MonoBehaviour
         Change();
     }
 
-    public void Change() => 
+    public void Change() =>
         OnEquipped?.Invoke();
 
     public void EquipAllEquippedSkins()
@@ -163,6 +162,9 @@ public class PackShop : MonoBehaviour
 
     public void SetDefaultSkins()
     {
+        _equippedSkinPacks.Clear();
+        _availableSkinPacks.Clear();
+
         foreach (SkinPack skin in _defaultSkins)
         {
             _equippedSkinPacks.Add(skin);

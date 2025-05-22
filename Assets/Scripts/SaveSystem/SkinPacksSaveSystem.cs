@@ -29,10 +29,18 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void LoadLocal()
     {
-        if (PlayerPrefs.HasKey(EquippedKey) == false && PlayerPrefs.HasKey(AvailableKey) == false)
+        if (PlayerPrefs.HasKey(EquippedKey) && PlayerPrefs.HasKey(AvailableKey))
+        {
+            Debug.Log("zashel");
             _packShop.SetDefault();
+        }
         else
-            _packShop.SetSkinsById(PlayerPrefs.GetString(EquippedKey), PlayerPrefs.GetString(AvailableKey));
+        {
+            string equipped = PlayerPrefs.GetString(EquippedKey);
+            string available = PlayerPrefs.GetString(AvailableKey);
+
+            _packShop.SetSkinsById(ref equipped, ref available);
+        }
     }
 
     public override void Save()
