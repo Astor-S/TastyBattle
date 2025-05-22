@@ -14,7 +14,7 @@ public class DetectionSystem : MonoBehaviour
     [SerializeField] private Transform _baseTransform;
     [SerializeField] private SphereCollider _collider;
 
-    private Queue<DamagableTarget> _detectedUnits = new();
+    private List<DamagableTarget> _detectedUnits = new();
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
     private bool _isSiege = false;
@@ -39,18 +39,17 @@ public class DetectionSystem : MonoBehaviour
     private void FixedUpdate()
     {
         if (CurrentTarget != null)
-            _baseTransform.LookAt(CurrentTarget.transform.position);
+            _baseTransform.LookAt(CurrentTarget.transform);
     }
 
     private void OnEnable()
     {
+        for (int i = 0; i < _detectedUnits.Count; i++)
+            _detectedUnits[i].Dying -= OnDetectedUnitDied;
+
         _detectedUnits.Clear();
-
-        //Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, _radius);
-
-        //if (hitColliders.Length > 0)
-        //    foreach (Collider hit in hitColliders)
-        //        FindEnemies(hit);
+        
+        CurrentTarget = _enemyBase;
     }
 
     public void Init(int layer, DamagableTarget enemyBase, BattleRole battleRole = BattleRole.Range)
@@ -68,9 +67,30 @@ public class DetectionSystem : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) =>
-        FindEnemies(other);
+        HandleTriggerEntry(other);
 
-    private void FindEnemies(Collider other)
+    private void OnTriggerExit(Collider other) =>
+        HandleTriggerExit(other);
+
+    private void HandleTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out DamagableTarget unit) && _detectedUnits.Contains(unit))
+        {
+            unit.Dying -= OnDetectedUnitDied;
+
+            _detectedUnits.Remove(unit);
+
+            if (CurrentTarget == unit)
+            {
+                if (_detectedUnits.Count == 0)
+                    CurrentTarget = _enemyBase;
+                else
+                    CurrentTarget = _detectedUnits[0];
+            }
+        }
+    }
+
+    private void HandleTriggerEntry(Collider other)
     {
         if (other.TryGetComponent(out DamagableTarget unit) &&
             _detectedUnits.Contains(unit) == false &&
@@ -78,23 +98,25 @@ public class DetectionSystem : MonoBehaviour
             (_isSiege == false || unit.IsBuilding))
         {
             unit.Dying += OnDetectedUnitDied;
-            _detectedUnits.Enqueue(unit);
+            _detectedUnits.Add(unit);
 
             if (_detectedUnits.Count == 1)
                 CurrentTarget = unit;
         }
     }
 
-    private void OnDetectedUnitDied(DamagableTarget unit)
+    private void OnDetectedUnitDied(DamagableTarget diedUnit)
     {
-        unit.Dying -= OnDetectedUnitDied;
+        diedUnit.Dying -= OnDetectedUnitDied;
 
-        while (_detectedUnits.Count > 0 && (_detectedUnits.Peek() == null || _detectedUnits.Peek().IsAlive == false))
-            _detectedUnits.Dequeue();
+        _detectedUnits.RemoveAll(unit => unit == null || unit.IsAlive == false);
 
-        if (_detectedUnits.Count == 0)
-            CurrentTarget = _enemyBase;
-        else
-            CurrentTarget = _detectedUnits.Peek();
+        if (CurrentTarget == diedUnit)
+        {
+            if (_detectedUnits.Count == 0)
+                CurrentTarget = _enemyBase;
+            else
+                CurrentTarget = _detectedUnits[0];
+        }
     }
 }
