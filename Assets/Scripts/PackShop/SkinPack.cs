@@ -10,8 +10,6 @@ public class SkinPack : ScriptableObject
     [SerializeField] private string _trName;
     [SerializeField] private Faction _faction;
     [SerializeField] private PurchaseType _purchaseType;
-    [SerializeField] private bool _isAvailable;
-    [SerializeField] private bool _isEquipped;
     [SerializeField] private int _price;
     [SerializeField] private List<Material> _skins;
     [SerializeField] private List<UnitModelView> _previews;
@@ -23,8 +21,6 @@ public class SkinPack : ScriptableObject
     public IReadOnlyList<Material> Skins => _skins;
     public IReadOnlyDictionary<string, string> LanguageNames => _languageNames;
     public List<UnitModelView> Previews => _previews;
-    public bool IsAvailable => _isAvailable;
-    public bool IsEquipped => _isEquipped;
     public int Price => _price;
 
     //TODO: Magic values
