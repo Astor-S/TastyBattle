@@ -17,11 +17,11 @@ public class SkinPacksSaveSystem : SaveSystem
         _packShop.OnEquipped -= Save;
 
     public override void Load()
-    {
-        if (YG2.saves.equippedSkins.Count == 0 && YG2.saves.availableSkins.Count == 0)
+    {        
+        if (YG2.saves.equippedPacks.Count == 0 && YG2.saves.availablePacks.Count == 0)
             _packShop.SetDefault();
         else
-            _packShop.SetSkins(YG2.saves.equippedSkins, YG2.saves.availableSkins);
+            _packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
 
         Save();
     }
