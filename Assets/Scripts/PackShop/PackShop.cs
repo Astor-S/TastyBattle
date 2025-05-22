@@ -39,24 +39,44 @@ public class PackShop : MonoBehaviour
 
         foreach (SkinPack skin in _defaultSkins)
         {
-            foreach (int id in equipped)
-                if (skin.Id == id)
+            foreach (char id in equipped)
+            {
+                if ($"{skin.Id}" == $"{id}")
+                {
                     _equippedSkinPacks.Add(skin);
+                    break;
+                }
+            }
 
-            foreach (int id in available)
-                if (skin.Id == id)
+            foreach (char id in available)
+            {
+                if ($"{skin.Id}" == $"{id}")
+                {
                     _availableSkinPacks.Add(skin);
+                    break;
+                }
+            }
         }
 
         foreach (SkinPack skin in _otherSkins)
         {
-            foreach (int id in equipped)
-                if (skin.Id == id)
+            foreach (char id in equipped)
+            {
+                if ($"{skin.Id}" == $"{id}")
+                {
                     _equippedSkinPacks.Add(skin);
+                    break;
+                }
+            }
 
-            foreach (int id in available)
-                if (skin.Id == id)
+            foreach (char id in available)
+            {
+                if ($"{skin.Id}" == $"{id}")
+                {
                     _availableSkinPacks.Add(skin);
+                    break;
+                }
+            }
         }
 
         EquipAllEquippedSkins();
