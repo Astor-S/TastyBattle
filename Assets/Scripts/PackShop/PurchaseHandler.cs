@@ -24,7 +24,7 @@ public class PurchaseHandler : MonoBehaviour
 
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _description;
-    [SerializeField] private PackShop _shop;
+    [SerializeField] private PackShop _packShop;
     [SerializeField] private RewardAdService _rewardAdService;
     [SerializeField] private Transform _lockPanel;
 
@@ -36,7 +36,7 @@ public class PurchaseHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        _shop.SkinPackSwiped += SetState;
+        _packShop.SkinPackSwiped += SetState;
 
         //TODO: Magic
         _languageAdCondition.Clear();
@@ -59,7 +59,7 @@ public class PurchaseHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        _shop.SkinPackSwiped -= SetState;
+        _packShop.SkinPackSwiped -= SetState;
         _button.onClick.RemoveAllListeners();
     }
 
@@ -67,7 +67,7 @@ public class PurchaseHandler : MonoBehaviour
     {
         _button.onClick.RemoveAllListeners();
 
-        if (YG2.saves.availableSkins.Contains(skin.Id) == false)
+        if (_packShop.IsAvailable(skin) == false)
         {
             switch (skin.PurchaseType)
             {
@@ -102,13 +102,13 @@ public class PurchaseHandler : MonoBehaviour
 
     private void SaveSkinPack()
     {
-        YG2.saves.availableSkins.Add(_shop.CurrentSkinPack);
-        YG2.SaveProgress();
+        _packShop.AddAvailableSkin(_packShop.CurrentSkinPack);
+        _packShop.Change();
     }
 
     private void SpendCoins()
     {
-        int price = _shop.GetSkinPack(_shop.CurrentSkinPack).Price;
+        int price = _packShop.CurrentSkinPack.Price;
 
         if (YG2.saves.balanceMoney >= price)
         {

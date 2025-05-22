@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Units;
 using UnityEngine;
-using YG;
 
 public class PackShop : MonoBehaviour
 {
@@ -14,15 +13,42 @@ public class PackShop : MonoBehaviour
     [SerializeField] private List<FactionUnits> _factionUnits;
 
     private List<SkinPack> _currentFactionSkins = new();
+    private List<SkinPack> _equippedSkinPacks = new();
+    private List<SkinPack> _availableSkinPacks = new();
     private int _currentFaction;
     private int _skinPackIndex;
 
     public event Action<SkinPack> SkinPackSwiped;
+    public event Action OnEquipped;
     public event Action<bool> IsEquipped;
 
-    public IReadOnlyList<SkinPack> DefaultSkins => _defaultSkins;
-    public IReadOnlyList<SkinPack> OtherSkins => _otherSkins;
-    public int CurrentSkinPack => _currentFactionSkins[_skinPackIndex].Id;
+    public IReadOnlyList<SkinPack> EquippedSkinPacks => _equippedSkinPacks;
+    public IReadOnlyList<SkinPack> AvailableSkinPacks => _availableSkinPacks;
+    public SkinPack CurrentSkinPack => _currentFactionSkins[_skinPackIndex];
+
+    public bool IsAvailable(SkinPack skin) => 
+        _availableSkinPacks.Contains(skin);
+    
+    public void AddAvailableSkin(SkinPack skin) => 
+        _availableSkinPacks.Add(skin);
+
+    public void SetSkins(List<SkinPack> equipped, List<SkinPack> available)
+    {
+        _equippedSkinPacks = equipped;
+        _availableSkinPacks = available;
+
+        EquipAllEquippedSkins();
+        SwipeFaction(default);
+    }
+
+    public void SetDefault()
+    {
+        if (_equippedSkinPacks.Count == 0 && _availableSkinPacks.Count == 0)
+            SetDefaultSkins();
+
+        EquipAllEquippedSkins();
+        SwipeFaction(default);
+    }
 
     public void SwipeFaction(int index)
     {
@@ -41,7 +67,7 @@ public class PackShop : MonoBehaviour
     {
         Swipe(index, _currentFactionSkins.Count, ref _skinPackIndex);
 
-        SkinPackSwiped?.Invoke(GetSkinPack(CurrentSkinPack));
+        SkinPackSwiped?.Invoke(CurrentSkinPack);
 
         CheckEquipment();
     }
@@ -50,47 +76,46 @@ public class PackShop : MonoBehaviour
     {
         int index = 0;
 
-        if (YG2.saves.availableSkins.Contains(CurrentSkinPack) && YG2.saves.equippedSkins.Contains(CurrentSkinPack) == false)
+        if (_availableSkinPacks.Contains(CurrentSkinPack) && _equippedSkinPacks.Contains(CurrentSkinPack) == false)
         {
             foreach (FactionUnits factionUnit in _factionUnits)
             {
-                SkinPack skin = GetSkinPack(CurrentSkinPack);
-
-                if (factionUnit.Dictionary[BattleRole.Melee].Faction == skin.Faction)
+                if (factionUnit.Dictionary[BattleRole.Melee].Faction == CurrentSkinPack.Faction)
                 {
                     foreach (UnitPresenter presenter in factionUnit.Dictionary.Values)
-                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = skin.Skins[index++];
+                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = CurrentSkinPack.Skins[index++];
 
                     foreach (SkinPack skinPack in _currentFactionSkins)
                     {
-                        if (skinPack.Id == CurrentSkinPack)
+                        if (skinPack == CurrentSkinPack)
                             continue;
 
-                        YG2.saves.equippedSkins.Remove(skinPack.Id);
+                        _equippedSkinPacks.Remove(skinPack);
                     }
 
-                    YG2.saves.equippedSkins.Add(CurrentSkinPack);
+                    _equippedSkinPacks.Add(CurrentSkinPack);
                 }
             }
         }
 
-        YG2.SaveProgress();
+        Change();
     }
+
+    public void Change() => 
+        OnEquipped?.Invoke();
 
     public void EquipAllEquippedSkins()
     {
         int index = 0;
 
-        foreach (int skinId in YG2.saves.equippedSkins)
+        foreach (SkinPack skin in _equippedSkinPacks)
         {
             foreach (FactionUnits factionUnit in _factionUnits)
             {
-                SkinPack skinPack = GetSkinPack(skinId);
-
-                if (factionUnit.Dictionary[BattleRole.Melee].Faction == skinPack.Faction)
+                if (factionUnit.Dictionary[BattleRole.Melee].Faction == skin.Faction)
                 {
                     foreach (UnitPresenter presenter in factionUnit.Dictionary.Values)
-                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[index++];
+                        presenter.GetComponentInChildren<SkinnedMeshRenderer>().material = skin.Skins[index++];
 
                     index = 0;
                     break;
@@ -103,32 +128,17 @@ public class PackShop : MonoBehaviour
             _currentFactionSkins[0];
 
     public void CheckEquipment() =>
-        IsEquipped?.Invoke(YG2.saves.equippedSkins.Contains(CurrentSkinPack));
+        IsEquipped?.Invoke(_equippedSkinPacks.Contains(CurrentSkinPack));
 
     public void SetDefaultSkins()
     {
-        YG2.saves.equippedSkins.Clear();
-        YG2.saves.availableSkins.Clear();
-
         foreach (SkinPack skin in _defaultSkins)
         {
-            YG2.saves.equippedSkins.Add(skin.Id);
-            YG2.saves.availableSkins.Add(skin.Id);
+            _equippedSkinPacks.Add(skin);
+            _availableSkinPacks.Add(skin);
         }
 
-        YG2.SaveProgress();
-
         CheckEquipment();
-    }
-
-    public SkinPack GetSkinPack(int id)
-    {
-        SkinPack skinPack = _defaultSkins.Find(skin => skin.Id == id);
-
-        if (skinPack == null)
-            skinPack = _otherSkins.Find(skin => skin.Id == id);
-
-        return skinPack;
     }
 
     private void SetAllFactionSkins()

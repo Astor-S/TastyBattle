@@ -47,7 +47,7 @@ public class PackShopView : MonoBehaviour
             skin.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = skinPack.Skins[i];
         }
 
-        TryShowLock(YG2.saves.availableSkins.Contains(skinPack.Id));
+        TryShowLock(_packShop.IsAvailable(skinPack));
     }
 
     private void ClearContainers()
