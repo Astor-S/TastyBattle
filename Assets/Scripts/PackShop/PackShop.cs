@@ -32,6 +32,34 @@ public class PackShop : MonoBehaviour
     public void AddAvailableSkin(SkinPack skin) => 
         _availableSkinPacks.Add(skin);
 
+    public void SetSkinsById(string equipped, string available)
+    {
+        _equippedSkinPacks.Clear();
+        _availableSkinPacks.Clear();
+
+        foreach (SkinPack skin in _defaultSkins)
+        {
+            foreach (int id in equipped)
+                if (skin.Id == id)
+                    _equippedSkinPacks.Add(skin);
+
+            foreach (int id in available)
+                if (skin.Id == id)
+                    _availableSkinPacks.Add(skin);
+        }
+
+        foreach (SkinPack skin in _otherSkins)
+        {
+            foreach (int id in equipped)
+                if (skin.Id == id)
+                    _equippedSkinPacks.Add(skin);
+
+            foreach (int id in available)
+                if (skin.Id == id)
+                    _availableSkinPacks.Add(skin);
+        }
+    }
+
     public void SetSkins(List<SkinPack> equipped, List<SkinPack> available)
     {
         _equippedSkinPacks = equipped;

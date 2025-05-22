@@ -1,10 +1,13 @@
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 using UnityEngine;
 using YG;
 using System.Collections.Generic;
-using System.IO;
 
 public class SkinPacksSaveSystem : SaveSystem
 {
+    private const string EquippedKey = "equipped";
+    private const string AvailableKey = "available";
+
     [SerializeField] private PackShop _packShop;
 
     private List<int> _equippedIds = new();
@@ -18,8 +21,6 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
-        Debug.Log("Cloud load");
-
         if (YG2.saves.equippedSkins.Count == 0 && YG2.saves.availableSkins.Count == 0)
             _packShop.SetDefault();
         else
@@ -28,43 +29,31 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void LoadLocal()
     {
-        Debug.Log("Local load");
-
-        SkinPacksSaveData skinPacksSaveData = GetSaveData();
-
-        if (skinPacksSaveData != null)
-            _packShop.SetSkins(skinPacksSaveData.equippedSkinPacks, skinPacksSaveData.availableSkinPacks);
-        else
+        if (PlayerPrefs.HasKey(EquippedKey) == false && PlayerPrefs.HasKey(AvailableKey) == false)
             _packShop.SetDefault();
+        else
+            _packShop.SetSkinsById(PlayerPrefs.GetString(EquippedKey), PlayerPrefs.GetString(AvailableKey));
     }
 
     public override void Save()
     {
-        SkinPacksSaveData data = new()
-        {
-            equippedSkinPacks = (List<SkinPack>)_packShop.EquippedSkinPacks,
-            availableSkinPacks = (List<SkinPack>)_packShop.AvailableSkinPacks
-        };
+        string equipped = default;
+        string available = default;
 
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(Application.dataPath + "/SkinSave.json", json);
+        foreach (int id in _equippedIds)
+            equipped += id;
+
+        foreach (int id in _availableIds)
+            available += id;
+
+        PlayerPrefs.SetString(EquippedKey, equipped);
+        PlayerPrefs.SetString(AvailableKey, available);
+
+        PlayerPrefs.Save();
 
         YG2.saves.equippedSkins = (List<SkinPack>)_packShop.EquippedSkinPacks;
         YG2.saves.availableSkins = (List<SkinPack>)_packShop.AvailableSkinPacks;
 
         YG2.SaveProgress();
-    }
-
-    private SkinPacksSaveData GetSaveData()
-    {
-        string path = Application.dataPath + "/SkinSave.json";
-
-        if (File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            return JsonUtility.FromJson<SkinPacksSaveData>(json);
-        }
-
-        return null;
     }
 }
