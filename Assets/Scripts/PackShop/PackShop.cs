@@ -58,6 +58,9 @@ public class PackShop : MonoBehaviour
                 if (skin.Id == id)
                     _availableSkinPacks.Add(skin);
         }
+
+        EquipAllEquippedSkins();
+        SwipeFaction(default);
     }
 
     public void SetSkins(List<SkinPack> equipped, List<SkinPack> available)

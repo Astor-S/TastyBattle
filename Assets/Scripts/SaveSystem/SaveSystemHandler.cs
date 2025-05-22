@@ -7,12 +7,17 @@ public class SaveSystemHandler : MonoBehaviour
 
     private void Start()
     {
-        if (YG2.player.auth)
-            foreach (SaveSystem saveSystem in _saveSystems)
-                saveSystem.Load();
-        else
-            foreach (SaveSystem saveSystem in _saveSystems)
-                saveSystem.LoadLocal();
+        //if (YG2.player.auth)
+        //    foreach (SaveSystem saveSystem in _saveSystems)
+        //        saveSystem.Load();
+        //else
+        //    foreach (SaveSystem saveSystem in _saveSystems)
+        //        saveSystem.LoadLocal();
+
+        foreach (var system in _saveSystems)
+        {
+            system.LoadLocal();
+        }
     }
 
     private void OnDisable()
