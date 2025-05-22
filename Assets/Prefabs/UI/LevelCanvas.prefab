@@ -6141,6 +6141,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1456069283680287848}
     m_Modifications:
+    - target: {fileID: 1260007111953502162, guid: 5abd7dc46e53423469dbd5b0c71f24db, type: 3}
+      propertyPath: _initialCost
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 1682103445039339473, guid: 5abd7dc46e53423469dbd5b0c71f24db, type: 3}
       propertyPath: m_Name
       value: UnitSpeedIncrease
@@ -6283,6 +6287,10 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _cost
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
+      propertyPath: _icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
@@ -6608,6 +6616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Siege
       objectReference: {fileID: 0}
+    - target: {fileID: 7876453759557113791, guid: c607cae86b4a3fe408c921c7fef9f0b5, type: 3}
+      propertyPath: _initialCost
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6731,6 +6743,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7558458710050949092, guid: 47829d63e819aac49bcb76ae58c8bbed, type: 3}
+      propertyPath: _initialCost
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 7980787314579791847, guid: 47829d63e819aac49bcb76ae58c8bbed, type: 3}
       propertyPath: m_Name
       value: UnitHealthIncrease
@@ -6776,6 +6792,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2156044976449585039, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
+      propertyPath: _icon
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
@@ -6990,6 +7010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IncomeIncrease
       objectReference: {fileID: 0}
+    - target: {fileID: 9155207822967472885, guid: 2be19023bb03d394ba70a2c3347e80ae, type: 3}
+      propertyPath: _initialCost
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7120,6 +7144,10 @@ PrefabInstance:
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _cost
       value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
@@ -7384,6 +7412,10 @@ PrefabInstance:
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
       value: 400
       objectReference: {fileID: 0}
@@ -7531,6 +7563,10 @@ PrefabInstance:
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _cost
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
@@ -7716,6 +7752,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2156044976449585039, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
+      propertyPath: _icon
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
@@ -7932,6 +7972,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8229992676092431456, guid: d70f04343a962b74dbcdd033c3235d68, type: 3}
+      propertyPath: _initialCost
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 8363949068677665891, guid: d70f04343a962b74dbcdd033c3235d68, type: 3}
       propertyPath: m_Name
       value: DamageIncrease
@@ -8074,6 +8118,10 @@ PrefabInstance:
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
       value: 600
       objectReference: {fileID: 0}
@@ -8128,6 +8176,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1456069283680287848}
     m_Modifications:
+    - target: {fileID: 716224061117388379, guid: a25b26b5edd37374e9ff82d1969b7bf2, type: 3}
+      propertyPath: _initialCost
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1140800608833293912, guid: a25b26b5edd37374e9ff82d1969b7bf2, type: 3}
       propertyPath: m_Name
       value: BuildingHealthIncrease
@@ -8266,6 +8318,10 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _cost
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
+      propertyPath: _icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
@@ -8636,6 +8692,10 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _unitSetup
       value: 
       objectReference: {fileID: 11400000, guid: ea83dd6b12560c44387f64ed4a0b051a, type: 2}
@@ -8770,6 +8830,10 @@ PrefabInstance:
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _cost
       value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
+      propertyPath: _icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4589133572088635112, guid: 0f085f9aa02673e4dac7936a581327ea, type: 3}
       propertyPath: _faction
@@ -8998,6 +9062,10 @@ PrefabInstance:
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _cost
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
+      propertyPath: _icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4862253134785350305, guid: acac3d5fa85fea740bf084b4f2f7ff4e, type: 3}
       propertyPath: _initialCost
