@@ -21,6 +21,10 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
+        if (YG2.saves.equippedSkins.Count > 0 && YG2.saves.equippedSkins[0] == null
+            && YG2.saves.equippedSkins.Count > 0 && YG2.saves.equippedSkins[0] == null)
+            _packShop.SetDefault();
+
         if (YG2.saves.equippedSkins.Count == 0 && YG2.saves.availableSkins.Count == 0)
             _packShop.SetDefault();
         else
@@ -29,9 +33,15 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void LoadLocal()
     {
+        if (PlayerPrefs.HasKey(EquippedKey) == false && PlayerPrefs.HasKey(AvailableKey) == false
+            && PlayerPrefs.GetString(EquippedKey) == default && PlayerPrefs.GetString(AvailableKey) == default)
+        {
+            PlayerPrefs.DeleteKey(AvailableKey);
+            PlayerPrefs.DeleteKey(EquippedKey);
+        }
+
         if (PlayerPrefs.HasKey(EquippedKey) && PlayerPrefs.HasKey(AvailableKey))
         {
-            Debug.Log("zashel");
             _packShop.SetDefault();
         }
         else

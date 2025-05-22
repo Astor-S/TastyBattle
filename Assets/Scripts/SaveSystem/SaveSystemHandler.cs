@@ -12,7 +12,7 @@ public class SaveSystemHandler : MonoBehaviour
                 saveSystem.Load();
         else
             foreach (SaveSystem saveSystem in _saveSystems)
-                saveSystem.LoadLocal();
+                saveSystem.LoadLocal();        
     }
 
     private void OnDisable()
