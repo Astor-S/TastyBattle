@@ -7,6 +7,7 @@ public abstract class OrderHandler : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _priceTextBox;
+    [SerializeField] private Image _icon;
     [SerializeField] private int _initialCost;
 
     private Order _order;
@@ -14,6 +15,7 @@ public abstract class OrderHandler : MonoBehaviour
     public event Action<Order> ItemOrdered;
 
     public TextMeshProUGUI PriceTextBox => _priceTextBox;
+    public int CurrentCost => _order.Cost;
     protected Order Order => _order;
 
     private void Awake()
@@ -34,6 +36,22 @@ public abstract class OrderHandler : MonoBehaviour
     {
         if (_button != null)
             _button.onClick.RemoveListener(MakeOrder);
+    }
+
+    public void SetUnavailable()
+    {
+        _button.interactable = false;
+
+        if (_icon != null)
+            _icon.color = Color.gray;
+    }
+
+    public void SetAvailable()
+    {
+        _button.interactable = true;
+
+        if (_icon != null)
+            _icon.color = Color.white;
     }
 
     public void MakeOrder()

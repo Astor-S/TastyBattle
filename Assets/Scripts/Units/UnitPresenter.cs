@@ -44,7 +44,7 @@ namespace Units
             _navMeshAgent.updateRotation = false;
             NavMesh.avoidancePredictionTime = 0.5f;
 
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
+            _navMeshAgent.stoppingDistance = 0f;
             _navMeshAgent.speed = _upgradesData.GetIncreasedSpeed(Model.Stats);
             _defaultSpeed = _upgradesData.GetIncreasedSpeed(Model.Stats);
 
@@ -61,7 +61,10 @@ namespace Units
         protected virtual void FixedUpdate()
         {
             if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
-                _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
+            {
+                Vector3 destination = Vector3.MoveTowards(_detectionSystem.CurrentTarget.transform.position, transform.position, Model.Stats.AttackDistance - 0.5f);
+                _navMeshAgent.SetDestination(destination);
+            }
         }
 
         public virtual void Enable()

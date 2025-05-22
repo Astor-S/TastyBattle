@@ -19,7 +19,8 @@ public class UpgradeOrderHandler : OrderHandler
 
     protected override void OnOrdered()
     {
-        YG2.MetricaSend("upgrade_ordered");
+        if (_levelNumberBox != null)
+            YG2.MetricaSend("upgrade_ordered");
 
         Order.IncreaseCost();
         Order.IncreaseLevel();
