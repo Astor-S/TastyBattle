@@ -3,10 +3,6 @@ using YG;
 
 public class AudioSaveSystem : SaveSystem
 {
-    private const string MusicVolumeKey = "musicVolume";
-    private const string SoundVolumeKey = "soundVolume";
-    private const string MusicToggleKey = "musicToggle";
-    private const string SoundToggleKey = "soundToggle";
     private const float DefaultVolumeValue = 0.4f;
     private const bool DefaultToggleValue = false;
 
@@ -19,12 +15,16 @@ public class AudioSaveSystem : SaveSystem
 
         _audioSettings.SwitchToggle(_audioSettings.Music);
         _audioSettings.SwitchToggle(_audioSettings.Sound);
+
+        Save();
     }
 
     public override void LoadLocal()
     {
         _audioSettings.Music.Setup(DefaultVolumeValue, DefaultToggleValue);
         _audioSettings.Sound.Setup(DefaultVolumeValue, DefaultToggleValue);
+
+        Save();
     }
 
     public override void Save()

@@ -19,15 +19,11 @@ public class SkinPacksSaveSystem : SaveSystem
     public override void Load()
     {
         if (YG2.saves.equippedSkins.Count == 0 && YG2.saves.availableSkins.Count == 0)
-        {
             _packShop.SetDefault();
-            YG2.SaveProgress();
-        }
         else
-        {
             _packShop.SetSkins(YG2.saves.equippedSkins, YG2.saves.availableSkins);
-            YG2.SaveProgress(); 
-        }
+
+        Save();
     }
 
     public override void LoadLocal()
@@ -35,7 +31,6 @@ public class SkinPacksSaveSystem : SaveSystem
         if (PlayerPrefs.HasKey(EquippedKey) == false && PlayerPrefs.HasKey(AvailableKey) == false)
         {
             _packShop.SetDefault();
-            Save();
         }
         else
         {
@@ -43,9 +38,9 @@ public class SkinPacksSaveSystem : SaveSystem
             string available = PlayerPrefs.GetString(AvailableKey);
 
             _packShop.SetSkinsById(ref equipped, ref available);
-
-            Save();
         }
+
+        Save();
     }
 
     public override void Save()

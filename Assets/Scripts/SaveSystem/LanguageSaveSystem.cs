@@ -14,17 +14,18 @@ public class LanguageSaveSystem : SaveSystem
             _languageChanger.ChangeLanguage(YG2.envir.language);
         else
             _languageChanger.ChangeLanguage(YG2.saves.language);
+
+        Save();
     }
 
     public override void LoadLocal()
     {
         if (PlayerPrefs.HasKey(Language) == false)
-        {
             _languageChanger.ChangeLanguage(YG2.envir.language);
-            Save();
-        }
         else
             _languageChanger.ChangeLanguage(PlayerPrefs.GetString(Language));
+
+        Save();
     }
 
     public override void Save()
