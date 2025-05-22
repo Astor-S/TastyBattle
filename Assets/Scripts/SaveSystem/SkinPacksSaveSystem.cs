@@ -59,8 +59,8 @@ public class SkinPacksSaveSystem : SaveSystem
 
         PlayerPrefs.Save();
 
-        YG2.saves.equippedSkins = (List<SkinPack>)_packShop.EquippedSkinPacks;
-        YG2.saves.availableSkins = (List<SkinPack>)_packShop.AvailableSkinPacks;
+        YG2.saves.equippedPacks = (List<SkinPack>)_packShop.EquippedSkinPacks;
+        YG2.saves.availablePacks = (List<SkinPack>)_packShop.AvailableSkinPacks;
 
         YG2.SaveProgress();
     }

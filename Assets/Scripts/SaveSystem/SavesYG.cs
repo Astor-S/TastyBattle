@@ -58,8 +58,8 @@ namespace YG
 
             openedLevels.Clear();
 
-            equippedSkins.Clear();
-            availableSkins.Clear();
+            equippedPacks.Clear();
+            availablePacks.Clear();
 
             openedLevels.Add(Levels.Level1);
             openedLevels.Add(Levels.Level6);
