@@ -1,18 +1,14 @@
+using System;
 using UnityEngine;
 using YG;
 
 public class LanguageChanger : MonoBehaviour
 {
-    private string _language = default;
+    public event Action LanguageChanged;
 
     public void ChangeLanguage(string lang)
     {
         YG2.SwitchLanguage(lang);
-        _language = lang;
-
-        YG2.SaveProgress();
+        LanguageChanged?.Invoke();
     }
-
-    public string GetLanguage() => 
-        _language;
 }

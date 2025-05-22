@@ -8,6 +8,12 @@ public class LanguageSaveSystem : SaveSystem
 
     [SerializeField] private LanguageChanger _languageChanger;
 
+    private void OnEnable() => 
+        _languageChanger.LanguageChanged += Save;
+
+    private void OnDisable() => 
+        _languageChanger.LanguageChanged -= Save;
+
     public override void Load()
     {
         if (YG2.saves.language == default)
@@ -30,10 +36,10 @@ public class LanguageSaveSystem : SaveSystem
 
     public override void Save()
     {
-        PlayerPrefs.SetString(Language, _languageChanger.GetLanguage());
+        PlayerPrefs.SetString(Language, YG2.lang);
         PlayerPrefs.Save();
 
-        YG2.saves.language = _languageChanger.GetLanguage();
+        YG2.saves.language = YG2.lang;
         YG2.SaveProgress();
     }
 }
