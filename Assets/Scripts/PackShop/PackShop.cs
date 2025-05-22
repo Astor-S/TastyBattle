@@ -22,6 +22,7 @@ public class PackShop : MonoBehaviour
     public event Action OnEquipped;
     public event Action<bool> IsEquipped;
 
+    public IReadOnlyList<SkinPack> DefaultSkins => _defaultSkins;
     public IReadOnlyList<SkinPack> EquippedSkinPacks => _equippedSkinPacks;
     public IReadOnlyList<SkinPack> AvailableSkinPacks => _availableSkinPacks;
     public SkinPack CurrentSkinPack => _currentFactionSkins[_skinPackIndex];

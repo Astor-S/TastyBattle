@@ -18,6 +18,12 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {        
+        if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[0]) == false && YG2.saves.availablePacks.Contains(_packShop.DefaultSkins[0]) == false)
+        {
+            YG2.saves.equippedPacks.Clear();
+            YG2.saves.availablePacks.Clear();
+        }
+
         if (YG2.saves.equippedPacks.Count == 0 && YG2.saves.availablePacks.Count == 0)
             _packShop.SetDefault();
         else
