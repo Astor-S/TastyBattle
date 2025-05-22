@@ -40,11 +40,11 @@ public class SkinPacksSaveSystem : SaveSystem
         string equipped = default;
         string available = default;
 
-        foreach (int id in _equippedIds)
-            equipped += id;
+        foreach (SkinPack skin in _packShop.EquippedSkinPacks)
+            equipped += skin.Id;
 
-        foreach (int id in _availableIds)
-            available += id;
+        foreach (SkinPack skin in _packShop.AvailableSkinPacks)
+            available += skin.Id;
 
         PlayerPrefs.SetString(EquippedKey, equipped);
         PlayerPrefs.SetString(AvailableKey, available);
