@@ -12,8 +12,8 @@ namespace AttackSystem.AttackHandlers
 
         public override void Hit()
         {
-            base.Hit(); 
             ApplyOrangeAcid();
+            base.Hit(); 
         }
 
         public void ApplyOrangeAcid()
