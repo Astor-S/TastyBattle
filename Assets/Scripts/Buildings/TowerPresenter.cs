@@ -14,10 +14,8 @@ namespace Buildings
         public new AttackerSetup Stats => base.Stats as AttackerSetup;
         public new TowerView View => base.View as TowerView;
 
-        protected override void Awake()
+        private void Start()
         {
-            base.Awake();
-
             _detectionSystem.Init(gameObject.layer, _enemyBase);
             _attackHandler.Init(Stats, UpgradesData);
 

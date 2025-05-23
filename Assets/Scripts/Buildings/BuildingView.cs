@@ -12,8 +12,15 @@ public class BuildingView : View
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] protected Animator Animator;
 
-    private void Start() => 
+    private void Start()
+    {
         _healthBar.enabled = true;
+
+        if (gameObject.layer == LayersData.PlayerLayerNumber)
+            SetColor(Color.blue);
+        else if (gameObject.layer == LayersData.EnemyLayerNumber)
+            SetColor(Color.red);
+    }
 
     public void SetColor(Color color)
     {
