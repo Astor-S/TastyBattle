@@ -11810,6 +11810,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3428632996518988536, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+      propertyPath: _coinsPerLevel
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3490613936840708261, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
       propertyPath: _unitSetup
       value: 
@@ -12010,6 +12014,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7415822773177552282, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+      propertyPath: _sceneToLoad
+      value: MushroomLevel4
+      objectReference: {fileID: 0}
     - target: {fileID: 7432168362145945561, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
@@ -12030,6 +12038,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7551253375100625348, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 2078615407632227294}
+    - target: {fileID: 7551253375100625348, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 2078615407632227293}
     - target: {fileID: 7705835922681072319, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12082,6 +12098,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8529717315324362743, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 2078615407632227294}
+    - target: {fileID: 8529717315324362743, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 2078615407632227293}
     - target: {fileID: 8792122415123353152, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12103,6 +12127,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+--- !u!114 &2078615407632227293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1799458017216347510, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+  m_PrefabInstance: {fileID: 2078615407632227292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2078615407632227294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4885249111516543332, guid: 1c8398abe14b942429fcc7cd8fe1d891, type: 3}
+  m_PrefabInstance: {fileID: 2078615407632227292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbb1bf0752cb8348852ff72a0e983d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
