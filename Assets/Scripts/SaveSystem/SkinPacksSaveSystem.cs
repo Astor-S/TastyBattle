@@ -20,19 +20,17 @@ public class SkinPacksSaveSystem : SaveSystem
     {
         for (int i = 0; i < _packShop.DefaultSkins.Count; i++)
         {
-            if (YG2.saves.availablePacks.Contains(_packShop.DefaultSkins[i]) == false && YG2.saves.availablePacks.Contains(_packShop.OtherSkins[i]) == false)
-            {
-                YG2.saves.equippedPacks.Clear();
-                YG2.saves.availablePacks.Clear();
+            if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) == false)
+                YG2.saves.equippedPacks.Add(_packShop.DefaultSkins[i]);
 
-                Save();
-            }
+            if (YG2.saves.availablePacks.Contains(_packShop.DefaultSkins[i]) == false)
+                YG2.saves.availablePacks.Add(_packShop.DefaultSkins[i]);
+
+            if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) && YG2.saves.equippedPacks.Contains(_packShop.OtherSkins[i]))
+                YG2.saves.equippedPacks.Remove(_packShop.OtherSkins[i]);
         }
 
-        if (YG2.saves.equippedPacks.Count == 0 && YG2.saves.availablePacks.Count == 0)
-            _packShop.SetDefault();
-        else
-            _packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
+        _packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
 
         Save();
     }
