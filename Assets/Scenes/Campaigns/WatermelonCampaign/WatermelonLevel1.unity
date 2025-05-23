@@ -9071,6 +9071,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1896033923701769095, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+      propertyPath: _coinsPerLevel
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2038537357404439021, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9135,6 +9139,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3680875117775763679, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+      propertyPath: _levelsToOpen
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3746946235017470499, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
       propertyPath: _unitSetup
       value: 
@@ -9191,6 +9199,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4871566522353399432, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 1735191733}
+    - target: {fileID: 4871566522353399432, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1735191732}
     - target: {fileID: 5080414941937747107, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9227,10 +9243,22 @@ PrefabInstance:
       propertyPath: _factionUnits
       value: 
       objectReference: {fileID: 11400000, guid: 06b776d1c0661014686d37a2517dc17b, type: 2}
+    - target: {fileID: 5993913697576617189, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+      propertyPath: _sceneToLoad
+      value: WatermelonLevel2
+      objectReference: {fileID: 0}
     - target: {fileID: 6206246908212821335, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
       propertyPath: _unitSetup
       value: 
       objectReference: {fileID: 11400000, guid: f1a3fda20d0a1344e8800c5b1321ea0d, type: 2}
+    - target: {fileID: 6705740728551647419, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 1735191733}
+    - target: {fileID: 6705740728551647419, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+      propertyPath: _pauseHandler
+      value: 
+      objectReference: {fileID: 1735191732}
     - target: {fileID: 6752228896613341785, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9420,6 +9448,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+--- !u!114 &1735191732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3259505303633245193, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+  m_PrefabInstance: {fileID: 1735191731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f8f5b9a7f1fa644bbf4635b57164a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1735191733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8507026376159359003, guid: 31bd4569baf92ed43ab7bdeae18429d4, type: 3}
+  m_PrefabInstance: {fileID: 1735191731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbb1bf0752cb8348852ff72a0e983d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1735494249
 PrefabInstance:
   m_ObjectHideFlags: 0
