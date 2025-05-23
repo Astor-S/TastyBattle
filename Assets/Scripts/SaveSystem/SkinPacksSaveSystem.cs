@@ -18,21 +18,19 @@ public class SkinPacksSaveSystem : SaveSystem
 
     public override void Load()
     {
-        //for (int i = 0; i < _packShop.DefaultSkins.Count; i++)
-        //{
-        //    if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) == false)
-        //        YG2.saves.equippedPacks.Add(_packShop.DefaultSkins[i]);
+        for (int i = 0; i < _packShop.DefaultSkins.Count; i++)
+        {
+            if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) == false)
+                YG2.saves.equippedPacks.Add(_packShop.DefaultSkins[i]);
 
-        //    if (YG2.saves.availablePacks.Contains(_packShop.DefaultSkins[i]) == false)
-        //        YG2.saves.availablePacks.Add(_packShop.DefaultSkins[i]);
+            if (YG2.saves.availablePacks.Contains(_packShop.DefaultSkins[i]) == false)
+                YG2.saves.availablePacks.Add(_packShop.DefaultSkins[i]);
 
-        //    if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) && YG2.saves.equippedPacks.Contains(_packShop.OtherSkins[i]))
-        //        YG2.saves.equippedPacks.Remove(_packShop.OtherSkins[i]);
-        //}
+            if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) && YG2.saves.equippedPacks.Contains(_packShop.OtherSkins[i]))
+                YG2.saves.equippedPacks.Remove(_packShop.OtherSkins[i]);
+        }
 
-        //_packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
-
-        LoadLocal();
+        _packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
 
         Save();
     }
