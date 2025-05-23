@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3025568634808437156}
   - component: {fileID: 8822058265704207086}
   - component: {fileID: 1548933652004003537}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DestroyEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687745081909107719}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -753,7 +753,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 5
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -982,7 +982,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 200
+        scalar: 100
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4900,7 +4900,7 @@ GameObject:
   - component: {fileID: 7429980316248660078}
   - component: {fileID: 7953530422015466084}
   - component: {fileID: 8781029571396811426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9798,7 +9798,7 @@ GameObject:
   - component: {fileID: 8327462678955178069}
   - component: {fileID: 4064596013927532510}
   - component: {fileID: 7407791562222464817}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Smoke (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -115,6 +115,9 @@ namespace Units
 
         private void ResetEffects()
         {
+            ResetAgentSpeed();
+            ResetAttackSpeedMultiplier();
+            
             if (TryGetComponent<AcidHandler>(out var acidHandler))
                 Destroy(acidHandler);
 

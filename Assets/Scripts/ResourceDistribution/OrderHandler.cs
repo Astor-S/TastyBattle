@@ -40,7 +40,8 @@ public abstract class OrderHandler : MonoBehaviour
 
     public void SetUnavailable()
     {
-        _button.interactable = false;
+        if (_button != null)
+            _button.interactable = false;
 
         if (_icon != null)
             _icon.color = Color.gray;
@@ -48,10 +49,14 @@ public abstract class OrderHandler : MonoBehaviour
 
     public void SetAvailable()
     {
-        _button.interactable = true;
+        if (_order.IsAvailable)
+        {
+            if (_button != null)
+                _button.interactable = true;
 
-        if (_icon != null)
-            _icon.color = Color.white;
+            if (_icon != null)
+                _icon.color = Color.white;
+        }
     }
 
     public void MakeOrder()
