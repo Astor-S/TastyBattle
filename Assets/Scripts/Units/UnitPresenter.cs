@@ -71,6 +71,7 @@ namespace Units
         {
             View.SetWalkingAnimation();
 
+            _damageTarget.enabled = true;
             _navMeshAgent.enabled = true;
             _detectionSystem.enabled = true;
             _attackHandler.enabled = true;
@@ -105,6 +106,7 @@ namespace Units
         {
             View.SetDeathAnimation();
 
+            _damageTarget.enabled = false;
             _attackHandler.enabled = false;
             _navMeshAgent.enabled = false;
             _detectionSystem.enabled = false;
