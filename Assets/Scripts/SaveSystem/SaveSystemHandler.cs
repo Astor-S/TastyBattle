@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 public class SaveSystemHandler : MonoBehaviour
 {
@@ -6,8 +7,12 @@ public class SaveSystemHandler : MonoBehaviour
 
     private void Start()
     {
-       foreach (SaveSystem saveSystem in _saveSystems) 
-            saveSystem.Load();
+        if (YG2.player.auth)
+            foreach (SaveSystem saveSystem in _saveSystems)
+                saveSystem.Load();
+        else
+            foreach (SaveSystem saveSystem in _saveSystems)
+                saveSystem.LoadLocal();        
     }
 
     private void OnDisable()

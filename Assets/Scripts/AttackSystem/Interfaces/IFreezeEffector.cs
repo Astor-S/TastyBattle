@@ -4,6 +4,6 @@ namespace AttackSystem.Interfaces
 {
     public interface IFreezeEffector 
     {
-        void PlayFreezeParticleEffect(Transform target);
+        ParticleSystem PlayFreezeParticleEffect(Transform target);
     }
 }

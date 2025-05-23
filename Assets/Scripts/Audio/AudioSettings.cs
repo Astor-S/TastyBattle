@@ -8,36 +8,50 @@ public class AudioSettings : MonoBehaviour
     [SerializeField] private AudioSetup _music;
     [SerializeField] private AudioSetup _sound;
 
-    private bool _paused;
+    private bool _isPaused;
 
     public AudioSetup Music => _music;
     public AudioSetup Sound => _sound;
 
-    public void TurnOff(AudioSetup audio)
+    public void TurnOff()
     {
-        _paused = true;
+        _isPaused = true;
 
-        audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
+        Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, MinVolumeValue);
     }
 
-    public void TurnOn(AudioSetup audio)
+    public void TurnOn()
     {
-        _paused = false;
+        _isPaused = false;
 
-        ChangeVolume(audio);
+        Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, Mathf.Log10(Sound.Slider.value) * Multiplier);
+
+        SwitchToggle(Sound);
     }
 
     public void SwitchToggle(AudioSetup audio)
     {
         if (audio.Toggle.isOn == false)
+        {
+            if (_isPaused && audio.AudioMixerGroup.name == Sound.AudioMixerGroup.name)
+                return;
+
             audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+        }
         else
+        {
             audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
+        }
     }
 
     public void ChangeVolume(AudioSetup audio)
     {
-        if (audio.Toggle.isOn == false && _paused == false)
+        if (audio.Toggle.isOn == false)
+        {
+            if (_isPaused && audio.AudioMixerGroup.name == Sound.AudioMixerGroup.name)
+                return;
+
             audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+        }
     }
 }

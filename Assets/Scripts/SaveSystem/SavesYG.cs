@@ -6,15 +6,15 @@ namespace YG
     public partial class SavesYG
     {
         //Audio saves
-        public float musicVolume = 0.3f;
-        public float soundVolume = 0.3f;
+        public float musicVolume = 0.4f;
+        public float soundVolume = 0.4f;
 
         public bool isMusicOn = false;
         public bool isSoundOn = false;
 
         //Score
         public int score = 0;
-        public int balanceMoney;
+        public int balanceMoney = 0;
 
         //OnFirstPlay
         public bool isFirstLaunch = true;
@@ -23,14 +23,15 @@ namespace YG
         public string language = default;
 
         //Skins
-        public List<SkinPack> skinPacks = new();
+        public List<SkinPack> equippedPacks = new ();
+        public List<SkinPack> availablePacks = new ();
 
         //Levels
-        public List<Levels> openedLevels = new();
+        public List<Levels> openedLevels = new ();
         public bool isMushroomCampaignCompleted = false;
 
         public SavesYG()
-        {
+        {           
             openedLevels.Add(Levels.Level1);
             openedLevels.Add(Levels.Level6);
             openedLevels.Add(Levels.Level11);
@@ -39,5 +40,33 @@ namespace YG
 
         public bool IsLevelOpened(Levels level) =>
             openedLevels.Contains(level);
+
+        public void Refresh()
+        {
+            musicVolume = 0.4f;
+            soundVolume = 0.4f;
+
+            isMusicOn = false;
+            isSoundOn = false;
+
+            score = 0;
+            balanceMoney = 0;
+
+            isFirstLaunch = true;
+
+            language = default;
+
+            openedLevels.Clear();
+
+            equippedPacks.Clear();
+            availablePacks.Clear();
+
+            openedLevels.Add(Levels.Level1);
+            openedLevels.Add(Levels.Level6);
+            openedLevels.Add(Levels.Level11);
+            openedLevels.Add(Levels.Level16);
+
+            isMushroomCampaignCompleted = false;
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.AI;
 using StructureElements;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
-using YG;
+using FactionalAbilities.Handlers.Effects;
 
 namespace Units
 {
@@ -44,7 +44,7 @@ namespace Units
             _navMeshAgent.updateRotation = false;
             NavMesh.avoidancePredictionTime = 0.5f;
 
-            _navMeshAgent.stoppingDistance = Model.Stats.AttackDistance;
+            _navMeshAgent.stoppingDistance = 0f;
             _navMeshAgent.speed = _upgradesData.GetIncreasedSpeed(Model.Stats);
             _defaultSpeed = _upgradesData.GetIncreasedSpeed(Model.Stats);
 
@@ -61,17 +61,20 @@ namespace Units
         protected virtual void FixedUpdate()
         {
             if (_detectionSystem.CurrentTarget != null && _navMeshAgent.enabled == true)
-                _navMeshAgent.SetDestination(_detectionSystem.CurrentTarget.transform.position);
+            {
+                Vector3 destination = Vector3.MoveTowards(_detectionSystem.CurrentTarget.transform.position, transform.position, Model.Stats.AttackDistance - 0.5f);
+                _navMeshAgent.SetDestination(destination);
+            }
         }
 
         public virtual void Enable()
         {
             View.SetWalkingAnimation();
 
-            _detectionSystem.enabled = true;
-            _attackHandler.enabled = true;
             _damageTarget.enabled = true;
             _navMeshAgent.enabled = true;
+            _detectionSystem.enabled = true;
+            _attackHandler.enabled = true;
 
             _damageTarget.Dying += DyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
@@ -102,20 +105,29 @@ namespace Units
         protected void OnDying()
         {
             View.SetDeathAnimation();
+
+            _damageTarget.enabled = false;
+            _attackHandler.enabled = false;
             _navMeshAgent.enabled = false;
+            _detectionSystem.enabled = false;
+            ResetEffects();
 
-            if (_attackHandler != null)
-                _attackHandler.enabled = false;
-
-            if (_detectionSystem != null)
-                _detectionSystem.enabled = false;
-            
             OnUnitDying?.Invoke(this);
         }
 
-        private void OnDecayed()
+        private void ResetEffects()
         {
-            Releasing?.Invoke(this);
+            ResetAgentSpeed();
+            ResetAttackSpeedMultiplier();
+            
+            if (TryGetComponent<AcidHandler>(out var acidHandler))
+                Destroy(acidHandler);
+
+            if (TryGetComponent<FreezeHandler>(out var freezeHandler))
+                Destroy(freezeHandler);
         }
+
+        private void OnDecayed() =>
+            Releasing?.Invoke(this);
     }
 }

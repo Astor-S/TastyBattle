@@ -6,6 +6,8 @@ namespace AttackSystem.AttackHandlers
 {
     public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
     {
+        private const float RunningUpSpeed = 15f;
+        
         public event Action<float> SpeedChanging;
         public event Action TakingRunUp;
         public event Action RunUpTaken;
@@ -16,8 +18,7 @@ namespace AttackSystem.AttackHandlers
 
         private void FixedUpdate()
         {
-            if (AttackedTarget != null)
-                _distanceToTargetSquared = Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position);
+            _distanceToTargetSquared = Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position);
         }
 
         protected override IEnumerator Combat()
@@ -28,7 +29,7 @@ namespace AttackSystem.AttackHandlers
 
             while (enabled)
             {
-                if (AttackedTarget != null && IsAbleToAttack)
+                if (AttackedTarget != null && ReadyToAttack)
                 {
                     StartAttack();
 
@@ -36,7 +37,7 @@ namespace AttackSystem.AttackHandlers
 
                     yield return runUpWaiting;
 
-                    SpeedChanging?.Invoke(15f);
+                    SpeedChanging?.Invoke(RunningUpSpeed);
 
                     yield return approachingWaiting;
 

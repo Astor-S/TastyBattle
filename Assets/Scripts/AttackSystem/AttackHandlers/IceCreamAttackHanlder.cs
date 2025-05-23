@@ -20,7 +20,7 @@ namespace AttackSystem.AttackHandlers
         {
             if (_iceCreamAbilityHandler != null)
             {
-                if (AttackedTarget != null)
+                if (AttackedTarget != null && AttackedTarget.gameObject.activeInHierarchy)
                 {
                     UnitPresenter unitPresenter = AttackedTarget.GetComponent<UnitPresenter>();
 
@@ -30,35 +30,39 @@ namespace AttackSystem.AttackHandlers
 
                         if (freezeHandler == null)
                         {
+                            ParticleSystem freezeParticleEffectInstance = PlayFreezeParticleEffect(AttackedTarget.transform);
+
                             freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
                             freezeHandler.Initialize(
                                 unitPresenter,
                                 _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
                                 _iceCreamAbilityHandler.IceCreamAbility.FreezeDuration,
                                 _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
-                                _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate);
-
-                            PlayFreezeParticleEffect(AttackedTarget.transform);
+                                _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate,
+                                freezeParticleEffectInstance);
                         }
                         else
                         {
                             freezeHandler.ApplySlow(_iceCreamAbilityHandler.IceCreamAbility.FreezePercentage);
-                            PlayFreezeParticleEffect(AttackedTarget.transform);
                         }
                     }
                 }
             }
         }
 
-        public void PlayFreezeParticleEffect(Transform target)
+        public ParticleSystem PlayFreezeParticleEffect(Transform target)
         {
             if (_freezeParticleEffectPrefab != null)
             {
-                ParticleSystem acidParticleEffect = Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
-                ParticleSystem.MainModule mainModule = acidParticleEffect.main;
+                ParticleSystem freezeParticleEffect = Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                ParticleSystem.MainModule mainModule = freezeParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
-                acidParticleEffect.Play();
+                freezeParticleEffect.Play();
+
+                return freezeParticleEffect;
             }
+
+            return null;
         }
     }
 }

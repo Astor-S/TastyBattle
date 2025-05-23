@@ -102,10 +102,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 9652246782523303}
   m_Enabled: 1
   m_AgentTypeID: 1479372276
-  m_Radius: 1
+  m_Radius: 0.8
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 25
+  avoidancePriority: 50
   m_AngularSpeed: 5000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -435,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 9212799875144425720}
   _baseTransform: {fileID: 5211579050596040642}
+  _collider: {fileID: 5501895718016342161}
 --- !u!1001 &5872418677157996794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,11 +642,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151619087348885055, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1151619087348885055, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7143836820331894396, guid: cb900ceaa568c554b91945b438611d7b, type: 3}
       propertyPath: _damagableTarget

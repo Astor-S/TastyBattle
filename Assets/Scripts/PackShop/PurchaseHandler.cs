@@ -24,7 +24,7 @@ public class PurchaseHandler : MonoBehaviour
 
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _description;
-    [SerializeField] private PackShop _shop;
+    [SerializeField] private PackShop _packShop;
     [SerializeField] private RewardAdService _rewardAdService;
     [SerializeField] private Transform _lockPanel;
 
@@ -36,7 +36,7 @@ public class PurchaseHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        _shop.SkinPackSwiped += SetState;
+        _packShop.SkinPackSwiped += SetState;
 
         //TODO: Magic
         _languageAdCondition.Clear();
@@ -59,7 +59,7 @@ public class PurchaseHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        _shop.SkinPackSwiped -= SetState;
+        _packShop.SkinPackSwiped -= SetState;
         _button.onClick.RemoveAllListeners();
     }
 
@@ -67,17 +67,20 @@ public class PurchaseHandler : MonoBehaviour
     {
         _button.onClick.RemoveAllListeners();
 
-        switch (skin.PurchaseType)
+        if (_packShop.IsAvailable(skin) == false)
         {
-            case PurchaseType.ByAd:
-                PrapareButton(ShowAdForReward, _languageAdCondition[YG2.lang]);
-                break;
-            case PurchaseType.ByCoins:
-                PrapareButton(SpendCoins, _languagePriceCondition[YG2.lang] + skin.Price);
-                break;
-            case PurchaseType.ByLevelPassing:
-                PrapareButton(CheckLevelPassing, _languageLevelCondition[YG2.lang]);
-                break;
+            switch (skin.PurchaseType)
+            {
+                case PurchaseType.ByAd:
+                    PrapareButton(ShowAdForReward, _languageAdCondition[YG2.lang]);
+                    break;
+                case PurchaseType.ByCoins:
+                    PrapareButton(SpendCoins, _languagePriceCondition[YG2.lang] + skin.Price);
+                    break;
+                case PurchaseType.ByLevelPassing:
+                    PrapareButton(CheckLevelPassing, _languageLevelCondition[YG2.lang]);
+                    break;
+            }
         }
     }
 
@@ -91,24 +94,26 @@ public class PurchaseHandler : MonoBehaviour
     {
         if (YG2.saves.isMushroomCampaignCompleted)
         {
-            _shop.CurrentSkinPack.Purchase();
-
-            YG2.SaveProgress();
+            SaveSkinPack();
 
             HideButton();
         }
     }
 
+    private void SaveSkinPack()
+    {
+        _packShop.AddAvailableSkin(_packShop.CurrentSkinPack);
+        _packShop.Change();
+    }
+
     private void SpendCoins()
     {
-        int price = _shop.CurrentSkinPack.Price;
+        int price = _packShop.CurrentSkinPack.Price;
 
         if (YG2.saves.balanceMoney >= price)
         {
             YG2.saves.balanceMoney -= price;
-            YG2.SaveProgress();
-
-            _shop.CurrentSkinPack.Purchase();
+            SaveSkinPack();
 
             TransactionCompleted?.Invoke();
 
@@ -124,9 +129,11 @@ public class PurchaseHandler : MonoBehaviour
 
     private void OpenSkin()
     {
-        _shop.CurrentSkinPack.Purchase();
-        _rewardAdService.SkinReceived -= OpenSkin;
+        SaveSkinPack();
+
         HideButton();
+
+        _rewardAdService.SkinReceived -= OpenSkin;
     }
 
     private void HideButton()

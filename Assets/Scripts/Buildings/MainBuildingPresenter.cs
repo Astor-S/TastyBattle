@@ -9,10 +9,8 @@ namespace Buildings
 
         public new MainBuilding Model => base.Model as MainBuilding;
 
-        protected override void Awake()
+        private void Start()
         {
-            base.Awake();
-
             StartCoroutine(Model.Spawner.GetSpawningCoroutine());
         }
 

@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 240646892692011737}
   _baseTransform: {fileID: 5112447776973128433}
+  _collider: {fileID: 7151756751896595498}
 --- !u!1 &8380770406156886001
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +288,7 @@ NavMeshAgent:
   m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 20
+  avoidancePriority: 50
   m_AngularSpeed: 5000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1

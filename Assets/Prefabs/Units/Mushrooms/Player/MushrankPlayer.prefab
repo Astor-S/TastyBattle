@@ -365,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 8934751564987464099}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
-  _soundPack: {fileID: 11400000, guid: 006e147753f338a4d9c0cc28c4e77bc8, type: 2}
+  _soundPack: {fileID: 11400000, guid: b72c93dc2de2517438713a92f4f1d108, type: 2}
   _attackerAnimation: {fileID: 980220356325490712}
 --- !u!1 &8832658503663573769
 GameObject:
@@ -435,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 1764610157756591694}
   _baseTransform: {fileID: 5075379894588090682}
+  _collider: {fileID: 7874235887140340323}
 --- !u!1001 &3216168164734528713
 PrefabInstance:
   m_ObjectHideFlags: 0

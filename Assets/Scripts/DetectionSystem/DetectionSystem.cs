@@ -12,9 +12,9 @@ public class DetectionSystem : MonoBehaviour
 
     [SerializeField] private DamagableTarget _currentUnit;
     [SerializeField] private Transform _baseTransform;
+    [SerializeField] private SphereCollider _collider;
 
-    private SphereCollider _collider;
-    private Queue<DamagableTarget> _detectedUnits = new();
+    private List<DamagableTarget> _detectedUnits = new();
     private string _enemyLayer;
     private DamagableTarget _enemyBase;
     private bool _isSiege = false;
@@ -22,67 +22,34 @@ public class DetectionSystem : MonoBehaviour
 
     public DamagableTarget CurrentTarget { get; private set; } = null;
 
-    public event Action<DamagableTarget> TargetChanged;
-
+#if UNITY_EDITOR
     private void OnValidate()
     {
         _collider = GetComponent<SphereCollider>();
         _collider.radius = _radius;
     }
+#else
+    private void Awake()
+    {
+        _collider = GetComponent<SphereCollider>();
+        _collider.radius = _radius;
+    }
+#endif
 
     private void FixedUpdate()
     {
         if (CurrentTarget != null)
-            _baseTransform.LookAt(CurrentTarget.transform.position);
+            _baseTransform.LookAt(CurrentTarget.transform);
     }
 
     private void OnEnable()
     {
+        for (int i = 0; i < _detectedUnits.Count; i++)
+            _detectedUnits[i].Dying -= OnDetectedUnitDied;
+
         _detectedUnits.Clear();
+        
         CurrentTarget = _enemyBase;
-        TargetChanged?.Invoke(CurrentTarget);
-
-        //Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, _radius);
-
-        //if (hitColliders.Length > 0)
-        //    foreach (Collider hit in hitColliders)
-        //        FindEnemies(hit);
-    }
-
-    private void OnTriggerEnter(Collider other) =>
-        FindEnemies(other);
-
-    private void FindEnemies(Collider other)
-    {
-        if (other.TryGetComponent(out DamagableTarget unit) &&
-            _detectedUnits.Contains(unit) == false &&
-            LayerMask.LayerToName(unit.gameObject.layer) == _enemyLayer &&
-            (_isSiege == false || unit.IsBuilding))
-        {
-            unit.Dying += OnDetectedUnitDied;
-            _detectedUnits.Enqueue(unit);
-
-            if (_detectedUnits.Count == 1)
-            {
-                CurrentTarget = unit;
-                TargetChanged?.Invoke(CurrentTarget);
-            }
-        }
-    }
-
-    private void OnDetectedUnitDied(DamagableTarget unit)
-    {
-        unit.Dying -= OnDetectedUnitDied;
-
-        while (_detectedUnits.Count > 0 && (_detectedUnits.Peek() == null || _detectedUnits.Peek().IsAlive == false))
-            _detectedUnits.Dequeue();
-
-        if (_detectedUnits.Count == 0)
-            CurrentTarget = _enemyBase;
-        else
-            CurrentTarget = _detectedUnits.Peek();
-
-        TargetChanged?.Invoke(CurrentTarget);
     }
 
     public void Init(int layer, DamagableTarget enemyBase, BattleRole battleRole = BattleRole.Range)
@@ -93,8 +60,63 @@ public class DetectionSystem : MonoBehaviour
             _enemyLayer = Enemy;
 
         _enemyBase = enemyBase;
+        CurrentTarget = _enemyBase;
         _isSiege = battleRole == BattleRole.Siege;
 
         gameObject.SetActive(true);
+    }
+
+    private void OnTriggerEnter(Collider other) =>
+        HandleTriggerEntry(other);
+
+    private void OnTriggerExit(Collider other) =>
+        HandleTriggerExit(other);
+
+    private void HandleTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out DamagableTarget unit) && _detectedUnits.Contains(unit))
+        {
+            unit.Dying -= OnDetectedUnitDied;
+
+            _detectedUnits.Remove(unit);
+
+            if (CurrentTarget == unit)
+            {
+                if (_detectedUnits.Count == 0)
+                    CurrentTarget = _enemyBase;
+                else
+                    CurrentTarget = _detectedUnits[0];
+            }
+        }
+    }
+
+    private void HandleTriggerEntry(Collider other)
+    {
+        if (other.TryGetComponent(out DamagableTarget unit) &&
+            _detectedUnits.Contains(unit) == false &&
+            LayerMask.LayerToName(unit.gameObject.layer) == _enemyLayer &&
+            (_isSiege == false || unit.IsBuilding))
+        {
+            unit.Dying += OnDetectedUnitDied;
+            _detectedUnits.Add(unit);
+
+            if (_detectedUnits.Count == 1)
+                CurrentTarget = unit;
+        }
+    }
+
+    private void OnDetectedUnitDied(DamagableTarget diedUnit)
+    {
+        diedUnit.Dying -= OnDetectedUnitDied;
+
+        _detectedUnits.RemoveAll(unit => unit == null || unit.IsAlive == false);
+
+        if (CurrentTarget == diedUnit)
+        {
+            if (_detectedUnits.Count == 0)
+                CurrentTarget = _enemyBase;
+            else
+                CurrentTarget = _detectedUnits[0];
+        }
     }
 }

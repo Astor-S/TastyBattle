@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 3993697338022024393}
   _baseTransform: {fileID: 7953972053606776600}
+  _collider: {fileID: 2811503811322102609}
 --- !u!1 &3262212064622244388
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +224,7 @@ NavMeshAgent:
   m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 25
+  avoidancePriority: 50
   m_AngularSpeed: 5000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -403,7 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: -4302166125656285090}
   _mixerGroup: {fileID: 2597337593895628817, guid: d2fec41557b9dff44b40d5d7021a7bf1, type: 2}
-  _soundPack: {fileID: 11400000, guid: 4d751474320ffe641b661262809db25a, type: 2}
+  _soundPack: {fileID: 11400000, guid: 0bd517d5827f3074ea089a280714f574, type: 2}
   _attackerAnimation: {fileID: 678434369451266766}
 --- !u!1 &7602553928306975372
 GameObject:

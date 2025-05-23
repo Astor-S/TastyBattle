@@ -10,14 +10,23 @@ namespace FactionalAbilities.Handlers.Effects
 
         private DamagableTarget _target;
         private Coroutine _acidCoroutine;
+        private ParticleSystem _acidParticleEffect;
+
         private float _damagePerSecond;
         private float _duration;
 
-        public void Initialize(DamagableTarget target, float damagePerSecond, float duration)
+        private void OnDestroy()
+        {
+            if (_acidParticleEffect != null) 
+                Destroy(_acidParticleEffect.gameObject);
+        }
+
+        public void Initialize(DamagableTarget target, float damagePerSecond, float duration, ParticleSystem acidParticleEffect)
         {
             _target = target;
             _damagePerSecond = damagePerSecond;
             _duration = duration;
+            _acidParticleEffect = acidParticleEffect;
             _acidCoroutine = StartCoroutine(AcidDamage());
         }
 

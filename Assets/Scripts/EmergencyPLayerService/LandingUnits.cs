@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using Units;
 using YG;
 
@@ -8,7 +7,6 @@ namespace EmergencyPlayerService
 {
     public class LandingUnits : MonoBehaviour
     {
-        [SerializeField] private Button _emergencyButton;
         [SerializeField] private UnitFactory _unitFactory;
         [SerializeField] private UnitOrderHandler _melee;
         [SerializeField] private UnitOrderHandler _tank;
@@ -16,22 +14,7 @@ namespace EmergencyPlayerService
         [SerializeField] private int _numberOfTanksToSummon = 2;
         [SerializeField] private int _numberOfMeleeToSummon = 3;
 
-        private void OnEnable()
-        {
-            if (_emergencyButton != null)
-                _emergencyButton.onClick.AddListener(OnButtonClick);
-        }
-
-        private void OnDisable()
-        {
-            if (_emergencyButton != null)
-                _emergencyButton.onClick.RemoveListener(OnButtonClick);
-        }
-
-        private void OnButtonClick() =>
-            CallLanding();
-
-        private void CallLanding()
+        public void CallLanding()
         {
             YG2.MetricaSend("emergency_button_clicked");
             StartCoroutine(LandingSequence());

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ResourceDistribution
 {
-    public class Shop : Transformable, IActivatable
+    public class Shop : Transformable, IActivatable, IUpdatable
     {
         private UnitFactory _unitFactory;
         private UnitOrderHandler[] _unitItems;
@@ -49,6 +49,21 @@ namespace ResourceDistribution
                 item.ItemOrdered -= MakeUpgrade;
 
             _wallet.Disable();
+        }
+
+        public void Update(float deltaTime)
+        {
+            foreach (UnitOrderHandler item in _unitItems)
+                if (_wallet.ResourceCount < item.CurrentCost)
+                    item.SetUnavailable();
+                else
+                    item.SetAvailable();
+
+            foreach (UpgradeOrderHandler item in _upgradeItems)
+                if (_wallet.ResourceCount < item.CurrentCost)
+                    item.SetUnavailable();
+                else
+                    item.SetAvailable();
         }
 
         private void SpawnUnit(Order order)

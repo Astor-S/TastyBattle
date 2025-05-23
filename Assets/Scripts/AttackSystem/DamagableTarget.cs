@@ -51,7 +51,7 @@ namespace AttackSystem
         public void TakeDamage(float damage)
         {
             if (_isInvulnerable == false)
-                _health.Reduce(damage);                 
+                _health.Reduce(damage);
         }
 
         public void SetInvulnerable(bool invulnerable) =>
@@ -69,8 +69,6 @@ namespace AttackSystem
             Dying?.Invoke(this);
 
             _collider.enabled = false;
-
-            enabled = false;
         }
     }
 }

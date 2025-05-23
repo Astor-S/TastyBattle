@@ -9940,7 +9940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e845a850e0df4499239905eff6e7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _emergencyButton: {fileID: 0}
   _target: {fileID: 4785621668950576721}
   _particleInvulnerabilityEffect: {fileID: 4088602667210286290}
   _invulnerabilityDuration: 10
@@ -9956,7 +9955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b7ddd714d3977419566984e7d03d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _emergencyButton: {fileID: 0}
   _unitFactory: {fileID: 2508535295967750980}
   _melee: {fileID: 0}
   _tank: {fileID: 0}
@@ -15271,7 +15269,7 @@ Transform:
   m_GameObject: {fileID: 9195679999406305591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 4.46}
+  m_LocalPosition: {x: 0, y: 0.155, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15305,7 +15303,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
