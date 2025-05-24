@@ -19,9 +19,6 @@ namespace YG
         //OnFirstPlay
         public bool isFirstLaunch = true;
 
-        //Language
-        public string language = default;
-
         //Skins
         public List<SkinPack> equippedPacks = new ();
         public List<SkinPack> availablePacks = new ();
@@ -53,8 +50,6 @@ namespace YG
             balanceMoney = 0;
 
             isFirstLaunch = true;
-
-            language = default;
 
             openedLevels.Clear();
 
