@@ -6,7 +6,6 @@ namespace UI.HomeMenu.CampaignMenu
 {
     public class MapDisplay : MonoBehaviour
     {
-
         [SerializeField] private TextMeshProUGUI _playerDescriptionField;
         [SerializeField] private TextMeshProUGUI _enemyDescriptionField;
 
@@ -14,6 +13,14 @@ namespace UI.HomeMenu.CampaignMenu
 
         public TextMeshProUGUI PlayerDescriptionField => _playerDescriptionField;
         public TextMeshProUGUI EnemyDescriptionField => _enemyDescriptionField;
+
+        public void ResetMap(Transform container)
+        {
+            if (container.childCount > 0)
+                Destroy(container.GetChild(0).gameObject);
+
+            _enemyDescriptionField.text = default;
+        }
 
         public void DisplayMap(UnitModelView unitMapView, Transform container, TextMeshProUGUI text)
         {
