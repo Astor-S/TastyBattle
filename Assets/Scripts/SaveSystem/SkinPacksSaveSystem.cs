@@ -43,6 +43,20 @@ public class SkinPacksSaveSystem : SaveSystem
         }
         else
         {
+            string equippedIds = default;
+            string availableIds = default;
+
+            foreach (char id in PlayerPrefs.GetString(EquippedKey))
+                if (equippedIds.Contains(id) == false)
+                    equippedIds += id;
+
+            foreach (char id in PlayerPrefs.GetString(AvailableKey))
+                if (availableIds.Contains(id) == false)
+                    availableIds += id;
+
+            PlayerPrefs.SetString(EquippedKey, equippedIds);
+            PlayerPrefs.SetString(AvailableKey, availableIds);
+
             string equipped = PlayerPrefs.GetString(EquippedKey);
             string available = PlayerPrefs.GetString(AvailableKey);
 
