@@ -90,8 +90,8 @@ public class PackShop : MonoBehaviour
         _equippedSkinPacks = equipped;
         _availableSkinPacks = available;
 
-        SwipeFaction(default);
         EquipAllEquippedSkins();
+        SwipeFaction(default);
     }
 
     public void SetDefault()
