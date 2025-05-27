@@ -1,7 +1,6 @@
 using UnityEngine;
-using FactionalAbilities;
 
-namespace AttackSystem.AttackHandlers
+namespace FactionalAbilities.Handlers
 {
     public class IceCreamAbilityHandler : MonoBehaviour
     {
