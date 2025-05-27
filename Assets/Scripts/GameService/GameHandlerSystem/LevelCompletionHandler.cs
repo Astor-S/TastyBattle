@@ -1,8 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using GameService.GameHandlerSystem.Handlers;
 using UI.Screens;
 using YG;
-using UnityEngine.SceneManagement;
 
 namespace GameService.GameHandlerSystem
 {
