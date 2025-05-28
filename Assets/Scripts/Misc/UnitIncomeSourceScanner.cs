@@ -1,7 +1,7 @@
-using AttackSystem;
-using Buildings;
 using System;
 using UnityEngine;
+using AttackSystem;
+using Buildings;
 
 namespace Misc
 {
@@ -10,13 +10,14 @@ namespace Misc
     {
         [SerializeField] private SphereCollider _collider;
         [SerializeField] private MainBuildingPresenter _mainBuilding;
+        [SerializeField] private float _radius = 100f;
 
         public event Action<IIncomeSource> UnitDetected;
 
         private void Awake()
         {
             _collider.isTrigger = true;
-            _collider.radius = 100f;
+            _collider.radius = _radius;
         }
 
         private void OnTriggerEnter(Collider other)
