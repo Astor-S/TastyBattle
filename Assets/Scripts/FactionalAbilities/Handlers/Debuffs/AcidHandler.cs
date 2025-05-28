@@ -9,7 +9,6 @@ namespace FactionalAbilities.Handlers.Debuffs
         private const float TickInterval = 1f;
 
         private DamagableTarget _target;
-        private Coroutine _acidCoroutine;
         private ParticleSystem _acidParticleEffect;
 
         private float _damagePerSecond;
@@ -27,7 +26,7 @@ namespace FactionalAbilities.Handlers.Debuffs
             _damagePerSecond = damagePerSecond;
             _duration = duration;
             _acidParticleEffect = acidParticleEffect;
-            _acidCoroutine = StartCoroutine(AcidDamage());
+            StartCoroutine(AcidDamage());
         }
 
         private IEnumerator AcidDamage()
