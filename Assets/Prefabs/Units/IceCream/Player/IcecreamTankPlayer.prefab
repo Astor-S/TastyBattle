@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackHandler: {fileID: 3138773895604433516}
-  _detectionSystem: {fileID: 396391099969402184}
+  _detectionSystem: {fileID: 4947100428981766617}
   _damageTarget: {fileID: 9212799875144425720}
   _navMeshAgent: {fileID: 7991284783629962674}
   _faction: 4
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97e90ca4d2561429ff1eb5f4535b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionSystem: {fileID: 396391099969402184}
+  _detectionSystem: {fileID: 4947100428981766617}
   _iceCreamAbilityHandler: {fileID: 3768784554562089065}
   _freezeParticleEffectPrefab: {fileID: 6270031026574745719, guid: 5dfa0173f146f004b84121533e57a1b9, type: 3}
 --- !u!1 &7986056113659367471
@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3498268458058442733}
   - component: {fileID: 5501895718016342161}
-  - component: {fileID: 396391099969402184}
+  - component: {fileID: 4947100428981766617}
   m_Layer: 0
   m_Name: DetectionSystem
   m_TagString: Untagged
@@ -421,7 +421,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &396391099969402184
+--- !u!114 &4947100428981766617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,11 +430,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8160467107982338617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac676fed4311bf4982b206c9251c9c1, type: 3}
+  m_Script: {fileID: 11500000, guid: ae588d67bb54c6249bbe68e51ebfd899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 9212799875144425720}
-  _baseTransform: {fileID: 5211579050596040642}
+  _baseTransform: {fileID: 0}
   _collider: {fileID: 5501895718016342161}
 --- !u!1001 &5872418677157996794
 PrefabInstance:

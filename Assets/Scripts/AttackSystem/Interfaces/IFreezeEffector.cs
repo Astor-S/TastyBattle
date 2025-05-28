@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace AttackSystem.Interfaces
 {
-    public interface IFreezeEffector 
+    public interface IFreezeEffector
     {
         ParticleSystem PlayFreezeParticleEffect(Transform target);
     }

@@ -1,3 +1,4 @@
+using AttackSystem;
 using UnityEngine;
 
 public class AttackerSoundPlayer : DamagableSoundPlayer

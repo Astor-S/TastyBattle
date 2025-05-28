@@ -6,11 +6,7 @@ namespace Buildings
 {
     public class MainBuilding : Building
     {
-        public Spawner Spawner { get; }
-        public Wallet Wallet { get; }
-
         public MainBuilding(
-
             DamagableSetup setup,
             float unitSpawnCooldown,
             int unitSpawnCount,
@@ -29,5 +25,8 @@ namespace Buildings
 
             Wallet = wallet;
         }
+
+        public Spawner Spawner { get; }
+        public Wallet Wallet { get; }
     }
 }

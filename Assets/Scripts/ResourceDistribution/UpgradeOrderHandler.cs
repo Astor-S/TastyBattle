@@ -1,43 +1,46 @@
 using TMPro;
 using UnityEngine;
+using Upgrades;
 using YG;
 
-public class UpgradeOrderHandler : OrderHandler
+namespace ResourceDistribution
 {
-    [SerializeField] private UpgradeType _upgradeType;
-    [SerializeField, Range(2, 10)] private int _maxLevel;
-    [SerializeField] private TextMeshProUGUI _levelNumberBox;
-    [SerializeField] private TextMeshProUGUI _levelTextBox;
-    [SerializeField] private TextMeshProUGUI _maxLevelBox;
-
-    protected new UpgradeOrder Order => base.Order as UpgradeOrder;
-
-    protected override Order InitializeOrder(int initialCost)
+    public class UpgradeOrderHandler : OrderHandler
     {
-        return new UpgradeOrder(initialCost, _maxLevel, _upgradeType);
-    }
+        [SerializeField] private UpgradeType _upgradeType;
+        [SerializeField, Range(2, 10)] private int _maxLevel;
+        [SerializeField] private TextMeshProUGUI _levelNumberBox;
+        [SerializeField] private TextMeshProUGUI _levelTextBox;
+        [SerializeField] private TextMeshProUGUI _maxLevelBox;
 
-    protected override void OnOrdered()
-    {
-        if (_levelNumberBox != null)
-            YG2.MetricaSend("upgrade_ordered");
+        protected new UpgradeOrder Order => base.Order as UpgradeOrder;
 
-        Order.IncreaseCost();
-        Order.IncreaseLevel();
-
-        if (_levelNumberBox != null)
+        protected override Order InitializeOrder(int initialCost)
         {
-            if (Order.CurrentLevel == Order.MaxLevel)
-            {
-                _maxLevelBox.gameObject.SetActive(true);
-                _levelTextBox.gameObject.SetActive(false);
-                _levelNumberBox.gameObject.SetActive(false);
-            }
-            else
-            {
-                _levelNumberBox.text = Order.CurrentLevel.ToString();
-            }
+            return new UpgradeOrder(initialCost, _maxLevel, _upgradeType);
         }
 
+        protected override void OnOrdered()
+        {
+            if (_levelNumberBox != null)
+                YG2.MetricaSend("upgrade_ordered");
+
+            Order.IncreaseCost();
+            Order.IncreaseLevel();
+
+            if (_levelNumberBox != null)
+            {
+                if (Order.CurrentLevel == Order.MaxLevel)
+                {
+                    _maxLevelBox.gameObject.SetActive(true);
+                    _levelTextBox.gameObject.SetActive(false);
+                    _levelNumberBox.gameObject.SetActive(false);
+                }
+                else
+                {
+                    _levelNumberBox.text = Order.CurrentLevel.ToString();
+                }
+            }
+        }
     }
 }

@@ -1,9 +1,15 @@
-﻿public class UnitOrder : Order
-{
-    public UnitSetup Setup { get; }
+﻿using Units;
 
-    public UnitOrder(int cost, UnitSetup setup) : base(cost, 1f)
+namespace ResourceDistribution
+{
+    public class UnitOrder : Order
     {
-        Setup = setup;
+        public UnitOrder(int cost, UnitSetup setup)
+            : base(cost, 1f)
+        {
+            Setup = setup;
+        }
+
+        public UnitSetup Setup { get; }
     }
 }

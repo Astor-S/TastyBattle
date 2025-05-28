@@ -1,17 +1,21 @@
 using StructureElements;
+using Units;
 using UnityEngine;
 
-public class Building : Transformable
+namespace Buildings
 {
-    public DamagableSetup Stats { get; }
-
-    public Building(
-        DamagableSetup setup,
-        Vector3 position = default,
-        Quaternion rotation = default,
-        Vector3 scale = default) :
-        base(position, rotation, scale)
+    public class Building : Transformable
     {
-        Stats = setup;
+        public Building(
+            DamagableSetup setup,
+            Vector3 position = default,
+            Quaternion rotation = default,
+            Vector3 scale = default)
+            : base(position, rotation, scale)
+        {
+            Stats = setup;
+        }
+
+        public DamagableSetup Stats { get; }
     }
 }

@@ -1,56 +1,65 @@
 using AttackSystem.HealthBarSystem;
 using StructureElements;
+using Units;
 using UnityEngine;
 
-public class BuildingView : View
+namespace Buildings
 {
-    public readonly int Died = Animator.StringToHash(nameof(Died));
-    public readonly int HalfHP = Animator.StringToHash(nameof(HalfHP));
-    public readonly int QuaterHP = Animator.StringToHash(nameof(QuaterHP));
-
-    [SerializeField] private HealthBar _healthBar;
-    [SerializeField] private ParticleSystem _particleSystem;
-    [SerializeField] protected Animator Animator;
-
-    private void Start()
+    public class BuildingView : View
     {
-        _healthBar.enabled = true;
+        private readonly int _died = Animator.StringToHash(nameof(Died));
+        private readonly int _halfHP = Animator.StringToHash(nameof(HalfHP));
+        private readonly int _quaterHP = Animator.StringToHash(nameof(QuaterHP));
 
-        if (gameObject.layer == LayersData.PlayerLayerNumber)
-            SetColor(Color.blue);
-        else if (gameObject.layer == LayersData.EnemyLayerNumber)
-            SetColor(Color.red);
-    }
+        [SerializeField] private HealthBar _healthBar;
+        [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] private Animator _animator;
 
-    public void SetColor(Color color)
-    {
-        if (color != default)
-            _healthBar.SetColor(gameObject.layer);
-    }
+        public int Died => _died;
+        public int HalfHP => _halfHP;
+        public int QuaterHP => _quaterHP;
+        public Animator Animator => _animator;
 
-    public void SetDeathAnimation()
-    {
-        Animator.SetTrigger(Died);
-        _particleSystem.Play();
+        private void Start()
+        {
+            _healthBar.enabled = true;
 
-        _healthBar.gameObject.SetActive(false);
+            if (gameObject.layer == LayersData.PlayerLayerNumber)
+                SetColor(Color.blue);
+            else if (gameObject.layer == LayersData.EnemyLayerNumber)
+                SetColor(Color.red);
+        }
 
-        SoundPlayer.SetDeathSound();
-    }
+        public void SetColor(Color color)
+        {
+            if (color != default)
+                _healthBar.SetColor(gameObject.layer);
+        }
 
-    public void SetHalfHPAnimation()
-    {
-        Animator.SetTrigger(HalfHP);
-        _particleSystem.Play();
+        public void SetDeathAnimation()
+        {
+            Animator.SetTrigger(Died);
+            _particleSystem.Play();
 
-        SoundPlayer.SetDeathSound();
-    }
+            _healthBar.gameObject.SetActive(false);
 
-    public void SetQuaterHPAnimation()
-    {
-        Animator.SetTrigger(QuaterHP);
-        _particleSystem.Play();
+            SoundPlayer.SetDeathSound();
+        }
 
-        SoundPlayer.SetDeathSound();
+        public void SetHalfHPAnimation()
+        {
+            Animator.SetTrigger(HalfHP);
+            _particleSystem.Play();
+
+            SoundPlayer.SetDeathSound();
+        }
+
+        public void SetQuaterHPAnimation()
+        {
+            Animator.SetTrigger(QuaterHP);
+            _particleSystem.Play();
+
+            SoundPlayer.SetDeathSound();
+        }
     }
 }

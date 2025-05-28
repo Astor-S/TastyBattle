@@ -12,8 +12,8 @@ namespace AttackSystem.AttackHandlers
 
         public override void Hit()
         {
-            base.Hit();
             ApplyFreeze();
+            base.Hit();
         }
 
         public void ApplyFreeze()
@@ -30,7 +30,8 @@ namespace AttackSystem.AttackHandlers
 
                         if (freezeHandler == null)
                         {
-                            ParticleSystem freezeParticleEffectInstance = PlayFreezeParticleEffect(AttackedTarget.transform);
+                            ParticleSystem freezeParticleEffectInstance =
+                                PlayFreezeParticleEffect(AttackedTarget.transform);
 
                             freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
                             freezeHandler.Initialize(
@@ -54,7 +55,9 @@ namespace AttackSystem.AttackHandlers
         {
             if (_freezeParticleEffectPrefab != null)
             {
-                ParticleSystem freezeParticleEffect = Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                ParticleSystem freezeParticleEffect =
+                    Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+
                 ParticleSystem.MainModule mainModule = freezeParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 freezeParticleEffect.Play();

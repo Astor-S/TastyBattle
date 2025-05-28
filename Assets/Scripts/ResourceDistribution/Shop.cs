@@ -1,17 +1,17 @@
-﻿using StructureElements;
-using System;
+﻿using System;
+using StructureElements;
 using Units;
-using UnityEngine;
+using Upgrades;
 
 namespace ResourceDistribution
 {
     public class Shop : Transformable, IActivatable, IUpdatable
     {
-        private UnitFactory _unitFactory;
-        private UnitOrderHandler[] _unitItems;
-        private UpgradeOrderHandler[] _upgradeItems;
-        private Wallet _wallet;
-        private UpgradesData _upgradeData;
+        private readonly UnitFactory _unitFactory;
+        private readonly UnitOrderHandler[] _unitItems;
+        private readonly UpgradeOrderHandler[] _upgradeItems;
+        private readonly Wallet _wallet;
+        private readonly UpgradesData _upgradeData;
 
         public Shop(
             UnitFactory unitFactory,
@@ -23,10 +23,10 @@ namespace ResourceDistribution
             _unitItems = unitItems;
             _upgradeItems = upgradeItems;
             _wallet = wallet;
-            
-            _upgradeData = _unitFactory.gameObject.layer == LayerMask.NameToLayer("Player") ?
-                Upgrades.Player :
-                Upgrades.Enemy;
+
+            _upgradeData = _unitFactory.gameObject.layer == LayersData.PlayerLayerNumber ?
+                UpgradesController.Player :
+                UpgradesController.Enemy;
         }
 
         public void Enable()
@@ -54,16 +54,20 @@ namespace ResourceDistribution
         public void Update(float deltaTime)
         {
             foreach (UnitOrderHandler item in _unitItems)
+            {
                 if (_wallet.ResourceCount < item.CurrentCost)
                     item.SetUnavailable();
                 else
                     item.SetAvailable();
+            }
 
             foreach (UpgradeOrderHandler item in _upgradeItems)
+            {
                 if (_wallet.ResourceCount < item.CurrentCost)
                     item.SetUnavailable();
                 else
                     item.SetAvailable();
+            }
         }
 
         private void SpawnUnit(Order order)
@@ -77,7 +81,7 @@ namespace ResourceDistribution
             }
             catch (InvalidOperationException exc)
             {
-                throw new InvalidOperationException(exc.Message + ": " + unit.Setup.BattleRole.ToString() + " " + unit.Setup.Faction.ToString());
+                throw new InvalidOperationException($"{exc.Message}: {unit.Setup.BattleRole} {unit.Setup.Faction}");
             }
         }
 
@@ -114,7 +118,7 @@ namespace ResourceDistribution
             }
             catch (InvalidOperationException exc)
             {
-                throw new InvalidOperationException(exc.Message + ": " + upgrade.Type.ToString() + " " + upgrade.Cost.ToString());
+                throw new InvalidOperationException($"{exc.Message}: {upgrade.Type} {upgrade.Cost}");
             }
         }
     }

@@ -2,14 +2,15 @@ using System;
 using UnityEngine;
 using AttackSystem.HealthBarSystem;
 using StructureElements;
+using AttackSystem;
 
 namespace Units
 {
     public class UnitView : View
     {
-        public readonly int IsWalking = Animator.StringToHash(nameof(IsWalking));
-        public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
-        public readonly int Die = Animator.StringToHash(nameof(Die));
+        private readonly int _isWalking = Animator.StringToHash(nameof(IsWalking));
+        private readonly int _isAttacking = Animator.StringToHash(nameof(IsAttacking));
+        private readonly int _die = Animator.StringToHash(nameof(Die));
 
         [SerializeField] private Animator _animator;
         [SerializeField] private HealthBar _healthBar;
@@ -17,7 +18,10 @@ namespace Units
 
         public event Action Decayed;
 
-        public new AttackerSoundPlayer SoundPlayer => _soundPlayer as AttackerSoundPlayer;
+        public int IsWalking => _isWalking;
+        public int IsAttacking => _isAttacking;
+        public int Die => _die;
+        public new AttackerSoundPlayer SoundPlayer => base.SoundPlayer as AttackerSoundPlayer;
         protected Animator Animator => _animator;
 
         protected override void OnValidate()

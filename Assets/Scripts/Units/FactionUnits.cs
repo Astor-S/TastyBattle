@@ -1,38 +1,40 @@
 using System.Collections.Generic;
-using Units;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FactionUnitsSetup", menuName = "Scriptable Objects/FactionUnitsSetup")]
-public class FactionUnits : ScriptableObject
+namespace Units
 {
-    [SerializeField] private UnitPresenter _meleeUnit = null;
-    [SerializeField] private UnitPresenter _rangeUnit = null;
-    [SerializeField] private UnitPresenter _tankUnit = null;
-    [SerializeField] private UnitPresenter _siegeUnit = null;
-
-    private Dictionary<BattleRole, UnitPresenter> _dictionary;
-
-    public IReadOnlyDictionary<BattleRole, UnitPresenter> Dictionary => _dictionary;
-
-    private void OnValidate()
+    [CreateAssetMenu(fileName = "FactionUnitsSetup", menuName = "Scriptable Objects/FactionUnitsSetup")]
+    public class FactionUnits : ScriptableObject
     {
-        _dictionary = new Dictionary<BattleRole, UnitPresenter>()
-        {
-            { BattleRole.Melee, _meleeUnit },
-            { BattleRole.Range, _rangeUnit },
-            { BattleRole.Tank, _tankUnit },
-            { BattleRole.Siege, _siegeUnit },
-        };
-    }
+        [SerializeField] private UnitPresenter _meleeUnit = null;
+        [SerializeField] private UnitPresenter _rangeUnit = null;
+        [SerializeField] private UnitPresenter _tankUnit = null;
+        [SerializeField] private UnitPresenter _siegeUnit = null;
 
-    private void Awake()
-    {
-        _dictionary = new Dictionary<BattleRole, UnitPresenter>()
+        private Dictionary<BattleRole, UnitPresenter> _dictionary;
+
+        public IReadOnlyDictionary<BattleRole, UnitPresenter> Dictionary => _dictionary;
+
+        private void OnValidate()
         {
-            { BattleRole.Melee, _meleeUnit },
-            { BattleRole.Range, _rangeUnit },
-            { BattleRole.Tank, _tankUnit },
-            { BattleRole.Siege, _siegeUnit },
-        };
+            _dictionary = new Dictionary<BattleRole, UnitPresenter>()
+            {
+                { BattleRole.Melee, _meleeUnit },
+                { BattleRole.Range, _rangeUnit },
+                { BattleRole.Tank, _tankUnit },
+                { BattleRole.Siege, _siegeUnit },
+            };
+        }
+
+        private void Awake()
+        {
+            _dictionary = new Dictionary<BattleRole, UnitPresenter>()
+            {
+                { BattleRole.Melee, _meleeUnit },
+                { BattleRole.Range, _rangeUnit },
+                { BattleRole.Tank, _tankUnit },
+                { BattleRole.Siege, _siegeUnit },
+            };
+        }
     }
 }

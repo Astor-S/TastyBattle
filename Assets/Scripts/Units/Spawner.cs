@@ -6,15 +6,13 @@ namespace Units
 {
     public class Spawner
     {
-        private float _spawnTimeBetweenUnits = 0.6f;
-        private float _defaultSpawnCooldown;
-        private int _spawnCount;
-        private UnitFactory _unitFactory;
-        private UnitSetup[] _unitSetups;
-        private bool _isGameRunning = true;
-        private WaitForSeconds _delay;
-
-        public event Action OnSpawn;
+        private readonly float _spawnTimeBetweenUnits = 0.6f;
+        private readonly float _defaultSpawnCooldown;
+        private readonly int _spawnCount;
+        private readonly UnitFactory _unitFactory;
+        private readonly UnitSetup[] _unitSetups;
+        private readonly bool _isGameRunning = true;
+        private readonly WaitForSeconds _delay;
 
         public Spawner(
             float defaultSpawnCooldown,
@@ -29,9 +27,11 @@ namespace Units
             _delay = new WaitForSeconds(_spawnTimeBetweenUnits);
         }
 
+        public event Action OnSpawn;
+
         public IEnumerator GetSpawningCoroutine()
         {
-            WaitForSeconds cooldownWaiting = new WaitForSeconds(_defaultSpawnCooldown);            
+            WaitForSeconds cooldownWaiting = new WaitForSeconds(_defaultSpawnCooldown);
 
             while (_isGameRunning)
             {

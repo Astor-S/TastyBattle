@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3383433738698394957}
   - component: {fileID: 374225308743124863}
-  - component: {fileID: 943640893790012015}
+  - component: {fileID: 7382399663710727604}
   m_Layer: 0
   m_Name: DetectionSystem
   m_TagString: Untagged
@@ -54,7 +54,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &943640893790012015
+--- !u!114 &7382399663710727604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,11 +63,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 537294560001720655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac676fed4311bf4982b206c9251c9c1, type: 3}
+  m_Script: {fileID: 11500000, guid: ae588d67bb54c6249bbe68e51ebfd899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 4215839093319598837}
-  _baseTransform: {fileID: 2008749951091427613}
+  _baseTransform: {fileID: 0}
   _collider: {fileID: 374225308743124863}
 --- !u!1 &2649527013377116831
 GameObject:
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97e90ca4d2561429ff1eb5f4535b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionSystem: {fileID: 943640893790012015}
+  _detectionSystem: {fileID: 7382399663710727604}
   _iceCreamAbilityHandler: {fileID: 7381261731820708693}
   _freezeParticleEffectPrefab: {fileID: 6270031026574745719, guid: 5dfa0173f146f004b84121533e57a1b9, type: 3}
 --- !u!1 &2747078291167304986
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackHandler: {fileID: 590194568216955865}
-  _detectionSystem: {fileID: 943640893790012015}
+  _detectionSystem: {fileID: 7382399663710727604}
   _damageTarget: {fileID: 4215839093319598837}
   _navMeshAgent: {fileID: 8644630139403176903}
   _faction: 4

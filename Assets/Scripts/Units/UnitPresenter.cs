@@ -5,31 +5,33 @@ using StructureElements;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
 using FactionalAbilities.Handlers.Effects;
+using Upgrades;
+using DetectionSystem;
 
 namespace Units
 {
     public class UnitPresenter : Presenter, IActivatable
     {
         private const string Player = nameof(Player);
+        private const float DefaultAttackSpeedMultiplier = 1f;
 
         [SerializeField] private AttackHandler _attackHandler;
-        [SerializeField] private DetectionSystem _detectionSystem;
+        [SerializeField] private DetectionController _detectionSystem;
         [SerializeField] private DamagableTarget _damageTarget;
         [SerializeField] private NavMeshAgent _navMeshAgent;
         [SerializeField] private Faction _faction;
         [SerializeField] private BattleRole _battleRole;
-        
+
         private float _defaultSpeed;
-        private float _defaultAttackSpeedMultiplier = 1f;
         private UpgradesData _upgradesData;
+        private Action<DamagableTarget> _dyingDelegate;
 
         public event Action<UnitPresenter> OnUnitDying;
         public event Action<UnitPresenter> Releasing;
-        private Action<DamagableTarget> DyingDelegate;
 
         public new Unit Model => base.Model as Unit;
         public new UnitView View => base.View as UnitView;
-        public DetectionSystem DetectionSystem => _detectionSystem;
+        public DetectionController DetectionSystem => _detectionSystem;
         public Faction Faction => _faction;
         public BattleRole BattleRole => _battleRole;
         protected AttackHandler AttackHandler => _attackHandler;
@@ -38,8 +40,8 @@ namespace Units
         private void Awake()
         {
             gameObject.layer = Model.OwnerMask;
-            _upgradesData = gameObject.layer == LayerMask.NameToLayer(Player) ? Upgrades.Player : Upgrades.Enemy;
-            DyingDelegate = (_) => OnDying();
+            _upgradesData = gameObject.layer == LayerMask.NameToLayer(Player) ? UpgradesController.Player : UpgradesController.Enemy;
+            _dyingDelegate = (_) => OnDying();
 
             _navMeshAgent.updateRotation = false;
             NavMesh.avoidancePredictionTime = 0.5f;
@@ -76,7 +78,7 @@ namespace Units
             _detectionSystem.enabled = true;
             _attackHandler.enabled = true;
 
-            _damageTarget.Dying += DyingDelegate;
+            _damageTarget.Dying += _dyingDelegate;
             _attackHandler.AttackStarted += View.SetAttackingAnimation;
             _attackHandler.AttackStopped += View.SetWalkingAnimation;
             View.Decayed += OnDecayed;
@@ -84,7 +86,7 @@ namespace Units
 
         public virtual void Disable()
         {
-            _damageTarget.Dying -= DyingDelegate;
+            _damageTarget.Dying -= _dyingDelegate;
             _attackHandler.AttackStarted -= View.SetAttackingAnimation;
             _attackHandler.AttackStopped -= View.SetWalkingAnimation;
             View.Decayed -= OnDecayed;
@@ -100,7 +102,7 @@ namespace Units
             _navMeshAgent.speed = _defaultSpeed;
 
         public void ResetAttackSpeedMultiplier() =>
-            _attackHandler.AttackSpeedMultiplier = _defaultAttackSpeedMultiplier;
+            _attackHandler.AttackSpeedMultiplier = DefaultAttackSpeedMultiplier;
 
         protected void OnDying()
         {
@@ -119,7 +121,7 @@ namespace Units
         {
             ResetAgentSpeed();
             ResetAttackSpeedMultiplier();
-            
+
             if (TryGetComponent<AcidHandler>(out var acidHandler))
                 Destroy(acidHandler);
 
