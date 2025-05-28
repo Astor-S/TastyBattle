@@ -44,9 +44,7 @@ namespace StructureElements
             Scaled?.Invoke();
         }
 
-        public void Destroy()
-        {
+        public void Destroy() =>
             Destroying?.Invoke();
-        }
     }
 }

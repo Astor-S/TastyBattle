@@ -1,4 +1,4 @@
-namespace StructureElements
+namespace StructureElements.Interfaces
 {
     public interface IUpdatable
     {

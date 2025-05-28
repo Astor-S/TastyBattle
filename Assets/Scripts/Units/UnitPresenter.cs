@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
-using StructureElements;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
 using FactionalAbilities.Handlers.Effects;
+using StructureElements;
+using StructureElements.Interfaces;
 
 namespace Units
 {

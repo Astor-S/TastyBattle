@@ -1,7 +1,8 @@
-﻿using StructureElements;
-using System;
-using Units;
+﻿using System;
 using UnityEngine;
+using StructureElements;
+using StructureElements.Interfaces;
+using Units;
 
 namespace ResourceDistribution
 {

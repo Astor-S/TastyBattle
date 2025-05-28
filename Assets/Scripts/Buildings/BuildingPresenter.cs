@@ -1,7 +1,8 @@
-using StructureElements;
 using System;
 using UnityEngine;
 using AttackSystem;
+using StructureElements;
+using StructureElements.Interfaces;
 
 public class BuildingPresenter : Presenter, IActivatable
 {
