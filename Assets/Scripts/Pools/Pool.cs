@@ -2,30 +2,33 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pool<T> where T : MonoBehaviour
+namespace Pools
 {
-    private readonly Stack<T> _objects = new();
-    private readonly Func<T> _createFunc;
-    private readonly Action<T> _resetAction;
-
-    public Pool(Func<T> createFunc, Action<T> resetAction = null)
+    public class Pool<T> where T : MonoBehaviour
     {
-        _createFunc = createFunc;
-        _resetAction = resetAction;
-    }
+        private readonly Stack<T> _objects = new();
+        private readonly Func<T> _createFunc;
+        private readonly Action<T> _resetAction;
 
-    public void Release(T @object)
-    {
-        _resetAction?.Invoke(@object);
-        _objects.Push(@object);
-    }
+        public Pool(Func<T> createFunc, Action<T> resetAction = null)
+        {
+            _createFunc = createFunc;
+            _resetAction = resetAction;
+        }
+
+        public void Release(T @object)
+        {
+            _resetAction?.Invoke(@object);
+            _objects.Push(@object);
+        }
 
 
-    public T GetObject()
-    {
-        if (_objects.Count == 0)
-           return _createFunc();
+        public T GetObject()
+        {
+            if (_objects.Count == 0)
+                return _createFunc();
 
-        return _objects.Pop();
+            return _objects.Pop();
+        }
     }
 }
