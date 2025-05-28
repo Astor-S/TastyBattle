@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
-using FactionalAbilities.Handlers.Effects;
+using FactionalAbilities.Handlers.Debuffs;
 using StructureElements;
 using StructureElements.Interfaces;
 

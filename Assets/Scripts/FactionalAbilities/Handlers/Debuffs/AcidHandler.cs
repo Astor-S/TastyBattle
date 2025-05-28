@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using AttackSystem;
 
-namespace FactionalAbilities.Handlers.Effects
+namespace FactionalAbilities.Handlers.Debuffs
 {
-    public class AcidHandler : MonoBehaviour
+    public class AcidHandler : DebuffHandler
     {
         private const float TickInterval = 1f;
 

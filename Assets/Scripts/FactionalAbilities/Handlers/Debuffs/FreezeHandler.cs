@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using Units;
 
-namespace FactionalAbilities.Handlers.Effects
+namespace FactionalAbilities.Handlers.Debuffs
 {
-    public class FreezeHandler : MonoBehaviour
+    public class FreezeHandler : DebuffHandler
     {
         private const float DamageMultiplierBase = 1f;
 
