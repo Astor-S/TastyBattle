@@ -37,7 +37,6 @@ namespace AttackSystem.RangedAttackHandlers
                             freezeHandler.Initialize(
                                 unitPresenter,
                                 _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
-                                _iceCreamAbilityHandler.IceCreamAbility.FreezeDuration,
                                 _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
                                 _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate,
                                 freezeParticleEffectInstance);

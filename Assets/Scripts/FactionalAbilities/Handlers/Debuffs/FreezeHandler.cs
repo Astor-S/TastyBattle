@@ -9,14 +9,11 @@ namespace FactionalAbilities.Handlers.Debuffs
         private const float DamageMultiplierBase = 1f;
 
         private UnitPresenter _unitPresenter;
-        private Coroutine _freezeCoroutine;
         private ParticleSystem _freezeParticleEffect;
 
         private float _totalSlowPercentage;
         private float _maxSlowPercentage;
-        private float _slowDuration;
         private float _defaultMovementSpeed;
-        private float _defaultAttackSpeed;
         private float _slowDecreaseRate;
 
         private bool _isFreezing = false;
@@ -27,12 +24,10 @@ namespace FactionalAbilities.Handlers.Debuffs
                 Destroy(_freezeParticleEffect.gameObject);
         }
 
-        public void Initialize(UnitPresenter unitPresenter, float slowPercentage, float slowDuration, float maxSlowPercentage, float slowDecreaseRate, ParticleSystem freezeParticleEffect)
+        public void Initialize(UnitPresenter unitPresenter, float slowPercentage, float maxSlowPercentage, float slowDecreaseRate, ParticleSystem freezeParticleEffect)
         {
             _unitPresenter = unitPresenter;
             _defaultMovementSpeed = unitPresenter.Model.Stats.MovementSpeed;
-            _defaultAttackSpeed = unitPresenter.Model.Stats.AttackSpeed;
-            _slowDuration = slowDuration;
             _maxSlowPercentage = maxSlowPercentage;
             _slowDecreaseRate = slowDecreaseRate;
             _freezeParticleEffect = freezeParticleEffect;
@@ -46,7 +41,7 @@ namespace FactionalAbilities.Handlers.Debuffs
             UpdateSlow();
  
             if (_isFreezing == false)
-                _freezeCoroutine = StartCoroutine(SlowDurationCoroutine());
+                StartCoroutine(SlowDurationCoroutine());
         }
 
         private void RemoveSlow(float slowPercentage)
