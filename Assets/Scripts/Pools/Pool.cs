@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Pool<T> where T : MonoBehaviour
 {
-    private Stack<T> _objects = new Stack<T>();
-
-    private Func<T> _createFunc;
-    private Action<T> _resetAction;
+    private readonly Stack<T> _objects = new();
+    private readonly Func<T> _createFunc;
+    private readonly Action<T> _resetAction;
 
     public Pool(Func<T> createFunc, Action<T> resetAction = null)
     {
@@ -17,9 +16,7 @@ public class Pool<T> where T : MonoBehaviour
 
     public void Release(T @object)
     {
-        if (_resetAction != null)
-            _resetAction(@object);
-
+        _resetAction?.Invoke(@object);
         _objects.Push(@object);
     }
 
