@@ -8,10 +8,9 @@ namespace Pools
         where P : Presenter
         where M : Transformable
     {
-        private Stack<P> _objects = new Stack<P>();
-
-        private Func<M, P> _createFunc;
-        private Action<P> _resetAction;
+        private readonly Stack<P> _objects = new();
+        private readonly Func<M, P> _createFunc;
+        private readonly Action<P> _resetAction;
 
         public MVPPool(Func<M, P> createFunc, Action<P> resetAction = null)
         {
@@ -21,12 +20,9 @@ namespace Pools
 
         public void Release(P @object)
         {
-            if (_resetAction != null)
-                _resetAction(@object);
-
+            _resetAction?.Invoke(@object);
             _objects.Push(@object);
         }
-
 
         public P GetObject(M model)
         {
