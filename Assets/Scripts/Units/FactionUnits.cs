@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using Units;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FactionUnitsSetup", menuName = "Scriptable Objects/FactionUnitsSetup")]
-public class FactionUnits : ScriptableObject
+namespace Units
 {
     [SerializeField] private UnitPresenter _meleeUnit = null;
     [SerializeField] private UnitPresenter _rangeUnit = null;
@@ -28,6 +26,6 @@ public class FactionUnits : ScriptableObject
             { BattleRole.Range, _rangeUnit },
             { BattleRole.Tank, _tankUnit },
             { BattleRole.Siege, _siegeUnit },
-        };
+        }
     }
 }

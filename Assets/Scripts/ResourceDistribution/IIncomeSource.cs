@@ -1,6 +1,9 @@
 using System;
 
-public interface IIncomeSource
+namespace ResourceDistribution
 {
-    event Action<int, IIncomeSource> ResourceRecieved;
+    public interface IIncomeSource
+    {
+        event Action<int, IIncomeSource> ResourceRecieved;
+    }
 }

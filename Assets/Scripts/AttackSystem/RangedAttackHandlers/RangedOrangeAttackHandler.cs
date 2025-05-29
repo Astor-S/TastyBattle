@@ -12,8 +12,8 @@ namespace AttackSystem.RangedAttackHandlers
 
         public override void Hit()
         {
-            base.Hit();
             ApplyDebuff();
+            base.Hit();
         }
 
         public void ApplyDebuff()
@@ -27,8 +27,13 @@ namespace AttackSystem.RangedAttackHandlers
                     if (acidHandler == null)
                     {
                         ParticleSystem acidParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
-                        acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>();
-                        acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration, acidParticleEffectInstance);
+                        
+                        acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>()
+                            .Initialize(
+                                AttackedTarget,
+                                _orangeAbilityHandler.OrangeAbility.DamagePerSecond,
+                                _orangeAbilityHandler.OrangeAbility.Duration,
+                                acidParticleEffectInstance);
                     }
                 }
             }
@@ -38,7 +43,9 @@ namespace AttackSystem.RangedAttackHandlers
         {
             if (_acidParticleEffectPrefab != null)
             {
-                ParticleSystem acidParticleEffect = Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                ParticleSystem acidParticleEffect =
+                    Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+
                 ParticleSystem.MainModule mainModule = acidParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 acidParticleEffect.Play();

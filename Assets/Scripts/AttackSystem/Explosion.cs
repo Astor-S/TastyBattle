@@ -5,7 +5,7 @@ namespace AttackSystem
     public class Explosion : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _explosionParticleEffect;
-        [SerializeField] private LayerMask _damageableLayers; 
+        [SerializeField] private LayerMask _damageableLayers;
         [SerializeField] private int _maxColliders = 10;
 
         private Collider[] _colliders;
@@ -19,11 +19,14 @@ namespace AttackSystem
         {
             PlayExplosionEffect();
 
-            int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, _colliders, _damageableLayers);
+            int numColliders =
+                Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, _colliders, _damageableLayers);
 
             for (int i = 0; i < numColliders; i++)
+            {
                 if (_colliders[i].TryGetComponent(out DamagableTarget target) && target.transform != transform)
-                    target.TakeDamage(explosionDamage);          
+                    target.TakeDamage(explosionDamage);
+            }
         }
 
         private void PlayExplosionEffect()
@@ -31,7 +34,9 @@ namespace AttackSystem
             if (_explosionParticleEffect == null)
                 return;
 
-            ParticleSystem explosionInstance = Instantiate(_explosionParticleEffect, transform.position, Quaternion.identity);
+            ParticleSystem explosionInstance =
+                Instantiate(_explosionParticleEffect, transform.position, Quaternion.identity);
+
             explosionInstance.Play();
 
             float duration = explosionInstance.main.duration;

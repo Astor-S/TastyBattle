@@ -1,13 +1,15 @@
 using UnityEngine;
 using AttackSystem;
 using AttackSystem.RangedAttackHandlers;
+using Units;
+using DetectionSystem;
 
 namespace Buildings
 {
     public class TowerPresenter : BuildingPresenter
     {
         [SerializeField] private RangedAttackHandler _attackHandler;
-        [SerializeField] private DetectionSystem _detectionSystem;
+        [SerializeField] private DetectionController _detectionSystem;
         [SerializeField] private DamagableTarget _enemyBase;
         [SerializeField] private AttackerAnimationEventHandler _attackerAnimation;
 

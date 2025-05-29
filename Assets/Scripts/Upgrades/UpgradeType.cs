@@ -1,8 +1,11 @@
-public enum UpgradeType
+namespace Upgrades
 {
-    UnitDamageIncrease,
-    UnitHealthIncrease,
-    UnitSpeedIncrease,
-    BuildingHealthIncrease,
-    IncomeIncrease,
+    public enum UpgradeType
+    {
+        UnitDamageIncrease,
+        UnitHealthIncrease,
+        UnitSpeedIncrease,
+        BuildingHealthIncrease,
+        IncomeIncrease,
+    }
 }

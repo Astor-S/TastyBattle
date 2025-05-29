@@ -13,8 +13,8 @@ namespace AttackSystem.RangedAttackHandlers
 
         public override void Hit()
         {
-            base.Hit();
             ApplyDebuff();
+            base.Hit();
         }
 
         public void ApplyDebuff()
@@ -31,15 +31,16 @@ namespace AttackSystem.RangedAttackHandlers
 
                         if (freezeHandler == null)
                         {
-                            ParticleSystem freezeParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
+                            ParticleSystem freezeParticleEffectInstance =
+                                PlayDebuffParticleEffect(AttackedTarget.transform);
                             
-                            freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
-                            freezeHandler.Initialize(
-                                unitPresenter,
-                                _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
-                                _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
-                                _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate,
-                                freezeParticleEffectInstance);
+                            AttackedTarget.gameObject.AddComponent<FreezeHandler>().
+                                Initialize(
+                                    unitPresenter,
+                                    _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
+                                    _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
+                                    _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate,
+                                    freezeParticleEffectInstance);
                         }
                         else
                         {
@@ -54,7 +55,9 @@ namespace AttackSystem.RangedAttackHandlers
         {
             if (_freezeParticleEffectPrefab != null)
             {
-                ParticleSystem freezeParticleEffect = Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                ParticleSystem freezeParticleEffect =
+                    Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+
                 ParticleSystem.MainModule mainModule = freezeParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 freezeParticleEffect.Play();

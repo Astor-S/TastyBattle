@@ -2,5 +2,5 @@ using AttackSystem.AttackHandlers;
 
 namespace AttackSystem.MeleeAttackers
 {
-    public class MeleeAttacker : AttackHandler { }
+    public class MeleeAttacker : AttackHandler {}
 }

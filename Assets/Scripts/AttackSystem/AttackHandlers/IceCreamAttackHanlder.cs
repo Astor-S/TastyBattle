@@ -6,15 +6,15 @@ using Units;
 
 namespace AttackSystem.AttackHandlers
 {
-    public class IceCreamAttackHanlder : AttackHandler, IDebuffAttacker,IDebuffEffector
+    public class IceCreamAttackHanlder : AttackHandler, IDebuffAttacker, IDebuffEffector
     {
         [SerializeField] private IceCreamAbilityHandler _iceCreamAbilityHandler;
         [SerializeField] private ParticleSystem _freezeParticleEffectPrefab;
 
         public override void Hit()
         {
-            base.Hit();
             ApplyDebuff();
+            base.Hit();
         }
 
         public void ApplyDebuff()
@@ -31,7 +31,8 @@ namespace AttackSystem.AttackHandlers
 
                         if (freezeHandler == null)
                         {
-                            ParticleSystem freezeParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
+                            ParticleSystem freezeParticleEffectInstance =
+                                PlayDebuffParticleEffect(AttackedTarget.transform);
 
                             freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
                             freezeHandler.Initialize(
@@ -54,7 +55,9 @@ namespace AttackSystem.AttackHandlers
         {
             if (_freezeParticleEffectPrefab != null)
             {
-                ParticleSystem freezeParticleEffect = Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                ParticleSystem freezeParticleEffect =
+                    Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+
                 ParticleSystem.MainModule mainModule = freezeParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 freezeParticleEffect.Play();

@@ -1,24 +1,28 @@
-﻿public abstract class Order
+﻿namespace ResourceDistribution
 {
-    private int _cost;
-    private float _costMultiplier;
-
-    public Order(int cost, float costMultiplier = 1.1f)
+    public abstract class Order
     {
-        _cost = cost;
-        _costMultiplier = costMultiplier;
-    }
+        private readonly float _costMultiplier;
 
-    public bool IsAvailable { get; private set; } = true;
-    public int Cost => _cost;
+        private int _cost;
 
-    public void IncreaseCost()
-    {
-        _cost = (int)(_cost * _costMultiplier);
-    }
+        public Order(int cost, float costMultiplier = 1.1f)
+        {
+            _cost = cost;
+            _costMultiplier = costMultiplier;
+        }
 
-    protected void SetUnavailable()
-    {
-        IsAvailable = false;
+        public bool IsAvailable { get; private set; } = true;
+        public int Cost => _cost;
+
+        public void IncreaseCost()
+        {
+            _cost = (int)(_cost * _costMultiplier);
+        }
+
+        protected void SetUnavailable()
+        {
+            IsAvailable = false;
+        }
     }
 }

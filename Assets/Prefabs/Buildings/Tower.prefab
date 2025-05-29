@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damagableTarget: {fileID: 950199767411787301}
   _attackHandler: {fileID: 739621251359655683}
-  _detectionSystem: {fileID: 7212480549341496934}
+  _detectionSystem: {fileID: 4829331196586589900}
   _enemyBase: {fileID: 0}
   _attackerAnimation: {fileID: 164196535810686006}
 --- !u!114 &3405598790078951359
@@ -220,7 +220,7 @@ MonoBehaviour:
   _soundPlayer: {fileID: 4574848310195840132}
   _healthBar: {fileID: 968246683830297345}
   _particleSystem: {fileID: 6712984016649427631}
-  Animator: {fileID: 6800714758958136244}
+  _animator: {fileID: 6800714758958136244}
   _attackerAnimationEventHandler: {fileID: 164196535810686006}
 --- !u!82 &7073708053389168822
 AudioSource:
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a506a003e942d49ac938e7bfa7dc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionSystem: {fileID: 7212480549341496934}
+  _detectionSystem: {fileID: 4829331196586589900}
   _projectilePrefab: {fileID: 7681980230429747940, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   _projectileSpawnPoint: {fileID: 2688982722085762161}
   _projectileSpeed: 10
@@ -610,7 +610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9151488087610789867}
   - component: {fileID: 7601569320283662624}
-  - component: {fileID: 7212480549341496934}
+  - component: {fileID: 4829331196586589900}
   m_Layer: 7
   m_Name: DetectionSystem
   m_TagString: Untagged
@@ -654,7 +654,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &7212480549341496934
+--- !u!114 &4829331196586589900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -663,11 +663,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7276461582285663318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac676fed4311bf4982b206c9251c9c1, type: 3}
+  m_Script: {fileID: 11500000, guid: ae588d67bb54c6249bbe68e51ebfd899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 950199767411787301}
-  _baseTransform: {fileID: 1741817573148271048}
+  _baseTransform: {fileID: 1743706927922645982}
   _collider: {fileID: 7601569320283662624}
 --- !u!1001 &2830354195920095297
 PrefabInstance:

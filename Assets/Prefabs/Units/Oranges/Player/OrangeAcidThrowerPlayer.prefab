@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackHandler: {fileID: 60799687561059639}
-  _detectionSystem: {fileID: 3795654921786018343}
+  _detectionSystem: {fileID: 5582217789434022960}
   _damageTarget: {fileID: 3400736679404414650}
   _navMeshAgent: {fileID: 23185588328258551}
   _faction: 2
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3250786780720877455}
   - component: {fileID: 9034876500496532654}
-  - component: {fileID: 3795654921786018343}
+  - component: {fileID: 5582217789434022960}
   m_Layer: 0
   m_Name: DetectionSystem
   m_TagString: Untagged
@@ -372,7 +372,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3795654921786018343
+--- !u!114 &5582217789434022960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4515222663098922915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac676fed4311bf4982b206c9251c9c1, type: 3}
+  m_Script: {fileID: 11500000, guid: ae588d67bb54c6249bbe68e51ebfd899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 3400736679404414650}
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6da5bbc6a71f4f98b7b30498c4c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionSystem: {fileID: 3795654921786018343}
+  _detectionSystem: {fileID: 5582217789434022960}
   _projectilePrefab: {fileID: 6232112112692908980, guid: e6f9533786485004dbd7502e38579e05, type: 3}
   _projectileSpawnPoint: {fileID: 3614639080646776434}
   _projectileSpeed: 10

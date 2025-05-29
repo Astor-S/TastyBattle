@@ -10,7 +10,8 @@ namespace Units
 
         public new WatermellonSiege Model => base.Model as WatermellonSiege;
         public new WatermellonSiegeView View => base.View as WatermellonSiegeView;
-        protected new WatermellonSiegeAttackHandler AttackHandler => base.AttackHandler as WatermellonSiegeAttackHandler;
+        protected new WatermellonSiegeAttackHandler AttackHandler =>
+            base.AttackHandler as WatermellonSiegeAttackHandler;
 
         protected override void FixedUpdate()
         {

@@ -6,15 +6,6 @@ namespace Units
 {
     public class Unit : Transformable
     {
-        private const string Enemy = nameof(Enemy);
-        private const string Player = nameof(Player);
-
-        public Faction Faction { get; }
-        public BattleRole BattleRole { get; }
-        public UnitSetup Stats { get; }
-        public DamagableTarget EnemyBase { get; }
-        public LayerMask OwnerMask { get; }
-
         public Unit(UnitSetup setup, DamagableTarget enemyBase)
         {
             Stats = setup;
@@ -22,10 +13,16 @@ namespace Units
             BattleRole = setup.BattleRole;
             EnemyBase = enemyBase;
 
-            if (LayerMask.LayerToName(EnemyBase.gameObject.layer) == Player)
-                OwnerMask = LayerMask.NameToLayer(Enemy);
+            if (EnemyBase.gameObject.layer == LayersData.PlayerLayerNumber)
+                OwnerMask = LayersData.EnemyLayerNumber;
             else
-                OwnerMask = LayerMask.NameToLayer(Player);
+                OwnerMask = LayersData.PlayerLayerNumber;
         }
+
+        public Faction Faction { get; }
+        public BattleRole BattleRole { get; }
+        public UnitSetup Stats { get; }
+        public DamagableTarget EnemyBase { get; }
+        public LayerMask OwnerMask { get; }
     }
 }

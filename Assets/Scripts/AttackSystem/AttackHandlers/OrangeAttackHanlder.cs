@@ -27,8 +27,13 @@ namespace AttackSystem.AttackHandlers
                     if (acidHandler == null)
                     {
                         ParticleSystem acidParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
-                        acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>();
-                        acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration, acidParticleEffectInstance);
+                        
+                        AttackedTarget.gameObject.AddComponent<AcidHandler>()
+                            .Initialize(
+                                AttackedTarget,
+                                _orangeAbilityHandler.OrangeAbility.DamagePerSecond,
+                                _orangeAbilityHandler.OrangeAbility.Duration,
+                                acidParticleEffectInstance);
                     }
                 }
             }
@@ -38,15 +43,17 @@ namespace AttackSystem.AttackHandlers
         {
             if (_acidParticleEffectPrefab != null)
             {
-                ParticleSystem acidParticleEffect = Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                ParticleSystem acidParticleEffect =
+                    Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+
                 ParticleSystem.MainModule mainModule = acidParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
                 acidParticleEffect.Play();
 
-                return acidParticleEffect; 
+                return acidParticleEffect;
             }
 
-            return null; 
+            return null;
         }
     }
 }

@@ -6,8 +6,9 @@ namespace ResourceDistribution
 {
     public class Wallet : IActivatable
     {
-        private int _resourceCount;
         private readonly IIncomeSource _mine;
+        private int _resourceCount;
+
 
         public Wallet(int startResourceCount, IIncomeSource mine)
         {

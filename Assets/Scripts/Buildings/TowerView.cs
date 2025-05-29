@@ -1,23 +1,29 @@
 using Audio;
+using AttackSystem;
 using UnityEngine;
 
-public class TowerView : BuildingView
+namespace Buildings
 {
-    public readonly int IsAttacking = Animator.StringToHash(nameof(IsAttacking));
+    public class TowerView : BuildingView
+    {
+        private readonly int _isAttacking = Animator.StringToHash(nameof(IsAttacking));
 
-    [SerializeField] private AttackerAnimationEventHandler _attackerAnimationEventHandler;
+        [SerializeField] private AttackerAnimationEventHandler _attackerAnimationEventHandler;
 
-    public new AttackerSoundPlayer SoundPlayer => _soundPlayer as AttackerSoundPlayer;
+        public int IsAttacking => _isAttacking;
 
-    private void OnEnable() => 
-        _attackerAnimationEventHandler.AttackingStarted += this.SoundPlayer.SetAttackingSound;
+        public new AttackerSoundPlayer SoundPlayer => base.SoundPlayer as AttackerSoundPlayer;
 
-    private void OnDisable() => 
-        _attackerAnimationEventHandler.AttackingStarted -= this.SoundPlayer.SetAttackingSound;
+        private void OnEnable() =>
+            _attackerAnimationEventHandler.AttackingStarted += SoundPlayer.SetAttackingSound;
 
-    public void SetAttackingAnimation() => 
-        Animator.SetBool(IsAttacking, true);
+        private void OnDisable() =>
+            _attackerAnimationEventHandler.AttackingStarted -= SoundPlayer.SetAttackingSound;
 
-    public void StopAttackingAnimation() => 
-        Animator.SetBool(IsAttacking, false);
+        public void SetAttackingAnimation() =>
+            Animator.SetBool(IsAttacking, true);
+
+        public void StopAttackingAnimation() =>
+            Animator.SetBool(IsAttacking, false);
+    }
 }

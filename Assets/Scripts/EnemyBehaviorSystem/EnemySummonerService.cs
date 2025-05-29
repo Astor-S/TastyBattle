@@ -1,5 +1,6 @@
 using UnityEngine;
 using Units;
+using ResourceDistribution;
 
 namespace EnemyBehaviorSystem
 {
@@ -18,7 +19,7 @@ namespace EnemyBehaviorSystem
             int minRange = 0;
             int maxRange = System.Enum.GetValues(typeof(BattleRole)).Length;
 
-            BattleRole randomBattleRole = (BattleRole)Random.Range(minRange,maxRange);
+            BattleRole randomBattleRole = (BattleRole)Random.Range(minRange, maxRange);
 
             switch (randomBattleRole)
             {
