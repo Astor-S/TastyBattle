@@ -3,29 +3,33 @@ using UnityEngine;
 
 namespace Units
 {
-    [SerializeField] private UnitPresenter _meleeUnit = null;
-    [SerializeField] private UnitPresenter _rangeUnit = null;
-    [SerializeField] private UnitPresenter _tankUnit = null;
-    [SerializeField] private UnitPresenter _siegeUnit = null;
-
-    private Dictionary<BattleRole, UnitPresenter> _dictionary;
-
-    public IReadOnlyDictionary<BattleRole, UnitPresenter> Dictionary => _dictionary;
-
-    private void Awake() =>
-        Init();
-
-    private void OnValidate() =>
-        Init();
-
-    private void Init()
+    [CreateAssetMenu(fileName = "FactionUnitsSetup", menuName = "ScriptableObjects/FactionUnitsSetup")]
+    public class FactionUnits : ScriptableObject
     {
-        _dictionary = new Dictionary<BattleRole, UnitPresenter>()
+        [SerializeField] private UnitPresenter _meleeUnit = null;
+        [SerializeField] private UnitPresenter _rangeUnit = null;
+        [SerializeField] private UnitPresenter _tankUnit = null;
+        [SerializeField] private UnitPresenter _siegeUnit = null;
+
+        private Dictionary<BattleRole, UnitPresenter> _dictionary;
+
+        public IReadOnlyDictionary<BattleRole, UnitPresenter> Dictionary => _dictionary;
+
+        private void Awake() =>
+            Init();
+
+        private void OnValidate() =>
+            Init();
+
+        private void Init()
         {
-            { BattleRole.Melee, _meleeUnit },
-            { BattleRole.Range, _rangeUnit },
-            { BattleRole.Tank, _tankUnit },
-            { BattleRole.Siege, _siegeUnit },
+            _dictionary = new Dictionary<BattleRole, UnitPresenter>()
+            {
+                { BattleRole.Melee, _meleeUnit },
+                { BattleRole.Range, _rangeUnit },
+                { BattleRole.Tank, _tankUnit },
+                { BattleRole.Siege, _siegeUnit },
+            };
         }
     }
 }

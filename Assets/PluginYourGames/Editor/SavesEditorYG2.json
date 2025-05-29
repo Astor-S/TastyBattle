@@ -1,6 +1,12 @@
 {
-    "stringKeys": [],
-    "stringValues": [],
+    "stringKeys": [
+        "equipped",
+        "available"
+    ],
+    "stringValues": [
+        "3",
+        "01234"
+    ],
     "floatKeys": [],
     "floatValues": [],
     "intKeys": [],
@@ -13,16 +19,36 @@
         false,
         false
     ],
-    "idSave": 49,
+    "idSave": 72,
     "musicVolume": 0.4000000059604645,
     "soundVolume": 0.4000000059604645,
     "isMusicOn": false,
     "isSoundOn": false,
     "score": 0,
-    "balanceMoney": 0,
-    "isFirstLaunch": true,
-    "equippedPacks": [],
-    "availablePacks": [],
+    "balanceMoney": 200,
+    "isFirstLaunch": false,
+    "equippedPacks": [
+        {
+            "instanceID": 41904
+        }
+    ],
+    "availablePacks": [
+        {
+            "instanceID": 39998
+        },
+        {
+            "instanceID": 42194
+        },
+        {
+            "instanceID": 41378
+        },
+        {
+            "instanceID": 41904
+        },
+        {
+            "instanceID": 41108
+        }
+    ],
     "openedLevels": [
         0,
         5,

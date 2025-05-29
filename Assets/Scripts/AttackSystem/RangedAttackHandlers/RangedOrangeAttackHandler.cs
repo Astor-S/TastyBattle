@@ -28,7 +28,7 @@ namespace AttackSystem.RangedAttackHandlers
                     {
                         ParticleSystem acidParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
                         
-                        acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>()
+                        AttackedTarget.gameObject.AddComponent<AcidHandler>()
                             .Initialize(
                                 AttackedTarget,
                                 _orangeAbilityHandler.OrangeAbility.DamagePerSecond,

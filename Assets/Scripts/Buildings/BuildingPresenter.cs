@@ -2,7 +2,6 @@ using System;
 using StructureElements;
 using UnityEngine;
 using AttackSystem;
-using StructureElements;
 using StructureElements.Interfaces;
 using Upgrades;
 using Units;
