@@ -72,12 +72,12 @@ namespace PackShopService
         }
 
         public void CheckEquipment() =>
-            IsEquipped?.Invoke(_equippedSkinPacks.Contains(_currentSkin));        
+            IsEquipped?.Invoke(_equippedSkinPacks.Contains(_currentSkin));
 
         public void Equip()
         {
             if (_availableSkinPacks.Contains(_currentSkin) && _equippedSkinPacks.Contains(_currentSkin) == false)
-                SetMaterials(_currentSkin);
+                IsSetMaterials(_currentSkin);
 
             Change();
         }
@@ -88,7 +88,8 @@ namespace PackShopService
         public void EquipAllEquippedSkins()
         {
             foreach (SkinPack skin in _equippedSkinPacks)
-                SetMaterials(skin);
+                if (IsSetMaterials(skin))
+                    break;
         }
 
         private void CheckId(string equipped, string available)
@@ -124,9 +125,9 @@ namespace PackShopService
                     break;
                 }
             }
-        }        
+        }
 
-        private void SetMaterials(SkinPack skin, int index = default)
+        private bool IsSetMaterials(SkinPack skin, int index = default)
         {
             foreach (FactionUnits factionUnit in _factionUnits)
             {
@@ -145,9 +146,11 @@ namespace PackShopService
 
                     _equippedSkinPacks.Add(skin);
 
-                    break;
+                    return true;
                 }
             }
-        }        
+
+            return false;
+        }
     }
 }

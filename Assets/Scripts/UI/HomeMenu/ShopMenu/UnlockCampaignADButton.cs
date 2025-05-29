@@ -1,6 +1,7 @@
-using GameService;
-using UI.HomeMenu.CampaignMenu;
 using UnityEngine;
+using GameService;
+using SDKProperties;
+using UI.HomeMenu.CampaignMenu;
 using YG;
 
 namespace UI.HomeMenu.ShopMenu

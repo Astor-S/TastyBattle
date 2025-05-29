@@ -1,9 +1,9 @@
-﻿using GameService;
-using System;
-using TMPro;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using SDKProperties;
+using TMPro;
 using YG;
 
 namespace PackShopService

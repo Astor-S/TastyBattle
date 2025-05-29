@@ -1,6 +1,6 @@
 using UnityEngine;
 using YG;
-using GameService;
+using SDKProperties;
 
 namespace UI.HomeMenu.ShopMenu
 {

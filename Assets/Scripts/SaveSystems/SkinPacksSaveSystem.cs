@@ -21,6 +21,11 @@ namespace SaveSystems
 
         public override void Load()
         {
+            if (YG2.saves.equippedPacks.Count == 0 && YG2.saves.availablePacks.Count == 0)
+                _packShop.SetDefault();
+            else
+                _packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
+
             for (int i = 0; i < _packShop.DefaultSkins.Count; i++)
             {
                 if (YG2.saves.availablePacks.Contains(_packShop.DefaultSkins[i]) == false)
@@ -28,12 +33,7 @@ namespace SaveSystems
 
                 if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) && YG2.saves.equippedPacks.Contains(_packShop.OtherSkins[i]))
                     YG2.saves.equippedPacks.Remove(_packShop.OtherSkins[i]);
-            }
-
-            if (YG2.saves.equippedPacks.Count == 0 && YG2.saves.availablePacks.Count == 0)
-                _packShop.SetDefault();
-            else
-                _packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
+            }            
 
             Save();
         }

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using YG;
 
-namespace GameService
+namespace SDKProperties
 {
     public class RewardAdService : MonoBehaviour
     {

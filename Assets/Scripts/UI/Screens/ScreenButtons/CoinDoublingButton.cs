@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using GameService;
+using SDKProperties;
 
 namespace UI.Screens.ScreenButtons
 {
