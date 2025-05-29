@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30695185, g: 0.3990923, b: 0.5896406, a: 1}
+  m_IndirectSpecularColor: {r: 0.30695182, g: 0.39909226, b: 0.5896406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13636,6 +13636,10 @@ PrefabInstance:
       value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 836955436443779703, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: _buttonSoundData
+      value: 
+      objectReference: {fileID: 1257363000}
+    - target: {fileID: 988401407719419453, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}

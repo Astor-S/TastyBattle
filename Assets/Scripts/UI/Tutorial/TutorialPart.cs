@@ -32,8 +32,13 @@ namespace UI.Tutorial
             _textFields.Clear();
 
             if (_textFields.Count == 0)
+            {
                 foreach (TextTranslation text in _textTranslation)
+                {
+                    text.Init();
                     _textFields.Add(text.Dictionary[YG2.lang]);
+                }
+            }
         }
     }
 }

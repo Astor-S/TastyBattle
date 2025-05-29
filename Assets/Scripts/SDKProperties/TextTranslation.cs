@@ -12,7 +12,7 @@ public class TextTranslation : ScriptableObject
     [SerializeField] private string _enText;
     [SerializeField] private string _trText;
 
-    private Dictionary<string, string> _dictionary = new Dictionary<string, string>();
+    private Dictionary<string, string> _dictionary;
 
     public string RuText => _ruText;
     public string EnText => _enText;
@@ -25,8 +25,10 @@ public class TextTranslation : ScriptableObject
     private void Awake() =>
         Init();
 
-    private void Init()
+    public void Init()
     {
+        _dictionary = new Dictionary<string, string>();
+
         if (_dictionary.Count == 0)
         {
             _dictionary.Add(Russian, _ruText);
