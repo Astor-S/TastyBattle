@@ -1,6 +1,4 @@
 namespace AttackSystem.RangedAttackHandlers
 {
-    public class RangedWatermelonAttackHandler : ReinforcedRangedAttackHandler
-    {
-    }
+    public class RangedWatermelonAttackHandler : ReinforcedRangedAttackHandler {}
 }

@@ -5,7 +5,7 @@ using Units;
 
 namespace AttackSystem.AttackHandlers
 {
-    public class IceCreamAttackHanlder : AttackHandler, IIceCreamAttacker,IFreezeEffector
+    public class IceCreamAttackHanlder : AttackHandler, IIceCreamAttacker, IFreezeEffector
     {
         [SerializeField] private IceCreamAbilityHandler _iceCreamAbilityHandler;
         [SerializeField] private ParticleSystem _freezeParticleEffectPrefab;
