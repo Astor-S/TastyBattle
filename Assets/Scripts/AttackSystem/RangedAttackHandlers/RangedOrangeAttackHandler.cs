@@ -41,10 +41,17 @@ namespace AttackSystem.RangedAttackHandlers
 
         public ParticleSystem PlayDebuffParticleEffect(Transform target)
         {
+            float quaternionX = -90f;
+            float quaternionY = 0f;
+            float quaternionZ = 0f;
+
             if (_acidParticleEffectPrefab != null)
             {
                 ParticleSystem acidParticleEffect =
-                    Instantiate(_acidParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                    Instantiate(
+                        _acidParticleEffectPrefab,
+                        target.position,
+                        Quaternion.Euler(quaternionX, quaternionY, quaternionZ), target);
 
                 ParticleSystem.MainModule mainModule = acidParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;
