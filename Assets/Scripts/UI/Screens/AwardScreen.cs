@@ -5,10 +5,8 @@ namespace UI.Screens
 {
     public class AwardScreen : MonoBehaviour
     {
-        private void Start()
-        {
+        private void Start() =>
             gameObject.SetActive(false);
-        }
 
         public void GiveReward()
         {

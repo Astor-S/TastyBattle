@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fd51b6ba2d0c4649a254d792db5c2a0, type: 3}
   m_Name: Part2
@@ -16,10 +16,8 @@ MonoBehaviour:
   - "\u042D\u0442\u043E \u0432\u0430\u0448\u0430 \u0431\u0430\u0437\u0430. \u041E\u0442\u0441\u044E\u0434\u0430
     \u043C\u044B \u0438 \u0431\u0443\u0434\u0435\u043C \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u044F\u0442\u044C
     \u0432\u043E\u0439\u0441\u043A\u0430!"
-  _engTextFields:
-  - This is your base. From here we will send troops!
-  _trTextFields:
-  - "Buras\u0131 sizin \xFCss\xFCn\xFCz. Buradan asker g\xF6nderece\u011Fiz!"
+  _textTranslation:
+  - {fileID: 11400000, guid: 14eff481598c30a4d9d92e7675a32267, type: 2}
   _cameraPositionX: -15
   _speakerPositionX: 575
   _cursorPosition: {x: -727, y: 200, z: 0}

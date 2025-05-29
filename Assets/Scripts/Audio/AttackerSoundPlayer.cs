@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class AttackerSoundPlayer : DamagableSoundPlayer
+namespace Audio
 {
-    [SerializeField] private AttackerAnimationEventHandler _attackerAnimation;
+    public class AttackerSoundPlayer : DamagableSoundPlayer
+    {
+        [SerializeField] private AttackerAnimationEventHandler _attackerAnimation;
 
-    public AttackerSoundPack AttackerSoundPack => _soundPack as AttackerSoundPack;
+        public AttackerSoundPack AttackerSoundPack => _soundPack as AttackerSoundPack;
 
-    public void SetAttackingSound() =>
-        PlaySound(AttackerSoundPack.AttackingSound, false);
+        public void SetAttackingSound() =>
+            PlaySound(AttackerSoundPack.AttackingSound, false);
+    }
 }

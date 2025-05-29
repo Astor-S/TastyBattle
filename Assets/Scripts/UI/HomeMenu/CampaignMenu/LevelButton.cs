@@ -15,10 +15,9 @@ namespace UI.HomeMenu.CampaignMenu
 
         private int _currentLevelIndex;
 
-        public int ButtonIndex => _buttonIndex;
-
         public event Action<LevelButton> Selected;
 
+        public int ButtonIndex => _buttonIndex;
         public IReadOnlyList<LevelCell> LevelCells => _levelCells;
 
         private void Awake() => 

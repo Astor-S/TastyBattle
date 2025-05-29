@@ -3,64 +3,66 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using YG;
 
-public class Instruction : MonoBehaviour
+namespace UI.Tutorial
 {
-    [SerializeField] private float _textSpeed = 1f;
-    [SerializeField] private TextMeshProUGUI _text;
-
-    private TutorialPart _currentPart;
-    private WaitForSeconds _step;
-    private List<string> _textFields = new();
-    private int _index;
-    private bool _isTyping;
-
-    public event Action MessagesOut;
-
-    private void OnEnable() =>
-        _step = new WaitForSeconds(_textSpeed * Time.fixedDeltaTime);
-
-    private void Update()
+    public class Instruction : MonoBehaviour
     {
-        if (Input.GetMouseButtonUp(0) && _isTyping == false)
+        [SerializeField] private float _textSpeed = 1f;
+        [SerializeField] private TextMeshProUGUI _text;
+
+        private TutorialPart _currentPart;
+        private WaitForSeconds _step;
+        private List<string> _textFields = new ();
+        private int _index;
+        private bool _isTyping;
+
+        public event Action MessagesOut;
+
+        private void OnEnable() =>
+            _step = new WaitForSeconds(_textSpeed * Time.fixedDeltaTime);
+
+        private void Update()
         {
-            _text.text = string.Empty;
+            if (Input.GetMouseButtonUp(0) && _isTyping == false)
+            {
+                _text.text = string.Empty;
+
+                StartCoroutine(TypeMessage());
+            }
+        }
+
+        public void SetTutorialPart(TutorialPart tutorialPart)
+        {
+            _currentPart = tutorialPart;
+            _index = 0;
 
             StartCoroutine(TypeMessage());
         }
-    }
 
-    public void SetTutorialPart(TutorialPart tutorialPart)
-    {
-        _currentPart = tutorialPart;
-        _index = 0;
-
-        StartCoroutine(TypeMessage());
-    }
-
-    public IEnumerator TypeMessage()
-    {
-        _textFields = _currentPart.LanguageTextTutorials[YG2.lang];
-
-        if (_index < _textFields.Count)
+        public IEnumerator TypeMessage()
         {
-            _isTyping = true;
+            _textFields = _currentPart.TextFields;
 
-            foreach (char character in _textFields[_index].ToCharArray())
+            if (_index < _textFields.Count)
             {
-                _text.text += character;
+                _isTyping = true;
 
-                yield return _step;
+                foreach (char character in _textFields[_index].ToCharArray())
+                {
+                    _text.text += character;
+
+                    yield return _step;
+                }
+
+                _isTyping = false;
+
+                _index++;
             }
-
-            _isTyping = false;
-
-            _index++;
-        }
-        else
-        {
-            MessagesOut?.Invoke();
+            else
+            {
+                MessagesOut?.Invoke();
+            }
         }
     }
 }

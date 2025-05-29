@@ -14,18 +14,13 @@ public class FactionUnits : ScriptableObject
 
     public IReadOnlyDictionary<BattleRole, UnitPresenter> Dictionary => _dictionary;
 
-    private void OnValidate()
-    {
-        _dictionary = new Dictionary<BattleRole, UnitPresenter>()
-        {
-            { BattleRole.Melee, _meleeUnit },
-            { BattleRole.Range, _rangeUnit },
-            { BattleRole.Tank, _tankUnit },
-            { BattleRole.Siege, _siegeUnit },
-        };
-    }
+    private void Awake() =>
+        Init();
 
-    private void Awake()
+    private void OnValidate() =>
+        Init();
+
+    private void Init()
     {
         _dictionary = new Dictionary<BattleRole, UnitPresenter>()
         {

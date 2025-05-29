@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7072380767342201139, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
   m_PrefabInstance: {fileID: 517936117057116585}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1846337803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b28197f534df1864d91aa8ee4a213a5e, type: 3}
@@ -6203,7 +6203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a5d4742b52f954b971cb33d7336222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _adCondition: {fileID: 11400000, guid: 2c4e158d70e56de4abd2c9111b6d4d53, type: 2}
+  _priceCondition: {fileID: 11400000, guid: 56002a6e29b5dc246a41cf55b378cd54, type: 2}
+  _levelPassCondition: {fileID: 11400000, guid: 9b504af0400b00443874df89bb948362, type: 2}
   _button: {fileID: 1452447582}
+  _factionSkinsHandler: {fileID: 1236108313}
   _description: {fileID: 671225894}
   _packShop: {fileID: 1052330012}
   _rewardAdService: {fileID: 1111281922}
@@ -7332,6 +7336,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
+--- !u!114 &1236108313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846337803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17d82be14c33bf4e881a495900e35cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _packShop: {fileID: 1052330012}
 --- !u!1001 &1237491120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11576,6 +11593,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5186735023777053022, guid: ac8efb728f1fb9b4092c4df591c827ca, type: 3}
   m_PrefabInstance: {fileID: 235175014}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1846337803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6145281465268208653, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+  m_PrefabInstance: {fileID: 517936117057116585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1858987254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13709,6 +13731,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2301356670405737344, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: _sceneToLoad
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301356670405737344, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: _tutorialScene
+      value: Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 2377214537058790496, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -13753,6 +13783,14 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 2484227691624259962, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Audio.AudioSettings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484227691624259962, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Audio.AudioSetup, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2857746139574504604, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_SizeDelta.x
       value: -600
@@ -13764,7 +13802,15 @@ PrefabInstance:
     - target: {fileID: 2884954945168946545, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1052330012}
+      objectReference: {fileID: 1236108313}
+    - target: {fileID: 2884954945168946545, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwipeFaction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884954945168946545, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PackShopService.FactionSkinsHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2928458005074699553, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -13780,7 +13826,15 @@ PrefabInstance:
     - target: {fileID: 3511325772722469329, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1052330012}
+      objectReference: {fileID: 1236108313}
+    - target: {fileID: 3511325772722469329, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwipePacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511325772722469329, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PackShopService.FactionSkinsHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3519636312194253254, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13841,6 +13895,14 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 4323637638814943830, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Audio.AudioSettings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323637638814943830, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Audio.AudioSetup, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4371623812401303267, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 5
@@ -13905,6 +13967,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4509848133709438170, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Audio.AudioSettings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509848133709438170, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Audio.AudioSetup, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4547521371363905081, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_Camera
       value: 
@@ -13920,7 +13990,23 @@ PrefabInstance:
     - target: {fileID: 4730319202749741768, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1052330012}
+      objectReference: {fileID: 1236108313}
+    - target: {fileID: 4730319202749741768, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwipePacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730319202749741768, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PackShopService.FactionSkinsHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755223186757503056, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Audio.AudioSettings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755223186757503056, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Audio.AudioSetup, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4885296725138928890, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -13999,7 +14085,7 @@ PrefabInstance:
       objectReference: {fileID: 1257363000}
     - target: {fileID: 5691787996230689636, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5691787996230689636, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -14020,7 +14106,7 @@ PrefabInstance:
     - target: {fileID: 5691787996230689636, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1052330012}
+      objectReference: {fileID: 1236108313}
     - target: {fileID: 5691787996230689636, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
@@ -14039,7 +14125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5691787996230689636, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: PackShop, Assembly-CSharp
+      value: PackShopService.FactionSkinsHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5691787996230689636, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
@@ -14108,7 +14194,15 @@ PrefabInstance:
     - target: {fileID: 6486223081048940950, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1052330012}
+      objectReference: {fileID: 1236108313}
+    - target: {fileID: 6486223081048940950, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwipeFaction
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486223081048940950, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PackShopService.FactionSkinsHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6876419671433962492, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -14237,6 +14331,10 @@ PrefabInstance:
       propertyPath: _packShop
       value: 
       objectReference: {fileID: 1052330012}
+    - target: {fileID: 9047941551957211957, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: _factionSkinsHandler
+      value: 
+      objectReference: {fileID: 1236108313}
     - target: {fileID: 9206005848139025100, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -14250,6 +14348,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 864473929400333021, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       insertIndex: -1
       addedObject: {fileID: 517936117057116592}
+    - targetCorrespondingSourceObject: {fileID: 6145281465268208653, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1236108313}
   m_SourcePrefab: {fileID: 100100000, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
 --- !u!224 &517936117057116586 stripped
 RectTransform:

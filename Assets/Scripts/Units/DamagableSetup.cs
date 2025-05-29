@@ -9,7 +9,7 @@ public class DamagableSetup : ScriptableObject
     public const int MaxHPValue = 1000;
 
     [SerializeField] private BattleRole _battleRole;
-    [SerializeField, Range(MinValue, MaxHPValue)] private float _maxHealthPoints;
+    [SerializeField][Range(MinValue, MaxHPValue)] private float _maxHealthPoints;
     [SerializeField] private int _reward;
 
     public BattleRole BattleRole => _battleRole;
@@ -22,6 +22,6 @@ public class DamagableSetup : ScriptableObject
     private void Awake() =>
         Initialize();
 
-    protected virtual void Initialize() => 
+    protected virtual void Initialize() =>
         MaxHealthPoints = _maxHealthPoints;
 }
