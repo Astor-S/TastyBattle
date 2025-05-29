@@ -1,11 +1,12 @@
 using UnityEngine;
 using AttackSystem.Interfaces;
-using FactionalAbilities.Handlers.Effects;
+using FactionalAbilities.Handlers;
+using FactionalAbilities.Handlers.Debuffs;
 using Units;
 
 namespace AttackSystem.AttackHandlers
 {
-    public class IceCreamAttackHanlder : AttackHandler, IIceCreamAttacker,IFreezeEffector
+    public class IceCreamAttackHanlder : AttackHandler, IDebuffAttacker,IDebuffEffector
     {
         [SerializeField] private IceCreamAbilityHandler _iceCreamAbilityHandler;
         [SerializeField] private ParticleSystem _freezeParticleEffectPrefab;
@@ -13,10 +14,10 @@ namespace AttackSystem.AttackHandlers
         public override void Hit()
         {
             base.Hit();
-            ApplyFreeze();
+            ApplyDebuff();
         }
 
-        public void ApplyFreeze()
+        public void ApplyDebuff()
         {
             if (_iceCreamAbilityHandler != null)
             {
@@ -30,13 +31,12 @@ namespace AttackSystem.AttackHandlers
 
                         if (freezeHandler == null)
                         {
-                            ParticleSystem freezeParticleEffectInstance = PlayFreezeParticleEffect(AttackedTarget.transform);
+                            ParticleSystem freezeParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
 
                             freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
                             freezeHandler.Initialize(
                                 unitPresenter,
                                 _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
-                                _iceCreamAbilityHandler.IceCreamAbility.FreezeDuration,
                                 _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
                                 _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate,
                                 freezeParticleEffectInstance);
@@ -50,7 +50,7 @@ namespace AttackSystem.AttackHandlers
             }
         }
 
-        public ParticleSystem PlayFreezeParticleEffect(Transform target)
+        public ParticleSystem PlayDebuffParticleEffect(Transform target)
         {
             if (_freezeParticleEffectPrefab != null)
             {

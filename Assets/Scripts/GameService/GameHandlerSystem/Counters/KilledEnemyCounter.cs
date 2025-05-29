@@ -5,6 +5,8 @@ namespace GameService.GameHandlerSystem.Counters
 {
     public class KilledEnemyCounter : MonoBehaviour
     {
+        private readonly string _sympolSpace = " ";
+
         [SerializeField] private TextMeshProUGUI _killCountText;
         
         private int _enemiesKilled = 0;
@@ -20,7 +22,7 @@ namespace GameService.GameHandlerSystem.Counters
         private void UpdateKillCountUI()
         {
             if (_killCountText != null)
-                _killCountText.text = " " + _enemiesKilled.ToString();
+                _killCountText.text = _sympolSpace + _enemiesKilled.ToString();
         }
     }
 }
