@@ -1,11 +1,11 @@
 using UnityEngine;
 using AttackSystem.Interfaces;
 using FactionalAbilities.Handlers;
-using FactionalAbilities.Handlers.Effects;
+using FactionalAbilities.Handlers.Debuffs;
 
 namespace AttackSystem.RangedAttackHandlers
 {
-    public class RangedOrangeAttackHandler : RangedAttackHandler, IOrangeAttacker, IAcidEffector
+    public class RangedOrangeAttackHandler : RangedAttackHandler, IDebuffAttacker, IDebuffEffector
     {
         [SerializeField] private OrangeAbilityHandler _orangeAbilityHandler;
         [SerializeField] private ParticleSystem _acidParticleEffectPrefab;
@@ -13,10 +13,10 @@ namespace AttackSystem.RangedAttackHandlers
         public override void Hit()
         {
             base.Hit();
-            ApplyOrangeAcid();
+            ApplyDebuff();
         }
 
-        public void ApplyOrangeAcid()
+        public void ApplyDebuff()
         {
             if (_orangeAbilityHandler != null)
             {
@@ -26,7 +26,7 @@ namespace AttackSystem.RangedAttackHandlers
 
                     if (acidHandler == null)
                     {
-                        ParticleSystem acidParticleEffectInstance = PlayAcidParticleEffect(AttackedTarget.transform);
+                        ParticleSystem acidParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
                         acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>();
                         acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration, acidParticleEffectInstance);
                     }
@@ -34,7 +34,7 @@ namespace AttackSystem.RangedAttackHandlers
             }
         }
 
-        public ParticleSystem PlayAcidParticleEffect(Transform target)
+        public ParticleSystem PlayDebuffParticleEffect(Transform target)
         {
             if (_acidParticleEffectPrefab != null)
             {

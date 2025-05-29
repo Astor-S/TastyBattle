@@ -1,22 +1,22 @@
 using UnityEngine;
-using FactionalAbilities.Handlers;
-using FactionalAbilities.Handlers.Effects;
 using AttackSystem.Interfaces;
+using FactionalAbilities.Handlers;
+using FactionalAbilities.Handlers.Debuffs;
 
 namespace AttackSystem.AttackHandlers
 {
-    public class OrangeAttackHanlder : AttackHandler, IOrangeAttacker, IAcidEffector
+    public class OrangeAttackHanlder : AttackHandler, IDebuffAttacker, IDebuffEffector
     {
         [SerializeField] private OrangeAbilityHandler _orangeAbilityHandler;
         [SerializeField] private ParticleSystem _acidParticleEffectPrefab;
 
         public override void Hit()
         {
-            ApplyOrangeAcid();
+            ApplyDebuff();
             base.Hit(); 
         }
 
-        public void ApplyOrangeAcid()
+        public void ApplyDebuff()
         {
             if (_orangeAbilityHandler != null)
             {
@@ -26,7 +26,7 @@ namespace AttackSystem.AttackHandlers
 
                     if (acidHandler == null)
                     {
-                        ParticleSystem acidParticleEffectInstance = PlayAcidParticleEffect(AttackedTarget.transform);
+                        ParticleSystem acidParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
                         acidHandler = AttackedTarget.gameObject.AddComponent<AcidHandler>();
                         acidHandler.Initialize(AttackedTarget, _orangeAbilityHandler.OrangeAbility.DamagePerSecond, _orangeAbilityHandler.OrangeAbility.Duration, acidParticleEffectInstance);
                     }
@@ -34,7 +34,7 @@ namespace AttackSystem.AttackHandlers
             }
         }
 
-        public ParticleSystem PlayAcidParticleEffect(Transform target)
+        public ParticleSystem PlayDebuffParticleEffect(Transform target)
         {
             if (_acidParticleEffectPrefab != null)
             {

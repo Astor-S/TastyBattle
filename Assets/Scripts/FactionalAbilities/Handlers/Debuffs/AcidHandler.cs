@@ -2,14 +2,13 @@ using System.Collections;
 using UnityEngine;
 using AttackSystem;
 
-namespace FactionalAbilities.Handlers.Effects
+namespace FactionalAbilities.Handlers.Debuffs
 {
-    public class AcidHandler : MonoBehaviour
+    public class AcidHandler : DebuffHandler
     {
         private const float TickInterval = 1f;
 
         private DamagableTarget _target;
-        private Coroutine _acidCoroutine;
         private ParticleSystem _acidParticleEffect;
 
         private float _damagePerSecond;
@@ -27,7 +26,7 @@ namespace FactionalAbilities.Handlers.Effects
             _damagePerSecond = damagePerSecond;
             _duration = duration;
             _acidParticleEffect = acidParticleEffect;
-            _acidCoroutine = StartCoroutine(AcidDamage());
+            StartCoroutine(AcidDamage());
         }
 
         private IEnumerator AcidDamage()

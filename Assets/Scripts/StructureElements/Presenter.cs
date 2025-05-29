@@ -1,4 +1,5 @@
 using UnityEngine;
+using StructureElements.Interfaces;
 
 namespace StructureElements
 {
@@ -11,11 +12,6 @@ namespace StructureElements
 
         public Transformable Model => _model;
         public View View => _view;
-
-        private void Update()
-        {
-            _updatable?.Update(Time.deltaTime);
-        }
 
         private void OnEnable()
         {
@@ -45,6 +41,11 @@ namespace StructureElements
 
             if (this is IActivatable activatable)
                 activatable.Disable();
+        }
+
+        private void Update()
+        {
+            _updatable?.Update(Time.deltaTime);
         }
 
         public void Init(Transformable model)
@@ -86,9 +87,7 @@ namespace StructureElements
                 transform.localScale = _model.Scale;
         }
 
-        private void OnDestroying()
-        {
+        private void OnDestroying() =>
             Destroy(gameObject);
-        }
     }
 }

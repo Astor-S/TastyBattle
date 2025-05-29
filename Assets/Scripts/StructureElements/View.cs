@@ -8,9 +8,7 @@ namespace StructureElements
 
         protected DamagableSoundPlayer SoundPlayer => _soundPlayer;
 
-        protected virtual void OnValidate()
-        {
+        protected virtual void OnValidate() =>
             _soundPlayer = GetComponent<DamagableSoundPlayer>();
-        }
     }
 }

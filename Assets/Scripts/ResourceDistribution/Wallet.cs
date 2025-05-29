@@ -1,6 +1,6 @@
-using AttackSystem;
-using StructureElements;
 using System;
+using AttackSystem;
+using StructureElements.Interfaces;
 
 namespace ResourceDistribution
 {

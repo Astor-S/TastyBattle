@@ -29,16 +29,28 @@ namespace GameService
 
         private void Reward(string id)
         {
-            if (id == CoinsId)
-                CoinsReceived?.Invoke();
-            else if (id == DoubleCoinsId)
-                DoubleCoinsReceived?.Invoke();
-            else if (id == SkinId)
-                SkinReceived?.Invoke();
-            else if (id == CampaignId)
-                CampaignReceived?.Invoke();
-            else if (id == EmergencyId)
-                EmergencyReceived?.Invoke();
+            switch (id)
+            {
+                case var _ when id == CoinsId:
+                    CoinsReceived?.Invoke();
+                    break;
+
+                case var _ when id == DoubleCoinsId:
+                    DoubleCoinsReceived?.Invoke();
+                    break;
+
+                case var _ when id == SkinId:
+                    SkinReceived?.Invoke();
+                    break;
+
+                case var _ when id == CampaignId:
+                    CampaignReceived?.Invoke();
+                    break;
+
+                case var _ when id == EmergencyId:
+                    EmergencyReceived?.Invoke();
+                    break;
+            }
         }
     }
 }

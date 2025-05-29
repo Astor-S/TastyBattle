@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
-using StructureElements;
 using AttackSystem;
 using AttackSystem.AttackHandlers;
-using FactionalAbilities.Handlers.Effects;
+using FactionalAbilities.Handlers.Debuffs;
+using StructureElements;
+using StructureElements.Interfaces;
 
 namespace Units
 {
@@ -115,16 +116,13 @@ namespace Units
             OnUnitDying?.Invoke(this);
         }
 
-        private void ResetEffects()
+        private void ResetEffects()//переименовать на Reset?
         {
             ResetAgentSpeed();
             ResetAttackSpeedMultiplier();
             
-            if (TryGetComponent<AcidHandler>(out var acidHandler))
-                Destroy(acidHandler);
-
-            if (TryGetComponent<FreezeHandler>(out var freezeHandler))
-                Destroy(freezeHandler);
+            if(TryGetComponent<DebuffHandler>(out var debuffHandler))
+                Destroy(debuffHandler);
         }
 
         private void OnDecayed() =>
