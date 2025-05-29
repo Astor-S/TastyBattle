@@ -1,5 +1,5 @@
-using ResourceDistribution;
 using UnityEngine;
+using ResourceDistribution;
 
 namespace EnemyBehaviorSystem
 {

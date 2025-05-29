@@ -53,10 +53,17 @@ namespace AttackSystem.RangedAttackHandlers
 
         public ParticleSystem PlayDebuffParticleEffect(Transform target)
         {
+            float quaternionX = -90f;
+            float quaternionY = 0f;
+            float quaternionZ = 0f;
+
             if (_freezeParticleEffectPrefab != null)
             {
                 ParticleSystem freezeParticleEffect =
-                    Instantiate(_freezeParticleEffectPrefab, target.position, Quaternion.Euler(-90f, 0f, 0f), target);
+                    Instantiate(
+                        _freezeParticleEffectPrefab,
+                        target.position,
+                        Quaternion.Euler(quaternionX, quaternionY, quaternionZ), target);
 
                 ParticleSystem.MainModule mainModule = freezeParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;

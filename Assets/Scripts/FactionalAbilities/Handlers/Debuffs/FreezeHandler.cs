@@ -24,7 +24,12 @@ namespace FactionalAbilities.Handlers.Debuffs
                 Destroy(_freezeParticleEffect.gameObject);
         }
 
-        public void Initialize(UnitPresenter unitPresenter, float slowPercentage, float maxSlowPercentage, float slowDecreaseRate, ParticleSystem freezeParticleEffect)
+        public void Initialize(
+            UnitPresenter unitPresenter,
+            float slowPercentage,
+            float maxSlowPercentage,
+            float slowDecreaseRate,
+            ParticleSystem freezeParticleEffect)
         {
             _unitPresenter = unitPresenter;
             _defaultMovementSpeed = unitPresenter.Model.Stats.MovementSpeed;

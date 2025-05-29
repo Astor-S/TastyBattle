@@ -1,8 +1,8 @@
 using System;
+using UnityEngine;
 using AttackSystem;
 using Buildings;
 using ResourceDistribution;
-using UnityEngine;
 
 namespace Misc
 {
@@ -23,8 +23,11 @@ namespace Misc
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out DamagableTarget unit) && unit.gameObject.layer != _mainBuilding.gameObject.layer)
-                UnitDetected?.Invoke(unit);
+            if (other.TryGetComponent(
+                out DamagableTarget unit)
+                && unit.gameObject.layer
+                != _mainBuilding.gameObject.layer)
+                    UnitDetected?.Invoke(unit);
         }
     }
 }

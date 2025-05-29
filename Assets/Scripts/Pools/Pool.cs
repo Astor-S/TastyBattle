@@ -22,7 +22,6 @@ namespace Pools
             _objects.Push(@object);
         }
 
-
         public T GetObject()
         {
             if (_objects.Count == 0)

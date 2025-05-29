@@ -1,6 +1,6 @@
 using UnityEngine;
-using Units;
 using ResourceDistribution;
+using Units;
 
 namespace EnemyBehaviorSystem
 {
