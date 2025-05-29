@@ -20,7 +20,11 @@ namespace FactionalAbilities.Handlers.Debuffs
                 Destroy(_acidParticleEffect.gameObject);
         }
 
-        public void Initialize(DamagableTarget target, float damagePerSecond, float duration, ParticleSystem acidParticleEffect)
+        public void Initialize(
+            DamagableTarget target,
+            float damagePerSecond,
+            float duration,
+            ParticleSystem acidParticleEffect)
         {
             _target = target;
             _damagePerSecond = damagePerSecond;
