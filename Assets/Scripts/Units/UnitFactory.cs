@@ -2,20 +2,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using AttackSystem;
 using GameService.GameHandlerSystem.Handlers;
+using Pools;
 
 namespace Units
 {
     public class UnitFactory : MonoBehaviour
     {
+        private const int MinSpawnPositionZ = -5;
+        private const int MaxSpawnPositionZ = 5;
+
         [SerializeField] private FactionUnits _factionUnits;
         [SerializeField] private DamagableTarget _enemyBase;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private UnitDeathHandler _enemyDeathHandler;
 
-        private Dictionary<BattleRole, MVPPool<UnitPresenter, Unit>> _pools;
-        private int _minSpawnPositionZ = -5;
-        private int _maxSpawnPositionZ = 5;
         private int _previousSpawnPosition = 0;
+        private Dictionary<BattleRole, MVPPool<UnitPresenter, Unit>> _pools;
 
         private void Awake()
         {
@@ -27,21 +29,18 @@ namespace Units
                         (model) => CreatePresenter(model),
                         (unit) => unit.gameObject.SetActive(false))
                 },
-
                 {
                     BattleRole.Range,
                     new MVPPool<UnitPresenter, Unit>(
                         (model) => CreatePresenter(model),
                         (unit) => unit.gameObject.SetActive(false))
                 },
-
                 {
                     BattleRole.Tank,
                     new MVPPool<UnitPresenter, Unit>(
                         (model) => CreatePresenter(model),
                         (unit) => unit.gameObject.SetActive(false))
                 },
-
                 {
                     BattleRole.Siege,
                     new MVPPool<UnitPresenter, Unit>(
@@ -77,10 +76,10 @@ namespace Units
 
         private Vector3 GenerateSpawnPosition()
         {
-            int randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
+            int randomPositionZ = Random.Range(MinSpawnPositionZ, MaxSpawnPositionZ);
 
             while (_previousSpawnPosition == randomPositionZ)
-                randomPositionZ = Random.Range(_minSpawnPositionZ, _maxSpawnPositionZ);
+                randomPositionZ = Random.Range(MinSpawnPositionZ, MaxSpawnPositionZ);
 
             _previousSpawnPosition = randomPositionZ;
 

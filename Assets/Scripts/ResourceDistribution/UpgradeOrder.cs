@@ -1,19 +1,25 @@
-﻿public class UpgradeOrder : Order
+﻿using Upgrades;
+
+namespace ResourceDistribution
 {
-    public UpgradeType Type { get; }
-    public int MaxLevel { get; }
-    public int CurrentLevel { get; private set; }
-
-    public UpgradeOrder(int cost, int maxLevel, UpgradeType upgradeType) : base(cost)
+    public class UpgradeOrder : Order
     {
-        Type = upgradeType;
-        MaxLevel = maxLevel;
-        CurrentLevel = 1;
-    }
+        public UpgradeOrder(int cost, int maxLevel, UpgradeType upgradeType)
+            : base(cost)
+        {
+            Type = upgradeType;
+            MaxLevel = maxLevel;
+            CurrentLevel = 1;
+        }
 
-    public void IncreaseLevel()
-    {
-        if (++CurrentLevel == MaxLevel)
-            SetUnavailable();
+        public UpgradeType Type { get; }
+        public int MaxLevel { get; }
+        public int CurrentLevel { get; private set; }
+
+        public void IncreaseLevel()
+        {
+            if (++CurrentLevel == MaxLevel)
+                SetUnavailable();
+        }
     }
 }

@@ -1,5 +1,7 @@
 using System;
+using Units;
 using UnityEngine;
+using Upgrades;
 
 namespace AttackSystem
 {
@@ -9,20 +11,11 @@ namespace AttackSystem
         private const float Quater = 4;
         private const float Half = 2;
 
-        private DamagableSetup _stats;
-        private UpgradesData _upgradesData;
+        private readonly DamagableSetup _stats;
+        private readonly UpgradesData _upgradesData;
+
         private bool _isHalfHP = false;
         private bool _isQuaterHP = false;
-
-        public event Action<float, float> ValueChanged;
-        public event Action Dying;
-        public event Action HalfHP;
-        public event Action QuaterHP;
-
-        public float Value { get; private set; }
-        public float MaxValue { get; private set; }
-
-        public bool IsAlive => Value > MinValue;
 
         public Health(DamagableSetup damagableSetup, UpgradesData upgradesData)
         {
@@ -39,9 +32,19 @@ namespace AttackSystem
                 _upgradesData.UnitHealthUpgraded += OnUpgraded;
                 MaxValue = _upgradesData.GetIncreasedUnitHealth(damagableSetup);
             }
-             
+
             Value = MaxValue;
         }
+
+        public event Action<float, float> ValueChanged;
+        public event Action Dying;
+        public event Action HalfHP;
+        public event Action QuaterHP;
+
+        public float Value { get; private set; }
+        public float MaxValue { get; private set; }
+
+        public bool IsAlive => Value > MinValue;
 
         public void Reduce(float damage)
         {

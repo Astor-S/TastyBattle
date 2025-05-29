@@ -6,6 +6,6 @@ namespace Units
         Watermellon,
         Orange,
         Avocado,
-        IceCream,
+        IceCream
     }
 }

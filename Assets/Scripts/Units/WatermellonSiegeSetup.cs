@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "WatermellonSiege", menuName = "Scriptable Objects/WatermellonSiege")]
-public class WatermellonSiegeSetup : UnitSetup
+namespace Units
 {
-    [SerializeField] private float _hitDistance;
+    [CreateAssetMenu(fileName = "WatermellonSiege", menuName = "Scriptable Objects/WatermellonSiege")]
+    public class WatermellonSiegeSetup : UnitSetup
+    {
+        [SerializeField] private float _hitDistance;
 
-    public float HitDistance => _hitDistance;
+        public float HitDistance => _hitDistance;
+    }
 }

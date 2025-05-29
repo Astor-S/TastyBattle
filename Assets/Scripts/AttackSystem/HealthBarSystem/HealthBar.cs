@@ -1,3 +1,4 @@
+using Units;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,9 +6,6 @@ namespace AttackSystem.HealthBarSystem
 {
     public class HealthBar : MonoBehaviour
     {
-        private const string Player = nameof(Player);
-        private const string Enemy = nameof(Enemy);
-
         [SerializeField] private Slider _slider;
         [SerializeField] private Image _healthColorImage;
         [SerializeField] private DamagableTarget _damagableTarget;
@@ -18,20 +16,21 @@ namespace AttackSystem.HealthBarSystem
             UpdateVisualHealth(_damagableTarget.Health.Value, _damagableTarget.Health.MaxValue);
         }
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             _damagableTarget.Health.ValueChanged -= UpdateVisualHealth;
 
         private void LateUpdate()
         {
-            transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
-                             Camera.main.transform.rotation * Vector3.up);
+            transform.LookAt(
+                transform.position + (Camera.main.transform.rotation * Vector3.forward),
+                Camera.main.transform.rotation * Vector3.up);
         }
 
         public void SetColor(int layer)
         {
-            if (layer == LayerMask.NameToLayer(Player))
+            if (layer == LayersData.PlayerLayerNumber)
                 _healthColorImage.color = Color.blue;
-            else if (layer == LayerMask.NameToLayer(Enemy))
+            else if (layer == LayersData.EnemyLayerNumber)
                 _healthColorImage.color = Color.red;
         }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Units;
 using UnityEngine;
 
 namespace AttackSystem.AttackHandlers
@@ -7,13 +8,14 @@ namespace AttackSystem.AttackHandlers
     public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
     {
         private const float RunningUpSpeed = 15f;
-        
+
+        private float _distanceToTargetSquared;
+
         public event Action<float> SpeedChanging;
         public event Action TakingRunUp;
         public event Action RunUpTaken;
         public event Action Hitting;
 
-        private float _distanceToTargetSquared;
         protected new WatermellonSiegeSetup Stats => base.Stats as WatermellonSiegeSetup;
 
         private void FixedUpdate()
@@ -23,9 +25,14 @@ namespace AttackSystem.AttackHandlers
 
         protected override IEnumerator Combat()
         {
+            WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
             WaitForSeconds runUpWaiting = new WaitForSeconds(0.3f);
-            WaitUntil approachingWaiting = new WaitUntil(() => _distanceToTargetSquared < Stats.HitDistance * Stats.HitDistance);
-            WaitUntil runUpLongWaiting = new WaitUntil(() => _distanceToTargetSquared > Stats.AttackDistance * Stats.AttackDistance);
+
+            WaitUntil approachingWaiting = new WaitUntil(
+                () => _distanceToTargetSquared < Stats.HitDistance * Stats.HitDistance);
+
+            WaitUntil runUpLongWaiting = new WaitUntil(
+                () => _distanceToTargetSquared > Stats.AttackDistance * Stats.AttackDistance);
 
             while (enabled)
             {
@@ -54,7 +61,7 @@ namespace AttackSystem.AttackHandlers
                     StopAttack();
                 }
 
-                yield return WaitForFixedUpdate;
+                yield return waitForFixedUpdate;
             }
         }
     }

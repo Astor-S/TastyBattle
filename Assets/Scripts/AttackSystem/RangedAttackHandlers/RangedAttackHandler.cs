@@ -1,5 +1,6 @@
 using UnityEngine;
 using AttackSystem.AttackHandlers;
+using Pools;
 
 namespace AttackSystem.RangedAttackHandlers
 {
@@ -13,22 +14,24 @@ namespace AttackSystem.RangedAttackHandlers
 
         private void Awake()
         {
-            _projectilePool = new Pool<Projectile>(() =>
-            {
-                Projectile projectile = Instantiate(
+            _projectilePool = new Pool<Projectile>(
+                () =>
+                {
+                    Projectile projectile = Instantiate(
                     _projectilePrefab,
                     _projectileSpawnPoint.position,
                     _projectileSpawnPoint.rotation);
 
-                projectile.gameObject.SetActive(false);
+                    projectile.gameObject.SetActive(false);
 
-                return projectile;
-            },
-            (projectile) =>
-            {
-                projectile.transform.position = _projectileSpawnPoint.position;
-                projectile.transform.rotation = _projectileSpawnPoint.rotation;
-            });
+                    return projectile;
+                },
+                (projectile) =>
+                {
+                    projectile.transform.SetPositionAndRotation(
+                        _projectileSpawnPoint.position,
+                        _projectileSpawnPoint.rotation);
+                });
         }
 
         public override void Hit()
@@ -43,9 +46,10 @@ namespace AttackSystem.RangedAttackHandlers
 
                 projectile.Initialize(AttackedTarget, CalculateDamage(), _projectilePool);
 
-                Vector3 attackedTargetElevatedPosition = AttackedTarget.transform.position + 0.5f * Vector3.up;
+                Vector3 attackedTargetElevatedPosition = AttackedTarget.transform.position + (0.5f * Vector3.up);
 
-                projectile.Rigidbody.velocity = (attackedTargetElevatedPosition - _projectileSpawnPoint.position).normalized * _projectileSpeed;
+                projectile.Rigidbody.velocity =
+                    (attackedTargetElevatedPosition - _projectileSpawnPoint.position).normalized * _projectileSpeed;
             }
         }
     }

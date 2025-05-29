@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -15,9 +16,6 @@ public class DamagableSoundPlayer : MonoBehaviour
 
     public void SetDeathSound() =>
         PlaySound(_soundPack.DeathSound, false);
-
-    public void StopAttackingSound() =>
-        _audioSource.Stop();
 
     protected void PlaySound(AudioClip clip, bool isLooped)
     {

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSoundPack", menuName = "Scriptable Objects/AttackerSoundPack")]
-public class AttackerSoundPack : DamagableSoundPack
+namespace Audio
 {
-    [SerializeField] private AudioClip _attackingSound;
+    [CreateAssetMenu(fileName = "NewSoundPack", menuName = "Scriptable Objects/AttackerSoundPack")]
+    public class AttackerSoundPack : DamagableSoundPack
+    {
+        [SerializeField] private AudioClip _attackingSound;
 
-    public AudioClip AttackingSound => _attackingSound;
+        public AudioClip AttackingSound => _attackingSound;
+    }
 }

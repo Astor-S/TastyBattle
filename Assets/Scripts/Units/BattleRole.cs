@@ -6,6 +6,6 @@ namespace Units
         Range,
         Tank,
         Siege,
-        Building,
+        Building
     }
 }

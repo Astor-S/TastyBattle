@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using AttackSystem.Interfaces;
+using Upgrades;
+using Units;
+using ResourceDistribution;
 
 namespace AttackSystem
 {
@@ -12,15 +15,15 @@ namespace AttackSystem
         private Health _health;
         private bool _isInvulnerable = false;
 
-        public Health Health => _health;
-        public bool IsAlive => _health.IsAlive;
-        public bool IsBuilding => _setup.BattleRole == Units.BattleRole.Building;
-
         public event Action<DamagableTarget> Dying;
         public event Action HalfHP;
         public event Action QuaterHP;
         public event Action Inited;
         public event Action<int, IIncomeSource> ResourceRecieved;
+
+        public Health Health => _health;
+        public bool IsAlive => _health.IsAlive;
+        public bool IsBuilding => _setup.BattleRole == BattleRole.Building;
 
         private void OnEnable()
         {

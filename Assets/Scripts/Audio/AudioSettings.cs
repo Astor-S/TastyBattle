@@ -1,57 +1,60 @@
 using UnityEngine;
 
-public class AudioSettings : MonoBehaviour
+namespace Audio
 {
-    private const int MinVolumeValue = -80;
-    private const int Multiplier = 20;
-
-    [SerializeField] private AudioSetup _music;
-    [SerializeField] private AudioSetup _sound;
-
-    private bool _isPaused;
-
-    public AudioSetup Music => _music;
-    public AudioSetup Sound => _sound;
-
-    public void TurnOff()
+    public class AudioSettings : MonoBehaviour
     {
-        _isPaused = true;
+        private const int MinVolumeValue = -80;
+        private const int Multiplier = 20;
 
-        Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, MinVolumeValue);
-    }
+        [SerializeField] private AudioSetup _music;
+        [SerializeField] private AudioSetup _sound;
 
-    public void TurnOn()
-    {
-        _isPaused = false;
+        private bool _isPaused;
 
-        Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, Mathf.Log10(Sound.Slider.value) * Multiplier);
+        public AudioSetup Music => _music;
+        public AudioSetup Sound => _sound;
 
-        SwitchToggle(Sound);
-    }
-
-    public void SwitchToggle(AudioSetup audio)
-    {
-        if (audio.Toggle.isOn == false)
+        public void TurnOff()
         {
-            if (_isPaused && audio.AudioMixerGroup.name == Sound.AudioMixerGroup.name)
-                return;
+            _isPaused = true;
 
-            audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+            Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, MinVolumeValue);
         }
-        else
+
+        public void TurnOn()
         {
-            audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
+            _isPaused = false;
+
+            Sound.AudioMixerGroup.audioMixer.SetFloat(Sound.AudioMixerGroup.name, Mathf.Log10(Sound.Slider.value) * Multiplier);
+
+            SwitchToggle(Sound);
         }
-    }
 
-    public void ChangeVolume(AudioSetup audio)
-    {
-        if (audio.Toggle.isOn == false)
+        public void SwitchToggle(AudioSetup audio)
         {
-            if (_isPaused && audio.AudioMixerGroup.name == Sound.AudioMixerGroup.name)
-                return;
+            if (audio.Toggle.isOn == false)
+            {
+                if (_isPaused && audio.AudioMixerGroup.name == Sound.AudioMixerGroup.name)
+                    return;
 
-            audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+                audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+            }
+            else
+            {
+                audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, MinVolumeValue);
+            }
+        }
+
+        public void ChangeVolume(AudioSetup audio)
+        {
+            if (audio.Toggle.isOn == false)
+            {
+                if (_isPaused && audio.AudioMixerGroup.name == Sound.AudioMixerGroup.name)
+                    return;
+
+                audio.AudioMixerGroup.audioMixer.SetFloat(audio.AudioMixerGroup.name, Mathf.Log10(audio.Slider.value) * Multiplier);
+            }
         }
     }
 }

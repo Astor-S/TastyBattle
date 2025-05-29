@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using YG;
+using PackShopService;
 
 namespace UI.HomeMenu.ShopMenu
 {

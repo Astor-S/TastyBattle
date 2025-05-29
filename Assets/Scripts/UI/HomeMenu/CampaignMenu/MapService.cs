@@ -1,6 +1,6 @@
 using DG.Tweening;
 using GameService;
-using System.Runtime.CompilerServices;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +12,8 @@ namespace UI.HomeMenu.CampaignMenu
     {
         private const int FirstCampaign = 0;
         private const int CorrectionShift = 1;
+
+        [Scene][SerializeField] private string _tutorialScene;
         [SerializeField] private UnitModelView[] _levelDataByCampaign;
         [SerializeField] private LevelButton[] _levelButtons;
         [SerializeField] private Button _watchAdButton;
@@ -36,21 +38,14 @@ namespace UI.HomeMenu.CampaignMenu
         {
             foreach (LevelButton levelButton in _levelButtons)
                 levelButton.Selected -= MarkSelected;
-        }
-
-        private void MarkSelected(LevelButton button)
-        {
-            _selectedButton = button;
-
-            _mapDisplay.DisplayMap(_levelDataByCampaign[(int)_selectedButton.LevelCells[_currentCampaignIndex].EnemyFaction], _enemyContainer, _mapDisplay.EnemyDescriptionField);
-        }
+        }               
 
         public void LoadCurrentLevel()
         {
             if (_selectedButton == null)
                 return;
 
-            if (_selectedButton.LevelCells == null || _selectedButton.LevelCells.Count == 0)
+            if (_selectedButton.LevelCells == null || _selectedButton.LevelCells.Count == default)
                 return;
 
             if (_currentCampaignIndex < 0 || _currentCampaignIndex >= _selectedButton.LevelCells.Count)
@@ -74,7 +69,8 @@ namespace UI.HomeMenu.CampaignMenu
                 _watchAdButton.gameObject.SetActive(false);
 
             if (_mapDisplay != null)
-                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex], _playerContainer, _mapDisplay.PlayerDescriptionField);
+                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex],
+                    _playerContainer, _mapDisplay.PlayerDescriptionField);
 
             _selectedButton = null;
 
@@ -91,7 +87,6 @@ namespace UI.HomeMenu.CampaignMenu
             }
         }
 
-        //TODO
         public void StartTutorial()
         {
             if (YG2.saves.isFirstLaunch)
@@ -101,8 +96,16 @@ namespace UI.HomeMenu.CampaignMenu
 
                 DOTween.Clear();
 
-                SceneManager.LoadScene("Tutorial");
+                SceneManager.LoadScene(_tutorialScene);
             }
+        }
+
+        private void MarkSelected(LevelButton button)
+        {
+            _selectedButton = button;
+
+            _mapDisplay.DisplayMap(_levelDataByCampaign[(int)_selectedButton.LevelCells[_currentCampaignIndex].EnemyFaction],
+                _enemyContainer, _mapDisplay.EnemyDescriptionField);
         }
     }
 }

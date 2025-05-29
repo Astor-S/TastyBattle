@@ -1,4 +1,4 @@
 namespace UI.Screens
 {
-    public class FailScreen : Window  {}
+    public class FailScreen : Window {}
 }

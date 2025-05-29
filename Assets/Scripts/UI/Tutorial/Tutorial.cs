@@ -4,59 +4,61 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using NaughtyAttributes;
 
-public class Tutorial : MonoBehaviour
+namespace UI.Tutorial
 {
-    [Scene]
-    [SerializeField] private string _sceneToLoad;
-    [SerializeField] private Instruction _messageViewer;
-    [SerializeField] private List<TutorialPart> _tutorialParts;
-    [SerializeField] private RectTransform _speakerTransform;
-    [SerializeField] private RectTransform _cursorTransform;
-    [SerializeField] private Camera _camera;
-    [SerializeField] private Transform[] _activatableObjects;
-
-    private float _duration = 2f;
-    private int _tutorialIndex;
-
-    private void OnEnable() => 
-        _messageViewer.MessagesOut += StartNextTutorial;
-
-    private void OnDisable() =>
-        _messageViewer.MessagesOut -= StartNextTutorial;
-
-    private void Start() =>
-        StartNextTutorial();
-
-    private void StartNextTutorial()
+    public class Tutorial : MonoBehaviour
     {
-        if (_tutorialIndex < _tutorialParts.Count)
+        [Scene]
+        [SerializeField] private string _sceneToLoad;
+        [SerializeField] private Instruction _messageViewer;
+        [SerializeField] private List<TutorialPart> _tutorialParts;
+        [SerializeField] private RectTransform _speakerTransform;
+        [SerializeField] private RectTransform _cursorTransform;
+        [SerializeField] private Camera _camera;
+        [SerializeField] private Transform[] _activatableObjects;
+
+        private float _duration = 2f;
+        private int _tutorialIndex;
+
+        private void OnEnable() =>
+            _messageViewer.MessagesOut += StartNextTutorial;
+
+        private void OnDisable() =>
+            _messageViewer.MessagesOut -= StartNextTutorial;
+
+        private void Start() =>
+            StartNextTutorial();
+
+        public void CloseTutorial() =>
+            SceneManager.LoadScene(_sceneToLoad);
+
+        private void StartNextTutorial()
         {
-            TutorialPart tutorial = _tutorialParts[_tutorialIndex];
-
-            _messageViewer.SetTutorialPart(tutorial);
-
-            _activatableObjects[_tutorialIndex].gameObject.SetActive(true);
-
-            if (_tutorialIndex > 0)
+            if (_tutorialIndex < _tutorialParts.Count)
             {
-                _speakerTransform.DOScale(Vector3.one, _duration);
-                _speakerTransform.DOAnchorPosX(tutorial.SpeakerPositionX, _duration);
-                _camera.transform.DOMoveX(tutorial.CameraPositionX, _duration);
-                _cursorTransform.DOAnchorPos(tutorial.CursorPosition, _duration);
-                _cursorTransform.DORotateQuaternion(tutorial.CursorRotation, _duration);
+                TutorialPart tutorial = _tutorialParts[_tutorialIndex];
+
+                _messageViewer.SetTutorialPart(tutorial);
+
+                _activatableObjects[_tutorialIndex].gameObject.SetActive(true);
+
+                if (_tutorialIndex > 0)
+                {
+                    _speakerTransform.DOScale(Vector3.one, _duration);
+                    _speakerTransform.DOAnchorPosX(tutorial.SpeakerPositionX, _duration);
+                    _camera.transform.DOMoveX(tutorial.CameraPositionX, _duration);
+                    _cursorTransform.DOAnchorPos(tutorial.CursorPosition, _duration);
+                    _cursorTransform.DORotateQuaternion(tutorial.CursorRotation, _duration);
+                }
+
+                _tutorialIndex++;
             }
+            else
+            {
+                DOTween.Clear();
 
-            _tutorialIndex++;
-        }
-        else
-        {
-            DOTween.Clear();
-
-            CloseTutorial();
-        }
+                CloseTutorial();
+            }
+        }        
     }
-
-    //TODO
-    public void CloseTutorial() =>
-        SceneManager.LoadScene(_sceneToLoad);
 }

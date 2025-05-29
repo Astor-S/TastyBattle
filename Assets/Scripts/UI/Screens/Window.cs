@@ -15,14 +15,12 @@ namespace UI.Screens
         [SerializeField] private KilledEnemyCounter _killedEnemyCounter;
         [SerializeField] private TMP_Text _screenTimerView;
         [SerializeField] private TMP_Text _screenKilledView;
-        [SerializeField] private AudioSettings _audioSettings;
+        [SerializeField] private Audio.AudioSettings _audioSettings;
         
         public event Action ScreenActivated;
 
-        private void Awake()
-        {
+        private void Awake() =>
             gameObject.SetActive(false);
-        }
 
         private void OnEnable()
         {

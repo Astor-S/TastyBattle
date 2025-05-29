@@ -1,4 +1,4 @@
 namespace AttackSystem.RangedAttackHandlers
 {
-    public class RangedMushroomAttackHandler : ReinforcedRangedAttackHandler { }
+    public class RangedMushroomAttackHandler : ReinforcedRangedAttackHandler {}
 }

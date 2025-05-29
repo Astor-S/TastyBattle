@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
 
-public class DamagableAnimationEventHandler : MonoBehaviour
+namespace AttackSystem
 {
-    public event Action Decayed;
+    public class DamagableAnimationEventHandler : MonoBehaviour
+    {
+        public event Action Decayed;
 
-    public void DeathEvent() =>
-        Decayed?.Invoke();
+        public void DeathEvent() =>
+            Decayed?.Invoke();
+    }
 }

@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fd51b6ba2d0c4649a254d792db5c2a0, type: 3}
   m_Name: Part3
@@ -21,14 +21,9 @@ MonoBehaviour:
     \u0432\u043E\u0438\u043D\u043E\u0432, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
     \u0432\u043E\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F
     \u0442\u0430\u0439\u043C\u0435\u0440\u043E\u043C."
-  _engTextFields:
-  - Every 7 seconds, the base will send warriors to attack.
-  - To track the appearance of new warriors, you can use a timer.
-  _trTextFields:
-  - "Her 7 saniyede bir \xFCs, sald\u0131r\u0131 i\xE7in sava\u015F\xE7\u0131lar
-    g\xF6nderecek."
-  - "Yeni sava\u015F\xE7\u0131lar\u0131n geli\u015Fini takip etmek i\xE7in zamanlay\u0131c\u0131y\u0131
-    kullanabilirsiniz."
+  _textTranslation:
+  - {fileID: 11400000, guid: 08aa75461ac3c4d478184c504fd7d5ca, type: 2}
+  - {fileID: 11400000, guid: 5acb0a456e63f2b4f84ffa11610c4ab8, type: 2}
   _cameraPositionX: -15
   _speakerPositionX: 575
   _cursorPosition: {x: -582, y: -98, z: 0}

@@ -31,10 +31,10 @@ namespace Buildings
             DamagableTarget.HalfHP -= View.SetHalfHPAnimation;
             DamagableTarget.QuaterHP -= View.SetQuaterHPAnimation;
             Model.Spawner.OnSpawn -= StartSpawn;
-            _unitScaner.UnitDetected -= Model.Wallet.AddUnitAsIncomeSource; 
+            _unitScaner.UnitDetected -= Model.Wallet.AddUnitAsIncomeSource;
         }
 
-        private void StartSpawn() => 
+        private void StartSpawn() =>
             StartCoroutine(Model.Spawner.DelayedSpawn());
     }
 }

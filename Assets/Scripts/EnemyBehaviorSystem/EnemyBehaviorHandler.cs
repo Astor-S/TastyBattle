@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 namespace EnemyBehaviorSystem
 {
@@ -56,9 +56,6 @@ namespace EnemyBehaviorSystem
             TryExecuteRandomImprove();
         }
 
-        private void TrySummonUnit() =>
-            _summonerService.SummonRandomUnit();
-
         private void TryExecuteRandomImprove()
         {
             float resourceExtractionImproveChance = 0.5f;
@@ -68,6 +65,9 @@ namespace EnemyBehaviorSystem
             else
                 TryImroveRandomUnitStats();
         }
+
+        private void TrySummonUnit() =>
+            _summonerService.SummonRandomUnit();
 
         private void TryImroveResourceExtraction() =>
             _upgradeService.ImproveResourceExtraction();

@@ -29,7 +29,7 @@ namespace UI.HomeMenu.CampaignMenu
 
             _unitMapView = Instantiate(unitMapView, container);
 
-            text.text = _unitMapView.LanguageDescription[YG2.lang];
+            text.text = _unitMapView.TextTranslation.Dictionary[YG2.lang];
         }
     }
 }

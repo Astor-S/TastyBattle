@@ -1,37 +1,43 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Upgrades;
 
-public class Mine : MonoBehaviour, IIncomeSource
+namespace ResourceDistribution
 {
-    private const string Player = nameof(Player);
-
-    [SerializeField, Min(0.5f)] private float _incomeCooldown;
-    [SerializeField] private int _incomeValue;
-
-    private bool _isMining = true;
-    private UpgradesData _upgradesData;
-
-    public event Action<int, IIncomeSource> ResourceRecieved;
-
-    public int IncomeValue => _incomeValue;
-
-    private void Start()
+    public class Mine : MonoBehaviour, IIncomeSource
     {
-        StartCoroutine(GetIncome());
+        private const string Player = nameof(Player);
 
-        _upgradesData = gameObject.layer == LayerMask.NameToLayer(Player) ? Upgrades.Player : Upgrades.Enemy;
-    }
+        [SerializeField, Min(0.5f)] private float _incomeCooldown;
+        [SerializeField] private int _incomeValue;
 
-    private IEnumerator GetIncome()
-    {
-        WaitForSeconds cooldownWaitng = new(_incomeCooldown);
+        private bool _isMining = true;
+        private UpgradesData _upgradesData;
 
-        while (_isMining)
+        public event Action<int, IIncomeSource> ResourceRecieved;
+
+        public int IncomeValue => _incomeValue;
+
+        private void Start()
         {
-            yield return cooldownWaitng;
+            StartCoroutine(GetIncome());
 
-            ResourceRecieved?.Invoke(_upgradesData.GetIncreasedIncome(this), this);
+            _upgradesData = gameObject.layer == LayerMask.NameToLayer(Player) ?
+                UpgradesController.Player :
+                UpgradesController.Enemy;
+        }
+
+        private IEnumerator GetIncome()
+        {
+            WaitForSeconds cooldownWaitng = new (_incomeCooldown);
+
+            while (_isMining)
+            {
+                yield return cooldownWaitng;
+
+                ResourceRecieved?.Invoke(_upgradesData.GetIncreasedIncome(this), this);
+            }
         }
     }
 }

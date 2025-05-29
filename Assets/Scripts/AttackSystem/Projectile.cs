@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using AttackSystem.Interfaces;
+using Pools;
 
 namespace AttackSystem
 {
@@ -17,9 +18,9 @@ namespace AttackSystem
         private float _damage;
         private bool _hasHit = false;
 
-        public Rigidbody Rigidbody => _rigidbody;
-
         public event Action<Projectile> Destroyed;
+
+        public Rigidbody Rigidbody => _rigidbody;
 
         private void OnEnable()
         {

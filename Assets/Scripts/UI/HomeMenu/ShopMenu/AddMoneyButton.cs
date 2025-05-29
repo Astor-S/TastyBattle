@@ -1,6 +1,6 @@
 using UnityEngine;
 using YG;
-using GameService;
+using SDKProperties;
 
 namespace UI.HomeMenu.ShopMenu
 {
@@ -24,6 +24,7 @@ namespace UI.HomeMenu.ShopMenu
         {
             YG2.saves.balanceMoney += _coinsForWatchAD;
             YG2.SaveProgress();
+
             _balanceDisplayShop.RefreshBalance();
         }
     }

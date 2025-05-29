@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackHandler: {fileID: 2330158862876875137}
-  _detectionSystem: {fileID: 8162568957355289032}
+  _detectionSystem: {fileID: 335004729478426621}
   _damageTarget: {fileID: 7430936050964615691}
   _navMeshAgent: {fileID: 2011045369653883198}
   _faction: 2
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6112a7a5279142346a1d43df2a56dfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionSystem: {fileID: 8162568957355289032}
+  _detectionSystem: {fileID: 335004729478426621}
   _orangeAbilityHandler: {fileID: 3636759784987278766}
   _acidParticleEffectPrefab: {fileID: 5635756013261618519, guid: e6dfae31ef0ce1f45a5ee241830c92c0, type: 3}
 --- !u!1 &8951744849644283376
@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8990044344741323555}
   - component: {fileID: 7504634349934705855}
-  - component: {fileID: 8162568957355289032}
+  - component: {fileID: 335004729478426621}
   m_Layer: 0
   m_Name: DetectionSystem
   m_TagString: Untagged
@@ -421,7 +421,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &8162568957355289032
+--- !u!114 &335004729478426621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8951744849644283376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac676fed4311bf4982b206c9251c9c1, type: 3}
+  m_Script: {fileID: 11500000, guid: ae588d67bb54c6249bbe68e51ebfd899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentUnit: {fileID: 7430936050964615691}

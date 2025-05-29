@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using AttackSystem;
-using GameService;
+using SDKProperties;
 
 namespace EmergencyPlayerService
 {

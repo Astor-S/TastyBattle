@@ -1,22 +1,26 @@
+using Units;
 using UnityEngine;
 using YG;
 
-public class UnitOrderHandler : OrderHandler
+namespace ResourceDistribution
 {
-    [SerializeField] private UnitSetup _unitSetup;
-
-    public UnitSetup Setup => _unitSetup;
-
-    protected override Order InitializeOrder(int initialCost)
+    public class UnitOrderHandler : OrderHandler
     {
-        return new UnitOrder(initialCost, _unitSetup);
-    }
+        [SerializeField] private UnitSetup _unitSetup;
 
-    protected override void OnOrdered()
-    {
-        if (PriceTextBox != null)
-            YG2.MetricaSend("unit_ordered");
+        public UnitSetup Setup => _unitSetup;
 
-        Order.IncreaseCost();
+        protected override Order InitializeOrder(int initialCost)
+        {
+            return new UnitOrder(initialCost, _unitSetup);
+        }
+
+        protected override void OnOrdered()
+        {
+            if (PriceTextBox != null)
+                YG2.MetricaSend("unit_ordered");
+
+            Order.IncreaseCost();
+        }
     }
 }

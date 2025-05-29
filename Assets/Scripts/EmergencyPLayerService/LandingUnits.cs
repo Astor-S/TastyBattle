@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using ResourceDistribution;
 using Units;
 using YG;
 
@@ -23,11 +24,11 @@ namespace EmergencyPlayerService
         private IEnumerator LandingSequence()
         {
             SummonTankUnitPack();
-            
+
             yield return new WaitForSeconds(_summonMeleeUnitDelay);
 
             SummonMeleeUnitPack();
-            
+
             yield return new WaitForSeconds(_summonMeleeUnitDelay);
 
             SummonMeleeUnitPack();
@@ -47,14 +48,14 @@ namespace EmergencyPlayerService
 
         private void SummonMeleeUnit()
         {
-            if (_melee != null && _melee.Setup != null && _unitFactory != null) 
-                _unitFactory.CreateUnit(_melee.Setup);       
+            if (_melee != null && _melee.Setup != null && _unitFactory != null)
+                _unitFactory.CreateUnit(_melee.Setup);
         }
 
         private void SummonTankUnit()
         {
-            if (_tank != null && _tank.Setup != null && _unitFactory != null) 
-                _unitFactory.CreateUnit(_tank.Setup);            
+            if (_tank != null && _tank.Setup != null && _unitFactory != null)
+                _unitFactory.CreateUnit(_tank.Setup);
         }
     }
 }
