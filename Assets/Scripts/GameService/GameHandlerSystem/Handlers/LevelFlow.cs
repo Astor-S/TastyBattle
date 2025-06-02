@@ -4,7 +4,7 @@ using Buildings;
 
 namespace GameService.GameHandlerSystem.Handlers
 {
-    public class GameHandler : MonoBehaviour
+    public class LevelFlow : MonoBehaviour
     {
         [SerializeField] private MainBuildingPresenter _playerBase;
         [SerializeField] private MainBuildingPresenter _enemyBase;
