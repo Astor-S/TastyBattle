@@ -19,8 +19,10 @@ namespace MovementSystem.CameraMovement
 
             _cameraDirection.x = Mathf.Clamp(_cameraDirection.x, _properties.MinX, _properties.MaxX);
 
-            _properties.CameraTransform.position = Vector3.Lerp
-                (_properties.CameraTransform.position, _cameraDirection, Time.deltaTime / _properties.Smoothness);
+            _properties.CameraTransform.position = Vector3.Lerp(
+                _properties.CameraTransform.position,
+                _cameraDirection,
+                Time.deltaTime / _properties.Smoothness);
         }
     }
 }
