@@ -63,7 +63,8 @@ namespace AttackSystem.AttackHandlers
                     Instantiate(
                         _freezeParticleEffectPrefab,
                         target.position,
-                        Quaternion.Euler(quaternionX, quaternionY, quaternionZ), target);
+                        Quaternion.Euler(quaternionX, quaternionY, quaternionZ),
+                        target);
 
                 ParticleSystem.MainModule mainModule = freezeParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;

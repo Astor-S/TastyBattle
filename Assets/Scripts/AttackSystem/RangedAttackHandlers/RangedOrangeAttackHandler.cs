@@ -51,7 +51,8 @@ namespace AttackSystem.RangedAttackHandlers
                     Instantiate(
                         _acidParticleEffectPrefab,
                         target.position,
-                        Quaternion.Euler(quaternionX, quaternionY, quaternionZ), target);
+                        Quaternion.Euler(quaternionX, quaternionY, quaternionZ),
+                        target);
 
                 ParticleSystem.MainModule mainModule = acidParticleEffect.main;
                 mainModule.stopAction = ParticleSystemStopAction.Destroy;

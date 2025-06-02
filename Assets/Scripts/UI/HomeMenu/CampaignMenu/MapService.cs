@@ -69,8 +69,10 @@ namespace UI.HomeMenu.CampaignMenu
                 _watchAdButton.gameObject.SetActive(false);
 
             if (_mapDisplay != null)
-                _mapDisplay.DisplayMap(_levelDataByCampaign[_currentCampaignIndex],
-                    _playerContainer, _mapDisplay.PlayerDescriptionField);
+                _mapDisplay.DisplayMap(
+                    _levelDataByCampaign[_currentCampaignIndex],
+                    _playerContainer,
+                    _mapDisplay.PlayerDescriptionField);
 
             _selectedButton = null;
 
@@ -104,8 +106,10 @@ namespace UI.HomeMenu.CampaignMenu
         {
             _selectedButton = button;
 
-            _mapDisplay.DisplayMap(_levelDataByCampaign[(int)_selectedButton.LevelCells[_currentCampaignIndex].EnemyFaction],
-                _enemyContainer, _mapDisplay.EnemyDescriptionField);
+            _mapDisplay.DisplayMap(
+                _levelDataByCampaign[(int)_selectedButton.LevelCells[_currentCampaignIndex].EnemyFaction],
+                _enemyContainer,
+                _mapDisplay.EnemyDescriptionField);
         }
     }
 }
