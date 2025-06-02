@@ -19,35 +19,31 @@ namespace AttackSystem.AttackHandlers
 
         public void ApplyDebuff()
         {
-            if (_iceCreamAbilityHandler != null)
+            if (_iceCreamAbilityHandler == null)
+                return;
+
+            if (AttackedTarget == null || AttackedTarget.gameObject.activeInHierarchy == false)
+                return;
+
+            if (AttackedTarget.TryGetComponent<UnitPresenter>(out var unitPresenter) == false)
+                return;
+                        
+            if (AttackedTarget.TryGetComponent<FreezeHandler>(out var freezeHandler) == false)
             {
-                if (AttackedTarget != null && AttackedTarget.gameObject.activeInHierarchy)
-                {
-                    UnitPresenter unitPresenter = AttackedTarget.GetComponent<UnitPresenter>();
+                ParticleSystem freezeParticleEffectInstance =
+                    PlayDebuffParticleEffect(AttackedTarget.transform);
 
-                    if (unitPresenter != null)
-                    {
-                        FreezeHandler freezeHandler = AttackedTarget.GetComponent<FreezeHandler>();
-
-                        if (freezeHandler == null)
-                        {
-                            ParticleSystem freezeParticleEffectInstance =
-                                PlayDebuffParticleEffect(AttackedTarget.transform);
-
-                            freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
-                            freezeHandler.Initialize(
-                                unitPresenter,
-                                _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
-                                _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
-                                _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate,
-                                freezeParticleEffectInstance);
-                        }
-                        else
-                        {
-                            freezeHandler.ApplySlow(_iceCreamAbilityHandler.IceCreamAbility.FreezePercentage);
-                        }
-                    }
-                }
+                freezeHandler = AttackedTarget.gameObject.AddComponent<FreezeHandler>();
+                freezeHandler.Initialize(
+                    unitPresenter,
+                    _iceCreamAbilityHandler.IceCreamAbility.FreezePercentage,
+                    _iceCreamAbilityHandler.IceCreamAbility.MaxFreezePercentage,
+                    _iceCreamAbilityHandler.IceCreamAbility.SlowDecreaseRate,
+                    freezeParticleEffectInstance);
+            }
+            else
+            {
+                freezeHandler.ApplySlow(_iceCreamAbilityHandler.IceCreamAbility.FreezePercentage);
             }
         }
 
