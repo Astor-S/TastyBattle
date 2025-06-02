@@ -8,7 +8,7 @@ namespace Pools
         where P : Presenter
         where M : Transformable
     {
-        private readonly Stack<P> _objects = new();
+        private readonly Stack<P> _objects = new ();
         private readonly Func<M, P> _createFunc;
         private readonly Action<P> _resetAction;
 
