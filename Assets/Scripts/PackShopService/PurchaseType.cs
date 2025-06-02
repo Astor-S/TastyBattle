@@ -5,6 +5,6 @@ namespace PackShopService
         None,
         ByAd,
         ByCoins,
-        ByLevelPassing
+        ByLevelPassing,
     }
 }
