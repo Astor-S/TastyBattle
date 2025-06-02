@@ -122,8 +122,8 @@ namespace Units
         {
             ResetAgentSpeed();
             ResetAttackSpeedMultiplier();
-            
-            if(TryGetComponent<DebuffHandler>(out var debuffHandler))
+
+            if (TryGetComponent<DebuffHandler>(out var debuffHandler))
                 Destroy(debuffHandler);
         }
 
