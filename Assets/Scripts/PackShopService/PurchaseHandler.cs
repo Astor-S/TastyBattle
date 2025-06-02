@@ -60,7 +60,7 @@ namespace PackShopService
 
         private void CheckLevelPassing()
         {
-            if (YG2.saves.isMushroomCampaignCompleted)
+            if (YG2.saves.IsMushroomCampaignCompleted)
             {
                 SaveSkinPack();
 
@@ -78,9 +78,9 @@ namespace PackShopService
         {
             int price = _factionSkinsHandler.CurrentSkinPack.Price;
 
-            if (YG2.saves.balanceMoney >= price)
+            if (YG2.saves.BalanceMoney >= price)
             {
-                YG2.saves.balanceMoney -= price;
+                YG2.saves.BalanceMoney -= price;
                 SaveSkinPack();
 
                 TransactionCompleted?.Invoke();

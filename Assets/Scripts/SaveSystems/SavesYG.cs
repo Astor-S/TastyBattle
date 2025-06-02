@@ -7,62 +7,62 @@ namespace YG
     public partial class SavesYG
     {
         //Audio saves
-        public float musicVolume = 0.4f;
-        public float soundVolume = 0.4f;
+        public float MusicVolume = 0.4f;
+        public float SoundVolume = 0.4f;
 
-        public bool isMusicOn = false;
-        public bool isSoundOn = false;
+        public bool IsMusicOn = false;
+        public bool IsSoundOn = false;
 
         //Score
-        public int score = 0;
-        public int balanceMoney = 0;
+        public int Score = 0;
+        public int BalanceMoney = 0;
 
         //OnFirstPlay
-        public bool isFirstLaunch = true;
+        public bool IsFirstLaunch = true;
 
         //Skins
-        public List<SkinPack> equippedPacks = new ();
-        public List<SkinPack> availablePacks = new ();
+        public List<SkinPack> EquippedPacks = new ();
+        public List<SkinPack> AvailablePacks = new ();
 
         //Levels
-        public List<Levels> openedLevels = new ();
-        public bool isMushroomCampaignCompleted = false;
+        public List<Levels> OpenedLevels = new ();
+        public bool IsMushroomCampaignCompleted = false;
 
         public SavesYG()
         {
-            openedLevels.Add(Levels.Level1);
-            openedLevels.Add(Levels.Level6);
-            openedLevels.Add(Levels.Level11);
-            openedLevels.Add(Levels.Level16);
+            OpenedLevels.Add(Levels.Level1);
+            OpenedLevels.Add(Levels.Level6);
+            OpenedLevels.Add(Levels.Level11);
+            OpenedLevels.Add(Levels.Level16);
         }
 
         public bool IsLevelOpened(Levels level) =>
-            openedLevels.Contains(level);
+            OpenedLevels.Contains(level);
 
         public void Refresh()
         {
-            musicVolume = 0.4f;
-            soundVolume = 0.4f;
+            MusicVolume = 0.4f;
+            SoundVolume = 0.4f;
 
-            isMusicOn = false;
-            isSoundOn = false;
+            IsMusicOn = false;
+            IsSoundOn = false;
 
-            score = 0;
-            balanceMoney = 0;
+            Score = 0;
+            BalanceMoney = 0;
 
-            isFirstLaunch = true;
+            IsFirstLaunch = true;
 
-            openedLevels.Clear();
+            OpenedLevels.Clear();
 
-            equippedPacks.Clear();
-            availablePacks.Clear();
+            EquippedPacks.Clear();
+            AvailablePacks.Clear();
 
-            openedLevels.Add(Levels.Level1);
-            openedLevels.Add(Levels.Level6);
-            openedLevels.Add(Levels.Level11);
-            openedLevels.Add(Levels.Level16);
+            OpenedLevels.Add(Levels.Level1);
+            OpenedLevels.Add(Levels.Level6);
+            OpenedLevels.Add(Levels.Level11);
+            OpenedLevels.Add(Levels.Level16);
 
-            isMushroomCampaignCompleted = false;
+            IsMushroomCampaignCompleted = false;
         }
     }
 }

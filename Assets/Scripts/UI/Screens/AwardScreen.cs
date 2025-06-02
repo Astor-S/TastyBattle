@@ -10,10 +10,10 @@ namespace UI.Screens
 
         public void GiveReward()
         {
-            if (YG2.saves.isMushroomCampaignCompleted == false)
+            if (YG2.saves.IsMushroomCampaignCompleted == false)
             {
                 gameObject.SetActive(true);
-                YG2.saves.isMushroomCampaignCompleted = true;
+                YG2.saves.IsMushroomCampaignCompleted = true;
                 YG2.SaveProgress();
             }
             else

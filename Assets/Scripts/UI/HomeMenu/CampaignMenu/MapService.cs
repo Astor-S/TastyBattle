@@ -63,7 +63,7 @@ namespace UI.HomeMenu.CampaignMenu
             else if (_currentCampaignIndex > _levelDataByCampaign.Length - CorrectionShift)
                 _currentCampaignIndex = FirstCampaign;
 
-            if (_currentCampaignIndex == _iceCreamCampaignIndex && YG2.saves.openedLevels.Contains(Levels.Level21) == false)
+            if (_currentCampaignIndex == _iceCreamCampaignIndex && YG2.saves.OpenedLevels.Contains(Levels.Level21) == false)
                 _watchAdButton.gameObject.SetActive(true);
             else
                 _watchAdButton.gameObject.SetActive(false);
@@ -89,9 +89,9 @@ namespace UI.HomeMenu.CampaignMenu
 
         public void StartTutorial()
         {
-            if (YG2.saves.isFirstLaunch)
+            if (YG2.saves.IsFirstLaunch)
             {                      
-                YG2.saves.isFirstLaunch = false;
+                YG2.saves.IsFirstLaunch = false;
                 YG2.SaveProgress();
 
                 DOTween.Clear();

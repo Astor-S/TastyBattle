@@ -21,18 +21,18 @@ namespace SaveSystems
 
         public override void Load()
         {
-            if (YG2.saves.equippedPacks.Count == 0 && YG2.saves.availablePacks.Count == 0)
+            if (YG2.saves.EquippedPacks.Count == 0 && YG2.saves.AvailablePacks.Count == 0)
                 _packShop.SetDefault();
             else
-                _packShop.SetSkins(YG2.saves.equippedPacks, YG2.saves.availablePacks);
+                _packShop.SetSkins(YG2.saves.EquippedPacks, YG2.saves.AvailablePacks);
 
             for (int i = 0; i < _packShop.DefaultSkins.Count; i++)
             {
-                if (YG2.saves.availablePacks.Contains(_packShop.DefaultSkins[i]) == false)
-                    YG2.saves.availablePacks.Add(_packShop.DefaultSkins[i]);
+                if (YG2.saves.AvailablePacks.Contains(_packShop.DefaultSkins[i]) == false)
+                    YG2.saves.AvailablePacks.Add(_packShop.DefaultSkins[i]);
 
-                if (YG2.saves.equippedPacks.Contains(_packShop.DefaultSkins[i]) && YG2.saves.equippedPacks.Contains(_packShop.OtherSkins[i]))
-                    YG2.saves.equippedPacks.Remove(_packShop.OtherSkins[i]);
+                if (YG2.saves.EquippedPacks.Contains(_packShop.DefaultSkins[i]) && YG2.saves.EquippedPacks.Contains(_packShop.OtherSkins[i]))
+                    YG2.saves.EquippedPacks.Remove(_packShop.OtherSkins[i]);
             }            
 
             Save();
@@ -71,8 +71,8 @@ namespace SaveSystems
 
             PlayerPrefs.Save();
 
-            YG2.saves.equippedPacks = (List<SkinPack>)_packShop.EquippedSkinPacks;
-            YG2.saves.availablePacks = (List<SkinPack>)_packShop.AvailableSkinPacks;
+            YG2.saves.EquippedPacks = (List<SkinPack>)_packShop.EquippedSkinPacks;
+            YG2.saves.AvailablePacks = (List<SkinPack>)_packShop.AvailableSkinPacks;
 
             YG2.SaveProgress();
         }
