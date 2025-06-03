@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5313909063801543923}
   - component: {fileID: 9212799875144425720}
   - component: {fileID: 8601648894771089668}
-  - component: {fileID: 3768784554562089065}
   - component: {fileID: 8927250343151349209}
   - component: {fileID: 869456394297210956}
   m_Layer: 0
@@ -127,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 3138773895604433516}
+  _attackHandler: {fileID: 1216109843380294455}
   _detectionSystem: {fileID: 4947100428981766617}
   _damageTarget: {fileID: 9212799875144425720}
   _navMeshAgent: {fileID: 7991284783629962674}
@@ -162,19 +161,6 @@ MonoBehaviour:
   _animator: {fileID: 143945614826707584}
   _healthBar: {fileID: 1010346089088177828}
   _animationEventHandler: {fileID: 2751453757060750857}
---- !u!114 &3768784554562089065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9652246782523303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 064da66ac8600f744afe75ff64b4f6d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _iceCreamAbility: {fileID: 11400000, guid: a3da202e237df0d459efb90dc3261af4, type: 2}
 --- !u!82 &8927250343151349209
 AudioSource:
   m_ObjectHideFlags: 0
@@ -296,6 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7065946757069408031}
+  - component: {fileID: 1216109843380294455}
   - component: {fileID: 3138773895604433516}
   m_Layer: 0
   m_Name: AttackSystem
@@ -319,6 +306,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1908894852804354076}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216109843380294455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513931424325720728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766244dec87530944a5a14caa155f3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionSystem: {fileID: 4947100428981766617}
 --- !u!114 &3138773895604433516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,9 +331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97e90ca4d2561429ff1eb5f4535b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionSystem: {fileID: 4947100428981766617}
-  _iceCreamAbilityHandler: {fileID: 3768784554562089065}
+  _attackHandler: {fileID: 1216109843380294455}
   _freezeParticleEffectPrefab: {fileID: 6270031026574745719, guid: 5dfa0173f146f004b84121533e57a1b9, type: 3}
+  _iceCreamAbility: {fileID: 11400000, guid: a3da202e237df0d459efb90dc3261af4, type: 2}
 --- !u!1 &7986056113659367471
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 3138773895604433516}
+  _attackHandler: {fileID: 1216109843380294455}
   _animator: {fileID: 143945614826707584}
 --- !u!1001 &7863700389587271896
 PrefabInstance:

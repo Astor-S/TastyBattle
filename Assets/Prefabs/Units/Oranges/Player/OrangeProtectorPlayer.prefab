@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3142697113276430158}
   - component: {fileID: 7430936050964615691}
   - component: {fileID: 8209897168811419214}
-  - component: {fileID: 3636759784987278766}
   - component: {fileID: 4987497056140943609}
   - component: {fileID: 2319876888154941264}
   m_Layer: 0
@@ -127,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 2330158862876875137}
+  _attackHandler: {fileID: 3999521287125209296}
   _detectionSystem: {fileID: 335004729478426621}
   _damageTarget: {fileID: 7430936050964615691}
   _navMeshAgent: {fileID: 2011045369653883198}
@@ -162,19 +161,6 @@ MonoBehaviour:
   _animator: {fileID: 7649709155445800865}
   _healthBar: {fileID: 4338824453892069498}
   _animationEventHandler: {fileID: 863095550113576739}
---- !u!114 &3636759784987278766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022445481149930631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f886105011eb16a44af0d158035366e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _orangeAbility: {fileID: 11400000, guid: 5fcfdb9f6e08b2f4bace280d77a8ca31, type: 2}
 --- !u!82 &4987497056140943609
 AudioSource:
   m_ObjectHideFlags: 0
@@ -329,7 +315,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5085525683220074265}
-  - component: {fileID: 2330158862876875137}
+  - component: {fileID: 3999521287125209296}
+  - component: {fileID: 3098046796148117144}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -352,7 +339,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2990374891154470357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2330158862876875137
+--- !u!114 &3999521287125209296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,11 +348,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8331908893554151601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6112a7a5279142346a1d43df2a56dfe8, type: 3}
+  m_Script: {fileID: 11500000, guid: 766244dec87530944a5a14caa155f3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 335004729478426621}
-  _orangeAbilityHandler: {fileID: 3636759784987278766}
+--- !u!114 &3098046796148117144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331908893554151601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886105011eb16a44af0d158035366e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackHandler: {fileID: 3999521287125209296}
+  _orangeAbility: {fileID: 11400000, guid: 5fcfdb9f6e08b2f4bace280d77a8ca31, type: 2}
   _acidParticleEffectPrefab: {fileID: 5635756013261618519, guid: e6dfae31ef0ce1f45a5ee241830c92c0, type: 3}
 --- !u!1 &8951744849644283376
 GameObject:
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 2330158862876875137}
+  _attackHandler: {fileID: 3999521287125209296}
   _animator: {fileID: 7649709155445800865}
 --- !u!4 &6524852802101090064 stripped
 Transform:
