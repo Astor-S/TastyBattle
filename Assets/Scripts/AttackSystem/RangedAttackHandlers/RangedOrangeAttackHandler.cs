@@ -18,24 +18,22 @@ namespace AttackSystem.RangedAttackHandlers
 
         public void ApplyDebuff()
         {
-            if (_orangeAbilityHandler != null)
-            {
-                if (AttackedTarget != null && AttackedTarget.gameObject.activeInHierarchy)
-                {
-                    AcidHandler acidHandler = AttackedTarget.GetComponent<AcidHandler>();
+            if (_orangeAbilityHandler == null)
+                return;
 
-                    if (acidHandler == null)
-                    {
-                        ParticleSystem acidParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
-                        
-                        AttackedTarget.gameObject.AddComponent<AcidHandler>()
-                            .Initialize(
-                                AttackedTarget,
-                                _orangeAbilityHandler.OrangeAbility.DamagePerSecond,
-                                _orangeAbilityHandler.OrangeAbility.Duration,
-                                acidParticleEffectInstance);
-                    }
-                }
+            if (AttackedTarget == null || AttackedTarget.gameObject.activeInHierarchy == false)
+                return;
+
+            if (AttackedTarget.TryGetComponent<AcidHandler>(out _) == false)
+            {
+                ParticleSystem acidParticleEffectInstance = PlayDebuffParticleEffect(AttackedTarget.transform);
+
+                AttackedTarget.gameObject.AddComponent<AcidHandler>()
+                        .Initialize(
+                        AttackedTarget,
+                        _orangeAbilityHandler.OrangeAbility.DamagePerSecond,
+                        _orangeAbilityHandler.OrangeAbility.Duration,
+                        acidParticleEffectInstance);
             }
         }
 
