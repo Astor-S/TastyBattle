@@ -1,13 +1,12 @@
 using System;
 using UnityEngine;
-using AttackSystem.Interfaces;
 using Upgrades;
 using Units;
 using ResourceDistribution;
 
 namespace AttackSystem
 {
-    public class DamagableTarget : MonoBehaviour, IDamagable, IIncomeSource
+    public class DamagableTarget : MonoBehaviour, IIncomeSource
     {
         [SerializeField] private Collider _collider;
 
