@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 using StructureElements;
 using StructureElements.Interfaces;
 using Units;

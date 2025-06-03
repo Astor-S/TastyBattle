@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Pools
 {
-    public class Pool<T> where T : MonoBehaviour
+    public class Pool<T>
+        where T : MonoBehaviour
     {
-        private readonly Stack<T> _objects = new();
+        private readonly Stack<T> _objects = new ();
         private readonly Func<T> _createFunc;
         private readonly Action<T> _resetAction;
 

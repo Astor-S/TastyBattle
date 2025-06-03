@@ -23,7 +23,7 @@ namespace UI.HomeMenu.ShopMenu
 
         private void UnlockCampaign()
         {
-            YG2.saves.openedLevels.Add(_unlockLevels);
+            YG2.saves.OpenedLevels.Add(_unlockLevels);
             YG2.SaveProgress();
 
             gameObject.SetActive(false);

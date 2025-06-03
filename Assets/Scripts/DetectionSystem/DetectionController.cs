@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using AttackSystem;
@@ -23,19 +22,11 @@ namespace DetectionSystem
 
         public DamagableTarget CurrentTarget { get; private set; } = null;
 
-    #if UNITY_EDITOR
         private void OnValidate()
         {
-            _collider = GetComponent<SphereCollider>();
-            _collider.radius = Radius;
+            if (TryGetComponent(out SphereCollider collider))
+                collider.radius = Radius;
         }
-    #else
-        private void Awake()
-        {
-            _collider = GetComponent<SphereCollider>();
-            _collider.radius = _radius;
-        }
-    #endif
 
         private void FixedUpdate()
         {

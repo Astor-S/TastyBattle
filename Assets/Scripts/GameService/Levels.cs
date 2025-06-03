@@ -26,6 +26,6 @@ namespace GameService
         Level22,
         Level23,
         Level24,
-        Level25
+        Level25,
     }
 }

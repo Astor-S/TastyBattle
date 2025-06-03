@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MovementSystem.CameraMovement
+namespace CameraMovement
 {
     [RequireComponent(typeof(Camera))]
     public class CameraMovementInput : MonoBehaviour

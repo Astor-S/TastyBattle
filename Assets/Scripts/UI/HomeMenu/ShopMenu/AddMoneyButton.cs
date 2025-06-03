@@ -22,7 +22,7 @@ namespace UI.HomeMenu.ShopMenu
 
         private void AddMoney()
         {
-            YG2.saves.balanceMoney += _coinsForWatchAD;
+            YG2.saves.BalanceMoney += _coinsForWatchAD;
             YG2.SaveProgress();
 
             _balanceDisplayShop.RefreshBalance();

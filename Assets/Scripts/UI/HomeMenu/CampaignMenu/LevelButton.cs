@@ -1,8 +1,8 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameService;
-using System;
-using System.Collections.Generic;
 using YG;
 
 namespace UI.HomeMenu.CampaignMenu

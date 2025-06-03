@@ -22,7 +22,7 @@ namespace UI.HomeMenu.ShopMenu
         public void UpdateBalanceText()
         {
             if (_balanceText != null && YG2.saves != null)
-                _balanceText.text = YG2.saves.balanceMoney.ToString();
+                _balanceText.text = YG2.saves.BalanceMoney.ToString();
         }
 
         public void RefreshBalance() =>

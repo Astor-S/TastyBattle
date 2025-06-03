@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8488325412879031976}
+  _attackHandler: {fileID: 8426315450840041809}
   _detectionSystem: {fileID: 118285779046198926}
   _damageTarget: {fileID: 8474672646858320659}
   _navMeshAgent: {fileID: 7991337058688308161}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242a7ccbe99f9264ebbbe1bd1c7991d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8488325412879031976}
+  _attackHandler: {fileID: 8426315450840041809}
   _mushroomAbility: {fileID: 11400000, guid: 8344edd72508f004895375065044bf4a, type: 2}
 --- !u!82 &8605408978057873583
 AudioSource:
@@ -399,7 +399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7727227740807306694}
-  - component: {fileID: 8488325412879031976}
+  - component: {fileID: 8426315450840041809}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -422,7 +422,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6747525358843520629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8488325412879031976
+--- !u!114 &8426315450840041809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3925538373590823384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e087f043914e80409fbac4106823015, type: 3}
+  m_Script: {fileID: 11500000, guid: b6f9c4545122ddd45b36245056d9b4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 118285779046198926}
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8488325412879031976}
+  _attackHandler: {fileID: 0}
   _animator: {fileID: 2383972182678567002}
 --- !u!1001 &8605798451518966070
 PrefabInstance:

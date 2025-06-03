@@ -41,13 +41,13 @@ namespace GameService.GameHandlerSystem
 
         private void SaveProgress()
         {
-            YG2.saves.balanceMoney += _levelCoins;
-            YG2.saves.score += _levelCoins;
+            YG2.saves.BalanceMoney += _levelCoins;
+            YG2.saves.Score += _levelCoins;
             YG2.SaveProgress();
             AddNewLeaderboardScores();
         }
 
         private void AddNewLeaderboardScores() =>
-            YG2.SetLeaderboard("Leaderboard", YG2.saves.score);
+            YG2.SetLeaderboard("Leaderboard", YG2.saves.Score);
     }
 }

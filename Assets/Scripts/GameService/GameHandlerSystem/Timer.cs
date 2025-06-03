@@ -39,7 +39,6 @@ namespace GameService.GameHandlerSystem
             return minutes + Colon + seconds;
         }
 
-
         private IEnumerator UpdateTimerCoroutine()
         {
             while (timerRunning)

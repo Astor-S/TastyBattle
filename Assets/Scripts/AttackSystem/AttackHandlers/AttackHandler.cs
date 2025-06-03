@@ -18,6 +18,7 @@ namespace AttackSystem.AttackHandlers
 
         public event Action AttackStarted;
         public event Action AttackStopped;
+        public event Action HitExcecuting;
 
         public bool ReadyToAttack =>
             Vector3.SqrMagnitude(AttackedTarget.transform.position - transform.position)
@@ -52,7 +53,10 @@ namespace AttackSystem.AttackHandlers
         public virtual void Hit()
         {
             if (AttackedTarget != null)
+            {
+                HitExcecuting?.Invoke();
                 AttackedTarget.TakeDamage(CalculateDamage());
+            }
         }
 
         public virtual float CalculateDamage() =>

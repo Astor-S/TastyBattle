@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AttackSystem.AttackHandlers
 {
-    public class WatermellonSiegeAttackHandler : WatermelonAttackHandler
+    public class WatermellonSiegeAttackHandler : AttackerWithAbility
     {
         private const float RunningUpSpeed = 15f;
 

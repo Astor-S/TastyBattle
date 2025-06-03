@@ -3,7 +3,7 @@ using AttackSystem;
 
 namespace FactionalAbilities.Handlers
 {
-    public class WatermelonAbilityHandler : AttackAbilityHandler
+    public class WatermelonAbilityHandler : AbilityHandler
     {
         private const float DamageMultiplierBase = 1f;
 

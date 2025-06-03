@@ -9,7 +9,6 @@ namespace ResourceDistribution
         private readonly IIncomeSource _mine;
         private int _resourceCount;
 
-
         public Wallet(int startResourceCount, IIncomeSource mine)
         {
             _resourceCount = startResourceCount;

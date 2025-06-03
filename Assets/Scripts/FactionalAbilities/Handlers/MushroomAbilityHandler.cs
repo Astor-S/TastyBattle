@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FactionalAbilities.Handlers
 {
-    public class MushroomAbilityHandler : AttackAbilityHandler
+    public class MushroomAbilityHandler : AbilityHandler
     {
         private const float DamageMultiplierBase = 1f;
 

@@ -4,27 +4,27 @@ using StructureElements;
 
 namespace Pools
 {
-    public class MVPPool<P, M>
-        where P : Presenter
-        where M : Transformable
+    public class MVPPool<TPresenter, TTransformable>
+        where TPresenter : Presenter
+        where TTransformable : Transformable
     {
-        private readonly Stack<P> _objects = new();
-        private readonly Func<M, P> _createFunc;
-        private readonly Action<P> _resetAction;
+        private readonly Stack<TPresenter> _objects = new ();
+        private readonly Func<TTransformable, TPresenter> _createFunc;
+        private readonly Action<TPresenter> _resetAction;
 
-        public MVPPool(Func<M, P> createFunc, Action<P> resetAction = null)
+        public MVPPool(Func<TTransformable, TPresenter> createFunc, Action<TPresenter> resetAction = null)
         {
             _createFunc = createFunc;
             _resetAction = resetAction;
         }
 
-        public void Release(P @object)
+        public void Release(TPresenter @object)
         {
             _resetAction?.Invoke(@object);
             _objects.Push(@object);
         }
 
-        public P GetObject(M model)
+        public TPresenter GetObject(TTransformable model)
         {
             if (_objects.Count == 0)
                 return _createFunc(model);

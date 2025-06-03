@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace MovementSystem.CameraMovement
+namespace CameraMovement
 {
     public class CameraRotationHandler : MonoBehaviour
     {
