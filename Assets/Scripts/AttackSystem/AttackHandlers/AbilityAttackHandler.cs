@@ -5,9 +5,9 @@ namespace AttackSystem.AttackHandlers
 {
     public class AbilityAttackHandler : AttackHandler
     {
-        [SerializeField] private AbilityHandler _attackAbilityHandler;
+        [SerializeField] private AbilityHandler _abilityHandler;
 
         public override float CalculateDamage() =>
-            base.CalculateDamage() * _attackAbilityHandler.CurrentDamageBonus;
+            base.CalculateDamage() * _abilityHandler.CurrentDamageBonus;
     }
 }
