@@ -1,9 +1,0 @@
-using UnityEngine;
-
-namespace MovementSystem
-{
-    public interface IMovement
-    {
-        public void Move(Vector3 direction);
-    }
-}

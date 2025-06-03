@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MovementSystem.CameraMovement
 {
-    public class CameraMovementHandler : IMovement
+    public class CameraMovementHandler
     {
         private readonly CameraMovementProperties _properties;
         private Vector3 _cameraDirection;
