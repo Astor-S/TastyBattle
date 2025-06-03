@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MovementSystem.CameraMovement
+namespace CameraMovement
 {
     public class CameraMovementProperties : MonoBehaviour
     {
