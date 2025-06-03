@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8511475006496183669}
+  _attackHandler: {fileID: 5579771443837853126}
   _detectionSystem: {fileID: 2115458836296528797}
   _damageTarget: {fileID: 6140204292849052006}
   _navMeshAgent: {fileID: 892679852112913238}
@@ -367,8 +367,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5063727440837178035}
-  - component: {fileID: 8511475006496183669}
   - component: {fileID: 2291643188420904348}
+  - component: {fileID: 5579771443837853126}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -391,19 +391,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2089522863280198848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8511475006496183669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4216745501374771308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f651decd00334fbfddf2f9879f841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _detectionSystem: {fileID: 2115458836296528797}
 --- !u!114 &2291643188420904348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +408,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _maxColliders: 10
+--- !u!114 &5579771443837853126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4216745501374771308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766244dec87530944a5a14caa155f3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionSystem: {fileID: 2115458836296528797}
 --- !u!1 &7559900571416314258
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,5 +693,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 8511475006496183669}
+  _attackHandler: {fileID: 0}
   _animator: {fileID: 1754467380522829226}

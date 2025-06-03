@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d72dc93312ed734abddda4e6645a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 7638287476966941183}
+  _attackHandler: {fileID: 6385292442967320357}
   _detectionSystem: {fileID: 3521073739867347545}
   _damageTarget: {fileID: 7307387125674592744}
   _navMeshAgent: {fileID: 6640780263599786794}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f74e5033bf94347825161628f0f4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 7638287476966941183}
+  _attackHandler: {fileID: 6385292442967320357}
   _watermelonAbility: {fileID: 11400000, guid: c66e3702977d4454393dfc0d35049860, type: 2}
   _damagableTarget: {fileID: 7307387125674592744}
 --- !u!82 &2192455498431704230
@@ -298,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2210784125040278979}
-  - component: {fileID: 7638287476966941183}
+  - component: {fileID: 6385292442967320357}
   m_Layer: 0
   m_Name: AttackSystem
   m_TagString: Untagged
@@ -321,7 +321,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9110408591236356976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7638287476966941183
+--- !u!114 &6385292442967320357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -330,11 +330,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5032969382859051235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7562f246ac0122d4e9029e1a8194f7e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8460ed1172ad3034f94e5c3d46bd12d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSystem: {fileID: 3521073739867347545}
-  _attackAbilityHandler: {fileID: 2545810522908551977}
+  _abilityHandler: {fileID: 2545810522908551977}
 --- !u!1 &6481676527833781497
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfb1f8367b6b9840be3d46f1c1d8541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackHandler: {fileID: 7638287476966941183}
+  _attackHandler: {fileID: 0}
   _animator: {fileID: 4565927960501719606}
 --- !u!4 &9067183581001733843 stripped
 Transform:
