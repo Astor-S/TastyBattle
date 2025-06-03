@@ -14,7 +14,7 @@ namespace Units
         [SerializeField] private FactionUnits _factionUnits;
         [SerializeField] private DamagableTarget _enemyBase;
         [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private UnitDeathHandler _enemyDeathHandler;
+        [SerializeField] private UnitDeatTracker _enemyDeathHandler;
 
         private int _previousSpawnPosition = 0;
         private Dictionary<BattleRole, MVPPool<UnitPresenter, Unit>> _pools;

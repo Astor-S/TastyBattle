@@ -4,7 +4,7 @@ using Units;
 
 namespace GameService.GameHandlerSystem.Handlers
 {
-    public class UnitDeathHandler : MonoBehaviour
+    public class UnitDeatTracker : MonoBehaviour
     {
         [SerializeField] private KilledEnemyCounter _killedEnemyCounter;
         [SerializeField] private LayerMask _enemyLayer;
