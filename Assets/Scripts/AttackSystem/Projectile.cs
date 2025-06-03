@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using AttackSystem.Interfaces;
 using Pools;
 
 namespace AttackSystem
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Projectile : MonoBehaviour, IDestroyable<Projectile>
+    public class Projectile : MonoBehaviour
     {
         [SerializeField] private float _lifeTime = 3f;
         [SerializeField] private Rigidbody _rigidbody;
