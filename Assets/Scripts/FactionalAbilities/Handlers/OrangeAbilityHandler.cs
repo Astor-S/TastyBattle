@@ -1,6 +1,6 @@
+using UnityEngine;
 using AttackSystem.AttackHandlers;
 using FactionalAbilities.Handlers.Debuffs;
-using UnityEngine;
 
 namespace FactionalAbilities.Handlers
 {
