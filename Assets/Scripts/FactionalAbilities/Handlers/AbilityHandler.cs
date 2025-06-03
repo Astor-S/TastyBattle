@@ -3,7 +3,7 @@ using AttackSystem.AttackHandlers;
 
 namespace FactionalAbilities.Handlers
 {
-    public class AttackAbilityHandler : MonoBehaviour
+    public class AbilityHandler : MonoBehaviour
     {
         [SerializeField] private AttackHandler _attackHandler;
 

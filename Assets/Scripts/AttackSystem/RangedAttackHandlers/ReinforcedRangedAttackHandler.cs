@@ -5,7 +5,7 @@ namespace AttackSystem.RangedAttackHandlers
 {
     public class ReinforcedRangedAttackHandler : RangedAttackHandler
     {
-        [SerializeField] private AttackAbilityHandler _abilityHandler;
+        [SerializeField] private AbilityHandler _abilityHandler;
 
         public override float CalculateDamage() =>
             base.CalculateDamage() * _abilityHandler.CurrentDamageBonus;
