@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30695182, g: 0.39909226, b: 0.5896406, a: 1}
+  m_IndirectSpecularColor: {r: 0.30695185, g: 0.3990923, b: 0.5896406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13988,8 +13988,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1052330014}
     - target: {fileID: 4714011856778607984, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 70.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714011856778607984, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 4714011856778607984, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6833036644812427730, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 4714011856778607984, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_VerticalAlignment
       value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714011856778607984, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4730319202749741768, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -14243,6 +14259,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6929196116300603734, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 44.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929196116300603734, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 6929196116300603734, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6833036644812427730, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 6929196116300603734, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7077683998171292332, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
@@ -14303,6 +14335,22 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 8283333162605919937, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 34.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283333162605919937, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 8283333162605919937, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6833036644812427730, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 8283333162605919937, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8403192387876883589, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14327,10 +14375,42 @@ PrefabInstance:
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 8850847641146366691, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 44.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850847641146366691, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 8850847641146366691, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6833036644812427730, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 8850847641146366691, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8924977134257253231, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _buttonSoundData
       value: 
       objectReference: {fileID: 1257363000}
+    - target: {fileID: 8934557546805205453, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontSize
+      value: 44.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934557546805205453, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 8934557546805205453, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6833036644812427730, guid: 454b9604d26b8dd40a081fa7212c57fc, type: 2}
+    - target: {fileID: 8934557546805205453, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9047941551957211957, guid: b57e0aeca0d60644ab855977787a6b57, type: 3}
       propertyPath: _packShop
       value: 
