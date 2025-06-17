@@ -98,7 +98,6 @@ namespace YG.Insides
     {
         private enum DataState { Exist, NotExist, Broken };
         private const string STORAGE_KEY = "YG2_SavesData";
-        private static float timerSaveCloud;
 
         public static void LoadProgress()
         {
@@ -122,7 +121,7 @@ namespace YG.Insides
 
         public static void SaveEditor()
         {
-            Message("Save Editor");
+            Message("Save Progress (in Editor)");
 
             bool fileExits = false;
 
@@ -189,12 +188,8 @@ namespace YG.Insides
 
         public static void SaveCloud(bool ignoreTimer = false)
         {
-            if (Time.realtimeSinceStartup >= timerSaveCloud + infoYG.Storage.saveCloudInterval)
-            {
-                Message("Save Cloud");
-                timerSaveCloud = Time.realtimeSinceStartup;
-                iPlatform.SaveCloud();
-            }
+            Message("Save Cloud");
+            iPlatform.SaveCloud();
         }
 
         public static void LoadCloud()
